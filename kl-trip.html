@@ -712,8 +712,27 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Initialize indicator
-        window.addEventListener('load', () => updateIndicator(0));
+        // Initialize indicator and set active tab based on date
+        window.addEventListener('load', () => {
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = today.getMonth(); // 0-indexed (3 is April)
+            const date = today.getDate();
+
+            let targetIndex = 0; // Default to Day 1
+
+            // Check if it's the trip year and month (April 2026)
+            if (year === 2026 && month === 3) {
+                if (date >= 4 && date <= 7) {
+                    targetIndex = date - 4; // 4th -> 0, 5th -> 1, etc.
+                }
+            }
+
+            // If checking for testing purposes (uncomment to test specific dates)
+            // const testDate = 5; targetIndex = testDate - 4;
+
+            showDay(targetIndex);
+        });
         window.addEventListener('resize', () => {
             const activeIndex = Array.from(tabs).findIndex(t => t.classList.contains('active'));
             updateIndicator(activeIndex);
