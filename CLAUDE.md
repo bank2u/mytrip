@@ -63,7 +63,9 @@ at any stage and loops between plan and verify many times.
 2. `trip-plan`: dates + destination → `plan.md`, then deepen it through
    conversation.
 3. `trip-verify`: check that the plan is physically and logistically possible.
-4. `trip-publish`: `plan.md` → `index.html`.
+4. `trip-publish`: `plan.md` → `index.html`. Each trip page gets its own
+   design drawn from the season, the country and the places; no shared
+   template. Usability on a phone is non-negotiable.
 
 The owner judges feasibility himself on Google Maps alongside the AI. Give him
 the concrete numbers (minutes, metres, stairs, fares) so he can check them, and

@@ -47,25 +47,76 @@ Maps with a search URL built from the local name
 (`https://www.google.com/maps/search/?api=1&query=...`). Verify the local
 spelling by search; a wrong character sends a taxi to the wrong place.
 
-## Page
+## Design
 
-- One self-contained `index.html`: inline CSS and JS, no build step, no local
-  asset files. Fonts from Google Fonts (Kanit for Thai, plus a font that covers
-  the local script when needed).
-- `lang="th"`. Mobile first: readable at 360px wide with no horizontal scroll,
-  body text at least 16px, tap targets at least 44px.
-- Start from the structure of the most recent trip page in the repo (day tabs,
-  event cards, countdown before departure) so trips feel like one family. Give
-  each trip its own color palette tied to the destination.
-- Keep it simple. Companions need the schedule, not effects.
+Every trip gets its own design. The owner does not want one template reused
+across trips, and wants a designer who takes creative risks rather than
+producing a standard itinerary page. Usability is the one thing that does not
+bend.
+
+**Find the concept first.** Before writing any CSS, decide what this page is,
+in one sentence, drawn from this particular trip:
+
+- the season and weather of the travel dates (December mist on a mountain
+  lake is a different page from April heat in a tropical city)
+- the country's visual culture: its colors, signage, print, textiles,
+  architecture, ticket stubs, transit maps, packaging, typography
+- the theme of the places visited and the mood of the trip (slow family trip,
+  food trip, road trip)
+
+Then let that concept decide everything: palette, typefaces, how a day is laid
+out, how time is shown, the shape of navigation, texture, motion. A trip built
+around tea houses and old streets might read like a printed tea menu; a rail
+trip might borrow from a departure board. These are illustrations of how far
+to go, not options to pick from.
+
+- Do not open a previous trip's `index.html` to copy its layout, components or
+  CSS. Earlier pages are reference for content coverage only. If the new page
+  could be mistaken for a recolored older one, start again.
+- Avoid the generic look: default card stacks, a gradient hero, an emoji in
+  front of every line, rounded-everything.
+- Choose typefaces for the concept, from Google Fonts. They must render Thai
+  well, and the local script where it appears; check that the Thai and the
+  local-script fonts sit comfortably next to each other.
+- Avoid national-flag clichés and stereotypes; draw on real visual culture.
+- If a frontend design skill is available in the session (for example
+  `frontend-design`), use it for this step.
+
+Tell the owner the concept in one or two Thai sentences before building, so he
+can redirect early. Proceed without waiting unless he has asked to approve it.
+
+## UX requirements
+
+These hold whatever the concept is. A beautiful page that a 70-year-old cannot
+read in sunlight has failed.
+
+- Mobile first: works at 360px wide with no horizontal page scroll. Also fine
+  on a desktop.
+- Body text at least 16px, times and place names larger. Text contrast at
+  least 4.5:1, including over any texture or image.
+- Tap targets at least 44px.
+- "What are we doing today" is reachable in one tap from anywhere, and during
+  the trip the page opens on the current day (use the trip's local dates).
+- Within a day, time, activity and transport are scannable at a glance; the
+  eye should find the next item without reading paragraphs.
+- Navigation between days is obvious without instructions.
+- Motion is brief, never blocks reading, and respects
+  `prefers-reduced-motion`.
+- Loads fast on a roaming connection: one self-contained `index.html` with
+  inline CSS and JS, no build step, no heavy images or libraries. Decoration
+  comes from CSS and inline SVG. Once loaded, it works without a connection.
+- `lang="th"`, a flag or themed emoji favicon, and a `<title>` with the trip
+  name.
 
 ## Steps
 
-1. Read `plan.md` fully and the most recent existing `index.html`.
-2. Write `index.html`.
+1. Read `plan.md` fully. Skim an existing `index.html` only to see what
+   content a trip page covers.
+2. Settle the design concept, tell the owner, then write `index.html`.
 3. Add or update the trip's entry in the root `index.html` (newest first).
-4. Open the page in a browser at phone width and check every day tab, the
-   links, and that no excluded information appears. Search the html for the
+4. Open the page in a browser at phone width and at desktop width. Check every
+   day, the links, each UX requirement above, and that no excluded information
+   appears. Search the html for the
    ages and the word lists above before reporting done.
 5. Tell the owner in Thai what was published and anything left out on purpose.
    Commit and push only when he asks; the page goes live at
