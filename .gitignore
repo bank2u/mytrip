@@ -1,0 +1,9 @@
+.DS_Store
+
+# Planning files stay local: this repo is public (GitHub Pages).
+# Only the published html pages are committed.
+travelers/
+*/research/
+*/plan.md
+# Already public before this rule existed; kept tracked.
+!2026-kuala-lumpur/plan.md

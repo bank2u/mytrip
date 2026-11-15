@@ -16,7 +16,7 @@
 
 16:30: Check-in ที่พักย่าน KL Sentral
 
-17:30: เดินทางไป KLCC Park (ถ่ายรูปตึกแฝด Petronas)
+17:00: เดินทางไป KLCC Park (ถ่ายรูปตึกแฝด Petronas)
 
 19:30: ชมการแสดงน้ำพุ (Lake Symphony) หน้าห้าง Suria KLCC
 

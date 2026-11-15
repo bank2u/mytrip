@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vietnam Trip 2025-2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2A9D8F; /* Teal Green */
+            --accent-color: #E76F51;  /* Burnt Orange */
+            --bg-color: #F8F9FA;      /* Off White */
+            --card-bg: #FFFFFF;
+            --text-color: #264653;
+            --light-text: #6c757d;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px 0;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        h1 {
+            font-weight: 600;
+            margin: 0;
+            color: var(--text-color);
+        }
+
+        p.subtitle {
+            color: var(--accent-color);
+            font-weight: 400;
+            margin-top: 5px;
+        }
+
+        /* Tabs/Sections */
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        /* Itinerary Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .day-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+            position: relative;
+        }
+
+        .day-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .day-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .day-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        .day-date {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        .activity-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .activity-item {
+            display: flex;
+            margin-bottom: 10px;
+            align-items: flex-start;
+        }
+
+        .time {
+            font-weight: 600;
+            min-width: 60px;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+        }
+
+        .detail {
+            flex: 1;
+            font-size: 0.95rem;
+        }
+
+        .note {
+            font-size: 0.85rem;
+            color: var(--light-text);
+            background: #f1f3f5;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 4px;
+        }
+
+        /* Checklist Styles */
+        .checklist-group {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .checklist-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-container {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            user-select: none;
+        }
+
+        .checkbox-container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 22px;
+            width: 22px;
+            background-color: #eee;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+        }
+
+        .checkbox-container:hover input ~ .checkmark {
+            background-color: #ccc;
+        }
+
+        .checkbox-container input:checked ~ .checkmark {
+            background-color: var(--primary-color);
+        }
+
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        .checkbox-container input:checked ~ .checkmark:after {
+            display: block;
+        }
+
+        .checkbox-container .checkmark:after {
+            left: 8px;
+            top: 4px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .day-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .day-date {
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Vietnam Trip</h1>
+        <p class="subtitle">Saigon - Dalat - Mui Ne (30 Dec 2025 - 4 Jan 2026)</p>
+    </header>
+
+    <h2>🗺️ Travel Itinerary</h2>
+    <div class="timeline">
+        
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-title">Day 1: BKK ✈️ SGN</span>
+                <span class="day-date">Tue 30 Dec 2025</span>
+            </div>
+            <ul class="activity-list">
+                <li class="activity-item">
+                    <span class="time">15:50</span>
+                    <div class="detail">ออกจากบ้าน (Leave Home) 🏠 มุ่งหน้าสุวรรณภูมิ (ARL)</div>
+                </li>
+                <li class="activity-item">
+                    <span class="time">20:05</span>
+                    <div class="detail">บินไฟล์ท <strong>VJ806</strong> (VietJet Air)</div>
+                </li>
+                <li class="activity-item">
+                    <span class="time">21:35</span>
+                    <div class="detail">ถึงสนามบิน Tan Son Nhat (SGN) 🇻🇳 <br>
+                    <span class="note">ผ่านตม. + รับกระเป๋า ~1 ชม. -> Grab ไปขนส่ง Mien Tay</span></div>
+                </li>
+                <li class="activity-item">
+                    <span class="time">23:30</span>
+                    <div class="detail">รอขึ้นรถที่สถานีขนส่ง Mien Tay</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-title">Day 2: Dalat - Countdown</span>
+                <span class="day-date">Wed 31 Dec 2025</span>
+            </div>
+            <ul class="activity-list">
+                <li class="activity-item">
+                    <span class="time">01:00</span>
+                    <div class="detail">🚌 รถออกเดินทาง (FUTA Sleeper Bus) <br>
+                    <span class="note">Target Seat: A08, A11 (ชั้นล่าง ขวา)</span></div>
+                </li>
+                <li class="activity-item">
+                    <span class="time">07:30</span>
+                    <div class="detail">ถึงดาลัด (หนาว 14-16°C) ❄️ -> ฝากกระเป๋า -> เช่ามอเตอร์ไซค์</div>
+                </li>
+                <li class="activity-item">
+                    <span class="time">Morning</span>
+                    <div class="detail">City Tour: สถานีรถไฟเก่า, โบสถ์ไก่, Crazy House, Thánh Tâm Church</div>
+                </li>
+                <li class="activity-item">
+                    <span class="time">Afternoon</span>
+                    <div class="detail">Domaine de Marie (โบสถ์สีชมพู)</div>
+                </li>
+                <li class="activity-item">
+                    <span class="time">Night</span>
+                    <div class="detail">🎉 <strong>Countdown Party</strong> @ Lam Vien Square</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-title">Day 3: Nature & Adventure</span>
+                <span class="day-date">Thu 1 Jan 2026</span>
+            </div>
+            <ul class="activity-list">
+                <li class="activity-item">
+                    <span class="time">Morning</span>
+                    <div class="detail">Robin Hill (Cable Car) 🚠 -> วัดตึกเลิม (Truc Lam)</div>
+                </li>
+                <li class="activity-item">
+                    <span class="time">Afternoon</span>
+                    <div class="detail">Tuyen Lam Lake (ถ่ายรูปสันเขื่อน) -> น้ำตก Datanla (Alpine Coaster) 🎢</div>
+                </li>
+                <li class="activity-item">
+                    <span class="time">Evening</span>
+                    <div class="detail">เดินตลาดกลางคืน (Night Market)</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-title">Day 4: Mui Ne - Sand Dunes</span>
+                <span class="day-date">Fri 2 Jan 2026</span>
+            </div>
+            <ul class="activity-list">
+                <li class="activity-item">
+                    <span class="time">08:00</span>
+                    <div class="detail">นั่งรถบัสลงไป Mui Ne (~4 ชม.)</div>
+                </li>
+                <li class="activity-item">
+                    <span class="time">12:00</span>
+                    <div class="detail">ถึง Mui Ne (ร้อน 30°C+) ☀️ -> เช็คอิน -> เช่ามอเตอร์ไซค์<br>
+                    <span class="note">⚠️ ต้องพกใบขับขี่สากล (IDP) ตลอดเวลา</span></div>
+                </li>
+                <li class="activity-item">
+                    <span class="time">Afternoon</span>
+                    <div class="detail">Fairy Stream -> Fishing Village -> <strong>Red Sand Dunes (Sunset)</strong> 🌅</div>
+                </li>
+                <li class="activity-item">
+                    <span class="time">Dinner</span>
+                    <div class="detail">🦀 อาหารทะเล (Seafood) ย่าน Bo Ke</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-title">Day 5: Saigon - City Vibe</span>
+                <span class="day-date">Sat 3 Jan 2026</span>
+            </div>
+            <ul class="activity-list">
+                <li class="activity-item">
+                    <span class="time">11:00</span>
+                    <div class="detail">นั่งรถบัสกลับ Saigon (~3 ชม.)</div>
+                </li>
+                <li class="activity-item">
+                    <span class="time">14:30</span>
+                    <div class="detail">ถึง Saigon -> เช็คอินโรงแรม</div>
+                </li>
+                <li class="activity-item">
+                    <span class="time">Evening</span>
+                    <div class="detail">เดินเล่น City Hall & Opera House 🏛️</div>
+                </li>
+                <li class="activity-item">
+                    <span class="time">Dinner</span>
+                    <div class="detail">🍕 <strong>Pizza 4P's</strong> (Booking Required!)</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-title">Day 6: Last Day & Home</span>
+                <span class="day-date">Sun 4 Jan 2026</span>
+            </div>
+            <ul class="activity-list">
+                <li class="activity-item">
+                    <span class="time">Morning</span>
+                    <div class="detail">Tan Dinh Church -> Post Office -> Ben Thanh Market</div>
+                </li>
+                <li class="activity-item">
+                    <span class="time">14:30</span>
+                    <div class="detail">เรียก Grab ไปสนามบิน Tan Son Nhat 🚕</div>
+                </li>
+                <li class="activity-item">
+                    <span class="time">17:35</span>
+                    <div class="detail">บินกลับไฟล์ท <strong>VJ805</strong> -> ถึงไทย 19:05 🇹🇭</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>✅ Packing Checklist</h2>
+
+    <div class="checklist-group">
+        <div class="checklist-title">🎒 General Essentials (ต้องเตรียมจากไทย)</div>
+        <label class="checkbox-container">Passport (อายุเหลือ > 6 เดือน)
+            <input type="checkbox"> <span class="checkmark"></span>
+        </label>
+        <label class="checkbox-container"><strong>International Driving Permit (ใบขับขี่สากล) *สำคัญมาก</strong>
+            <input type="checkbox"> <span class="checkmark"></span>
+        </label>
+        <label class="checkbox-container">เงินสด (VND) / Travel Card
+            <input type="checkbox"> <span class="checkmark"></span>
+        </label>
+        <label class="checkbox-container">Sim Card / Roaming (Non-stop internet)
+            <input type="checkbox"> <span class="checkmark"></span>
+        </label>
+        <label class="checkbox-container">Apps: Grab, Google Maps, Translate
+            <input type="checkbox"> <span class="checkmark"></span>
+        </label>
+        <label class="checkbox-container">เอกสาร: รูปตั๋วเครื่องบิน, ตั๋ว FUTA, ใบจองโรงแรม
+            <input type="checkbox"> <span class="checkmark"></span>
+        </label>
+    </div>
+
+    <div class="checklist-group">
+        <div class="checklist-title">✈️ Day 1: BKK -> Sleeper Bus</div>
+        <label class="checkbox-container">เสื้อกันหนาว/Jacket (ใส่บนเครื่อง & รถนอน)
+            <input type="checkbox"> <span class="checkmark"></span>
+        </label>
+        <label class="checkbox-container">Power Bank (ชาร์จเต็ม 100%)
+            <input type="checkbox"> <span class="checkmark"></span>
+        </label>
+        <label class="checkbox-container">ยาดม / ยาแก้เมารถ (ทางโค้งเยอะ)
+            <input type="checkbox"> <span class="checkmark"></span>
+        </label>
+        <label class="checkbox-container">หมอนรองคอ / ผ้าปิดตา (Nice to have)
+            <input type="checkbox"> <span class="checkmark"></span>
+        </label>
+    </div>
+
+    <div class="checklist-group">
+        <div class="checklist-title">❄️ Day 2: Dalat (Cold & Riding)</div>
+        <label class="checkbox-container">ชุดกันหนาว (Layers)
+            <input type="checkbox"> <span class="checkmark"></span>
+        </label>
+        <label class="checkbox-container">ถุงมือ (Gloves) สำหรับขี่มอเตอร์ไซค์
+            <input type="checkbox"> <span class="checkmark"></span>
+        </label>
+        <label class="checkbox-container">แมสก์ปิดปาก (กันลม/ฝุ่น)
+            <input type="checkbox"> <span class="checkmark"></span>
+        </label>
+    </div>
+
+    <div class="checklist-group">
+        <div class="checklist-title">🌲 Day 3: Dalat Adventure</div>
+        <label class="checkbox-container">รองเท้าผ้าใบที่ใส่สบาย (เดินเยอะ)
+            <input type="checkbox"> <span class="checkmark"></span>
+        </label>
+        <label class="checkbox-container">แบงก์ย่อย VND (ค่าจอดรถ)
+            <input type="checkbox"> <span class="checkmark"></span>
+        </label>
+        <label class="checkbox-container">ครีมกันแดด (แดดบนเขาแรง)
+            <input type="checkbox"> <span class="checkmark"></span>
+        </label>
+    </div>
+
+    <div class="checklist-group">
+        <div class="checklist-title">🏜️ Day 4: Mui Ne (Hot Desert)</div>
+        <label class="checkbox-container"><strong>ใบขับขี่สากล (IDP) *ต้องพกติดตัว</strong>
+            <input type="checkbox"> <span class="checkmark"></span>
+        </label>
+        <label class="checkbox-container">ชุดหน้าร้อน (เปลี่ยนจากชุดหนาว)
+            <input type="checkbox"> <span class="checkmark"></span>
+        </label>
+        <label class="checkbox-container">รองเท้าแตะ (ลุยน้ำ/ทราย)
+            <input type="checkbox"> <span class="checkmark"></span>
+        </label>
+        <label class="checkbox-container">ครีมกันแดด (ทาซ้ำบ่อยๆ)
+            <input type="checkbox"> <span class="checkmark"></span>
+        </label>
+    </div>
+
+    <div class="checklist-group">
+        <div class="checklist-title">🏙️ Day 5-6: Saigon & Back</div>
+        <label class="checkbox-container">หลักฐานจอง Pizza 4P's
+            <input type="checkbox"> <span class="checkmark"></span>
+        </label>
+        <label class="checkbox-container">ยาดม (กันเวียนหัวรถติด)
+            <input type="checkbox"> <span class="checkmark"></span>
+        </label>
+        <label class="checkbox-container">เผื่อเวลาเดินทางไปสนามบิน (รถติด)
+            <input type="checkbox"> <span class="checkmark"></span>
+        </label>
+        <label class="checkbox-container">เคลียร์เงินสดเศษเหรียญ
+            <input type="checkbox"> <span class="checkmark"></span>
+        </label>
+    </div>
+
+</div>
+
+</body>
+</html>
