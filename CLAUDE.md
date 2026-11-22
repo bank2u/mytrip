@@ -10,7 +10,9 @@ a simple HTML page for the travel companions to read.
 index.html                 landing page listing every published trip
 travelers/                 reusable traveler-group profiles (local only)
 [yyyy]-[place]/            one folder per trip, e.g. 2026-taipei
-  plan.md                  the single source of truth for the trip (local only)
+  plan.md                  constraints, bookings, transport, budget, cut list,
+                           reference facts, to-do (local only)
+  itinerary.md             the latest day-by-day itinerary only (local only)
   research/                raw research notes from agents (local only)
   index.html               the published page for companions
 .claude/skills/            trip-explore, trip-plan, trip-verify, trip-publish
@@ -25,7 +27,7 @@ kl-trip.html, vietnam.html redirect stubs for old shared links; do not delete
 This repo is public and served by GitHub Pages from the root of `main`
 (https://bank2u.github.io/mytrip/). Anything committed is public.
 
-- `travelers/`, `*/plan.md` and `*/research/` are gitignored. Never force-add them.
+- `travelers/`, `*/plan.md`, `*/itinerary.md` and `*/research/` are gitignored. Never force-add them.
 - Published html must not contain ages, health notes, passport or booking
   reference numbers, or home address. Flight numbers, hotel names and times are
   fine: companions need them.
@@ -37,12 +39,12 @@ This repo is public and served by GitHub Pages from the root of `main`
   English.
 - Everything said to the owner: Thai. Progress updates while working: one short
   line each, no narration.
-- `plan.md` and the published html: Thai, because the owner and the companions
+- `plan.md`, `itinerary.md` and the published html: Thai, because the owner and the companions
   read them.
 
 ## Place names
 
-In `plan.md` and the published html, write a place name on its first mention in
+In `plan.md`, `itinerary.md` and the published html, write a place name on its first mention in
 each day as `Thai · English · local script`, for example
 `จิ่วเฟิ่น · Jiufen · 九份`.
 
@@ -60,10 +62,10 @@ A trip moves through four stages, each with its own skill. The owner can enter
 at any stage and loops between plan and verify many times.
 
 1. `trip-explore`: month + budget + who is going → destination shortlist.
-2. `trip-plan`: dates + destination → `plan.md`, then deepen it through
-   conversation.
+2. `trip-plan`: dates + destination → `plan.md` and `itinerary.md`, then deepen
+   them through conversation.
 3. `trip-verify`: check that the plan is physically and logistically possible.
-4. `trip-publish`: `plan.md` → `index.html`. Each trip page gets its own
+4. `trip-publish`: `itinerary.md` (+ `plan.md`) → `index.html`. Each trip page gets its own
    design drawn from the season, the country and the places; no shared
    template. Usability on a phone is non-negotiable.
 

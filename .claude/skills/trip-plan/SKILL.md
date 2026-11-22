@@ -5,29 +5,41 @@ description: Use when the owner has a destination and dates and wants to draft a
 
 # trip-plan
 
-Builds and maintains `[yyyy]-[place]/plan.md`, the single source of truth for a
-trip. The owner drafts roughly first, then goes deeper over many conversations,
-often days apart and sometimes in other AI tools. The file has to carry
-everything a fresh session needs.
+Builds and maintains two files per trip, which together are the single source of
+truth:
+
+- `[yyyy]-[place]/itinerary.md`: the latest day-by-day itinerary only (overview
+  table and one table per day). No history, no cut list, no research.
+- `[yyyy]-[place]/plan.md`: everything else: constraints, flights and hotels,
+  transport, budget, the cut list, reference facts, to-do.
+
+The owner drafts roughly first, then goes deeper over many conversations, often
+days apart and sometimes in other AI tools. Between them the two files have to
+carry everything a fresh session needs.
 
 ## Starting a new trip
 
 1. Create `[yyyy]-[place]/` (year the trip starts, lowercase kebab-case place).
 2. Read the matching `travelers/` profile. Its standing rules are constraints
    on every day of the plan.
-3. Write a first `plan.md` from `template.md` in this directory: a rough
-   day-by-day outline by zone, not a minute-by-minute schedule. Group each day
-   around one area so nobody backtracks.
+3. Write a first `plan.md` from `template.md` in this directory, and a first
+   `itinerary.md` from `itinerary-template.md`: a rough day-by-day outline by
+   zone, not a minute-by-minute schedule. Group each day around one area so
+   nobody backtracks.
 4. Show the owner the day-by-day overview in Thai and ask what to change.
 
 ## Continuing a trip
 
-Read `plan.md` first, all of it. Then:
+Read `plan.md` and `itinerary.md` first, all of both. Then:
 
 - Treat `[ยืนยัน]` items as settled. Do not reopen them unless the owner does.
 - Never re-suggest anything under "สิ่งที่ตัดออกแล้ว".
-- Write every decision into `plan.md` in the same turn it is made. A decision
-  that lives only in the chat is lost.
+- Write every decision into the right file in the same turn it is made: times,
+  places and order of a day go in `itinerary.md` (overwrite the old text; the
+  file only ever shows the latest version); everything else goes in `plan.md`.
+  A decision that lives only in the chat is lost.
+- A change to a day usually touches both files, for example a new bus time
+  changes the day table and the transport row. Update both.
 - When something is dropped, move it to the cut list with the reason.
 - When a fact is uncertain, tag it `[ต้องเช็ก]` and add a To-do line.
 
@@ -63,7 +75,7 @@ and take what he reports from the map over what a search said.
 
 ## Language
 
-`plan.md` is in Thai. Place names follow the rule in `CLAUDE.md`
+`plan.md` and `itinerary.md` are in Thai. Place names follow the rule in `CLAUDE.md`
 (`Thai · English · local script`). Replies to the owner are in Thai; summarize
 what changed in a few lines rather than reprinting the plan.
 

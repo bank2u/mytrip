@@ -5,7 +5,7 @@ description: Use when the owner asks whether a trip plan is realistic or feasibl
 
 # trip-verify
 
-A critical pass over `[yyyy]-[place]/plan.md` to find where the plan would
+A critical pass over `[yyyy]-[place]/itinerary.md` and `plan.md` to find where the plan would
 break on the ground. The owner does the same check on Google Maps; this pass
 gives him a list of specific things to look at.
 
@@ -14,7 +14,7 @@ Report problems; do not rewrite the plan. He decides what to change, and then
 
 ## What to check, day by day
 
-Read `plan.md` and the `travelers/` profile first.
+Read `itinerary.md`, `plan.md` and the `travelers/` profile first.
 
 **Time**
 - Every leg between consecutive items: is the allowed time enough door to

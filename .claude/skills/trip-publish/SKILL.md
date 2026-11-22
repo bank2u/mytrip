@@ -5,7 +5,8 @@ description: Use when the owner wants the html page for travel companions made o
 
 # trip-publish
 
-Turns `[yyyy]-[place]/plan.md` into `[yyyy]-[place]/index.html`, a simple page
+Turns `[yyyy]-[place]/itinerary.md` (the days) and `plan.md` (flights, hotels,
+reference facts) into `[yyyy]-[place]/index.html`, a simple page
 the travel companions open on their phones during the trip.
 
 ## Who reads it
@@ -36,7 +37,7 @@ The page is public on the internet.
   tell the owner before publishing rather than printing it.
 - Planning rationale ("we moved this because...")
 
-Rephrase constraints as plain plan: write "พักที่โรงแรม 13:45–16:45", not
+Rephrase constraints as plain plan: write "นั่งพักคาเฟ่ 15:00–15:30", not
 "พ่อต้องพัก".
 
 ## Place names
@@ -110,7 +111,7 @@ read in sunlight has failed.
 
 ## Steps
 
-1. Read `plan.md` fully. Skim an existing `index.html` only to see what
+1. Read `itinerary.md` and `plan.md` fully. Skim an existing `index.html` only to see what
    content a trip page covers.
 2. Settle the design concept, tell the owner, then write `index.html`.
 3. Add or update the trip's entry in the root `index.html` (newest first).
