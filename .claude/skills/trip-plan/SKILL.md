@@ -75,7 +75,7 @@ and take what he reports from the map over what a search said.
 
 ## Language
 
-`plan.md` and `itinerary.md` are in Thai. Place names follow the rule in `CLAUDE.md`
+`plan.md` and `itinerary.md` are in Thai. Place names follow the rule in `AGENTS.md`
 (`Thai · English · local script`). Replies to the owner are in Thai; summarize
 what changed in a few lines rather than reprinting the plan.
 

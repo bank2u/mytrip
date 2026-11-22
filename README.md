@@ -10,7 +10,8 @@
 mytrip/
 ├── index.html                หน้ารวมทุกทริป (ปีล่าสุดอยู่บน)
 ├── README.md                 ไฟล์นี้
-├── CLAUDE.md                 กฎที่ AI ต้องทำตามในโปรเจกต์นี้
+├── AGENTS.md                 กฎที่ AI ต้องทำตามในโปรเจกต์นี้ (ตัวจริง)
+├── CLAUDE.md                 ชี้ไป AGENTS.md ให้ Claude Code อ่าน
 ├── travelers/                โปรไฟล์กลุ่มผู้เดินทาง ใช้ซ้ำได้ทุกทริป
 │   ├── family.md             ครอบครัว 4 คน
 │   ├── couple.md             ไปสองคน
@@ -20,8 +21,10 @@ mytrip/
 │   ├── itinerary.md          แผนรายวันฉบับล่าสุดอย่างเดียว
 │   ├── research/             ข้อมูลดิบที่ AI ค้นมา
 │   └── index.html            หน้าเว็บให้ผู้ร่วมทริปดู
-├── .claude/skills/           ขั้นตอนทำงาน 4 ขั้น
-├── .claude/agents/           ผู้ช่วยค้นข้อมูล 2 ตัว
+├── .claude/skills/           ขั้นตอนทำงาน 4 ขั้น (ตัวจริง)
+├── .claude/agents/           ผู้ช่วยค้นข้อมูล 2 ตัว (ตัวจริง)
+├── .agents/                  สำหรับ Antigravity CLI (agy): skills เป็น symlink ไป .claude/skills, agents สร้างจาก scripts/sync-agents.sh
+├── scripts/sync-agents.sh    รันทุกครั้งที่แก้ไฟล์ใน .claude/agents/
 └── kl-trip.html, vietnam.html   ไฟล์ redirect ของลิงก์เก่า ห้ามลบ
 ```
 
@@ -34,7 +37,7 @@ repo นี้เป็น public ทุกอย่างที่ commit เ�
 | อยู่ในเครื่องอย่างเดียว | ขึ้น GitHub |
 | --- | --- |
 | `travelers/` | `index.html` ทุกหน้า |
-| `[yyyy]-[place]/plan.md` | skills, agents, `CLAUDE.md`, `README.md` |
+| `[yyyy]-[place]/plan.md` | skills, agents, `AGENTS.md`, `CLAUDE.md`, `.agents/`, `README.md` |
 | `[yyyy]-[place]/itinerary.md` | |
 | `[yyyy]-[place]/research/` | |
 
@@ -45,7 +48,7 @@ repo นี้เป็น public ทุกอย่างที่ commit เ�
 
 ## ขั้นตอนใช้งาน
 
-เปิด Claude Code ในโฟลเดอร์นี้แล้วพิมพ์เป็นภาษาไทยได้เลย AI จะเลือก skill เอง
+เปิด Claude Code (`claude`) หรือ Antigravity CLI (`agy`) ในโฟลเดอร์นี้แล้วพิมพ์เป็นภาษาไทยได้เลย AI จะเลือก skill เอง
 หรือเรียกตรงๆ ด้วย `/ชื่อ-skill` ก็ได้ จะเริ่มที่ขั้นไหนก็ได้ และวนขั้น 2–3 ได้หลายรอบ
 
 | ขั้น | Skill | ใช้เมื่อ | ตัวอย่างคำสั่ง | ได้อะไร |

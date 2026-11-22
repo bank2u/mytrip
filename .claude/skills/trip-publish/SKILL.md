@@ -42,7 +42,7 @@ Rephrase constraints as plain plan: write "นั่งพักคาเฟ่ 
 
 ## Place names
 
-First mention in each day: `Thai · English · local script`, per `CLAUDE.md`.
+First mention in each day: `Thai · English · local script`, per `AGENTS.md`.
 Make the local-script name easy to tap and copy, and link each place to Google
 Maps with a search URL built from the local name
 (`https://www.google.com/maps/search/?api=1&query=...`). Verify the local
