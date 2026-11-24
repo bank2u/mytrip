@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-25T01:39:00+07:00",
+  "title": "Design System: mytrip-2026-taipei",
+  "extensions": {
+    "colorMeta": {
+      "course-purple": {
+        "role": "primary",
+        "displayName": "Course Purple",
+        "canonical": "#6E1E7E",
+        "tonalRamp": ["#240829", "#3B0E44", "#541660", "#6E1E7E", "#8E389E", "#B268BF", "#D8AEE0", "#F5EDF7"]
+      },
+      "paper-white": {
+        "role": "neutral",
+        "displayName": "Paper White",
+        "canonical": "#FFFFFF",
+        "tonalRamp": ["#292A2B", "#4C4E50", "#737578", "#9B9DA0", "#C1C3C6", "#E0E1E3", "#F3F4F5", "#FFFFFF"]
+      },
+      "map-margin": {
+        "role": "neutral",
+        "displayName": "Map Margin",
+        "canonical": "#F5F4F0",
+        "tonalRamp": ["#2B2A26", "#4D4B44", "#726F67", "#99968D", "#BEBBAE", "#DBD8CF", "#EAE7DF", "#F5F4F0"]
+      },
+      "charcoal-ink": {
+        "role": "neutral",
+        "displayName": "Charcoal Ink",
+        "canonical": "#16181A",
+        "tonalRamp": ["#16181A", "#2C3034", "#43474D", "#60656C", "#838890", "#A9AEB5", "#D1D4D8", "#EFF1F3"]
+      },
+      "lake-blue": {
+        "role": "secondary",
+        "displayName": "Lake Blue",
+        "canonical": "#155E8A",
+        "tonalRamp": ["#082334", "#0D3752", "#114B6E", "#155E8A", "#2B79A8", "#589BC4", "#98C4DF", "#E9F3F8"]
+      },
+      "forest-green": {
+        "role": "secondary",
+        "displayName": "Forest Green",
+        "canonical": "#2E6140",
+        "tonalRamp": ["#0F2417", "#193824", "#234C32", "#2E6140", "#457E59", "#6EA07F", "#A9CBB5", "#EBF3ED"]
+      },
+      "mrt-red": {
+        "role": "tertiary",
+        "displayName": "MRT Red",
+        "canonical": "#B81D27",
+        "tonalRamp": ["#3D070A", "#640D13", "#8E151D", "#B81D27", "#D4404A", "#E37178", "#F1B0B4", "#FCECEE"]
+      },
+      "taxi-yellow": {
+        "role": "tertiary",
+        "displayName": "Taxi Yellow",
+        "canonical": "#F2B705",
+        "tonalRamp": ["#3B2B00", "#614700", "#8D6800", "#BA8A00", "#E2AA02", "#F2B705", "#F8D15A", "#FDF3CC"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display (H1)", "purpose": "Masthead trip title; opens directly with no kicker." },
+      "headline": { "displayName": "Day & Section Heading (H2)", "purpose": "Day control headers (D0–D7) and tab section titles." },
+      "title": { "displayName": "Stop Title (H3)", "purpose": "Trilingual stop names inside control rows." },
+      "body": { "displayName": "Body Copy", "purpose": "Descriptions, transit notes, and checklists (min 16px, max 68ch)." },
+      "mono-time": { "displayName": "Tabular Time & Code", "purpose": "Left gutter hours and D0–D7 control circle codes." }
+    },
+    "shadows": [
+      { "name": "course-halo", "value": "0 0 0 3px #F5EDF7", "purpose": "Selection ring around the active D0–D7 control node." },
+      { "name": "modal-overlay", "value": "0 20px 48px rgba(22, 24, 26, 0.28)", "purpose": "Top-layer depth solely for the fullscreen driver plaque modal." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "140ms–180ms tab panel entry and hover transitions (disabled under prefers-reduced-motion)." }
+    ],
+    "breakpoints": [
+      { "name": "xs-mobile", "value": "360px" },
+      { "name": "circle-expand", "value": "440px" },
+      { "name": "desktop-grid", "value": "680px" },
+      { "name": "shell-max", "value": "960px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Action Button (Copy / Show Driver)",
+      "kind": "button",
+      "refersTo": "button-action",
+      "description": "Sharp-cornered 44px button for copying Traditional Chinese names or opening the driver plaque.",
+      "html": "<button class=\"ds-action-btn\" type=\"button\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"9\" y=\"9\" width=\"13\" height=\"13\" rx=\"1\"/><path d=\"M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1\"/></svg><span>คัดลอก</span></button>",
+      "css": ".ds-action-btn { display: inline-flex; align-items: center; justify-content: center; gap: 4px; min-height: 44px; min-width: 44px; padding: 0 9px; border: 1.5px solid #16181A; background: #FFFFFF; color: #16181A; font-size: 0.875rem; font-weight: 600; cursor: pointer; } .ds-action-btn:hover { background: #16181A; color: #FFFFFF; } .ds-action-btn:focus-visible { outline: 3px solid #6E1E7E; outline-offset: 2px; }"
+    },
+    {
+      "name": "Map Action Link",
+      "kind": "button",
+      "refersTo": "button-map",
+      "description": "Lake-blue outlined 44px link opening Google Maps search with verified Traditional Chinese place names.",
+      "html": "<a class=\"ds-map-btn\" href=\"#map\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 21s-6-5.5-6-10a6 6 0 1 1 12 0c0 4.5-6 10-6 10z\"/><circle cx=\"12\" cy=\"11\" r=\"2.2\"/></svg><span>Maps</span></a>",
+      "css": ".ds-map-btn { display: inline-flex; align-items: center; justify-content: center; gap: 4px; min-height: 44px; min-width: 44px; padding: 0 9px; border: 1.5px solid #155E8A; background: #FFFFFF; color: #155E8A; font-size: 0.875rem; font-weight: 600; text-decoration: none; } .ds-map-btn:hover { background: #155E8A; color: #FFFFFF; } .ds-map-btn:focus-visible { outline: 3px solid #6E1E7E; outline-offset: 2px; }"
+    },
+    {
+      "name": "Orienteering Day Control Node",
+      "kind": "nav",
+      "refersTo": "control-node-active",
+      "description": "Circular D0–D7 control marker connected along the purple course line.",
+      "html": "<button class=\"ds-cp-btn\" type=\"button\" aria-current=\"true\"><span class=\"ds-cp-circle\">D4</span><span class=\"ds-cp-date\">9 ธ.ค.</span></button>",
+      "css": ".ds-cp-btn { display: inline-flex; flex-direction: column; align-items: center; gap: 3px; min-height: 48px; background: none; border: none; cursor: pointer; } .ds-cp-circle { width: 38px; height: 38px; border-radius: 50%; border: 2px solid #6E1E7E; background: #6E1E7E; color: #FFFFFF; box-shadow: 0 0 0 3px #F5EDF7; font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; font-weight: 700; display: flex; align-items: center; justify-content: center; } .ds-cp-btn:hover .ds-cp-circle { opacity: 0.9; } .ds-cp-btn:focus-visible { outline: 3px solid #6E1E7E; outline-offset: 2px; } .ds-cp-date { font-size: 0.75rem; font-weight: 600; color: #43474D; }"
+    },
+    {
+      "name": "Primary Section Tab",
+      "kind": "nav",
+      "refersTo": "nav-tab-active",
+      "description": "4-column top navigation tab with purple active state.",
+      "html": "<button class=\"ds-nav-tab\" type=\"button\" aria-selected=\"true\"><span>เส้นทาง</span></button>",
+      "css": ".ds-nav-tab { min-height: 52px; padding: 8px 16px; display: inline-flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 700; color: #6E1E7E; background: #F5EDF7; border: none; border-bottom: 3px solid #6E1E7E; cursor: pointer; } .ds-nav-tab:hover { background: #EAE7DF; color: #16181A; } .ds-nav-tab:focus-visible { outline: 3px solid #6E1E7E; outline-offset: 2px; }"
+    },
+    {
+      "name": "Transit Mode Badges",
+      "kind": "chip",
+      "refersTo": "button-action",
+      "description": "Taipei MRT Red, MRT Green, Taxi Yellow, and Bus/HSR mode badges.",
+      "html": "<div class=\"ds-badges\"><span class=\"ds-badge ds-red\">MRT สายแดง</span><span class=\"ds-badge ds-taxi\">แท็กซี่ / Uber</span><span class=\"ds-badge ds-bus\">HSR / บัส 1833</span></div>",
+      "css": ".ds-badges { display: flex; flex-wrap: wrap; gap: 6px; } .ds-badge { display: inline-flex; align-items: center; font-size: 0.875rem; font-weight: 700; padding: 3px 9px; } .ds-red { background: #B81D27; color: #FFFFFF; } .ds-taxi { background: #F2B705; color: #16181A; border: 1px solid #16181A; } .ds-bus { background: #1E3A5F; color: #FFFFFF; }"
+    },
+    {
+      "name": "Traditional Chinese Driver Plaque",
+      "kind": "custom",
+      "refersTo": "button-action",
+      "description": "High-contrast local-script address strip paired with instant copy and driver zoom controls.",
+      "html": "<span class=\"ds-zh-plaque\" lang=\"zh-Hant\">甜滿 · 台北市大安區永康街31巷10號</span>",
+      "css": ".ds-zh-plaque { display: inline-flex; align-items: center; min-height: 44px; padding: 4px 10px; background: #F5F4F0; border: 1.5px solid #16181A; font-family: 'Noto Sans TC', sans-serif; font-size: 1.0625rem; font-weight: 700; color: #16181A; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Topographic Field Guide & Transit Timetable",
+    "overview": "The design system translates ISO orienteering map notation and Taipei public-transit timetables into a high-contrast, daylight-readable travel guide. Topographic contour ornament, terrain legend chips, and map-margin tones live strictly in the outer frame and masthead, leaving the central reading column pure white for effortless scanning outdoors on a mobile phone.\n\nInstead of rounded card stacks or decorative gradients, schedules and reference tables are built as sharp-cornered keylined Control Description tables. Circular geometry is reserved exclusively for the D0–D7 orienteering control strip connected by a purple course line, while transit modes carry Taipei's real-world MRT, taxi, and bus inks.",
+    "keyCharacteristics": [
+      "Pure daylight white reading column (#FFFFFF) framed by warm mineral map margins (#F5F4F0) and crisp 1.5px charcoal borders.",
+      "ISO Course Purple (#6E1E7E) reserved for active control circles, navigation focus, time gutters, and route lines.",
+      "Sharp 0px architectural corners across all tables, plaques, and buttons (50% circles solely for D0–D7 course nodes).",
+      "Authentic Taipei transit color coding paired with high-contrast ink and >=44px tap targets throughout."
+    ],
+    "rules": [
+      {
+        "name": "The Daylight Column Rule",
+        "body": "Textured or colored terrain graphics belong strictly to the masthead frame; the reading column stays pure Paper White (#FFFFFF) with >=4.5:1 contrast everywhere.",
+        "section": "colors"
+      },
+      {
+        "name": "The Transit Ink Fidelity Rule",
+        "body": "Transit mode badges use authentic Taipei transit inks (#B81D27 Red Line, #2E6140 Green Line, #F2B705 Taxi Yellow with dark ink) rather than decorative pastel pills.",
+        "section": "colors"
+      },
+      {
+        "name": "The Zero-Kicker Rule",
+        "body": "Headings (h1, h2, h3) always open directly without an eyebrow or kicker label above them; contextual tags sit beside or below headings.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "Tables, rows, and buttons carry zero drop shadow at rest; only the top-layer driver modal casts elevation shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep all body copy >=16px, interactive targets >=44px, and text contrast >=4.5:1 for outdoor legibility.",
+      "Do format first place mentions per day as Thai · English · 繁體中文 and link verified Traditional Chinese queries to Google Maps.",
+      "Do theme browser defaults (::selection, :focus-visible, scrollbar-color, tabular-nums) and use native <dialog closedby=\"any\"> for the fullscreen driver card."
+    ],
+    "donts": [
+      "Don't place kickers or eyebrows above headings (h1, h2, h3).",
+      "Don't use rounded card stacks, decorative glass/blur, hard offset block shadows, or emoji icons inside the UI.",
+      "Don't publish private data (ages, personal health/dietary notes, booking references, budgets, cut lists, [ต้องเช็ก], or planner To-dos)."
+    ]
+  }
+}

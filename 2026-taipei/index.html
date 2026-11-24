@@ -1,0 +1,2035 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ทริปไต้หวัน · 6–12 ธ.ค. 2026</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🇹🇼</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+TC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --margin: #F5F4F0;
+    --margin-deep: #EAE7DF;
+    --ink: #16181A;
+    --ink-soft: #43474D;
+    --rule: #C9C5BB;
+    --rule-strong: #16181A;
+    --course: #6E1E7E;
+    --course-tint: #F5EDF7;
+    --contour: #7C4E24;
+    --lake: #155E8A;
+    --lake-tint: #E9F3F8;
+    --forest: #2E6140;
+    --forest-tint: #EBF3ED;
+    --mrt-red: #B81D27;
+    --mrt-green: #2E6140;
+    --taxi: #F2B705;
+    --transit: #1E3A5F;
+    --warn-bg: #FDF4E1;
+    --warn-ink: #6B3E00;
+    --warn-line: #B86B00;
+    --font-sans: 'Anuphan', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-tc: 'Noto Sans TC', 'Anuphan', sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { box-sizing: border-box; }
+
+  html {
+    scrollbar-color: var(--course) var(--margin);
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background: var(--course);
+    color: #FFFFFF;
+  }
+
+  body {
+    margin: 0;
+    background: var(--margin);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.5;
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+
+  a {
+    color: var(--course);
+    text-underline-offset: 3px;
+  }
+
+  button {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--course);
+    outline-offset: 2px;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 8px;
+    background: var(--ink);
+    color: #FFFFFF;
+    padding: 10px 16px;
+    font-weight: 700;
+    z-index: 100;
+  }
+  .skip-link:focus { left: 12px; }
+
+  .shell {
+    max-width: 960px;
+    margin: 0 auto;
+    background: var(--paper);
+    min-height: 100vh;
+    border-left: 1px solid var(--rule);
+    border-right: 1px solid var(--rule);
+  }
+
+  @media (max-width: 960px) {
+    .shell {
+      border-left: none;
+      border-right: none;
+    }
+  }
+
+  /* Masthead frame with topographic contour ornament strictly in peripheral header */
+  .masthead {
+    position: relative;
+    background: var(--margin);
+    border-bottom: 2px solid var(--rule-strong);
+    padding: 20px 16px 16px;
+    overflow: hidden;
+  }
+
+  @media (min-width: 680px) {
+    .masthead { padding: 26px 28px 20px; }
+  }
+
+  .contour-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.44;
+  }
+
+  .masthead-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .masthead-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(1.65rem, 4.8vw, 2.35rem);
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+
+  .trip-dates {
+    margin: 6px 0 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--ink-soft);
+  }
+
+  .home-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 44px;
+    padding: 0 12px;
+    border: 1.5px solid var(--rule-strong);
+    background: var(--paper);
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .home-link:hover {
+    background: var(--ink);
+    color: #FFFFFF;
+  }
+
+  .legend-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding-top: 8px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .terrain-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .terrain-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 3px 9px;
+    border: 1px solid currentColor;
+    background: var(--paper);
+  }
+  .terrain-chip.lake { color: var(--lake); background: var(--lake-tint); }
+  .terrain-chip.city { color: var(--mrt-red); background: #FCECEE; }
+  .terrain-chip.mountain { color: var(--forest); background: var(--forest-tint); }
+
+  .trip-status-note {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--course);
+  }
+
+  /* Primary 4-section navigation */
+  .primary-nav {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: var(--paper);
+    border-bottom: 2px solid var(--rule-strong);
+  }
+
+  .nav-tab {
+    min-height: 52px;
+    padding: 8px 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    border-right: 1px solid var(--rule);
+    border-bottom: 3px solid transparent;
+    transition: background-color 140ms var(--ease-out), color 140ms var(--ease-out);
+  }
+  .nav-tab:last-child { border-right: none; }
+  .nav-tab:hover { background: var(--margin); color: var(--ink); }
+  .nav-tab[aria-selected="true"] {
+    background: var(--course-tint);
+    color: var(--course);
+    border-bottom-color: var(--course);
+    font-weight: 700;
+  }
+
+  @media (min-width: 640px) {
+    .nav-tab {
+      flex-direction: row;
+      gap: 8px;
+      font-size: 1rem;
+    }
+  }
+
+  /* Sticky ISO Orienteering Course Strip (D0-D7) */
+  .course-bar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--paper);
+    border-bottom: 2px solid var(--rule-strong);
+    padding: 10px 8px;
+  }
+
+  @media (min-width: 680px) {
+    .course-bar { padding: 12px 28px; }
+  }
+
+  .course-bar[hidden] { display: none; }
+
+  .course-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .mode-group {
+    display: inline-flex;
+    gap: 4px;
+    padding: 4px;
+    border: 1.5px solid var(--rule-strong);
+    background: var(--margin);
+  }
+
+  .mode-btn {
+    min-height: 44px;
+    padding: 8px 14px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .mode-btn[aria-pressed="true"] {
+    background: var(--ink);
+    color: #FFFFFF;
+  }
+
+  .today-jump {
+    min-height: 44px;
+    padding: 0 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--course);
+    color: #FFFFFF;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    border: 1.5px solid var(--course);
+  }
+  .today-jump[hidden] { display: none; }
+
+  .day-rail {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: 2px;
+    align-items: center;
+    padding: 6px 0;
+  }
+
+  .day-rail::before {
+    content: "";
+    position: absolute;
+    left: calc(100% / 16);
+    right: calc(100% / 16);
+    top: 25px;
+    height: 2px;
+    background: var(--course);
+    opacity: 0.42;
+    z-index: 0;
+  }
+
+  .cp-btn {
+    position: relative;
+    z-index: 1;
+    min-height: 48px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 2px 0;
+  }
+
+  .cp-circle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 2px solid var(--course);
+    background: var(--paper);
+    color: var(--course);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 140ms var(--ease-out), background-color 140ms var(--ease-out);
+  }
+
+  @media (min-width: 440px) {
+    .cp-circle {
+      width: 38px;
+      height: 38px;
+      font-size: 0.875rem;
+    }
+  }
+
+  .cp-btn:hover .cp-circle {
+    background: var(--course-tint);
+  }
+
+  .cp-btn[aria-current="true"] .cp-circle {
+    background: var(--course);
+    color: #FFFFFF;
+    box-shadow: 0 0 0 3px var(--course-tint);
+  }
+
+  .cp-date {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  @media (min-width: 440px) {
+    .cp-date { font-size: 0.75rem; }
+  }
+
+  .cp-today-flag {
+    position: absolute;
+    top: -3px;
+    right: 2px;
+    background: var(--mrt-red);
+    color: #FFFFFF;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    padding: 1px 4px;
+    line-height: 1.2;
+  }
+
+  /* Main reading column */
+  main {
+    padding: 16px 12px 36px;
+  }
+
+  @media (min-width: 680px) {
+    main { padding: 28px 28px 64px; }
+  }
+
+  .panel[hidden] { display: none; }
+
+  .panel-enter {
+    animation: panelFade 180ms var(--ease-out);
+  }
+
+  @keyframes panelFade {
+    from { opacity: 0.75; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Day block & Control Description Table */
+  .day-section {
+    margin-bottom: 18px;
+    scroll-margin-top: 168px;
+  }
+  @media (min-width: 680px) {
+    .day-section {
+      margin-bottom: 28px;
+      scroll-margin-top: 140px;
+    }
+  }
+  .day-section[hidden] { display: none; }
+
+  .day-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 6px 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--rule-strong);
+  }
+
+  .day-header h2 {
+    margin: 0;
+    font-size: clamp(1.25rem, 3.6vw, 1.65rem);
+    line-height: 1.22;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .day-code {
+    font-family: var(--font-mono);
+    color: var(--course);
+    margin-right: 6px;
+  }
+
+  .day-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .today-pill {
+    background: var(--course);
+    color: #FFFFFF;
+    font-size: 0.875rem;
+    font-weight: 700;
+    padding: 2px 10px;
+  }
+
+  .zone-pill {
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 2px 10px;
+    border: 1px solid var(--rule-strong);
+    background: var(--margin);
+  }
+
+  /* Day condition ribbon */
+  .cond-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    padding: 7px 10px;
+    background: var(--margin);
+    border-left: 1.5px solid var(--rule-strong);
+    border-right: 1.5px solid var(--rule-strong);
+    border-bottom: 1.5px solid var(--rule-strong);
+    font-size: 0.9375rem;
+    font-weight: 500;
+  }
+
+  .cond-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* Control Description Table */
+  .ctrl-table {
+    border: 1.5px solid var(--rule-strong);
+    border-top: none;
+    background: var(--paper);
+  }
+
+  .ctrl-row {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    border-bottom: 1px solid var(--rule);
+  }
+  .ctrl-row:last-child { border-bottom: none; }
+
+  @media (min-width: 680px) {
+    .ctrl-row {
+      grid-template-columns: 112px 1fr;
+    }
+  }
+
+  .ctrl-row.is-optional {
+    background: #FAF9FB;
+  }
+
+  .ctrl-time {
+    padding: 9px 6px;
+    border-right: 1px solid var(--rule);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--course);
+    line-height: 1.28;
+    word-break: break-word;
+  }
+
+  @media (min-width: 680px) {
+    .ctrl-time {
+      padding: 14px 14px;
+      font-size: 1.0625rem;
+    }
+  }
+
+  .ctrl-body {
+    padding: 9px 10px;
+    min-width: 0;
+  }
+
+  @media (min-width: 680px) {
+    .ctrl-body {
+      padding: 14px 18px;
+    }
+  }
+
+  .ctrl-head-line {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+  }
+
+  .place-title {
+    margin: 0;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--ink);
+  }
+
+  .transit-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    padding: 3px 9px;
+    white-space: nowrap;
+  }
+  .t-mrt-red { background: var(--mrt-red); color: #FFFFFF; }
+  .t-mrt-green { background: var(--mrt-green); color: #FFFFFF; }
+  .t-taxi { background: var(--taxi); color: var(--ink); border: 1px solid var(--ink); }
+  .t-bus { background: var(--transit); color: #FFFFFF; }
+  .t-walk { background: var(--margin); color: var(--ink); border: 1px solid var(--ink); }
+  .t-flight { background: var(--ink); color: #FFFFFF; }
+
+  .badge-group {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .optional-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--course);
+    border: 1.5px dashed var(--course);
+    padding: 2px 8px;
+    white-space: nowrap;
+  }
+
+  .ctrl-desc {
+    margin: 4px 0 0;
+    font-size: 1rem;
+    color: var(--ink);
+    max-width: 68ch;
+  }
+
+  /* Driver Plaque & Place Actions */
+  .plaque-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .plaque-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 5px;
+  }
+
+  .zh-plaque {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 4px 10px;
+    background: var(--margin);
+    border: 1.5px solid var(--rule-strong);
+    font-family: var(--font-tc);
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.25;
+    word-break: break-word;
+  }
+
+  .action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0 9px;
+    border: 1.5px solid var(--rule-strong);
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .action-btn:hover {
+    background: var(--ink);
+    color: #FFFFFF;
+  }
+  .action-btn.map-btn {
+    border-color: var(--lake);
+    color: var(--lake);
+  }
+  .action-btn.map-btn:hover {
+    background: var(--lake);
+    color: #FFFFFF;
+  }
+  .action-btn.copied {
+    background: var(--forest);
+    border-color: var(--forest);
+    color: #FFFFFF;
+  }
+
+  .warn-banner {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: var(--warn-bg);
+    border: 1.5px solid var(--warn-line);
+    color: var(--warn-ink);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .warn-banner svg { flex-shrink: 0; margin-top: 2px; }
+
+  /* Section Headings (no kickers/eyebrows) */
+  .section-title {
+    margin: 28px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--rule-strong);
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .section-title:first-child { margin-top: 0; }
+
+  /* Data Tables for Flights, Hotels, Transit, Souvenirs */
+  .data-grid {
+    border: 1.5px solid var(--rule-strong);
+    background: var(--paper);
+  }
+
+  .data-row {
+    padding: 14px 14px;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    gap: 6px;
+  }
+  .data-row:last-child { border-bottom: none; }
+
+  @media (min-width: 680px) {
+    .data-row.cols-2 {
+      grid-template-columns: 200px 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+    .data-row.cols-3 {
+      grid-template-columns: 110px 1fr 180px;
+      gap: 16px;
+      align-items: start;
+    }
+  }
+
+  .data-label {
+    font-weight: 700;
+    color: var(--course);
+    font-size: 1rem;
+  }
+
+  .mono-code {
+    font-family: var(--font-mono);
+    font-weight: 700;
+  }
+
+  .bag-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border: 1px solid var(--rule-strong);
+    background: var(--margin);
+  }
+  .bag-tag.carry { border-color: var(--forest); color: var(--forest); background: var(--forest-tint); }
+  .bag-tag.check { border-color: var(--lake); color: var(--lake); background: var(--lake-tint); }
+  .bag-tag.ban { border-color: var(--mrt-red); color: var(--mrt-red); background: #FCECEE; }
+
+  /* Souvenir toolbar & filters */
+  .souvenir-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 14px;
+    background: var(--margin);
+    border: 1.5px solid var(--rule-strong);
+    margin-bottom: 16px;
+  }
+
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .filter-bar[hidden] { display: none; }
+
+  .filter-chip {
+    min-height: 44px;
+    padding: 0 14px;
+    border: 1.5px solid var(--rule-strong);
+    background: var(--paper);
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
+  .filter-chip[aria-pressed="true"] {
+    background: var(--course);
+    border-color: var(--course);
+    color: #FFFFFF;
+  }
+
+  /* Checklist */
+  .check-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 20px 0 12px;
+  }
+
+  .check-progress {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--course);
+  }
+
+  .checklist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 1.5px solid var(--rule-strong);
+  }
+
+  .check-item {
+    border-bottom: 1px solid var(--rule);
+  }
+  .check-item:last-child { border-bottom: none; }
+
+  .check-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    min-height: 52px;
+    padding: 12px 14px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  .check-label:hover { background: var(--margin); }
+
+  .check-input {
+    width: 22px;
+    height: 22px;
+    margin: 2px 0 0;
+    accent-color: var(--course);
+    flex-shrink: 0;
+  }
+
+  .check-item.done .check-text {
+    text-decoration: line-through;
+    color: var(--ink-soft);
+  }
+
+  /* Native Fullscreen Driver Plaque Dialog */
+  dialog {
+    margin: auto;
+    padding: 0;
+    border: 3px solid var(--ink);
+    background: var(--paper);
+    color: var(--ink);
+    width: min(92vw, 560px);
+    max-width: calc(100vw - 24px);
+    box-shadow: 0 20px 48px rgba(22, 24, 26, 0.28);
+  }
+
+  dialog[open] {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+
+  dialog:modal {
+    overscroll-behavior: contain;
+  }
+
+  dialog::backdrop {
+    background: rgba(22, 24, 26, 0.72);
+    overflow: hidden;
+    overscroll-behavior: contain;
+  }
+
+  .dlg-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 18px;
+    background: var(--margin);
+    border-bottom: 2px solid var(--rule-strong);
+  }
+  .dlg-head h2 {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+
+  .dlg-body {
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .dlg-zh {
+    font-family: var(--font-tc);
+    font-size: clamp(1.85rem, 7vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--ink);
+    word-break: break-word;
+  }
+
+  .dlg-addr {
+    font-family: var(--font-tc);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--course);
+    word-break: break-word;
+  }
+
+  .dlg-sub {
+    font-size: 1rem;
+    color: var(--ink-soft);
+  }
+
+  .dlg-foot {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-end;
+    padding: 12px 18px;
+    border-top: 1px solid var(--rule);
+    background: var(--margin);
+  }
+
+  .site-footer {
+    padding: 18px 16px 28px;
+    border-top: 2px solid var(--rule-strong);
+    background: var(--margin);
+    font-size: 0.9375rem;
+    color: var(--ink-soft);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  @media (min-width: 680px) {
+    .site-footer { padding: 20px 28px 32px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .panel-enter { animation: none; }
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">ข้ามไปเนื้อหาหลัก</a>
+<div class="shell">
+  <header class="masthead">
+    <svg class="contour-bg" viewBox="0 0 960 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M-20 185 C120 135, 220 205, 360 155 C500 105, 640 190, 790 130 C870 98, 930 120, 980 95" fill="none" stroke="#7C4E24" stroke-width="1.5"/>
+      <path d="M-20 155 C140 100, 250 175, 390 122 C530 72, 660 158, 810 92 C890 60, 940 82, 980 62" fill="none" stroke="#7C4E24" stroke-width="1.2"/>
+      <path d="M-20 122 C160 68, 270 140, 420 86 C570 34, 690 118, 840 55 C910 26, 950 48, 980 32" fill="none" stroke="#7C4E24" stroke-width="1.1"/>
+      <path d="M510 215 C610 175, 700 205, 810 162 C890 130, 945 152, 985 135" fill="none" stroke="#7C4E24" stroke-width="1.0"/>
+      <path d="M620 20 C705 -5, 790 35, 895 8 C935 -2, 965 12, 985 6" fill="none" stroke="#7C4E24" stroke-width="1.0"/>
+      <path d="M460 195 L635 128 L760 112 L885 48 L965 22" fill="none" stroke="#6E1E7E" stroke-width="1.6" stroke-dasharray="6 5"/>
+      <circle cx="885" cy="48" r="14" fill="none" stroke="#6E1E7E" stroke-width="2.2"/>
+      <circle cx="760" cy="112" r="11" fill="none" stroke="#6E1E7E" stroke-width="2"/>
+      <circle cx="635" cy="128" r="8" fill="none" stroke="#6E1E7E" stroke-width="1.8"/>
+    </svg>
+    <div class="masthead-inner">
+      <div class="masthead-top">
+        <div>
+          <h1>ทริปไต้หวัน · 6–12 ธ.ค. 2026</h1>
+          <p class="trip-dates">ออกเดินทางคืน 5 ธ.ค. · สุริยันจันทรา – ไทเป – เย่หลิ่ว – จิ่วเฟิ่น – เป่ยโถว</p>
+        </div>
+        <a class="home-link" href="../">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+          ทริปทั้งหมด
+        </a>
+      </div>
+      <div class="legend-row">
+        <div class="terrain-legend" aria-label="โซนเส้นทาง">
+          <span class="terrain-chip lake">日月潭 สุริยันจันทรา</span>
+          <span class="terrain-chip city">台北 ไทเป</span>
+          <span class="terrain-chip mountain">九份・貓空・北投 ภูเขาและบ่อน้ำร้อน</span>
+        </div>
+        <div class="trip-status-note" id="trip-status-note"></div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="primary-nav" role="tablist" aria-label="หมวดข้อมูลทริป">
+    <button class="nav-tab" type="button" role="tab" id="tab-route" aria-controls="panel-route" aria-selected="true" data-tab="route">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="6" r="3"/><path d="M8.5 16L15.5 8"/></svg>
+      <span>เส้นทาง</span>
+    </button>
+    <button class="nav-tab" type="button" role="tab" id="tab-stay" aria-controls="panel-stay" aria-selected="false" data-tab="stay">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 16l20-5-2-3-7 2-5-6-2 1 3 6-5 1-2-2-1 1 2 4z"/><path d="M3 20h18"/></svg>
+      <span>บิน &amp; พัก</span>
+    </button>
+    <button class="nav-tab" type="button" role="tab" id="tab-souvenirs" aria-controls="panel-souvenirs" aria-selected="false" data-tab="souvenirs">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l1 13H5L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+      <span>ของฝาก</span>
+    </button>
+    <button class="nav-tab" type="button" role="tab" id="tab-prep" aria-controls="panel-prep" aria-selected="false" data-tab="prep">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M8 12l3 3 5-6"/></svg>
+      <span>เช็กลิสต์</span>
+    </button>
+  </nav>
+
+  <section class="course-bar" id="course-bar" aria-label="ควบคุมการแสดงผลรายวัน">
+    <div class="course-top">
+      <div class="mode-group" role="group" aria-label="รูปแบบการแสดงวัน">
+        <button class="mode-btn" type="button" id="btn-mode-all" aria-pressed="true">ดูทุกวัน (D0–D7)</button>
+        <button class="mode-btn" type="button" id="btn-mode-focus" aria-pressed="false">โฟกัสทีละวัน</button>
+      </div>
+      <button class="today-jump" type="button" id="btn-today-jump" hidden>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg>
+        <span id="today-jump-label">กลับไปวันนี้</span>
+      </button>
+    </div>
+    <div class="day-rail" id="day-rail" role="navigation" aria-label="เลือกวันเดินทาง"></div>
+  </section>
+
+  <main id="main-content">
+    <section class="panel" id="panel-route" role="tabpanel" aria-labelledby="tab-route"></section>
+    <section class="panel" id="panel-stay" role="tabpanel" aria-labelledby="tab-stay" hidden></section>
+    <section class="panel" id="panel-souvenirs" role="tabpanel" aria-labelledby="tab-souvenirs" hidden></section>
+    <section class="panel" id="panel-prep" role="tabpanel" aria-labelledby="tab-prep" hidden></section>
+  </main>
+
+  <footer class="site-footer">
+    <span>คู่มือพกพาทริปครอบครัวไต้หวัน · 6–12 ธ.ค. 2026</span>
+    <span>ข้อมูลทั้งหมดเก็บแบบออฟไลน์ในหน้าเดียว · กดชื่อจีนเพื่อคัดลอกหรือเปิด Google Maps</span>
+  </footer>
+</div>
+
+<dialog id="driver-dialog" closedby="any" aria-labelledby="driver-dialog-title">
+  <div class="dlg-head">
+    <h2 id="driver-dialog-title">แสดงชื่อสถานที่ให้คนขับ</h2>
+    <form method="dialog">
+      <button class="action-btn" type="submit" autofocus>ปิด</button>
+    </form>
+  </div>
+  <div class="dlg-body">
+    <div class="dlg-zh" id="dlg-zh"></div>
+    <div class="dlg-addr" id="dlg-addr"></div>
+    <div class="dlg-sub" id="dlg-sub"></div>
+  </div>
+  <div class="dlg-foot">
+    <button class="action-btn" type="button" id="dlg-copy-btn">คัดลอกภาษาจีน</button>
+    <a class="action-btn map-btn" id="dlg-map-link" href="#" target="_blank" rel="noopener noreferrer">เปิด Google Maps</a>
+  </div>
+</dialog>
+
+<script>
+(() => {
+  const ICONS = {
+    copy: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="1"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>',
+    expand: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>',
+    map: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6-5.5-6-10a6 6 0 1 1 12 0c0 4.5-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg>',
+    warn: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3L2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg>',
+    temp: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 14.76V3.5a2 2 0 0 0-4 0v11.26a4 4 0 1 0 4 0z"/></svg>',
+    bag: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="7" width="16" height="13" rx="1"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>'
+  };
+
+  const DAYS = [
+    {
+      id: "D0", date: "2026-12-05", shortDate: "5 ธ.ค.",
+      title: "ส. 5 ธ.ค. · ออกเดินทางจากกรุงเทพฯ",
+      zone: "กรุงเทพฯ → เถาหยวน",
+      conditions: ["เช็กอินดึกที่สุวรรณภูมิ", "เตรียมเสื้อคลุมสำหรับตอนลงเครื่องที่ไต้หวัน"],
+      items: [
+        {
+          time: "~23:00",
+          title: "ท่าอากาศยานสุวรรณภูมิ · Suvarnabhumi Airport (BKK)",
+          mode: { label: "เตรียมตัวขึ้นเครื่อง", cls: "t-flight" },
+          desc: "ถึงสนามบินสุวรรณภูมิ เช็กอินเคาน์เตอร์ EVA Air และโหลดกระเป๋าเดินทาง"
+        },
+        {
+          time: "02:15",
+          title: "เที่ยวบิน EVA Air BR 206 (เช้า 6 ธ.ค.)",
+          mode: { label: "EVA Air BR 206", cls: "t-flight" },
+          desc: "ออกเดินทาง 02:15 BKK (GMT+7) → ถึงไทเป 06:50 TPE (GMT+8) · ใช้เวลาบิน 3 ชม. 35 น. (เวลาไต้หวันเร็วกว่าไทย 1 ชม.)"
+        }
+      ]
+    },
+    {
+      id: "D1", date: "2026-12-06", shortDate: "6 ธ.ค.",
+      title: "อา. 6 ธ.ค. · สนามบิน → ทะเลสาบสุริยันจันทรา",
+      zone: "เถาหยวน → ไทจง → สุ่ยเซ่อ",
+      conditions: ["สุริยันจันทรา ~12–15°C · พกเสื้อคลุม/กันลม", "พักผ่อนเบาๆ หลังบินดึก"],
+      items: [
+        {
+          time: "06:50–08:00",
+          title: "ท่าอากาศยานนานาชาติเถาหยวน · Taoyuan Airport (TPE) · 桃園國際機場",
+          mode: { label: "เข้าเมือง", cls: "t-flight" },
+          desc: "ผ่าน ตม. รับกระเป๋า ซื้อบัตร EasyCard และแวะซื้อมื้อเช้าเบาๆ ที่ร้านสะดวกซื้อ",
+          places: [{ name: "Taoyuan International Airport", zh: "桃園國際機場" }]
+        },
+        {
+          time: "08:00",
+          title: "Airport MRT → สถานี HSR Taoyuan (A18) · 高鐵桃園站",
+          mode: { label: "Airport MRT", cls: "t-bus" },
+          desc: "นั่งรถไฟฟ้าสนามบินไปสถานี A18 (รวมรอรถราว 15–20 นาที)",
+          places: [{ name: "HSR Taoyuan Station (A18)", zh: "高鐵桃園站" }]
+        },
+        {
+          time: "~08:45",
+          title: "รถไฟความเร็วสูง HSR → สถานีไทจง · HSR Taichung · 高鐵台中站",
+          mode: { label: "HSR ความเร็วสูง", cls: "t-bus" },
+          desc: "ทานมื้อเช้าบนรถไฟความเร็วสูงระหว่างทางไปไทจง",
+          places: [{ name: "HSR Taichung Station", zh: "高鐵台中站" }]
+        },
+        {
+          time: "09:50–10:20",
+          title: "รถบัสสาย 6670B → ทะเลสาบสุริยันจันทรา · Sun Moon Lake · 日月潭",
+          mode: { label: "บัส 6670B", cls: "t-bus" },
+          desc: "ขึ้นบัสสาย 6670B จาก HSR ไทจงตรงเข้าหมู่บ้านสุ่ยเซ่อ (พักหลับบนรถ)",
+          places: [{ name: "Sun Moon Lake Shuishe", zh: "日月潭水社遊客中心" }]
+        },
+        {
+          time: "~11:45",
+          title: "ท่าเรือสุ่ยเซ่อ · Shuishe · 水社 — ฝากกระเป๋าที่ Island Hearth Sun Moon Lake · 日月潭島宇居飯店",
+          mode: { label: "เดิน", cls: "t-walk" },
+          desc: "ฝากกระเป๋าที่โรงแรม (เช็กอินได้ตั้งแต่ 16:00) แล้วเดินออกมารับประทานมื้อเที่ยงร้านนั่งสบาย 12:00–13:30",
+          places: [{ name: "Island Hearth Sun Moon Lake", zh: "日月潭島宇居飯店", addr: "555 南投縣魚池鄉水社村中山路105號" }]
+        },
+        {
+          time: "13:30",
+          title: "เคาน์เตอร์รถบัส Shuishe · 水社車站",
+          mode: { label: "บัส 1833 / 6669", cls: "t-bus" },
+          desc: "ซื้อตั๋วรถบัส Kuo-Kuang สาย 1833 รอบ 09:45 สำหรับวันที่ 8 ธ.ค. (รอบเช้ารอบเดียว) หากยังไม่ได้จองออนไลน์ พร้อมขอตารางบัส 6669",
+          warn: "รอบเช้าสาย 1833 เข้าไทเปมีวันละ 1 รอบ (09:45) แนะนำจัดการตั๋วทันทีที่มาถึง",
+          places: [{ name: "Shuishe Bus Station", zh: "水社遊客中心車站" }]
+        },
+        {
+          time: "14:00–15:15",
+          title: "วัดเหวินหวู่ · Wenwu Temple · 文武廟",
+          optional: true,
+          mode: { label: "บัส 10 นาที", cls: "t-bus" },
+          desc: "ลงรถบัสระดับตัววัด ไม่ต้องเดินบันได 366 ขั้น — หรือเลือกนั่งพักจิบชาที่คาเฟ่ริมทะเลสาบตามสะดวก",
+          places: [{ name: "Wenwu Temple", zh: "日月潭文武廟" }]
+        },
+        {
+          time: "16:00–19:00",
+          title: "เช็กอินที่พัก · พักผ่อน และมื้อเย็นในหมู่บ้านสุ่ยเซ่อ · 水社",
+          mode: { label: "เดิน", cls: "t-walk" },
+          desc: "16:00 เช็กอิน อาบน้ำ พักผ่อน · 17:30 รับประทานมื้อเย็นในหมู่บ้านและเข้านอนเร็ว"
+        }
+      ]
+    },
+    {
+      id: "D2", date: "2026-12-07", shortDate: "7 ธ.ค.",
+      title: "จ. 7 ธ.ค. · เที่ยววนรอบทะเลสาบสุริยันจันทรา",
+      zone: "สุ่ยเซ่อ → กระเช้า → อิต๋าเช่า → วัดเสวียนกวง",
+      conditions: ["สุริยันจันทรา ~12–15°C · บนกระเช้าลมเย็น", "ซื้อชาดำ Ruby #18 ช่วงเย็น"],
+      items: [
+        {
+          time: "07:30–09:30",
+          title: "อาหารเช้าที่หมู่บ้านสุ่ยเซ่อ · Shuishe · 水社",
+          mode: { label: "เดิน / บัส", cls: "t-walk" },
+          desc: "รับประทานอาหารเช้าสบายๆ หาก D1 ยังไม่ได้แวะ วัดเหวินหวู่ · Wenwu Temple · 文武廟 สามารถไปช่วง 08:30–09:30 ได้"
+        },
+        {
+          time: "09:45",
+          title: "บัส 6669 → สถานีกระเช้า",
+          mode: { label: "บัส 6669", cls: "t-bus" },
+          desc: "ขึ้นรถบัสรอบทะเลสาบสาย 6669 มุ่งหน้าสถานีกระเช้าใกล้หมู่บ้านอิต๋าเช่า"
+        },
+        {
+          time: "10:30–11:30",
+          title: "กระเช้าลอยฟ้า · Sun Moon Lake Ropeway · 日月潭纜車",
+          mode: { label: "กระเช้าธรรมดา", cls: "t-bus" },
+          desc: "นั่งกระเช้าแบบธรรมดาชมวิวมุมสูงเหนือทะเลสาบและทิวเขา (เปิดวันธรรมดา 10:30–16:00)",
+          places: [{ name: "Sun Moon Lake Ropeway", zh: "日月潭纜車" }]
+        },
+        {
+          time: "11:45–13:30",
+          title: "หมู่บ้านอิต๋าเช่า · Ita Thao · 伊達邵",
+          mode: { label: "เดิน", cls: "t-walk" },
+          desc: "เดินเล่นถนนคนเดินริมทะเลสาบและรับประทานมื้อเที่ยงในหมู่บ้านอิต๋าเช่า",
+          places: [{ name: "Ita Thao", zh: "伊達邵" }]
+        },
+        {
+          time: "13:45–15:00",
+          title: "ล่องเรือ → วัดเสวียนกวง · Xuanguang Temple · 玄光寺",
+          mode: { label: "เรือข้ามฟาก", cls: "t-bus" },
+          desc: "นั่งเรือไปวัดเสวียนกวง ชิมไข่ต้มใบชา (เดินชมระดับท่าเรือได้ไม่ต้องขึ้นสูง) แล้วนั่งเรือกลับท่าสุ่ยเซ่อ",
+          places: [{ name: "Xuanguang Temple", zh: "日月潭玄光寺" }]
+        },
+        {
+          time: "15:15–16:45",
+          title: "คาเฟ่ริมทะเลสาบแถวสุ่ยเซ่อ · Shuishe · 水社",
+          mode: { label: "เดิน / E-bike", cls: "t-walk" },
+          desc: "นั่งพักจิบเครื่องดื่มริมทะเลสาบ · [ทางเลือก] ปั่นจักรยานไฟฟ้า E-bike เส้นทางเลียบทะเลสาบ"
+        },
+        {
+          time: "17:00–18:30",
+          title: "ชมพระอาทิตย์ตกท่าเรือสุ่ยเซ่อ · Shuishe Pier · 水社碼頭",
+          mode: { label: "เดิน", cls: "t-walk" },
+          desc: "17:00–17:30 ชมพระอาทิตย์ตก (~17:15) · 17:45 มื้อเย็น ซื้อชาดำอาซัม Ruby #18 และเก็บกระเป๋าเตรียมเดินทางเช้า",
+          places: [{ name: "Shuishe Pier", zh: "水社碼頭" }]
+        }
+      ]
+    },
+    {
+      id: "D3", date: "2026-12-08", shortDate: "8 ธ.ค.",
+      title: "อ. 8 ธ.ค. · บัสเข้าไทเป + ถนนตี๋ฮว่า + หนิงเซี่ย",
+      zone: "สุริยันจันทรา → ไทเป (จงซาน / ต้าเต้าเฉิง)",
+      conditions: ["ถึงไทเปช่วงบ่ายไม่มีพักห้องระหว่างวัน", "เตรียมขนม/น้ำขึ้นรถบัส 1833", "เรียกรถคันใหญ่ (Uber XL) สำหรับกระเป๋า"],
+      items: [
+        {
+          time: "06:30",
+          title: "ชมหมอกยามเช้าที่ท่าเรือสุ่ยเซ่อ · Shuishe Pier · 水社碼頭",
+          optional: true,
+          mode: { label: "เดิน", cls: "t-walk" },
+          desc: "เดินรับลมและชมสายหมอกเหนือผิวน้ำยามเช้าก่อนมื้อเช้า"
+        },
+        {
+          time: "07:30–09:20",
+          title: "อาหารเช้า · เช็กเอาต์ · เตรียมเสบียงขึ้นรถ",
+          mode: { label: "เดิน", cls: "t-walk" },
+          desc: "ทานอาหารเช้าให้อิ่ม เช็กเอาต์ (ก่อน 11:00) ซื้อน้ำและของว่างติดตัว แล้วมารอที่ป้ายรถ Shuishe เวลา 09:20 พร้อมกระเป๋า"
+        },
+        {
+          time: "09:45–13:45",
+          title: "บัส 1833 (中興號) → สถานีขนส่งไทเป · Taipei Bus Station · 台北轉運站",
+          mode: { label: "บัส 1833 (~4 ชม.)", cls: "t-bus" },
+          desc: "รถบัสตรงรอบเช้ารอบเดียวเข้าไทเป ถึงสถานีขนส่งไทเปราว 13:15–13:45",
+          places: [{ name: "Taipei Bus Station", zh: "台北轉運站" }]
+        },
+        {
+          time: "13:45–14:45",
+          title: "มื้อเที่ยงที่ห้าง Q Square · 京站時尚廣場",
+          mode: { label: "เดินเชื่อมสถานี", cls: "t-walk" },
+          desc: "เลือกร้านอาหารนั่งสบายภายใน Q Square ที่เชื่อมตรงกับสถานีขนส่งไทเป",
+          places: [{ name: "Q Square", zh: "京站時尚廣場" }]
+        },
+        {
+          time: "14:45–15:15",
+          title: "ฝากกระเป๋าที่ Dahshin Hotel · 大欣大飯店",
+          mode: { label: "Uber XL", cls: "t-taxi" },
+          desc: "นั่งรถคันใหญ่จากสถานีขนส่งไปฝากกระเป๋าที่ล็อบบี้โรงแรมย่านจงซาน (ห่าง MRT Zhongshan ราว 5 นาที)",
+          places: [{ name: "Dahshin Hotel", zh: "大欣大飯店", addr: "台北市中山區中山北路二段27巷2-2號" }]
+        },
+        {
+          time: "15:30–16:45",
+          title: "ถนนตี๋ฮว่า · Dihua Street · 迪化街 & ร้านขนม Li Ting Xiang · 李亭香",
+          mode: { label: "แท็กซี่", cls: "t-taxi" },
+          desc: "เดินชมตึกเก่า เลือกซื้อขนมมงคลโบราณ ชา และผลไม้อบแห้ง (มีมุมนั่งพักจิบชา)",
+          places: [
+            { name: "Dihua Street", zh: "迪化街" },
+            { name: "Li Ting Xiang Bakery", zh: "李亭香餅店", addr: "台北市大同區迪化街一段309號" }
+          ]
+        },
+        {
+          time: "17:00–17:15",
+          title: "ท่าเรือต้าเต้าเฉิง · Dadaocheng Wharf · 大稻埕碼頭",
+          mode: { label: "เดิน 5–10 นาที", cls: "t-walk" },
+          desc: "ชมพระอาทิตย์ตกริมแม่น้ำตั้นสุ่ยหลังจบเดินถนนตี๋ฮว่า",
+          places: [{ name: "Dadaocheng Wharf", zh: "大稻埕碼頭" }]
+        },
+        {
+          time: "17:30–18:45",
+          title: "ตลาดกลางคืนหนิงเซี่ย · Ningxia Night Market · 寧夏夜市",
+          mode: { label: "แท็กซี่", cls: "t-taxi" },
+          desc: "มื้อเย็นที่ตลาดหนิงเซี่ย · [ทางเลือก] เดินต่อไป 300–500 ม. เหมาขนมซูเปอร์ที่ Prosperity Plaza · 萬家福重慶店 (เปิด 09:00–02:00) ก่อนกลับโรงแรมเช็กอิน ~19:00",
+          places: [
+            { name: "Ningxia Night Market", zh: "寧夏夜市" },
+            { name: "Prosperity Plaza Chongqing", zh: "萬家福重慶店" }
+          ]
+        }
+      ]
+    },
+    {
+      id: "D4", date: "2026-12-09", shortDate: "9 ธ.ค.",
+      title: "พ. 9 ธ.ค. · ย่านเก่าไทเป + พระอาทิตย์ตกตั้นสุ่ย",
+      zone: "หย่งคัง → จงเจิ้ง → หลงซาน → ซีเหมินติง → ตั้นสุ่ย",
+      conditions: ["15–20°C · พกเสื้อกันลมสำหรับริมน้ำตั้นสุ่ย", "พกเงินสดสำหรับ L'Atelier Lotus", "ไม่กลับโรงแรมจน ~19:30 (เลี่ยงแบกของหนัก)"],
+      items: [
+        {
+          time: "08:30–09:30",
+          title: "L'Atelier Lotus · 甜滿 (ย่านหย่งคัง · Yongkang Street · 永康街)",
+          mode: { label: "MRT สายแดง (ออก 08:15)", cls: "t-mrt-red" },
+          desc: "ต่อคิวซื้อแครกเกอร์นูกัตต้นหอม (เปิดขาย 09:00 ขายจนหมด) ใกล้ MRT Dongmen เดิน 3–5 นาที",
+          warn: "รับเฉพาะเงินสดเท่านั้น (NT$220/กล่อง) และจำกัดจำนวนซื้อต่อคน",
+          places: [{ name: "L'Atelier Lotus", zh: "甜滿", addr: "台北市大安區永康街31巷10號" }]
+        },
+        {
+          time: "09:45–10:45",
+          title: "อนุสรณ์สถานเจียงไคเช็ก · Chiang Kai-shek Memorial Hall · 中正紀念堂",
+          mode: { label: "MRT สายแดง 1 สถานี", cls: "t-mrt-red" },
+          desc: "ชมพิธีเปลี่ยนเวรทหารกลางแจ้งรอบ 10:00 (จัดกลางแจ้ง งดเมื่อฝนตก · ห้องโถงเปิด 09:00–18:00)",
+          places: [{ name: "Chiang Kai-shek Memorial Hall", zh: "中正紀念堂" }]
+        },
+        {
+          time: "11:00–11:45",
+          title: "วัดหลงซาน · Longshan Temple · 龍山寺",
+          mode: { label: "แท็กซี่", cls: "t-taxi" },
+          desc: "สักการะขอพรและเช่าบูชาเครื่องรางภายในวัด",
+          places: [{ name: "Longshan Temple", zh: "艋舺龍山寺" }]
+        },
+        {
+          time: "12:00–13:30",
+          title: "ซีเหมินติง · Ximending · 西門町",
+          mode: { label: "แท็กซี่", cls: "t-taxi" },
+          desc: "รับประทานมื้อเที่ยงร้านนั่งสบาย และเดินเล่นย่านซีเหมินติง",
+          places: [{ name: "Ximending", zh: "西門町" }]
+        },
+        {
+          time: "13:45–15:00",
+          title: "Simple Kaffa · 興波咖啡 & สวนสร้างสรรค์หัวซาน 1914 · Huashan 1914 · 華山1914文化創意產業園區",
+          mode: { label: "แท็กซี่ ~10 นาที", cls: "t-taxi" },
+          desc: "แวะจิบกาแฟร้านแชมป์โลกและเดินชมโซนศิลปะที่ Huashan 1914",
+          places: [
+            { name: "Simple Kaffa Flagship", zh: "興波咖啡", addr: "台北市中正區忠孝東路二段27號" },
+            { name: "Huashan 1914 Creative Park", zh: "華山1914文化創意產業園區" }
+          ]
+        },
+        {
+          time: "15:45–18:30",
+          title: "ตั้นสุ่ย · Tamsui · 淡水 (Golden Riverside · 金色水岸 · ถนนเก่า · 淡水老街)",
+          optional: true,
+          mode: { label: "MRT สายแดง (ออก 15:00)", cls: "t-mrt-red" },
+          desc: "ขึ้น MRT สายแดงปลายทาง Tamsui (~40–45 นาที) เดินทางราบชมริมน้ำ ~1.5 กม. ชมด้านนอกโบสถ์ 淡水禮拜堂 และพระอาทิตย์ตก (~17:05) ต่อด้วยมื้อเย็นแบบนั่ง · [ทางเลือก] หากฝนตก ตัดตั้นสุ่ยแล้วกลับเดินย่านฉือเฟิง · 赤峰街 ใกล้โรงแรมแทน · 18:45 นั่ง MRT สายแดงตรงกลับโรงแรม (~19:30)",
+          warn: "เลือกขบวน MRT สายแดงที่มีป้ายปลายทาง Tamsui · 淡水 (ไม่ใช่ Beitou)",
+          places: [
+            { name: "Tamsui Golden Riverside", zh: "淡水金色水岸" },
+            { name: "Tamsui Old Street", zh: "淡水老街" },
+            { name: "Chifeng Street (แผนสำรองฝนตก)", zh: "赤峰街" }
+          ]
+        }
+      ]
+    },
+    {
+      id: "D5", date: "2026-12-10", shortDate: "10 ธ.ค.",
+      title: "พฤ. 10 ธ.ค. · รถเหมา เย่หลิ่ว → สือเฟิ่น → จิ่วเฟิ่น",
+      zone: "ชายฝั่งเหนือ & หมู่บ้านภูเขา",
+      conditions: ["รถเหมาส่วนตัว 10 ชม. (08:00–18:00)", "ลมชายฝั่งเย่หลิ่วแรง พกร่มและเสื้อกันลม", "รองเท้าพื้นกันลื่น"],
+      items: [
+        {
+          time: "08:00",
+          title: "รถเหมารับที่หน้าโรงแรม Dahshin · 大欣大飯店",
+          mode: { label: "รถเหมา 10 ชม.", cls: "t-bus" },
+          desc: "ออกเดินทางเช้าเพื่อไปถึงเย่หลิ่วก่อนรถทัวร์ใหญ่"
+        },
+        {
+          time: "08:50–10:00",
+          title: "อุทยานธรณีเย่หลิ่ว · Yehliu Geopark · 野柳地質公園",
+          mode: { label: "รถเหมา", cls: "t-bus" },
+          desc: "เดินบนทางปูนชมโขดหินรูปทรงธรรมชาติและหินเศียรราชินี (เปิดทุกวัน 08:00–17:00)",
+          places: [{ name: "Yehliu Geopark", zh: "野柳地質公園" }]
+        },
+        {
+          time: "11:00–12:45",
+          title: "ถนนเก่าสือเฟิ่น · Shifen Old Street · 十分老街",
+          mode: { label: "รถเหมา (ขับ ~55 น.)", cls: "t-bus" },
+          desc: "เขียนคำอธิษฐานลงโคมลอย 1 ลูก 4 ด้านร่วมกันริมทางรถไฟ แล้วรับประทานมื้อเที่ยงที่สือเฟิ่น",
+          places: [{ name: "Shifen Old Street", zh: "十分老街" }]
+        },
+        {
+          time: "13:30–14:45",
+          title: "ถนนเก่าจิ่วเฟิ่น · Jiufen Old Street · 九份老街 (Jishan Street · 基山街)",
+          mode: { label: "รถเหมา (ขับ ~40 น.)", cls: "t-bus" },
+          desc: "เดินเส้นทางราบสายหลัก Jishan Street และแวะซื้อนูกัตรสกาแฟที่ร้าน Jiavin Bakery · 佳賓餅家",
+          places: [
+            { name: "Jiufen Old Street (Jishan St)", zh: "九份老街 基山街" },
+            { name: "Jiavin Bakery", zh: "佳賓餅家", addr: "新北市瑞芳區基山街7號" }
+          ]
+        },
+        {
+          time: "14:45–17:00",
+          title: "นั่งร้านน้ำชาชมวิวจิ่วเฟิ่น → มื้อเย็นและชมไฟโคม",
+          mode: { label: "พักยาว & มื้อเย็น", cls: "t-walk" },
+          desc: "14:45–16:15 นั่งจิบชาพักขาชมวิวทะเลและภูเขา · 16:15–17:00 มื้อเย็นช่วงไฟโคมเริ่มเปิด (พระอาทิตย์ตก ~17:05) · 17:00 ขึ้นรถกลับถึงโรงแรม ~18:00"
+        }
+      ]
+    },
+    {
+      id: "D6", date: "2026-12-11", shortDate: "11 ธ.ค.",
+      title: "ศ. 11 ธ.ค. · เมาคง → ย่านซิ่นอี้ → ไทเป 101",
+      zone: "เขาเมาคง → ซิ่นอี้",
+      conditions: ["เริ่มสาย 08:30 ตื่นสบายๆ", "เส้นตายซื้อของเหลว >100 ml และของหนักแพ็กโหลดวันนี้"],
+      items: [
+        {
+          time: "08:30–09:30",
+          title: "อาหารเช้าสบายๆ → เดินทางไปสถานีกระเช้าเมาคง · Maokong Gondola Taipei Zoo Station · 貓空纜車動物園站",
+          mode: { label: "Uber", cls: "t-taxi" },
+          desc: "ตื่นสาย 08:30 ทานอาหารเช้า แล้วเรียกรถไปสถานีต้นทางกระเช้าเมาคงเวลา 09:30",
+          places: [{ name: "Maokong Gondola Taipei Zoo Station", zh: "貓空纜車動物園站" }]
+        },
+        {
+          time: "10:00–12:30",
+          title: "กระเช้าขึ้น เมาคง · Maokong · 貓空",
+          mode: { label: "กระเช้าเมาคง (09:00–21:00)", cls: "t-bus" },
+          desc: "นั่งกระเช้าขึ้นเขา จิบชาอู่หลง/เถี่ยกวนอินชมวิว และมื้อเที่ยงบนเขา 11:45 · [ทางเลือก] ลงมากินมื้อเที่ยงที่ย่านซิ่นอี้ได้",
+          places: [{ name: "Maokong", zh: "貓空" }]
+        },
+        {
+          time: "12:45–15:45",
+          title: "ย่านซิ่นอี้ · Xinyi Shopping District · 信義商圈",
+          mode: { label: "กระเช้าลง + แท็กซี่", cls: "t-taxi" },
+          desc: "เดินช้อปปิ้งทางเชื่อมห้างย่านซิ่นอี้และแวะนั่งพักคาเฟ่",
+          places: [{ name: "Xinyi District", zh: "台北信義商圈" }]
+        },
+        {
+          time: "16:00–17:30",
+          title: "รับบัตรคิว ติ่นไท่ฟง · Din Tai Fung · 鼎泰豐 → ขึ้นหอชมวิว ไทเป 101 · Taipei 101 · 台北101",
+          mode: { label: "เดินในอาคาร", cls: "t-walk" },
+          desc: "16:00 กดรับบัตรคิวติ่นไท่ฟง สาขา 101 · 16:15–17:30 ขึ้นหอชมวิว Taipei 101 เก็บภาพทั้งแสงกลางวัน พระอาทิตย์ตก และไฟเมืองยามค่ำ",
+          places: [{ name: "Taipei 101", zh: "台北101" }]
+        },
+        {
+          time: "17:45",
+          title: "มื้อเย็น ติ่นไท่ฟง สาขา 101 · Din Tai Fung Taipei 101 · 鼎泰豐 台北101店",
+          mode: { label: "MRT สายแดงตรง", cls: "t-mrt-red" },
+          desc: "รับประทานมื้อเย็นแล้วนั่ง MRT สายแดงตรงกลับสถานี Zhongshan ถึงโรงแรม ~19:15",
+          warn: "เส้นตายแพ็กกระเป๋าโหลด: ของเหลวเกิน 100 ml (เช่น น้ำมันพริก, เซรั่ม) และของหนักต้องซื้อและแพ็กใส่กระเป๋าใหญ่คืนนี้ให้เรียบร้อย",
+          places: [{ name: "Din Tai Fung Taipei 101", zh: "鼎泰豐 台北101店" }]
+        }
+      ]
+    },
+    {
+      id: "D7", date: "2026-12-12", shortDate: "12 ธ.ค.",
+      title: "ส. 12 ธ.ค. · เป่ยโถว + ช้อปจงซาน + กลับกรุงเทพฯ",
+      zone: "A1 → เป่ยโถว → จงซาน → สนามบิน T2",
+      conditions: ["พกผ้าขนหนูผืนเล็กสำหรับแช่เท้าเป่ยโถว", "หลังโหลด A1 08:15 ซื้อได้เฉพาะของถือขึ้นเครื่อง", "บินกลับ BR 205 (20:45 TPE T2)"],
+      items: [
+        {
+          time: "07:00–08:00",
+          title: "อาหารเช้า + เช็กอินออนไลน์ EVA Air",
+          mode: { label: "เตรียมเช็กเอาต์", cls: "t-walk" },
+          desc: "เช็กอินออนไลน์ล่วงหน้า เตรียมกระเป๋าโหลด และพกผ้าขนหนูผืนเล็กติดตัวไปแช่เท้า"
+        },
+        {
+          time: "08:15",
+          title: "โหลดกระเป๋าที่สถานี Airport MRT Taipei Main (A1) · 機場捷運台北車站 A1",
+          mode: { label: "Uber XL", cls: "t-taxi" },
+          desc: "เช็กเอาต์จากโรงแรมไปโหลดกระเป๋าระบบ Self Bag Drop ของ EVA Air ที่ A1 (เปิด 06:00–21:30, ผลรวมสามด้านไม่เกิน 158 ซม.)",
+          places: [{ name: "Airport MRT Taipei Main (A1)", zh: "機場捷運台北車站 A1" }]
+        },
+        {
+          time: "09:20–11:00",
+          title: "เป่ยโถว · Beitou · 北投 (Thermal Valley · 北投地熱谷 → พิพิธภัณฑ์น้ำพุร้อน · 北投溫泉博物館 → ห้องสมุดไม้ · 台北市立圖書館北投分館)",
+          mode: { label: "แท็กซี่ขึ้นบนสุด + เดินลงเนิน", cls: "t-taxi" },
+          desc: "นั่งแท็กซี่จาก A1 (~25–30 นาที) ขึ้นจุดบนสุดที่ Thermal Valley (เปิด 09:00–17:00) แล้วเดินลงเนินเบาๆ ~1 กม. ชมพิพิธภัณฑ์น้ำพุร้อน (10:00–18:00) และห้องสมุดไม้เป่ยโถว (08:30–21:00) เข้าฟรีทั้งหมด",
+          places: [
+            { name: "Thermal Valley", zh: "北投地熱谷" },
+            { name: "Beitou Hot Spring Museum", zh: "北投溫泉博物館" },
+            { name: "Beitou Public Library", zh: "台北市立圖書館北投分館" }
+          ]
+        },
+        {
+          time: "11:00–12:45",
+          title: "แช่เท้าอุ่นฟรี Fuxing Park · 復興公園泡腳池 & มื้อเที่ยงแถวสถานี Xinbeitou · 新北投",
+          mode: { label: "เดิน", cls: "t-walk" },
+          desc: "11:00–11:45 แช่เท้าอุ่นฟรีที่สวน Fuxing (08:00–18:00, ห่าง MRT 200–300 ม.) · 11:45–12:45 มื้อเที่ยงแถวสถานี Xinbeitou",
+          places: [
+            { name: "Fuxing Park Foot Bath", zh: "北投復興公園泡腳池" },
+            { name: "MRT Xinbeitou Station", zh: "捷運新北投站" }
+          ]
+        },
+        {
+          time: "13:20–16:00",
+          title: "ย่านจงซาน–ฉือเฟิง · Zhongshan–Chifeng · 捷運中山站 / 赤峰街",
+          mode: { label: "MRT สายแดง (~30–35 น.)", cls: "t-mrt-red" },
+          desc: "ออกเดินทาง 12:45 นั่ง MRT สายแดงกลับจงซาน ช้อปของแห้ง/ขนมถือขึ้นเครื่อง (Cookie886 · 曲奇886, Sugar & Spice · 糖村) และพักคาเฟ่",
+          places: [
+            { name: "MRT Zhongshan / Chifeng St", zh: "捷運中山站 赤峰街" },
+            { name: "Cookie886", zh: "曲奇886 台北門市" },
+            { name: "Sugar & Spice Nanxi", zh: "糖村 新光三越南西店" }
+          ]
+        },
+        {
+          time: "16:15–17:45",
+          title: "เดินทางไปสนามบินเถาหยวน T2 · Taoyuan Airport T2 · 桃園機場第二航廈",
+          mode: { label: "MRT → Airport MRT (A1)", cls: "t-bus" },
+          desc: "ออกจากจงซานไปต่อ Airport MRT ที่ A1 ถึงสนามบิน T2 ราว 17:30–17:45",
+          places: [{ name: "Taoyuan Airport T2", zh: "桃園機場第二航廈" }]
+        },
+        {
+          time: "17:45–20:45",
+          title: "SunnyHills T2 · 微熱山丘 (ชั้น 2F ก่อน ตม.) → มื้อเย็น → เที่ยวบิน BR 205",
+          mode: { label: "EVA Air BR 205", cls: "t-flight" },
+          desc: "ซื้อพายสับปะรด SunnyHills ชั้น 2F โซนสาธารณะก่อนผ่าน ตม. (เปิด 07:00–20:00 ราคาเท่าร้านในเมือง) ทานมื้อเย็น และผ่าน ตม. (แวะ Duty Free ได้) → 20:45 บิน BR 205 TPE T2 → ถึงกรุงเทพฯ 23:40 BKK (GMT+7)",
+          places: [{ name: "SunnyHills Taoyuan T2", zh: "微熱山丘 桃園機場第二航廈" }]
+        }
+      ]
+    }
+  ];
+
+  const FLIGHTS = [
+    { leg: "ขาไป", code: "BR 206", date: "อา. 6 ธ.ค. 2026 (เช็กอินคืน ส. 5 ธ.ค.)", route: "02:15 BKK (GMT+7) → 06:50 TPE (GMT+8) · 3 ชม. 35 น." },
+    { leg: "ขากลับ", code: "BR 205", date: "ส. 12 ธ.ค. 2026", route: "20:45 TPE T2 (GMT+8) → 23:40 BKK (GMT+7) · 3 ชม. 55 น." }
+  ];
+
+  const HOTELS = [
+    {
+      nights: "6–8 ธ.ค. (2 คืน)",
+      name: "Island Hearth Sun Moon Lake",
+      zh: "日月潭島宇居飯店",
+      addr: "555 南投縣魚池鄉水社村中山路105號",
+      zone: "สุ่ยเซ่อ (Shuishe) ใกล้ท่าเรือ",
+      hours: "เช็กอิน 16:00–22:00 · เช็กเอาต์ 07:30–11:00"
+    },
+    {
+      nights: "8–12 ธ.ค. (4 คืน)",
+      name: "Dahshin Hotel",
+      zh: "大欣大飯店",
+      addr: "台北市中山區中山北路二段27巷2-2號",
+      zone: "จงซาน (เดินจาก MRT Zhongshan ~5 นาที · ห่าง Taipei Main 1 สถานี)",
+      hours: "ฝากกระเป๋าที่ล็อบบี้ก่อนเช็กอินได้"
+    }
+  ];
+
+  const CURATED_TOPPICKS = [
+    { tag: "ฝากผู้ใหญ่", bag: "carry", bagLabel: "ถือขึ้นเครื่อง (D7 T2)", name: "พายสับปะรด / พายแอปเปิล · SunnyHills · 微熱山丘", where: "สนามบิน T2 ชั้น 2F ก่อน ตม. (07:00–20:00 ราคาเท่าร้านในเมือง)" },
+    { tag: "ฝากผู้ใหญ่", bag: "check", bagLabel: "โหลด (D3)", name: "ขนมมงคลเต่าถั่วลิสงงาดำ · Li Ting Xiang · 李亭香 & ผลไม้อบแห้ง", where: "ถนนตี๋ฮว่า · 迪化街 (เลขที่ 309)" },
+    { tag: "ฝากผู้ใหญ่", bag: "check", bagLabel: "โหลด / ถือขึ้นเครื่อง", name: "ชาดำ Ruby #18 · 紅玉紅茶 (D2) / ชาเถี่ยกวนอิน เมาคง (D6) / Wang De Chuan · 王德傳 (D7)", where: "สุ่ยเซ่อ (D2) · เมาคง (D6) · จงซาน/101 (D7)" },
+    { tag: "แจกออฟฟิศ", bag: "check", bagLabel: "โหลด (D4 เช้า)", name: "แครกเกอร์นูกัตต้นหอม · L'Atelier Lotus · 甜滿", where: "ถนนหย่งคัง ซอย 31 เลขที่ 10 (เปิด 09:00 เงินสดเท่านั้น · NT$220)" },
+    { tag: "แจกออฟฟิศ", bag: "carry", bagLabel: "ถือขึ้นเครื่อง (D7)", name: "คุกกี้เนย Cookie886 · 曲奇886 & นูกัต Sugar & Spice · 糖村", where: "จงซาน · ห้างชินกงมิตซูโคชิ Nanxi / 101 / T2" },
+    { tag: "แจกออฟฟิศ", bag: "check", bagLabel: "โหลด (คืนซูเปอร์)", name: "I-Mei Puffs · 義美小泡芙 / 77 Nougat Bar · 77乳加 / Kuai Kuai · 乖乖 (ถุงเขียว)", where: "Prosperity Plaza · 萬家福重慶店 (09:00–02:00) / 7-Eleven" },
+    { tag: "ซื้อกินเอง", bag: "check", bagLabel: "โหลด (D6)", name: "น้ำมันพริกติ่นไท่ฟง · Din Tai Fung · 鼎泰豐 & บะหมี่แห้ง Tseng Noodles · 曾拌麵", where: "ติ่นไท่ฟง 101 B1 (D6) · Prosperity Plaza (D3/D5/D6)" }
+  ];
+
+  const SOUVENIR_DAYS = [
+    { day: "D2 · สุ่ยเซ่อ (水社)", items: "ชาดำไถฉา เบอร์ 18 (Ruby #18 · 日月潭台茶18號 紅玉) แบบซองชงง่าย ~NT$300–800+" },
+    { day: "D3 · ถนนตี๋ฮว่า (迪化街)", items: "ขนมเต่า Li Ting Xiang · 李亭香 (~NT$200–600+), ผลไม้อบแห้ง (~NT$150–300+), ผงบ๊วย, ชาฟักเขียว/ชาขิง (~NT$150–250), ชา Lin Hua Tai · 林華泰茶行, ถุงตาข่าย Gaji Bag · 茄芷袋" },
+    { day: "คืนเหมาซูเปอร์ · Prosperity Plaza (萬家福重慶店)", items: "ใกล้หนิงเซี่ย 300–500 ม. เปิด 09:00–02:00 · I-Mei Puffs (~NT$35–55), 77 Nougat (~NT$100–120), Kuai Kuai ถุงเขียว (~NT$25–45), Tseng Noodles (~NT$180–250), Lao Ma · 老媽拌麵, ชานม 3:15 PM · 三點一刻 (~NT$130–180), Wei Lih ซองเขียวสูตรเจเท่านั้น" },
+    { day: "D4 · หย่งคัง → ซีเหมินติง → หัวซาน → ตั้นสุ่ย", items: "L'Atelier Lotus · 甜滿 (NT$220 เงินสด), Saint Peter · 聖比德 (สำรอง), ของฝาก LAIHAO · 來好, เครื่องรางหลงซาน, ทองม้วน HiWalk · 海邊走走 (งาดำ/เนยถั่ว), กล่องดนตรี Wooderful Life · 知音文創, ปลาอบกรอบ Hsu Yi · 許義魚酥" },
+    { day: "D5 · สือเฟิ่น & จิ่วเฟิ่น", items: "พวงกุญแจโคมลอยสือเฟิ่น (~NT$50–100) · นูกัตรสกาแฟ 佳賓餅家 ถนน Jishan Street (~NT$200–300)" },
+    { day: "D6 · เมาคง & ซิ่นอี้ / 101 (เส้นตายโหลด)", items: "ชาเถี่ยกวนอินเมาคง, น้ำมันพริกติ่นไท่ฟง (ต้องโหลด), ทองม้วน Bluebird Travel · 青鳥旅行 (เลี่ยงไส้หมูหยอง), มาส์ก L'Herboflore · 蕾舒翠, พายเผือก Ah Tsung Shi · 阿聰師" },
+    { day: "D7 · จงซาน & สนามบิน T2 (ถือขึ้นเครื่อง)", items: "Cookie886 · 曲奇886 (เปิด 12:30), Sugar & Spice · 糖村, ชา Wang De Chuan · 王德傳 · ก่อน ตม. T2 ชั้น 2F: SunnyHills · 微熱山丘 (10 ชิ้น NT$550 / 15 ชิ้น NT$825) · หลัง ตม. Duty Free: วิสกี้ Kavalan · 噶瑪蘭威士忌 (โควต้า ≤1 ลิตร/คน)" }
+  ];
+
+  const FULL_EXPLORE_EXTRA = [
+    { cat: "ฝากผู้ใหญ่", bag: "check", bagLabel: "โหลด (D3–D6)", name: "แผ่นแปะ / ลูกกลิ้งสมุนไพรจินเหมิน · 金門一條根 (王大夫 / 金太武)", price: "แผ่นแปะ ~150–350 / ครีม-ลูกกลิ้ง ~250–500 TWD", where: "ร้านขายยา / POYA · 寶雅 / Cosmed · 康是美 / ถนนตี๋ฮว่า" },
+    { cat: "ฝากผู้ใหญ่", bag: "carry", bagLabel: "สบู่ก้อนถือได้", name: "สบู่สมุนไพรไต้หวัน · Yuan Soap · 阿原肥皂 (สูตรยอดนิยม 艾草)", price: "~350–480 TWD", where: "ถนนตี๋ฮว่า / หย่งคัง / ซิ่นอี้ / T2" },
+    { cat: "แจกออฟฟิศ", bag: "check", bagLabel: "โหลด / ถือ", name: "ทองม้วนไส้เนยถั่ว/งาดำ · HiWalk · 海邊走走 / Bluebird Travel · 青鳥旅行 (เลี่ยงไส้หมูหยอง)", price: "~300–580 TWD", where: "ซีเหมินติง (D4) · 101 B1 (D6) · Nanxi B2 (D7)" },
+    { cat: "กินเอง", bag: "check", bagLabel: "โหลด", name: "มาส์กหน้า My Beauty Diary · 我的美麗日記 & เซรั่ม Dr. Wu (ต้องโหลด)", price: "มาส์ก ~200–300 / Dr. Wu ~800–1,600 TWD", where: "Cosmed / Watsons / POYA (แนะนำซื้อคืนแถวจงซาน)" },
+    { cat: "ช้อปใช้เอง", bag: "carry", bagLabel: "Tax Refund 5%", name: "Salomon (เช่น XT-6) & Onitsuka Tiger (Mexico 66)", price: "Salomon ~5,880–6,880 / Onitsuka ~3,680–4,580 TWD", where: "ย่านซิ่นอี้ (D6) · ซีเหมินติง (D4)" },
+    { cat: "ช้อปใช้เอง", bag: "carry", bagLabel: "Tax Refund 5%", name: "รองเท้าผู้หญิงไต้หวัน · D+AF & Grace Gift", price: "คัทชู ~680–1,380 / บูท ~980–2,200 TWD", where: "จงซาน (D7) · ซีเหมินติง (D4) · ซิ่นอี้ (D6)" },
+    { cat: "ช้อปใช้เอง", bag: "carry", bagLabel: "Tax Refund 5%", name: "เสื้อผ้า & กระเป๋าไต้หวัน · NET / Plain-me / PAZZO (UR LIVING) / ROBINMAY", price: "NET ~199–1,200 / Plain-me ~600–1,500 / ROBINMAY ~600–3,800 TWD", where: "จงซาน–ฉือเฟิง (D7) · ซีเหมินติง (D4)" }
+  ];
+
+  const CHECKLIST_ITEMS = [
+    { id: "c-passport", text: "พาสปอร์ตตัวจริง (ใช้ขอ Tax Refund 5% เมื่อช้อป ≥NT$2,000/ร้าน/วัน)" },
+    { id: "c-jacket", text: "เสื้อคลุมกันหนาวและเสื้อกันลม (สุริยันจันทราเช้า 12–15°C · เย่หลิ่วและตั้นสุ่ยลมแรง)" },
+    { id: "c-shoes", text: "รองเท้าเดินสบายพื้นกันลื่น + ร่มพับ / เสื้อกันฝน (ไทเป-จิ่วเฟิ่นฝนปรอยบ่อย)" },
+    { id: "c-towel", text: "ผ้าขนหนูผืนเล็ก (สำหรับเช็ดเท้าหลังแช่เท้าอุ่นที่ Fuxing Park เป่ยโถว เช้า D7)" },
+    { id: "c-cash", text: "เงินสด TWD (ร้าน L'Atelier Lotus D4 และร้านค้าริมทางรับเฉพาะเงินสด)" },
+    { id: "c-easycard", text: "บัตร EasyCard (ซื้อและเติมเงินที่สนามบิน ใช้ขึ้น MRT บัส แท็กซี่ส่วนใหญ่ และร้านสะดวกซื้อ)" },
+    { id: "c-bagsize", text: "เช็กขนาดกระเป๋าโหลด: ผลรวม 3 ด้านไม่เกิน 158 ซม. (สำหรับ Self Bag Drop สถานี A1 เช้า D7)" },
+    { id: "c-esim", text: "eSIM / โรมมิ่ง และแอป Google Maps + Uber พร้อมใช้งาน" }
+  ];
+
+  const STORAGE_KEY = "taipei-2026-checklist-v1";
+  const TRIP_DATES = DAYS.map(d => d.date);
+
+  function getTaipeiToday() {
+    try {
+      const fmt = new Intl.DateTimeFormat("en-CA", {
+        timeZone: "Asia/Taipei",
+        year: "numeric", month: "2-digit", day: "2-digit"
+      });
+      return fmt.format(new Date());
+    } catch {
+      return "";
+    }
+  }
+
+  const todayIso = getTaipeiToday();
+  const todayDayObj = DAYS.find(d => d.date === todayIso) || null;
+  const isDuringTrip = Boolean(todayDayObj);
+
+  let state = {
+    tab: "route",
+    viewMode: isDuringTrip ? "focus" : "all",
+    activeDay: isDuringTrip ? todayDayObj.id : "D0",
+    souvenirMode: "curated",
+    souvenirFilter: "ทั้งหมด",
+    checked: {}
+  };
+
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+    if (saved && typeof saved === "object") state.checked = saved;
+  } catch { /* ignore storage errors */ }
+
+  function esc(str) {
+    return String(str).replace(/[&<>"']/g, s => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+    }[s]));
+  }
+
+  function mapUrl(zh, addr) {
+    const q = addr ? `${zh} ${addr}` : zh;
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+  }
+
+  function renderStatusNote() {
+    const el = document.getElementById("trip-status-note");
+    if (isDuringTrip) {
+      el.textContent = `กำลังเดินทาง · วันนี้ ${todayDayObj.id} (${todayDayObj.shortDate})`;
+    } else {
+      el.textContent = "โหมดเตรียมทริป · แสดงแผนครบทุกวัน";
+    }
+  }
+
+  function renderDayRail() {
+    const rail = document.getElementById("day-rail");
+    rail.innerHTML = DAYS.map(d => {
+      const isToday = todayDayObj && todayDayObj.id === d.id;
+      const isCurrent = state.activeDay === d.id;
+      return `
+        <button class="cp-btn" type="button" data-day="${d.id}" aria-current="${isCurrent ? "true" : "false"}" aria-label="${esc(d.title)}">
+          ${isToday ? '<span class="cp-today-flag">วันนี้</span>' : ""}
+          <span class="cp-circle">${d.id}</span>
+          <span class="cp-date">${d.shortDate}</span>
+        </button>
+      `;
+    }).join("");
+
+    const jumpBtn = document.getElementById("btn-today-jump");
+    if (isDuringTrip) {
+      jumpBtn.hidden = false;
+      document.getElementById("today-jump-label").textContent = `กลับวันนี้ (${todayDayObj.id})`;
+    } else {
+      jumpBtn.hidden = true;
+    }
+
+    document.getElementById("btn-mode-all").setAttribute("aria-pressed", String(state.viewMode === "all"));
+    document.getElementById("btn-mode-focus").setAttribute("aria-pressed", String(state.viewMode === "focus"));
+  }
+
+  function renderRoute() {
+    const panel = document.getElementById("panel-route");
+    panel.innerHTML = DAYS.map(day => {
+      const isHidden = state.viewMode === "focus" && state.activeDay !== day.id;
+      const isToday = todayDayObj && todayDayObj.id === day.id;
+      const condHtml = day.conditions.map(c => `
+        <span class="cond-item">${ICONS.temp}<span>${esc(c)}</span></span>
+      `).join("");
+
+      const rowsHtml = day.items.map(item => {
+        const placesHtml = (item.places || []).map(p => {
+          const copyText = p.addr ? `${p.zh} ${p.addr}` : p.zh;
+          return `
+            <div class="plaque-row">
+              <span class="zh-plaque" lang="zh-Hant">${esc(p.zh)}${p.addr ? ` · ${esc(p.addr)}` : ""}</span>
+              <button class="action-btn copy-btn" type="button" data-copy="${esc(copyText)}">
+                ${ICONS.copy}<span>คัดลอก</span>
+              </button>
+              <button class="action-btn driver-btn" type="button" data-zh="${esc(p.zh)}" data-addr="${esc(p.addr || "")}" data-sub="${esc(p.name)}">
+                ${ICONS.expand}<span>โชว์คนขับ</span>
+              </button>
+              <a class="action-btn map-btn" href="${mapUrl(p.zh, p.addr)}" target="_blank" rel="noopener noreferrer">
+                ${ICONS.map}<span>Maps</span>
+              </a>
+            </div>
+          `;
+        }).join("");
+
+        return `
+          <div class="ctrl-row ${item.optional ? "is-optional" : ""}">
+            <div class="ctrl-time">${esc(item.time)}</div>
+            <div class="ctrl-body">
+              <div class="ctrl-head-line">
+                <h3 class="place-title">${esc(item.title)}</h3>
+                <div class="badge-group">
+                  ${item.optional ? `<span class="optional-mark">ทางเลือกหน้างาน</span>` : ""}
+                  <span class="transit-badge ${item.mode.cls}">${esc(item.mode.label)}</span>
+                </div>
+              </div>
+              <p class="ctrl-desc">${esc(item.desc)}</p>
+              ${placesHtml ? `<div class="plaque-group">${placesHtml}</div>` : ""}
+              ${item.warn ? `<div class="warn-banner">${ICONS.warn}<span>${esc(item.warn)}</span></div>` : ""}
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      return `
+        <article class="day-section" id="day-${day.id}" ${isHidden ? "hidden" : ""}>
+          <div class="day-header">
+            <h2><span class="day-code">${day.id}</span>${esc(day.title)}</h2>
+            <div class="day-badges">
+              ${isToday ? '<span class="today-pill">วันนี้</span>' : ""}
+              <span class="zone-pill">${esc(day.zone)}</span>
+            </div>
+          </div>
+          <div class="cond-strip">${condHtml}</div>
+          <div class="ctrl-table">${rowsHtml}</div>
+        </article>
+      `;
+    }).join("");
+  }
+
+  function renderStay() {
+    const panel = document.getElementById("panel-stay");
+    const flightRows = FLIGHTS.map(f => `
+      <div class="data-row cols-3">
+        <div class="data-label">${esc(f.leg)} · <span class="mono-code">${esc(f.code)}</span></div>
+        <div>${esc(f.route)}</div>
+        <div>${esc(f.date)}</div>
+      </div>
+    `).join("");
+
+    const hotelRows = HOTELS.map(h => `
+      <div class="data-row">
+        <div class="data-label">${esc(h.nights)} · ${esc(h.name)}</div>
+        <div>${esc(h.zone)} · ${esc(h.hours)}</div>
+        <div class="plaque-row">
+          <span class="zh-plaque" lang="zh-Hant">${esc(h.zh)} · ${esc(h.addr)}</span>
+          <button class="action-btn copy-btn" type="button" data-copy="${esc(`${h.zh} ${h.addr}`)}">${ICONS.copy}<span>คัดลอก</span></button>
+          <button class="action-btn driver-btn" type="button" data-zh="${esc(h.zh)}" data-addr="${esc(h.addr)}" data-sub="${esc(h.name)}">${ICONS.expand}<span>โชว์คนขับ</span></button>
+          <a class="action-btn map-btn" href="${mapUrl(h.zh, h.addr)}" target="_blank" rel="noopener noreferrer">${ICONS.map}<span>Maps</span></a>
+        </div>
+      </div>
+    `).join("");
+
+    panel.innerHTML = `
+      <h2 class="section-title">เที่ยวบิน EVA Air</h2>
+      <div class="data-grid">${flightRows}</div>
+
+      <h2 class="section-title">ที่พักตลอดทริป</h2>
+      <div class="data-grid">${hotelRows}</div>
+
+      <h2 class="section-title">การเดินทาง &amp; โหลดกระเป๋า A1</h2>
+      <div class="data-grid">
+        <div class="data-row cols-2">
+          <div class="data-label">แท็กซี่ &amp; Uber ในไทเป</div>
+          <div>มิเตอร์เริ่มต้น NT$85 (1.25 กม.แรก) จากนั้น +NT$5 ทุก 200 ม. ใช้บัตร EasyCard แตะจ่ายได้เกือบทุกคัน และไม่มีธรรมเนียมให้ทิปคนขับ</div>
+        </div>
+        <div class="data-row cols-2">
+          <div class="data-label">วันย้ายกระเป๋าใหญ่ (D3, D7)</div>
+          <div>เรียกรถคันใหญ่ (Uber XL) เนื่องจากแท็กซี่เก๋งทั่วไปใส่กระเป๋าใหญ่ได้ไม่เกิน 2 ใบ</div>
+        </div>
+        <div class="data-row cols-2">
+          <div class="data-label">MRT รอบโรงแรมไทเป</div>
+          <div>สถานี Zhongshan เชื่อมตรงทั้งสายสีแดง (ไปไทเป 101 / หย่งคัง / เป่ยโถว / ตั้นสุ่ย) และสายสีเขียว</div>
+        </div>
+        <div class="data-row cols-2">
+          <div class="data-label">โหลดกระเป๋า A1 เช้า D7</div>
+          <div>EVA Air Self Bag Drop ที่สถานี Airport MRT Taipei Main (A1) เปิด 06:00–21:30 ปิด 3 ชม. ก่อนบิน ต้องเช็กอินออนไลน์มาก่อน รับกระเป๋าผลรวม 3 ด้านไม่เกิน 158 ซม. (ไม่รับกล่องกระดาษ ร่ม หรือกระเป๋าเป้นิ่ม)</div>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderSouvenirs() {
+    const panel = document.getElementById("panel-souvenirs");
+    const isFull = state.souvenirMode === "full";
+    const cats = ["ทั้งหมด", "ฝากผู้ใหญ่", "แจกออฟฟิศ", "กินเอง", "ช้อปใช้เอง"];
+
+    const filterBtns = cats.map(c => `
+      <button class="filter-chip" type="button" data-sfilter="${esc(c)}" aria-pressed="${state.souvenirFilter === c ? "true" : "false"}">${esc(c)}</button>
+    `).join("");
+
+    const topItems = CURATED_TOPPICKS.filter(item => !isFull || state.souvenirFilter === "ทั้งหมด" || item.tag === state.souvenirFilter);
+    const extraItems = isFull
+      ? FULL_EXPLORE_EXTRA.filter(item => state.souvenirFilter === "ทั้งหมด" || item.cat === state.souvenirFilter)
+      : [];
+
+    const topHtml = topItems.map(item => `
+      <div class="data-row">
+        <div class="ctrl-head-line">
+          <span class="data-label">${esc(item.tag)} · ${esc(item.name)}</span>
+          <span class="bag-tag ${item.bag}">${ICONS.bag}${esc(item.bagLabel)}</span>
+        </div>
+        <div>พิกัด: ${esc(item.where)}</div>
+      </div>
+    `).join("");
+
+    const extraHtml = extraItems.map(item => `
+      <div class="data-row">
+        <div class="ctrl-head-line">
+          <span class="data-label">${esc(item.cat)} · ${esc(item.name)}</span>
+          <span class="bag-tag ${item.bag}">${ICONS.bag}${esc(item.bagLabel)}</span>
+        </div>
+        <div>ราคาคร่าวๆ: <span class="mono-code">${esc(item.price)}</span> · พิกัด: ${esc(item.where)}</div>
+      </div>
+    `).join("");
+
+    const byDayHtml = SOUVENIR_DAYS.map(s => `
+      <div class="data-row cols-2">
+        <div class="data-label">${esc(s.day)}</div>
+        <div>${esc(s.items)}</div>
+      </div>
+    `).join("");
+
+    panel.innerHTML = `
+      <div class="souvenir-toolbar">
+        <div>
+          <strong>โหมดดูของฝาก:</strong>
+          <span>${isFull ? "ครบทุกหมวด (รวมช้อปใช้เอง)" : "คัดเฉพาะร้านหลักตามเส้นทาง (แนะนำ)"}</span>
+        </div>
+        <div class="mode-group" role="group" aria-label="โหมดคู่มือของฝาก">
+          <button class="mode-btn" type="button" data-smode="curated" aria-pressed="${!isFull}">คัดหลัก</button>
+          <button class="mode-btn" type="button" data-smode="full" aria-pressed="${isFull}">Explore ครบทุกหมวด</button>
+        </div>
+      </div>
+
+      <div class="filter-bar" ${isFull ? "" : "hidden"}>${filterBtns}</div>
+
+      <div class="warn-banner" style="margin-top:0; margin-bottom:16px;">
+        ${ICONS.warn}
+        <div>
+          <strong>กฎเหล็กก่อนซื้อกลับไทย:</strong>
+          1) ของเหลวเกิน 100 ml (น้ำมันพริก, เซรั่ม) ต้องซื้อให้จบภายใน <strong>D6</strong> เพื่อโหลดใต้เครื่องเช้า D7 ·
+          2) <strong>ห้ามนำเข้าไทยเด็ดขาด:</strong> ผลิตภัณฑ์เนื้อสัตว์/หมูหยอง/กุนเชียง บะหมี่ซองมีชิ้นเนื้อหรือน้ำมันหมู ไข่เหล็ก (阿婆鐵蛋) และผลิตภัณฑ์กัญชา ·
+          3) ช้อปครบ <strong>NT$2,000</strong>/ร้าน/วันที่มีป้าย TRS พกพาสปอร์ตขอ Tax Refund 5% ได้ ·
+          4) ขนมสด (SunnyHills, Lotus) เก็บได้ราว 15–30 วัน
+        </div>
+      </div>
+
+      <h2 class="section-title">โผของฝากเด่น (Quick Picks)</h2>
+      <div class="data-grid">${topHtml || '<div class="data-row">ไม่มีรายการในหมวดนี้ ดูเพิ่มเติมในหมวดย่อยด้านล่าง</div>'}</div>
+
+      ${isFull ? `
+        <h2 class="section-title">รายการเพิ่มเติม &amp; ช้อปใช้เอง (Explore)</h2>
+        <div class="data-grid">${extraHtml || '<div class="data-row">เลือกรายการตามหมวดด้านบน</div>'}</div>
+      ` : ""}
+
+      <h2 class="section-title">จุดซื้อตามวันเดินทาง (D2–D7 + คืนเหมาซูเปอร์)</h2>
+      <div class="data-grid">${byDayHtml}</div>
+    `;
+  }
+
+  function renderPrep() {
+    const panel = document.getElementById("panel-prep");
+    const doneCount = CHECKLIST_ITEMS.filter(i => state.checked[i.id]).length;
+
+    const listHtml = CHECKLIST_ITEMS.map(item => {
+      const checked = Boolean(state.checked[item.id]);
+      return `
+        <li class="check-item ${checked ? "done" : ""}">
+          <label class="check-label">
+            <input class="check-input" type="checkbox" data-cid="${item.id}" ${checked ? "checked" : ""}>
+            <span class="check-text">${esc(item.text)}</span>
+          </label>
+        </li>
+      `;
+    }).join("");
+
+    panel.innerHTML = `
+      <h2 class="section-title">สภาพอากาศเดือนธันวาคม</h2>
+      <div class="data-grid">
+        <div class="data-row cols-2">
+          <div class="data-label">สุริยันจันทรา (D1–D3 เช้า)</div>
+          <div>ช่วงเช้าเย็น 12–15°C หนาวกว่าไทเปและมีลมแรงบนกระเช้า เตรียมเสื้อคลุมกันหนาวและกันลม</div>
+        </div>
+        <div class="data-row cols-2">
+          <div class="data-label">ไทเป / จิ่วเฟิ่น (D3–D7)</div>
+          <div>อุณหภูมิราว 15–20°C มักมีฝนปรอย แนะนำพกร่มและใส่รองเท้าพื้นกันลื่น</div>
+        </div>
+        <div class="data-row cols-2">
+          <div class="data-label">ชายฝั่งเย่หลิ่ว &amp; ตั้นสุ่ย</div>
+          <div>ลมมรสุมริมน้ำแรง ช่วงพระอาทิตย์ตกราว 17:05–17:15</div>
+        </div>
+      </div>
+
+      <div class="check-header">
+        <h2 class="section-title" style="margin:0; border:none; padding:0;">เช็กลิสต์ของเตรียมตัว</h2>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span class="check-progress">${doneCount}/${CHECKLIST_ITEMS.length} รายการ</span>
+          <button class="action-btn" type="button" id="reset-checks">ล้างทั้งหมด</button>
+        </div>
+      </div>
+      <ul class="checklist">${listHtml}</ul>
+    `;
+  }
+
+  function switchTab(tabName) {
+    state.tab = tabName;
+    document.querySelectorAll(".nav-tab").forEach(btn => {
+      btn.setAttribute("aria-selected", String(btn.dataset.tab === tabName));
+    });
+    document.getElementById("course-bar").hidden = tabName !== "route";
+
+    ["route", "stay", "souvenirs", "prep"].forEach(name => {
+      const panel = document.getElementById(`panel-${name}`);
+      const active = name === tabName;
+      panel.hidden = !active;
+      panel.classList.remove("panel-enter");
+      if (active) {
+        void panel.offsetWidth;
+        panel.classList.add("panel-enter");
+      }
+    });
+  }
+
+  function selectDay(dayId) {
+    state.activeDay = dayId;
+    renderDayRail();
+    if (state.viewMode === "focus") {
+      renderRoute();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const target = document.getElementById(`day-${dayId}`);
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  // Event delegation
+  document.querySelector(".primary-nav").addEventListener("click", e => {
+    const btn = e.target.closest("[data-tab]");
+    if (btn) switchTab(btn.dataset.tab);
+  });
+
+  document.getElementById("day-rail").addEventListener("click", e => {
+    const btn = e.target.closest("[data-day]");
+    if (btn) selectDay(btn.dataset.day);
+  });
+
+  document.getElementById("btn-mode-all").addEventListener("click", () => {
+    state.viewMode = "all";
+    renderDayRail();
+    renderRoute();
+  });
+
+  document.getElementById("btn-mode-focus").addEventListener("click", () => {
+    state.viewMode = "focus";
+    renderDayRail();
+    renderRoute();
+  });
+
+  document.getElementById("btn-today-jump").addEventListener("click", () => {
+    if (!todayDayObj) return;
+    switchTab("route");
+    state.viewMode = "focus";
+    selectDay(todayDayObj.id);
+  });
+
+  const dialog = document.getElementById("driver-dialog");
+
+  document.getElementById("main-content").addEventListener("click", async e => {
+    const copyBtn = e.target.closest(".copy-btn");
+    if (copyBtn) {
+      const txt = copyBtn.dataset.copy;
+      try {
+        await navigator.clipboard.writeText(txt);
+        const span = copyBtn.querySelector("span");
+        const prev = span.textContent;
+        copyBtn.classList.add("copied");
+        span.textContent = "คัดลอกแล้ว";
+        setTimeout(() => {
+          copyBtn.classList.remove("copied");
+          span.textContent = prev;
+        }, 1400);
+      } catch { /* clipboard unavailable */ }
+      return;
+    }
+
+    const driverBtn = e.target.closest(".driver-btn");
+    if (driverBtn) {
+      const zh = driverBtn.dataset.zh;
+      const addr = driverBtn.dataset.addr;
+      const sub = driverBtn.dataset.sub;
+      document.getElementById("dlg-zh").textContent = zh;
+      document.getElementById("dlg-addr").textContent = addr;
+      document.getElementById("dlg-sub").textContent = sub;
+      document.getElementById("dlg-copy-btn").dataset.copy = addr ? `${zh} ${addr}` : zh;
+      document.getElementById("dlg-map-link").href = mapUrl(zh, addr);
+      dialog.showModal();
+      return;
+    }
+
+    const smodeBtn = e.target.closest("[data-smode]");
+    if (smodeBtn) {
+      state.souvenirMode = smodeBtn.dataset.smode;
+      renderSouvenirs();
+      return;
+    }
+
+    const sfilterBtn = e.target.closest("[data-sfilter]");
+    if (sfilterBtn) {
+      state.souvenirFilter = sfilterBtn.dataset.sfilter;
+      renderSouvenirs();
+      return;
+    }
+
+    if (e.target.closest("#reset-checks")) {
+      state.checked = {};
+      try { localStorage.setItem(STORAGE_KEY, "{}"); } catch { /* ignore */ }
+      renderPrep();
+    }
+  });
+
+  document.getElementById("panel-prep").addEventListener("change", e => {
+    const input = e.target.closest(".check-input");
+    if (!input) return;
+    state.checked[input.dataset.cid] = input.checked;
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state.checked)); } catch { /* ignore */ }
+    renderPrep();
+  });
+
+  document.getElementById("dlg-copy-btn").addEventListener("click", async e => {
+    const btn = e.currentTarget;
+    try {
+      await navigator.clipboard.writeText(btn.dataset.copy || "");
+      btn.classList.add("copied");
+      btn.textContent = "คัดลอกแล้ว";
+      setTimeout(() => {
+        btn.classList.remove("copied");
+        btn.textContent = "คัดลอกภาษาจีน";
+      }, 1400);
+    } catch { /* ignore */ }
+  });
+
+  // Light-dismiss fallback for browsers without native dialog closedby="any"
+  if (!("closedBy" in HTMLDialogElement.prototype)) {
+    const outside = (e, dlg) => {
+      const r = dlg.getBoundingClientRect();
+      return e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom;
+    };
+    let pressedOutside = false;
+    dialog.addEventListener("pointerdown", e => { pressedOutside = outside(e, dialog); });
+    dialog.addEventListener("pointerup", e => { if (pressedOutside && outside(e, dialog)) dialog.close(); });
+  }
+
+  // Initial render
+  renderStatusNote();
+  renderDayRail();
+  renderRoute();
+  renderStay();
+  renderSouvenirs();
+  renderPrep();
+})();
+</script>
+</body>
+</html>
