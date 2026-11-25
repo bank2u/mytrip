@@ -11,20 +11,22 @@
 <style>
   :root {
     --paper: #FFFFFF;
-    --margin: #F5F4F0;
-    --margin-deep: #EAE7DF;
-    --ink: #16181A;
-    --ink-soft: #43474D;
-    --rule: #C9C5BB;
-    --rule-strong: #16181A;
-    --course: #6E1E7E;
-    --course-tint: #F5EDF7;
-    --contour: #7C4E24;
+    --margin: #F6F5F2;
+    --margin-deep: #EBE8E1;
+    --ink: #14181F;
+    --ink-soft: #464E59;
+    --rule: #CFCBC2;
+    --rule-strong: #14181F;
+    --navy: #14365D;
+    --navy-tint: #EDF2F8;
+    --vermilion: #B8232A;
+    --vermilion-tint: #FCECEE;
+    --contour: #7C5836;
     --lake: #155E8A;
     --lake-tint: #E9F3F8;
     --forest: #2E6140;
     --forest-tint: #EBF3ED;
-    --mrt-red: #B81D27;
+    --mrt-red: #B8232A;
     --mrt-green: #2E6140;
     --taxi: #F2B705;
     --transit: #1E3A5F;
@@ -40,12 +42,12 @@
   * { box-sizing: border-box; }
 
   html {
-    scrollbar-color: var(--course) var(--margin);
+    scrollbar-color: var(--navy) var(--margin);
     scroll-behavior: smooth;
   }
 
   ::selection {
-    background: var(--course);
+    background: var(--navy);
     color: #FFFFFF;
   }
 
@@ -62,7 +64,7 @@
   }
 
   a {
-    color: var(--course);
+    color: var(--navy);
     text-underline-offset: 3px;
   }
 
@@ -77,7 +79,7 @@
   }
 
   :focus-visible {
-    outline: 3px solid var(--course);
+    outline: 3px solid var(--navy);
     outline-offset: 2px;
   }
 
@@ -109,17 +111,17 @@
     }
   }
 
-  /* Masthead frame with topographic contour ornament strictly in peripheral header */
+  /* Masthead frame: crisp title & dates only, peripheral contour ornament */
   .masthead {
     position: relative;
     background: var(--margin);
     border-bottom: 2px solid var(--rule-strong);
-    padding: 20px 16px 16px;
+    padding: 18px 16px 14px;
     overflow: hidden;
   }
 
   @media (min-width: 680px) {
-    .masthead { padding: 26px 28px 20px; }
+    .masthead { padding: 24px 28px 18px; }
   }
 
   .contour-bg {
@@ -128,28 +130,17 @@
     width: 100%;
     height: 100%;
     pointer-events: none;
-    opacity: 0.44;
+    opacity: 0.36;
   }
 
   .masthead-inner {
     position: relative;
     z-index: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .masthead-top {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 12px;
   }
 
   h1 {
     margin: 0;
-    font-size: clamp(1.65rem, 4.8vw, 2.35rem);
+    font-size: clamp(1.6rem, 4.8vw, 2.3rem);
     line-height: 1.15;
     font-weight: 700;
     letter-spacing: -0.02em;
@@ -164,62 +155,6 @@
     color: var(--ink-soft);
   }
 
-  .home-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    min-height: 44px;
-    padding: 0 12px;
-    border: 1.5px solid var(--rule-strong);
-    background: var(--paper);
-    color: var(--ink);
-    text-decoration: none;
-    font-size: 0.9375rem;
-    font-weight: 600;
-    white-space: nowrap;
-  }
-  .home-link:hover {
-    background: var(--ink);
-    color: #FFFFFF;
-  }
-
-  .legend-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    padding-top: 8px;
-    border-top: 1px solid var(--rule);
-  }
-
-  .terrain-legend {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    align-items: center;
-  }
-
-  .terrain-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    padding: 3px 9px;
-    border: 1px solid currentColor;
-    background: var(--paper);
-  }
-  .terrain-chip.lake { color: var(--lake); background: var(--lake-tint); }
-  .terrain-chip.city { color: var(--mrt-red); background: #FCECEE; }
-  .terrain-chip.mountain { color: var(--forest); background: var(--forest-tint); }
-
-  .trip-status-note {
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: var(--course);
-  }
-
   /* Primary 4-section navigation */
   .primary-nav {
     display: grid;
@@ -229,7 +164,7 @@
   }
 
   .nav-tab {
-    min-height: 52px;
+    min-height: 50px;
     padding: 8px 4px;
     display: flex;
     flex-direction: column;
@@ -246,9 +181,9 @@
   .nav-tab:last-child { border-right: none; }
   .nav-tab:hover { background: var(--margin); color: var(--ink); }
   .nav-tab[aria-selected="true"] {
-    background: var(--course-tint);
-    color: var(--course);
-    border-bottom-color: var(--course);
+    background: var(--navy-tint);
+    color: var(--navy);
+    border-bottom-color: var(--vermilion);
     font-weight: 700;
   }
 
@@ -260,108 +195,107 @@
     }
   }
 
-  /* Sticky ISO Orienteering Course Strip (D0-D7) */
+  /* Single-row Sticky Day Rail: [ทุกวัน] + (D0)-(D7) */
   .course-bar {
     position: sticky;
     top: 0;
     z-index: 20;
     background: var(--paper);
     border-bottom: 2px solid var(--rule-strong);
-    padding: 10px 8px;
+    padding: 6px 8px;
   }
 
   @media (min-width: 680px) {
-    .course-bar { padding: 12px 28px; }
+    .course-bar { padding: 8px 28px; }
   }
 
   .course-bar[hidden] { display: none; }
 
-  .course-top {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    margin-bottom: 10px;
-  }
-
-  .mode-group {
-    display: inline-flex;
-    gap: 4px;
-    padding: 4px;
-    border: 1.5px solid var(--rule-strong);
-    background: var(--margin);
-  }
-
-  .mode-btn {
-    min-height: 44px;
-    padding: 8px 14px;
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: var(--ink);
-  }
-  .mode-btn[aria-pressed="true"] {
-    background: var(--ink);
-    color: #FFFFFF;
-  }
-
-  .today-jump {
-    min-height: 44px;
-    padding: 0 14px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--course);
-    color: #FFFFFF;
-    font-size: 0.9375rem;
-    font-weight: 700;
-    border: 1.5px solid var(--course);
-  }
-  .today-jump[hidden] { display: none; }
-
   .day-rail {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(8, minmax(0, 1fr));
+    grid-template-columns: 48px repeat(8, minmax(0, 1fr));
     gap: 2px;
     align-items: center;
-    padding: 6px 0;
+    padding: 2px 0;
+  }
+
+  @media (min-width: 520px) {
+    .day-rail {
+      grid-template-columns: 68px repeat(8, minmax(0, 1fr));
+      gap: 4px;
+    }
   }
 
   .day-rail::before {
     content: "";
     position: absolute;
-    left: calc(100% / 16);
-    right: calc(100% / 16);
-    top: 25px;
+    left: 72px;
+    right: calc((100% - 48px) / 16);
+    top: 22px;
     height: 2px;
-    background: var(--course);
-    opacity: 0.42;
+    background: var(--navy);
+    opacity: 0.28;
     z-index: 0;
+  }
+
+  @media (min-width: 520px) {
+    .day-rail::before {
+      left: 96px;
+      right: calc((100% - 68px) / 16);
+      top: 24px;
+    }
+  }
+
+  .all-btn {
+    position: relative;
+    z-index: 1;
+    min-height: 44px;
+    padding: 4px 4px;
+    border: 1.5px solid var(--navy);
+    background: var(--paper);
+    color: var(--navy);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.15;
+  }
+
+  @media (min-width: 520px) {
+    .all-btn { font-size: 0.875rem; padding: 4px 8px; }
+  }
+
+  .all-btn:hover { background: var(--navy-tint); }
+  .all-btn[aria-pressed="true"] {
+    background: var(--navy);
+    color: #FFFFFF;
   }
 
   .cp-btn {
     position: relative;
     z-index: 1;
-    min-height: 48px;
+    min-height: 46px;
     min-width: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3px;
+    gap: 2px;
     padding: 2px 0;
   }
 
   .cp-circle {
-    width: 34px;
-    height: 34px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
-    border: 2px solid var(--course);
+    border: 2px solid var(--navy);
     background: var(--paper);
-    color: var(--course);
+    color: var(--navy);
     font-family: var(--font-mono);
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     font-weight: 700;
     display: flex;
     align-items: center;
@@ -371,24 +305,29 @@
 
   @media (min-width: 440px) {
     .cp-circle {
-      width: 38px;
-      height: 38px;
+      width: 36px;
+      height: 36px;
       font-size: 0.875rem;
     }
   }
 
   .cp-btn:hover .cp-circle {
-    background: var(--course-tint);
+    background: var(--navy-tint);
   }
 
   .cp-btn[aria-current="true"] .cp-circle {
-    background: var(--course);
+    background: var(--navy);
     color: #FFFFFF;
-    box-shadow: 0 0 0 3px var(--course-tint);
+    box-shadow: 0 0 0 3px var(--navy-tint);
+  }
+
+  .cp-btn.is-today:not([aria-current="true"]) .cp-circle {
+    border-color: var(--vermilion);
+    color: var(--vermilion);
   }
 
   .cp-date {
-    font-size: 0.6875rem;
+    font-size: 0.625rem;
     font-weight: 600;
     color: var(--ink-soft);
     white-space: nowrap;
@@ -401,13 +340,13 @@
   .cp-today-flag {
     position: absolute;
     top: -3px;
-    right: 2px;
-    background: var(--mrt-red);
+    right: 0;
+    background: var(--vermilion);
     color: #FFFFFF;
-    font-size: 0.6875rem;
+    font-size: 0.625rem;
     font-weight: 700;
     padding: 1px 4px;
-    line-height: 1.2;
+    line-height: 1.15;
   }
 
   /* Main reading column */
@@ -416,29 +355,29 @@
   }
 
   @media (min-width: 680px) {
-    main { padding: 28px 28px 64px; }
+    main { padding: 24px 28px 56px; }
   }
 
   .panel[hidden] { display: none; }
 
   .panel-enter {
-    animation: panelFade 180ms var(--ease-out);
+    animation: panelFade 160ms var(--ease-out);
   }
 
   @keyframes panelFade {
-    from { opacity: 0.75; transform: translateY(4px); }
+    from { opacity: 0.8; transform: translateY(3px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
   /* Day block & Control Description Table */
   .day-section {
-    margin-bottom: 18px;
-    scroll-margin-top: 168px;
+    margin-bottom: 20px;
+    scroll-margin-top: 84px;
   }
   @media (min-width: 680px) {
     .day-section {
       margin-bottom: 28px;
-      scroll-margin-top: 140px;
+      scroll-margin-top: 90px;
     }
   }
   .day-section[hidden] { display: none; }
@@ -455,7 +394,7 @@
 
   .day-header h2 {
     margin: 0;
-    font-size: clamp(1.25rem, 3.6vw, 1.65rem);
+    font-size: clamp(1.25rem, 3.6vw, 1.6rem);
     line-height: 1.22;
     font-weight: 700;
     color: var(--ink);
@@ -463,39 +402,24 @@
 
   .day-code {
     font-family: var(--font-mono);
-    color: var(--course);
+    color: var(--navy);
     margin-right: 6px;
   }
 
-  .day-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    align-items: center;
-  }
-
   .today-pill {
-    background: var(--course);
+    background: var(--vermilion);
     color: #FFFFFF;
     font-size: 0.875rem;
     font-weight: 700;
     padding: 2px 10px;
   }
 
-  .zone-pill {
-    font-size: 0.875rem;
-    font-weight: 600;
-    padding: 2px 10px;
-    border: 1px solid var(--rule-strong);
-    background: var(--margin);
-  }
-
-  /* Day condition ribbon */
+  /* Day condition ribbon with semantic icons */
   .cond-strip {
     display: flex;
     flex-wrap: wrap;
-    gap: 4px 14px;
-    padding: 7px 10px;
+    gap: 6px 16px;
+    padding: 8px 12px;
     background: var(--margin);
     border-left: 1.5px solid var(--rule-strong);
     border-right: 1.5px solid var(--rule-strong);
@@ -508,6 +432,10 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
+  }
+  .cond-item svg {
+    color: var(--navy);
+    flex-shrink: 0;
   }
 
   /* Control Description Table */
@@ -526,21 +454,21 @@
 
   @media (min-width: 680px) {
     .ctrl-row {
-      grid-template-columns: 112px 1fr;
+      grid-template-columns: 108px 1fr;
     }
   }
 
   .ctrl-row.is-optional {
-    background: #FAF9FB;
+    background: #FAFBFD;
   }
 
   .ctrl-time {
-    padding: 9px 6px;
+    padding: 10px 6px;
     border-right: 1px solid var(--rule);
     font-family: var(--font-mono);
-    font-size: 0.9rem;
+    font-size: 0.9375rem;
     font-weight: 700;
-    color: var(--course);
+    color: var(--navy);
     line-height: 1.28;
     word-break: break-word;
   }
@@ -553,7 +481,7 @@
   }
 
   .ctrl-body {
-    padding: 9px 10px;
+    padding: 10px 10px;
     min-width: 0;
   }
 
@@ -561,6 +489,18 @@
     .ctrl-body {
       padding: 14px 18px;
     }
+  }
+
+  .ctrl-content-wrap {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .ctrl-main {
+    flex: 1 1 auto;
+    min-width: 0;
   }
 
   .ctrl-head-line {
@@ -575,17 +515,43 @@
     margin: 0;
     font-size: 1.0625rem;
     font-weight: 700;
-    line-height: 1.3;
+    line-height: 1.38;
     color: var(--ink);
+  }
+
+  .zh-inline-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    min-height: 44px;
+    padding: 4px 10px;
+    margin: 1px 0;
+    background: var(--navy-tint);
+    border: 1px solid var(--navy);
+    color: var(--navy);
+    font-family: var(--font-tc);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.25;
+    vertical-align: middle;
+  }
+  .zh-inline-btn:hover {
+    background: var(--navy);
+    color: #FFFFFF;
+  }
+  .zh-inline-btn.copied {
+    background: var(--forest);
+    border-color: var(--forest);
+    color: #FFFFFF;
   }
 
   .transit-badge {
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     font-weight: 700;
-    padding: 3px 9px;
+    padding: 3px 8px;
     white-space: nowrap;
   }
   .t-mrt-red { background: var(--mrt-red); color: #FFFFFF; }
@@ -605,60 +571,98 @@
   .optional-mark {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
     font-size: 0.8125rem;
     font-weight: 700;
-    color: var(--course);
-    border: 1.5px dashed var(--course);
-    padding: 2px 8px;
+    color: var(--navy);
+    border: 1.5px dashed var(--navy);
+    padding: 2px 7px;
     white-space: nowrap;
   }
 
   .ctrl-desc {
-    margin: 4px 0 0;
+    margin: 5px 0 0;
     font-size: 1rem;
     color: var(--ink);
     max-width: 68ch;
   }
 
-  /* Driver Plaque & Place Actions */
-  .plaque-group {
+  /* Compact place utility row (single-place & multi-place) */
+  .place-actions {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
     gap: 6px;
     margin-top: 8px;
   }
 
-  .plaque-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-    gap: 5px;
+  .addr-note {
+    font-family: var(--font-tc);
+    font-size: 0.9375rem;
+    color: var(--ink-soft);
+    margin-right: 4px;
   }
 
-  .zh-plaque {
+  .sub-places {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--rule);
+  }
+
+  .sub-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+  }
+
+  .sub-copy-btn {
     display: inline-flex;
     align-items: center;
+    gap: 6px;
     min-height: 44px;
     padding: 4px 10px;
     background: var(--margin);
-    border: 1.5px solid var(--rule-strong);
-    font-family: var(--font-tc);
-    font-size: 1.0625rem;
-    font-weight: 700;
+    border: 1px solid var(--rule-strong);
+    text-align: left;
+    font-size: 0.9375rem;
+    font-weight: 600;
     color: var(--ink);
-    line-height: 1.25;
-    word-break: break-word;
+  }
+  .sub-copy-btn:hover {
+    background: var(--navy-tint);
+    border-color: var(--navy);
+  }
+  .sub-copy-btn.copied {
+    background: var(--forest);
+    border-color: var(--forest);
+    color: #FFFFFF;
+  }
+  .sub-zh {
+    font-family: var(--font-tc);
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .sub-copy-btn.copied .sub-zh { color: #FFFFFF; }
+
+  .sub-btns {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
   }
 
   .action-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: 5px;
     min-height: 44px;
     min-width: 44px;
-    padding: 0 9px;
+    padding: 0 10px;
     border: 1.5px solid var(--rule-strong);
     background: var(--paper);
     color: var(--ink);
@@ -685,8 +689,38 @@
     color: #FFFFFF;
   }
 
+  /* Landmark Thumbnail beside text */
+  .thumb-btn {
+    flex-shrink: 0;
+    display: block;
+    border: 1.5px solid var(--rule-strong);
+    background: var(--margin);
+    padding: 0;
+    overflow: hidden;
+    width: 96px;
+    height: 68px;
+  }
+
+  @media (min-width: 680px) {
+    .thumb-btn {
+      width: 176px;
+      height: 108px;
+    }
+  }
+
+  .thumb-btn:hover {
+    border-color: var(--navy);
+  }
+
+  .spot-photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   .warn-banner {
-    margin-top: 10px;
+    margin-top: 8px;
     padding: 8px 12px;
     background: var(--warn-bg);
     border: 1.5px solid var(--warn-line);
@@ -699,18 +733,18 @@
   }
   .warn-banner svg { flex-shrink: 0; margin-top: 2px; }
 
-  /* Section Headings (no kickers/eyebrows) */
+  /* Section Headings (zero kickers/eyebrows) */
   .section-title {
-    margin: 28px 0 12px;
+    margin: 26px 0 12px;
     padding-bottom: 8px;
     border-bottom: 2px solid var(--rule-strong);
-    font-size: 1.375rem;
+    font-size: clamp(1.25rem, 3.6vw, 1.6rem);
     font-weight: 700;
     color: var(--ink);
   }
   .section-title:first-child { margin-top: 0; }
 
-  /* Data Tables for Flights, Hotels, Transit, Souvenirs */
+  /* Data Tables for Flights, Hotels, Transit */
   .data-grid {
     border: 1.5px solid var(--rule-strong);
     background: var(--paper);
@@ -739,7 +773,7 @@
 
   .data-label {
     font-weight: 700;
-    color: var(--course);
+    color: var(--navy);
     font-size: 1rem;
   }
 
@@ -752,49 +786,227 @@
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     font-weight: 700;
-    padding: 2px 8px;
+    padding: 3px 8px;
     border: 1px solid var(--rule-strong);
     background: var(--margin);
   }
   .bag-tag.carry { border-color: var(--forest); color: var(--forest); background: var(--forest-tint); }
   .bag-tag.check { border-color: var(--lake); color: var(--lake); background: var(--lake-tint); }
-  .bag-tag.ban { border-color: var(--mrt-red); color: var(--mrt-red); background: #FCECEE; }
 
-  /* Souvenir toolbar & filters */
-  .souvenir-toolbar {
+  /* Shopping Tab Overhaul */
+  .shop-controls {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    padding: 12px 14px;
-    background: var(--margin);
+    margin-bottom: 12px;
+  }
+
+  .mode-group {
+    display: inline-flex;
+    gap: 4px;
+    padding: 4px;
     border: 1.5px solid var(--rule-strong);
-    margin-bottom: 16px;
+    background: var(--margin);
+  }
+
+  .mode-btn {
+    min-height: 44px;
+    padding: 6px 14px;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .mode-btn[aria-pressed="true"] {
+    background: var(--navy);
+    color: #FFFFFF;
   }
 
   .filter-bar {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
-  .filter-bar[hidden] { display: none; }
 
   .filter-chip {
     min-height: 44px;
-    padding: 0 14px;
+    padding: 0 13px;
     border: 1.5px solid var(--rule-strong);
     background: var(--paper);
     font-size: 0.9375rem;
     font-weight: 600;
   }
   .filter-chip[aria-pressed="true"] {
-    background: var(--course);
-    border-color: var(--course);
+    background: var(--navy);
+    border-color: var(--navy);
     color: #FFFFFF;
+  }
+
+  /* Collapsible 1-line Shopping Rules Bar */
+  .rules-collapse {
+    margin-bottom: 16px;
+    background: var(--warn-bg);
+    border: 1.5px solid var(--warn-line);
+    color: var(--warn-ink);
+  }
+
+  .rules-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    min-height: 46px;
+    padding: 10px 14px;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+  }
+  .rules-summary::-webkit-details-marker { display: none; }
+
+  .rules-lead {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+  }
+  .rules-lead svg { flex-shrink: 0; }
+
+  .rules-toggle-hint {
+    font-size: 0.875rem;
+    text-decoration: underline;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .rules-body {
+    padding: 12px 14px;
+    border-top: 1px solid var(--warn-line);
+    background: var(--paper);
+    color: var(--ink);
+    display: grid;
+    gap: 8px;
+    font-size: 0.9375rem;
+  }
+
+  /* Shopping Card Grid */
+  .shop-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  @media (min-width: 720px) {
+    .shop-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .shop-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px;
+    background: var(--paper);
+    border: 1.5px solid var(--rule-strong);
+  }
+
+  .shop-top {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .shop-head-text {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .shop-thumb-btn {
+    flex-shrink: 0;
+    display: block;
+    width: 96px;
+    height: 72px;
+    border: 1px solid var(--rule-strong);
+    background: var(--margin);
+    overflow: hidden;
+    padding: 0;
+  }
+
+  @media (min-width: 680px) {
+    .shop-thumb-btn {
+      width: 112px;
+      height: 84px;
+    }
+  }
+
+  .shop-thumb-btn img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .shop-body {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .shop-title {
+    margin: 0;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--ink);
+  }
+
+  .shop-brand-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+  }
+
+  .shop-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .day-tag {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    background: var(--navy-tint);
+    color: var(--navy);
+    border: 1px solid var(--navy);
+  }
+
+  .price-tag {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    background: var(--margin);
+    color: var(--ink);
+    border: 1px solid var(--rule);
+  }
+
+  .shop-note {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: var(--ink-soft);
+    line-height: 1.45;
   }
 
   /* Checklist */
@@ -804,14 +1016,14 @@
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    margin: 20px 0 12px;
+    margin: 22px 0 12px;
   }
 
   .check-progress {
     font-family: var(--font-mono);
     font-size: 1rem;
     font-weight: 700;
-    color: var(--course);
+    color: var(--navy);
   }
 
   .checklist {
@@ -841,7 +1053,7 @@
     width: 22px;
     height: 22px;
     margin: 2px 0 0;
-    accent-color: var(--course);
+    accent-color: var(--navy);
     flex-shrink: 0;
   }
 
@@ -850,16 +1062,16 @@
     color: var(--ink-soft);
   }
 
-  /* Native Fullscreen Driver Plaque Dialog */
+  /* Native Dialogs (Fullscreen Driver Plaque & Photo Zoom) */
   dialog {
     margin: auto;
     padding: 0;
     border: 3px solid var(--ink);
     background: var(--paper);
     color: var(--ink);
-    width: min(92vw, 560px);
+    width: min(92vw, 600px);
     max-width: calc(100vw - 24px);
-    box-shadow: 0 20px 48px rgba(22, 24, 26, 0.28);
+    box-shadow: 0 20px 48px rgba(20, 24, 31, 0.28);
   }
 
   dialog[open] {
@@ -872,7 +1084,7 @@
   }
 
   dialog::backdrop {
-    background: rgba(22, 24, 26, 0.72);
+    background: rgba(20, 24, 31, 0.72);
     overflow: hidden;
     overscroll-behavior: contain;
   }
@@ -893,15 +1105,15 @@
   }
 
   .dlg-body {
-    padding: 24px 20px;
+    padding: 20px 18px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
   }
 
   .dlg-zh {
     font-family: var(--font-tc);
-    font-size: clamp(1.85rem, 7vw, 2.75rem);
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
     font-weight: 700;
     line-height: 1.3;
     color: var(--ink);
@@ -910,15 +1122,22 @@
 
   .dlg-addr {
     font-family: var(--font-tc);
-    font-size: 1.2rem;
+    font-size: 1.125rem;
     font-weight: 500;
-    color: var(--course);
+    color: var(--navy);
     word-break: break-word;
   }
 
   .dlg-sub {
     font-size: 1rem;
     color: var(--ink-soft);
+  }
+
+  .dlg-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--rule);
   }
 
   .dlg-foot {
@@ -932,7 +1151,7 @@
   }
 
   .site-footer {
-    padding: 18px 16px 28px;
+    padding: 16px 14px 24px;
     border-top: 2px solid var(--rule-strong);
     background: var(--margin);
     font-size: 0.9375rem;
@@ -944,7 +1163,7 @@
   }
 
   @media (min-width: 680px) {
-    .site-footer { padding: 20px 28px 32px; }
+    .site-footer { padding: 18px 28px 28px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -958,36 +1177,18 @@
 <a class="skip-link" href="#main-content">ข้ามไปเนื้อหาหลัก</a>
 <div class="shell">
   <header class="masthead">
-    <svg class="contour-bg" viewBox="0 0 960 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <path d="M-20 185 C120 135, 220 205, 360 155 C500 105, 640 190, 790 130 C870 98, 930 120, 980 95" fill="none" stroke="#7C4E24" stroke-width="1.5"/>
-      <path d="M-20 155 C140 100, 250 175, 390 122 C530 72, 660 158, 810 92 C890 60, 940 82, 980 62" fill="none" stroke="#7C4E24" stroke-width="1.2"/>
-      <path d="M-20 122 C160 68, 270 140, 420 86 C570 34, 690 118, 840 55 C910 26, 950 48, 980 32" fill="none" stroke="#7C4E24" stroke-width="1.1"/>
-      <path d="M510 215 C610 175, 700 205, 810 162 C890 130, 945 152, 985 135" fill="none" stroke="#7C4E24" stroke-width="1.0"/>
-      <path d="M620 20 C705 -5, 790 35, 895 8 C935 -2, 965 12, 985 6" fill="none" stroke="#7C4E24" stroke-width="1.0"/>
-      <path d="M460 195 L635 128 L760 112 L885 48 L965 22" fill="none" stroke="#6E1E7E" stroke-width="1.6" stroke-dasharray="6 5"/>
-      <circle cx="885" cy="48" r="14" fill="none" stroke="#6E1E7E" stroke-width="2.2"/>
-      <circle cx="760" cy="112" r="11" fill="none" stroke="#6E1E7E" stroke-width="2"/>
-      <circle cx="635" cy="128" r="8" fill="none" stroke="#6E1E7E" stroke-width="1.8"/>
+    <svg class="contour-bg" viewBox="0 0 960 180" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M-20 155 C120 110, 240 175, 380 128 C520 82, 660 160, 810 105 C880 80, 935 98, 980 78" fill="none" stroke="#7C5836" stroke-width="1.4"/>
+      <path d="M-20 125 C140 78, 270 142, 410 96 C550 52, 680 128, 830 72 C900 46, 945 64, 980 46" fill="none" stroke="#7C5836" stroke-width="1.1"/>
+      <path d="M520 172 C620 140, 710 168, 825 130 C900 104, 950 122, 985 108" fill="none" stroke="#7C5836" stroke-width="1.0"/>
+      <path d="M500 160 L660 104 L785 88 L905 36" fill="none" stroke="#B8232A" stroke-width="1.6" stroke-dasharray="6 5"/>
+      <circle cx="905" cy="36" r="13" fill="none" stroke="#B8232A" stroke-width="2.2"/>
+      <circle cx="785" cy="88" r="10" fill="none" stroke="#14365D" stroke-width="1.8"/>
+      <circle cx="660" cy="104" r="7" fill="none" stroke="#14365D" stroke-width="1.6"/>
     </svg>
     <div class="masthead-inner">
-      <div class="masthead-top">
-        <div>
-          <h1>ทริปไต้หวัน · 6–12 ธ.ค. 2026</h1>
-          <p class="trip-dates">ออกเดินทางคืน 5 ธ.ค. · สุริยันจันทรา – ไทเป – เย่หลิ่ว – จิ่วเฟิ่น – เป่ยโถว</p>
-        </div>
-        <a class="home-link" href="../">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
-          ทริปทั้งหมด
-        </a>
-      </div>
-      <div class="legend-row">
-        <div class="terrain-legend" aria-label="โซนเส้นทาง">
-          <span class="terrain-chip lake">日月潭 สุริยันจันทรา</span>
-          <span class="terrain-chip city">台北 ไทเป</span>
-          <span class="terrain-chip mountain">九份・貓空・北投 ภูเขาและบ่อน้ำร้อน</span>
-        </div>
-        <div class="trip-status-note" id="trip-status-note"></div>
-      </div>
+      <h1>ทริปไต้หวัน · 6–12 ธ.ค. 2026</h1>
+      <p class="trip-dates">ออกเดินทางคืน 5 ธ.ค. · 7 วัน 6 คืน · เวลาไต้หวันเร็วกว่าไทย 1 ชม.</p>
     </div>
   </header>
 
@@ -1002,7 +1203,7 @@
     </button>
     <button class="nav-tab" type="button" role="tab" id="tab-souvenirs" aria-controls="panel-souvenirs" aria-selected="false" data-tab="souvenirs">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l1 13H5L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
-      <span>ของฝาก</span>
+      <span>ช้อปปิ้ง</span>
     </button>
     <button class="nav-tab" type="button" role="tab" id="tab-prep" aria-controls="panel-prep" aria-selected="false" data-tab="prep">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M8 12l3 3 5-6"/></svg>
@@ -1010,18 +1211,8 @@
     </button>
   </nav>
 
-  <section class="course-bar" id="course-bar" aria-label="ควบคุมการแสดงผลรายวัน">
-    <div class="course-top">
-      <div class="mode-group" role="group" aria-label="รูปแบบการแสดงวัน">
-        <button class="mode-btn" type="button" id="btn-mode-all" aria-pressed="true">ดูทุกวัน (D0–D7)</button>
-        <button class="mode-btn" type="button" id="btn-mode-focus" aria-pressed="false">โฟกัสทีละวัน</button>
-      </div>
-      <button class="today-jump" type="button" id="btn-today-jump" hidden>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg>
-        <span id="today-jump-label">กลับไปวันนี้</span>
-      </button>
-    </div>
-    <div class="day-rail" id="day-rail" role="navigation" aria-label="เลือกวันเดินทาง"></div>
+  <section class="course-bar" id="course-bar" aria-label="เลือกดูวันเดินทาง">
+    <div class="day-rail" id="day-rail" role="navigation" aria-label="ตัวกรองวันเดินทาง"></div>
   </section>
 
   <main id="main-content">
@@ -1032,8 +1223,8 @@
   </main>
 
   <footer class="site-footer">
-    <span>คู่มือพกพาทริปครอบครัวไต้หวัน · 6–12 ธ.ค. 2026</span>
-    <span>ข้อมูลทั้งหมดเก็บแบบออฟไลน์ในหน้าเดียว · กดชื่อจีนเพื่อคัดลอกหรือเปิด Google Maps</span>
+    <span>ทริปไต้หวัน · 6–12 ธ.ค. 2026</span>
+    <span>แตะชื่อจีนเพื่อคัดลอก หรือกดปุ่มคนขับ / แผนที่ · ใช้งานแบบออฟไลน์ได้หลังโหลด</span>
   </footer>
 </div>
 
@@ -1055,153 +1246,188 @@
   </div>
 </dialog>
 
+<dialog id="photo-dialog" closedby="any" aria-labelledby="photo-dlg-title">
+  <div class="dlg-head">
+    <h2 id="photo-dlg-title">ภาพตัวอย่าง</h2>
+    <form method="dialog">
+      <button class="action-btn" type="submit" autofocus>ปิด</button>
+    </form>
+  </div>
+  <div class="dlg-body">
+    <div id="photo-dlg-slot"></div>
+    <div class="dlg-sub" id="photo-dlg-cap"></div>
+  </div>
+</dialog>
+
 <script>
 (() => {
   const ICONS = {
-    copy: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="1"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>',
-    expand: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>',
-    map: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6-5.5-6-10a6 6 0 1 1 12 0c0 4.5-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg>',
+    copy: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="1"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>',
+    driver: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="10" width="18" height="8" rx="1"/><path d="M5 10l2-5h10l2 5"/><circle cx="7.5" cy="14" r="1"/><circle cx="16.5" cy="14" r="1"/></svg>',
+    map: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6-5.5-6-10a6 6 0 1 1 12 0c0 4.5-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg>',
     warn: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3L2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg>',
     temp: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 14.76V3.5a2 2 0 0 0-4 0v11.26a4 4 0 1 0 4 0z"/></svg>',
-    bag: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="7" width="16" height="13" rx="1"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>'
+    wind: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>',
+    cash: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="1"/><circle cx="12" cy="12" r="2.5"/></svg>',
+    bag: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="7" width="16" height="13" rx="1"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>',
+    clock: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+    towel: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h13a2 2 0 0 1 2 2v12H6V7a2 2 0 0 0-2-2z"/><path d="M9 15h6"/></svg>',
+    shoe: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17h16v2H4z"/><path d="M5 17l2-7 4 1 3 3h4a2 2 0 0 1 2 2v1"/></svg>'
   };
 
   const DAYS = [
     {
       id: "D0", date: "2026-12-05", shortDate: "5 ธ.ค.",
       title: "ส. 5 ธ.ค. · ออกเดินทางจากกรุงเทพฯ",
-      zone: "กรุงเทพฯ → เถาหยวน",
-      conditions: ["เช็กอินดึกที่สุวรรณภูมิ", "เตรียมเสื้อคลุมสำหรับตอนลงเครื่องที่ไต้หวัน"],
+      conditions: [
+        { icon: "clock", text: "เช็กอินดึกที่สุวรรณภูมิ" },
+        { icon: "wind", text: "เตรียมเสื้อคลุมสำหรับลงเครื่องตอนเช้า" }
+      ],
       items: [
         {
           time: "~23:00",
-          title: "ท่าอากาศยานสุวรรณภูมิ · Suvarnabhumi Airport (BKK)",
-          mode: { label: "เตรียมตัวขึ้นเครื่อง", cls: "t-flight" },
-          desc: "ถึงสนามบินสุวรรณภูมิ เช็กอินเคาน์เตอร์ EVA Air และโหลดกระเป๋าเดินทาง"
+          titlePrefix: "ท่าอากาศยานสุวรรณภูมิ · Suvarnabhumi Airport (BKK)",
+          mode: { label: "เช็กอิน", cls: "t-flight" },
+          desc: "เช็กอินเคาน์เตอร์ EVA Air และโหลดกระเป๋าเดินทาง"
         },
         {
           time: "02:15",
-          title: "เที่ยวบิน EVA Air BR 206 (เช้า 6 ธ.ค.)",
+          titlePrefix: "เที่ยวบิน EVA Air BR 206 (เช้า 6 ธ.ค.)",
           mode: { label: "EVA Air BR 206", cls: "t-flight" },
-          desc: "ออกเดินทาง 02:15 BKK (GMT+7) → ถึงไทเป 06:50 TPE (GMT+8) · ใช้เวลาบิน 3 ชม. 35 น. (เวลาไต้หวันเร็วกว่าไทย 1 ชม.)"
+          desc: "02:15 BKK (GMT+7) → 06:50 TPE (GMT+8) · ใช้เวลาบิน 3 ชม. 35 น."
         }
       ]
     },
     {
       id: "D1", date: "2026-12-06", shortDate: "6 ธ.ค.",
       title: "อา. 6 ธ.ค. · สนามบิน → ทะเลสาบสุริยันจันทรา",
-      zone: "เถาหยวน → ไทจง → สุ่ยเซ่อ",
-      conditions: ["สุริยันจันทรา ~12–15°C · พกเสื้อคลุม/กันลม", "พักผ่อนเบาๆ หลังบินดึก"],
+      conditions: [
+        { icon: "temp", text: "สุริยันจันทรา 12–15°C · พกเสื้อคลุม/กันลม" },
+        { icon: "clock", text: "เที่ยวสบายๆ พักผ่อนหลังบินดึก" }
+      ],
       items: [
         {
           time: "06:50–08:00",
-          title: "ท่าอากาศยานนานาชาติเถาหยวน · Taoyuan Airport (TPE) · 桃園國際機場",
+          titlePrefix: "ท่าอากาศยานนานาชาติเถาหยวน · Taoyuan Airport (TPE)",
           mode: { label: "เข้าเมือง", cls: "t-flight" },
-          desc: "ผ่าน ตม. รับกระเป๋า ซื้อบัตร EasyCard และแวะซื้อมื้อเช้าเบาๆ ที่ร้านสะดวกซื้อ",
+          desc: "ผ่าน ตม. รับกระเป๋า ซื้อบัตร EasyCard และมื้อเช้าเบาๆ ที่ร้านสะดวกซื้อ",
           places: [{ name: "Taoyuan International Airport", zh: "桃園國際機場" }]
         },
         {
           time: "08:00",
-          title: "Airport MRT → สถานี HSR Taoyuan (A18) · 高鐵桃園站",
+          titlePrefix: "สถานีรถไฟความเร็วสูงเถาหยวน · HSR Taoyuan (A18)",
           mode: { label: "Airport MRT", cls: "t-bus" },
-          desc: "นั่งรถไฟฟ้าสนามบินไปสถานี A18 (รวมรอรถราว 15–20 นาที)",
+          desc: "นั่ง Airport MRT ไปสถานี A18 (รวมรอรถราว 15–20 นาที)",
           places: [{ name: "HSR Taoyuan Station (A18)", zh: "高鐵桃園站" }]
         },
         {
           time: "~08:45",
-          title: "รถไฟความเร็วสูง HSR → สถานีไทจง · HSR Taichung · 高鐵台中站",
+          titlePrefix: "สถานีรถไฟความเร็วสูงไทจง · HSR Taichung",
           mode: { label: "HSR ความเร็วสูง", cls: "t-bus" },
           desc: "ทานมื้อเช้าบนรถไฟความเร็วสูงระหว่างทางไปไทจง",
           places: [{ name: "HSR Taichung Station", zh: "高鐵台中站" }]
         },
         {
           time: "09:50–10:20",
-          title: "รถบัสสาย 6670B → ทะเลสาบสุริยันจันทรา · Sun Moon Lake · 日月潭",
+          titlePrefix: "ทะเลสาบสุริยันจันทรา · Sun Moon Lake",
           mode: { label: "บัส 6670B", cls: "t-bus" },
           desc: "ขึ้นบัสสาย 6670B จาก HSR ไทจงตรงเข้าหมู่บ้านสุ่ยเซ่อ (พักหลับบนรถ)",
           places: [{ name: "Sun Moon Lake Shuishe", zh: "日月潭水社遊客中心" }]
         },
         {
           time: "~11:45",
-          title: "ท่าเรือสุ่ยเซ่อ · Shuishe · 水社 — ฝากกระเป๋าที่ Island Hearth Sun Moon Lake · 日月潭島宇居飯店",
+          titlePrefix: "ท่าเรือสุ่ยเซ่อ · Shuishe — Island Hearth Sun Moon Lake",
           mode: { label: "เดิน", cls: "t-walk" },
-          desc: "ฝากกระเป๋าที่โรงแรม (เช็กอินได้ตั้งแต่ 16:00) แล้วเดินออกมารับประทานมื้อเที่ยงร้านนั่งสบาย 12:00–13:30",
+          desc: "ฝากกระเป๋าที่โรงแรม (เช็กอิน 16:00) แล้วทานมื้อเที่ยงร้านนั่งสบาย 12:00–13:30",
           places: [{ name: "Island Hearth Sun Moon Lake", zh: "日月潭島宇居飯店", addr: "555 南投縣魚池鄉水社村中山路105號" }]
         },
         {
           time: "13:30",
-          title: "เคาน์เตอร์รถบัส Shuishe · 水社車站",
+          titlePrefix: "เคาน์เตอร์รถบัส Shuishe",
           mode: { label: "บัส 1833 / 6669", cls: "t-bus" },
-          desc: "ซื้อตั๋วรถบัส Kuo-Kuang สาย 1833 รอบ 09:45 สำหรับวันที่ 8 ธ.ค. (รอบเช้ารอบเดียว) หากยังไม่ได้จองออนไลน์ พร้อมขอตารางบัส 6669",
-          warn: "รอบเช้าสาย 1833 เข้าไทเปมีวันละ 1 รอบ (09:45) แนะนำจัดการตั๋วทันทีที่มาถึง",
+          desc: "ซื้อตั๋วรถบัส Kuo-Kuang สาย 1833 รอบ 09:45 ของวันที่ 8 ธ.ค. (หากยังไม่ได้จองออนไลน์) + ขอตารางบัส 6669",
+          warn: "รถบัส 1833 รอบเช้าเข้าไทเปมีวันละ 1 รอบ (09:45) ควรซื้อตั๋วทันทีที่มาถึง",
           places: [{ name: "Shuishe Bus Station", zh: "水社遊客中心車站" }]
         },
         {
           time: "14:00–15:15",
-          title: "วัดเหวินหวู่ · Wenwu Temple · 文武廟",
+          titlePrefix: "วัดเหวินหวู่ · Wenwu Temple",
           optional: true,
+          img: "assets/spot-wenwu.webp",
+          imgAlt: "วัดเหวินหวู่ริมทะเลสาบสุริยันจันทรา",
           mode: { label: "บัส 10 นาที", cls: "t-bus" },
-          desc: "ลงรถบัสระดับตัววัด ไม่ต้องเดินบันได 366 ขั้น — หรือเลือกนั่งพักจิบชาที่คาเฟ่ริมทะเลสาบตามสะดวก",
+          desc: "ลงรถระดับตัววัด ไม่ต้องเดินบันได 366 ขั้น หรือเลือกนั่งคาเฟ่ริมทะเลสาบแทน",
           places: [{ name: "Wenwu Temple", zh: "日月潭文武廟" }]
         },
         {
           time: "16:00–19:00",
-          title: "เช็กอินที่พัก · พักผ่อน และมื้อเย็นในหมู่บ้านสุ่ยเซ่อ · 水社",
+          titlePrefix: "เช็กอินที่พัก · พักผ่อนและมื้อเย็นในหมู่บ้านสุ่ยเซ่อ",
           mode: { label: "เดิน", cls: "t-walk" },
-          desc: "16:00 เช็กอิน อาบน้ำ พักผ่อน · 17:30 รับประทานมื้อเย็นในหมู่บ้านและเข้านอนเร็ว"
+          desc: "16:00 เช็กอินพักผ่อน · 17:30 มื้อเย็นในหมู่บ้านแล้วเข้านอนเร็ว"
         }
       ]
     },
     {
       id: "D2", date: "2026-12-07", shortDate: "7 ธ.ค.",
       title: "จ. 7 ธ.ค. · เที่ยววนรอบทะเลสาบสุริยันจันทรา",
-      zone: "สุ่ยเซ่อ → กระเช้า → อิต๋าเช่า → วัดเสวียนกวง",
-      conditions: ["สุริยันจันทรา ~12–15°C · บนกระเช้าลมเย็น", "ซื้อชาดำ Ruby #18 ช่วงเย็น"],
+      conditions: [
+        { icon: "temp", text: "12–15°C · บนกระเช้าลมเย็น" },
+        { icon: "bag", text: "ซื้อชาดำ Ruby #18 ช่วงเย็น" }
+      ],
       items: [
         {
           time: "07:30–09:30",
-          title: "อาหารเช้าที่หมู่บ้านสุ่ยเซ่อ · Shuishe · 水社",
+          titlePrefix: "อาหารเช้าที่หมู่บ้านสุ่ยเซ่อ · Shuishe",
           mode: { label: "เดิน / บัส", cls: "t-walk" },
-          desc: "รับประทานอาหารเช้าสบายๆ หาก D1 ยังไม่ได้แวะ วัดเหวินหวู่ · Wenwu Temple · 文武廟 สามารถไปช่วง 08:30–09:30 ได้"
+          desc: "อาหารเช้าสบายๆ หาก D1 ยังไม่ได้แวะ วัดเหวินหวู่ · Wenwu Temple · 文武廟 ไปช่วง 08:30–09:30 ได้",
+          places: [{ name: "Shuishe", zh: "水社" }]
         },
         {
           time: "09:45",
-          title: "บัส 6669 → สถานีกระเช้า",
+          titlePrefix: "บัส 6669 → สถานีกระเช้า",
           mode: { label: "บัส 6669", cls: "t-bus" },
-          desc: "ขึ้นรถบัสรอบทะเลสาบสาย 6669 มุ่งหน้าสถานีกระเช้าใกล้หมู่บ้านอิต๋าเช่า"
+          desc: "ขึ้นบัสรอบทะเลสาบสาย 6669 ไปสถานีกระเช้าใกล้หมู่บ้านอิต๋าเช่า"
         },
         {
           time: "10:30–11:30",
-          title: "กระเช้าลอยฟ้า · Sun Moon Lake Ropeway · 日月潭纜車",
+          titlePrefix: "กระเช้าลอยฟ้า · Sun Moon Lake Ropeway",
+          img: "assets/spot-ropeway.webp",
+          imgAlt: "กระเช้าลอยฟ้าสุริยันจันทราเหนือภูเขา",
           mode: { label: "กระเช้าธรรมดา", cls: "t-bus" },
-          desc: "นั่งกระเช้าแบบธรรมดาชมวิวมุมสูงเหนือทะเลสาบและทิวเขา (เปิดวันธรรมดา 10:30–16:00)",
+          desc: "นั่งกระเช้าชมวิวมุมสูงเหนือทะเลสาบ (วันธรรมดาเปิด 10:30–16:00)",
           places: [{ name: "Sun Moon Lake Ropeway", zh: "日月潭纜車" }]
         },
         {
           time: "11:45–13:30",
-          title: "หมู่บ้านอิต๋าเช่า · Ita Thao · 伊達邵",
+          titlePrefix: "หมู่บ้านอิต๋าเช่า · Ita Thao",
+          img: "assets/spot-itathao.webp",
+          imgAlt: "ท่าเรือและทะเลสาบที่หมู่บ้านอิต๋าเช่า",
           mode: { label: "เดิน", cls: "t-walk" },
-          desc: "เดินเล่นถนนคนเดินริมทะเลสาบและรับประทานมื้อเที่ยงในหมู่บ้านอิต๋าเช่า",
+          desc: "เดินเล่นถนนคนเดินริมทะเลสาบและมื้อเที่ยงในหมู่บ้าน",
           places: [{ name: "Ita Thao", zh: "伊達邵" }]
         },
         {
           time: "13:45–15:00",
-          title: "ล่องเรือ → วัดเสวียนกวง · Xuanguang Temple · 玄光寺",
+          titlePrefix: "ล่องเรือ → วัดเสวียนกวง · Xuanguang Temple",
+          img: "assets/spot-xuanguang.webp",
+          imgAlt: "วิวทะเลสาบสุริยันจันทราจากวัดเสวียนกวง",
           mode: { label: "เรือข้ามฟาก", cls: "t-bus" },
-          desc: "นั่งเรือไปวัดเสวียนกวง ชิมไข่ต้มใบชา (เดินชมระดับท่าเรือได้ไม่ต้องขึ้นสูง) แล้วนั่งเรือกลับท่าสุ่ยเซ่อ",
+          desc: "นั่งเรือไปชิมไข่ต้มใบชาที่วัดเสวียนกวง (ชมระดับท่าเรือได้) แล้วนั่งเรือกลับสุ่ยเซ่อ",
           places: [{ name: "Xuanguang Temple", zh: "日月潭玄光寺" }]
         },
         {
           time: "15:15–16:45",
-          title: "คาเฟ่ริมทะเลสาบแถวสุ่ยเซ่อ · Shuishe · 水社",
+          titlePrefix: "คาเฟ่ริมทะเลสาบสุ่ยเซ่อ · Shuishe",
           mode: { label: "เดิน / E-bike", cls: "t-walk" },
-          desc: "นั่งพักจิบเครื่องดื่มริมทะเลสาบ · [ทางเลือก] ปั่นจักรยานไฟฟ้า E-bike เส้นทางเลียบทะเลสาบ"
+          desc: "นั่งพักจิบชาชมวิว · [ทางเลือก] ปั่นจักรยานไฟฟ้า E-bike ทางเลียบทะเลสาบ"
         },
         {
           time: "17:00–18:30",
-          title: "ชมพระอาทิตย์ตกท่าเรือสุ่ยเซ่อ · Shuishe Pier · 水社碼頭",
+          titlePrefix: "ชมพระอาทิตย์ตกท่าเรือสุ่ยเซ่อ · Shuishe Pier",
+          img: "assets/spot-shuishe.webp",
+          imgAlt: "ทิวเขาและท่าเรือสุ่ยเซ่อ ทะเลสาบสุริยันจันทรา",
           mode: { label: "เดิน", cls: "t-walk" },
-          desc: "17:00–17:30 ชมพระอาทิตย์ตก (~17:15) · 17:45 มื้อเย็น ซื้อชาดำอาซัม Ruby #18 และเก็บกระเป๋าเตรียมเดินทางเช้า",
+          desc: "17:00–17:30 ชมพระอาทิตย์ตก (~17:15) · 17:45 มื้อเย็น ซื้อชาดำอาซัม Ruby #18 และเก็บกระเป๋า",
           places: [{ name: "Shuishe Pier", zh: "水社碼頭" }]
         }
       ]
@@ -1209,68 +1435,76 @@
     {
       id: "D3", date: "2026-12-08", shortDate: "8 ธ.ค.",
       title: "อ. 8 ธ.ค. · บัสเข้าไทเป + ถนนตี๋ฮว่า + หนิงเซี่ย",
-      zone: "สุริยันจันทรา → ไทเป (จงซาน / ต้าเต้าเฉิง)",
-      conditions: ["ถึงไทเปช่วงบ่ายไม่มีพักห้องระหว่างวัน", "เตรียมขนม/น้ำขึ้นรถบัส 1833", "เรียกรถคันใหญ่ (Uber XL) สำหรับกระเป๋า"],
+      conditions: [
+        { icon: "clock", text: "ถึงไทเปบ่ายไม่มีพักห้องระหว่างวัน" },
+        { icon: "bag", text: "เตรียมเสบียงขึ้นบัส 1833 · เรียก Uber XL ขนกระเป๋า" }
+      ],
       items: [
         {
           time: "06:30",
-          title: "ชมหมอกยามเช้าที่ท่าเรือสุ่ยเซ่อ · Shuishe Pier · 水社碼頭",
+          titlePrefix: "ชมหมอกยามเช้าท่าเรือสุ่ยเซ่อ · Shuishe Pier",
           optional: true,
           mode: { label: "เดิน", cls: "t-walk" },
-          desc: "เดินรับลมและชมสายหมอกเหนือผิวน้ำยามเช้าก่อนมื้อเช้า"
+          desc: "เดินชมสายหมอกเหนือทะเลสาบยามเช้าก่อนอาหารเช้า"
         },
         {
           time: "07:30–09:20",
-          title: "อาหารเช้า · เช็กเอาต์ · เตรียมเสบียงขึ้นรถ",
+          titlePrefix: "อาหารเช้า · เช็กเอาต์ · เตรียมเสบียงขึ้นรถ",
           mode: { label: "เดิน", cls: "t-walk" },
-          desc: "ทานอาหารเช้าให้อิ่ม เช็กเอาต์ (ก่อน 11:00) ซื้อน้ำและของว่างติดตัว แล้วมารอที่ป้ายรถ Shuishe เวลา 09:20 พร้อมกระเป๋า"
+          desc: "ทานอาหารเช้าให้อิ่ม เช็กเอาต์ (ก่อน 11:00) ซื้อน้ำและขนม แล้วมารอที่ป้ายรถ 09:20"
         },
         {
           time: "09:45–13:45",
-          title: "บัส 1833 (中興號) → สถานีขนส่งไทเป · Taipei Bus Station · 台北轉運站",
+          titlePrefix: "บัส 1833 (中興號) → สถานีขนส่งไทเป · Taipei Bus Station",
           mode: { label: "บัส 1833 (~4 ชม.)", cls: "t-bus" },
           desc: "รถบัสตรงรอบเช้ารอบเดียวเข้าไทเป ถึงสถานีขนส่งไทเปราว 13:15–13:45",
           places: [{ name: "Taipei Bus Station", zh: "台北轉運站" }]
         },
         {
           time: "13:45–14:45",
-          title: "มื้อเที่ยงที่ห้าง Q Square · 京站時尚廣場",
+          titlePrefix: "มื้อเที่ยงห้าง Q Square",
           mode: { label: "เดินเชื่อมสถานี", cls: "t-walk" },
-          desc: "เลือกร้านอาหารนั่งสบายภายใน Q Square ที่เชื่อมตรงกับสถานีขนส่งไทเป",
+          desc: "เลือกร้านนั่งสบายภายในห้างที่เชื่อมตรงกับสถานีขนส่ง",
           places: [{ name: "Q Square", zh: "京站時尚廣場" }]
         },
         {
           time: "14:45–15:15",
-          title: "ฝากกระเป๋าที่ Dahshin Hotel · 大欣大飯店",
+          titlePrefix: "ฝากกระเป๋าที่ Dahshin Hotel",
           mode: { label: "Uber XL", cls: "t-taxi" },
-          desc: "นั่งรถคันใหญ่จากสถานีขนส่งไปฝากกระเป๋าที่ล็อบบี้โรงแรมย่านจงซาน (ห่าง MRT Zhongshan ราว 5 นาที)",
+          desc: "ฝากกระเป๋าที่ล็อบบี้โรงแรมย่านจงซาน (ห่าง MRT Zhongshan ราว 5 นาที)",
           places: [{ name: "Dahshin Hotel", zh: "大欣大飯店", addr: "台北市中山區中山北路二段27巷2-2號" }]
         },
         {
           time: "15:30–16:45",
-          title: "ถนนตี๋ฮว่า · Dihua Street · 迪化街 & ร้านขนม Li Ting Xiang · 李亭香",
+          titlePrefix: "ถนนตี๋ฮว่า · Dihua Street · 迪化街",
+          img: "assets/spot-dihua.webp",
+          imgAlt: "อาคารอิฐแดงโบราณบนถนนตี๋ฮว่า ไทเป",
           mode: { label: "แท็กซี่", cls: "t-taxi" },
-          desc: "เดินชมตึกเก่า เลือกซื้อขนมมงคลโบราณ ชา และผลไม้อบแห้ง (มีมุมนั่งพักจิบชา)",
+          desc: "เดินชมตึกเก่า เลือกซื้อขนมมงคลโบราณ ชา และผลไม้อบแห้ง (มีมุมนั่งจิบชาพักขา)",
           places: [
-            { name: "Dihua Street", zh: "迪化街" },
-            { name: "Li Ting Xiang Bakery", zh: "李亭香餅店", addr: "台北市大同區迪化街一段309號" }
+            { name: "ถนนตี๋ฮว่า · Dihua Street", zh: "迪化街" },
+            { name: "ร้านขนมโบราณ · Li Ting Xiang", zh: "李亭香餅店", addr: "台北市大同區迪化街一段309號" }
           ]
         },
         {
           time: "17:00–17:15",
-          title: "ท่าเรือต้าเต้าเฉิง · Dadaocheng Wharf · 大稻埕碼頭",
+          titlePrefix: "ท่าเรือต้าเต้าเฉิง · Dadaocheng Wharf",
+          img: "assets/spot-dadaocheng.webp",
+          imgAlt: "ท่าเรือต้าเต้าเฉิงริมแม่น้ำยามเย็น",
           mode: { label: "เดิน 5–10 นาที", cls: "t-walk" },
-          desc: "ชมพระอาทิตย์ตกริมแม่น้ำตั้นสุ่ยหลังจบเดินถนนตี๋ฮว่า",
+          desc: "เดินต่อจากถนนตี๋ฮว่ามาชมพระอาทิตย์ตกริมแม่น้ำตั้นสุ่ย",
           places: [{ name: "Dadaocheng Wharf", zh: "大稻埕碼頭" }]
         },
         {
           time: "17:30–18:45",
-          title: "ตลาดกลางคืนหนิงเซี่ย · Ningxia Night Market · 寧夏夜市",
+          titlePrefix: "ตลาดกลางคืนหนิงเซี่ย · Ningxia Night Market · 寧夏夜市",
+          img: "assets/spot-ningxia.webp",
+          imgAlt: "บรรยากาศตลาดกลางคืนหนิงเซี่ย ไทเป",
           mode: { label: "แท็กซี่", cls: "t-taxi" },
-          desc: "มื้อเย็นที่ตลาดหนิงเซี่ย · [ทางเลือก] เดินต่อไป 300–500 ม. เหมาขนมซูเปอร์ที่ Prosperity Plaza · 萬家福重慶店 (เปิด 09:00–02:00) ก่อนกลับโรงแรมเช็กอิน ~19:00",
+          desc: "มื้อเย็นที่ตลาดหนิงเซี่ย · [ทางเลือก] เดินต่อ 300–500 ม. เหมาขนมซูเปอร์ที่ Prosperity Plaza (เปิด 09:00–02:00) ก่อนกลับโรงแรมเช็กอิน ~19:00",
           places: [
-            { name: "Ningxia Night Market", zh: "寧夏夜市" },
-            { name: "Prosperity Plaza Chongqing", zh: "萬家福重慶店" }
+            { name: "ตลาดกลางคืนหนิงเซี่ย · Ningxia", zh: "寧夏夜市" },
+            { name: "ซูเปอร์เปิดดึก · Prosperity Plaza", zh: "萬家福重慶店" }
           ]
         }
       ]
@@ -1278,12 +1512,16 @@
     {
       id: "D4", date: "2026-12-09", shortDate: "9 ธ.ค.",
       title: "พ. 9 ธ.ค. · ย่านเก่าไทเป + พระอาทิตย์ตกตั้นสุ่ย",
-      zone: "หย่งคัง → จงเจิ้ง → หลงซาน → ซีเหมินติง → ตั้นสุ่ย",
-      conditions: ["15–20°C · พกเสื้อกันลมสำหรับริมน้ำตั้นสุ่ย", "พกเงินสดสำหรับ L'Atelier Lotus", "ไม่กลับโรงแรมจน ~19:30 (เลี่ยงแบกของหนัก)"],
+      conditions: [
+        { icon: "temp", text: "15–20°C" },
+        { icon: "wind", text: "พกเสื้อกันลมสำหรับริมน้ำตั้นสุ่ย" },
+        { icon: "cash", text: "พกเงินสดสำหรับ L'Atelier Lotus" },
+        { icon: "clock", text: "ไม่กลับโรงแรมจน ~19:30 (เลี่ยงแบกของหนัก)" }
+      ],
       items: [
         {
           time: "08:30–09:30",
-          title: "L'Atelier Lotus · 甜滿 (ย่านหย่งคัง · Yongkang Street · 永康街)",
+          titlePrefix: "L'Atelier Lotus (ย่านหย่งคัง · Yongkang Street)",
           mode: { label: "MRT สายแดง (ออก 08:15)", cls: "t-mrt-red" },
           desc: "ต่อคิวซื้อแครกเกอร์นูกัตต้นหอม (เปิดขาย 09:00 ขายจนหมด) ใกล้ MRT Dongmen เดิน 3–5 นาที",
           warn: "รับเฉพาะเงินสดเท่านั้น (NT$220/กล่อง) และจำกัดจำนวนซื้อต่อคน",
@@ -1291,46 +1529,56 @@
         },
         {
           time: "09:45–10:45",
-          title: "อนุสรณ์สถานเจียงไคเช็ก · Chiang Kai-shek Memorial Hall · 中正紀念堂",
+          titlePrefix: "อนุสรณ์สถานเจียงไคเช็ก · Chiang Kai-shek Memorial Hall",
+          img: "assets/spot-cks.webp",
+          imgAlt: "อนุสรณ์สถานเจียงไคเช็ก ไทเป",
           mode: { label: "MRT สายแดง 1 สถานี", cls: "t-mrt-red" },
-          desc: "ชมพิธีเปลี่ยนเวรทหารกลางแจ้งรอบ 10:00 (จัดกลางแจ้ง งดเมื่อฝนตก · ห้องโถงเปิด 09:00–18:00)",
+          desc: "ชมพิธีเปลี่ยนเวรทหารกลางแจ้งรอบ 10:00 (งดเมื่อฝนตก · ห้องโถง 09:00–18:00)",
           places: [{ name: "Chiang Kai-shek Memorial Hall", zh: "中正紀念堂" }]
         },
         {
           time: "11:00–11:45",
-          title: "วัดหลงซาน · Longshan Temple · 龍山寺",
+          titlePrefix: "วัดหลงซาน · Longshan Temple",
+          img: "assets/spot-longshan.webp",
+          imgAlt: "หลังคาวัดหลงซาน ไทเป",
           mode: { label: "แท็กซี่", cls: "t-taxi" },
           desc: "สักการะขอพรและเช่าบูชาเครื่องรางภายในวัด",
           places: [{ name: "Longshan Temple", zh: "艋舺龍山寺" }]
         },
         {
           time: "12:00–13:30",
-          title: "ซีเหมินติง · Ximending · 西門町",
+          titlePrefix: "ซีเหมินติง · Ximending",
+          img: "assets/spot-ximending.webp",
+          imgAlt: "ย่านช้อปปิ้งซีเหมินติง ไทเป",
           mode: { label: "แท็กซี่", cls: "t-taxi" },
-          desc: "รับประทานมื้อเที่ยงร้านนั่งสบาย และเดินเล่นย่านซีเหมินติง",
+          desc: "ทานมื้อเที่ยงร้านนั่งสบายและเดินเล่นย่านซีเหมินติง",
           places: [{ name: "Ximending", zh: "西門町" }]
         },
         {
           time: "13:45–15:00",
-          title: "Simple Kaffa · 興波咖啡 & สวนสร้างสรรค์หัวซาน 1914 · Huashan 1914 · 華山1914文化創意產業園區",
+          titlePrefix: "Simple Kaffa & สวนสร้างสรรค์หัวซาน 1914 · Huashan 1914 · 華山1914文化創意產業園區",
+          img: "assets/spot-huashan.webp",
+          imgAlt: "สวนสร้างสรรค์หัวซาน 1914 ไทเป",
           mode: { label: "แท็กซี่ ~10 นาที", cls: "t-taxi" },
-          desc: "แวะจิบกาแฟร้านแชมป์โลกและเดินชมโซนศิลปะที่ Huashan 1914",
+          desc: "จิบกาแฟร้านแชมป์โลกและเดินชมโซนศิลปะที่ Huashan 1914",
           places: [
             { name: "Simple Kaffa Flagship", zh: "興波咖啡", addr: "台北市中正區忠孝東路二段27號" },
-            { name: "Huashan 1914 Creative Park", zh: "華山1914文化創意產業園區" }
+            { name: "สวนศิลปะหัวซาน 1914 · Huashan 1914", zh: "華山1914文化創意產業園區" }
           ]
         },
         {
           time: "15:45–18:30",
-          title: "ตั้นสุ่ย · Tamsui · 淡水 (Golden Riverside · 金色水岸 · ถนนเก่า · 淡水老街)",
+          titlePrefix: "ตั้นสุ่ย · Tamsui · 淡水",
           optional: true,
+          img: "assets/spot-tamsui.webp",
+          imgAlt: "พระอาทิตย์ตกริมแม่น้ำตั้นสุ่ย",
           mode: { label: "MRT สายแดง (ออก 15:00)", cls: "t-mrt-red" },
-          desc: "ขึ้น MRT สายแดงปลายทาง Tamsui (~40–45 นาที) เดินทางราบชมริมน้ำ ~1.5 กม. ชมด้านนอกโบสถ์ 淡水禮拜堂 และพระอาทิตย์ตก (~17:05) ต่อด้วยมื้อเย็นแบบนั่ง · [ทางเลือก] หากฝนตก ตัดตั้นสุ่ยแล้วกลับเดินย่านฉือเฟิง · 赤峰街 ใกล้โรงแรมแทน · 18:45 นั่ง MRT สายแดงตรงกลับโรงแรม (~19:30)",
+          desc: "MRT ปลายทาง Tamsui (~40–45 น.) เดินทางราบชมริมน้ำ ~1.5 กม. ผ่านถนนเก่าและด้านนอกโบสถ์ 淡水禮拜堂 ชมพระอาทิตย์ตก (~17:05) + มื้อเย็น · [ทางเลือกฝนตก] เดินย่านฉือเฟิงแทน · 18:45 นั่ง MRT สายแดงกลับโรงแรม (~19:30)",
           warn: "เลือกขบวน MRT สายแดงที่มีป้ายปลายทาง Tamsui · 淡水 (ไม่ใช่ Beitou)",
           places: [
-            { name: "Tamsui Golden Riverside", zh: "淡水金色水岸" },
-            { name: "Tamsui Old Street", zh: "淡水老街" },
-            { name: "Chifeng Street (แผนสำรองฝนตก)", zh: "赤峰街" }
+            { name: "ริมน้ำตั้นสุ่ย · Golden Riverside", zh: "淡水金色水岸" },
+            { name: "ถนนเก่าตั้นสุ่ย · Tamsui Old Street", zh: "淡水老街" },
+            { name: "ย่านฉือเฟิง (แผนสำรองฝนตก)", zh: "赤峰街" }
           ]
         }
       ]
@@ -1338,87 +1586,104 @@
     {
       id: "D5", date: "2026-12-10", shortDate: "10 ธ.ค.",
       title: "พฤ. 10 ธ.ค. · รถเหมา เย่หลิ่ว → สือเฟิ่น → จิ่วเฟิ่น",
-      zone: "ชายฝั่งเหนือ & หมู่บ้านภูเขา",
-      conditions: ["รถเหมาส่วนตัว 10 ชม. (08:00–18:00)", "ลมชายฝั่งเย่หลิ่วแรง พกร่มและเสื้อกันลม", "รองเท้าพื้นกันลื่น"],
+      conditions: [
+        { icon: "clock", text: "รถเหมา 10 ชม. (08:00–18:00)" },
+        { icon: "wind", text: "ชายฝั่งเย่หลิ่วลมแรง · พกร่ม/เสื้อกันลม" },
+        { icon: "shoe", text: "ใส่รองเท้าพื้นกันลื่น" }
+      ],
       items: [
         {
           time: "08:00",
-          title: "รถเหมารับที่หน้าโรงแรม Dahshin · 大欣大飯店",
+          titlePrefix: "รถเหมารับหน้าโรงแรม Dahshin",
           mode: { label: "รถเหมา 10 ชม.", cls: "t-bus" },
-          desc: "ออกเดินทางเช้าเพื่อไปถึงเย่หลิ่วก่อนรถทัวร์ใหญ่"
+          desc: "ออกเดินทางเช้าเพื่อให้ถึงเย่หลิ่วก่อนรถทัวร์ใหญ่"
         },
         {
           time: "08:50–10:00",
-          title: "อุทยานธรณีเย่หลิ่ว · Yehliu Geopark · 野柳地質公園",
+          titlePrefix: "อุทยานธรณีเย่หลิ่ว · Yehliu Geopark",
+          img: "assets/spot-yehliu.webp",
+          imgAlt: "หินเศียรราชินี อุทยานธรณีเย่หลิ่ว",
           mode: { label: "รถเหมา", cls: "t-bus" },
-          desc: "เดินบนทางปูนชมโขดหินรูปทรงธรรมชาติและหินเศียรราชินี (เปิดทุกวัน 08:00–17:00)",
+          desc: "เดินบนทางปูนชมโขดหินรูปทรงธรรมชาติและหินเศียรราชินี (เปิด 08:00–17:00)",
           places: [{ name: "Yehliu Geopark", zh: "野柳地質公園" }]
         },
         {
           time: "11:00–12:45",
-          title: "ถนนเก่าสือเฟิ่น · Shifen Old Street · 十分老街",
+          titlePrefix: "ถนนเก่าสือเฟิ่น · Shifen Old Street",
+          img: "assets/spot-shifen.webp",
+          imgAlt: "รถไฟสายผิงซีและโคมลอยที่ถนนเก่าสือเฟิ่น",
           mode: { label: "รถเหมา (ขับ ~55 น.)", cls: "t-bus" },
-          desc: "เขียนคำอธิษฐานลงโคมลอย 1 ลูก 4 ด้านร่วมกันริมทางรถไฟ แล้วรับประทานมื้อเที่ยงที่สือเฟิ่น",
+          desc: "เขียนคำอธิษฐานลงโคมลอย 1 ลูก 4 ด้านร่วมกันริมทางรถไฟ + มื้อเที่ยง",
           places: [{ name: "Shifen Old Street", zh: "十分老街" }]
         },
         {
           time: "13:30–14:45",
-          title: "ถนนเก่าจิ่วเฟิ่น · Jiufen Old Street · 九份老街 (Jishan Street · 基山街)",
+          titlePrefix: "ถนนเก่าจิ่วเฟิ่น · Jiufen Old Street · 九份老街",
+          img: "assets/spot-jiufen.webp",
+          imgAlt: "โคมแดงในหมู่บ้านโบราณจิ่วเฟิ่น",
           mode: { label: "รถเหมา (ขับ ~40 น.)", cls: "t-bus" },
-          desc: "เดินเส้นทางราบสายหลัก Jishan Street และแวะซื้อนูกัตรสกาแฟที่ร้าน Jiavin Bakery · 佳賓餅家",
+          desc: "เดินเส้นทางราบสายหลัก Jishan Street และแวะร้านนูกัตรสกาแฟ Jiavin Bakery · 佳賓餅家",
           places: [
-            { name: "Jiufen Old Street (Jishan St)", zh: "九份老街 基山街" },
-            { name: "Jiavin Bakery", zh: "佳賓餅家", addr: "新北市瑞芳區基山街7號" }
+            { name: "ถนนสายหลักจิ่วเฟิ่น · Jishan St", zh: "九份老街 基山街" },
+            { name: "นูกัตกาแฟ · Jiavin Bakery", zh: "佳賓餅家", addr: "新北市瑞芳區基山街7號" }
           ]
         },
         {
           time: "14:45–17:00",
-          title: "นั่งร้านน้ำชาชมวิวจิ่วเฟิ่น → มื้อเย็นและชมไฟโคม",
+          titlePrefix: "นั่งร้านน้ำชาชมวิวจิ่วเฟิ่น → มื้อเย็นและชมไฟโคม",
           mode: { label: "พักยาว & มื้อเย็น", cls: "t-walk" },
-          desc: "14:45–16:15 นั่งจิบชาพักขาชมวิวทะเลและภูเขา · 16:15–17:00 มื้อเย็นช่วงไฟโคมเริ่มเปิด (พระอาทิตย์ตก ~17:05) · 17:00 ขึ้นรถกลับถึงโรงแรม ~18:00"
+          desc: "14:45–16:15 นั่งจิบชาพักขา · 16:15–17:00 มื้อเย็นช่วงไฟโคมเปิด (พระอาทิตย์ตก ~17:05) · 17:00 รถกลับถึงโรงแรม ~18:00"
         }
       ]
     },
     {
       id: "D6", date: "2026-12-11", shortDate: "11 ธ.ค.",
       title: "ศ. 11 ธ.ค. · เมาคง → ย่านซิ่นอี้ → ไทเป 101",
-      zone: "เขาเมาคง → ซิ่นอี้",
-      conditions: ["เริ่มสาย 08:30 ตื่นสบายๆ", "เส้นตายซื้อของเหลว >100 ml และของหนักแพ็กโหลดวันนี้"],
+      conditions: [
+        { icon: "clock", text: "เริ่มสาย 08:30 ตื่นสบายๆ" },
+        { icon: "bag", text: "เส้นตายซื้อของเหลว >100 ml และของหนักแพ็กโหลดวันนี้" }
+      ],
       items: [
         {
           time: "08:30–09:30",
-          title: "อาหารเช้าสบายๆ → เดินทางไปสถานีกระเช้าเมาคง · Maokong Gondola Taipei Zoo Station · 貓空纜車動物園站",
-          mode: { label: "Uber", cls: "t-taxi" },
-          desc: "ตื่นสาย 08:30 ทานอาหารเช้า แล้วเรียกรถไปสถานีต้นทางกระเช้าเมาคงเวลา 09:30",
+          titlePrefix: "สถานีกระเช้าเมาคง สวนสัตว์ไทเป · Maokong Gondola Taipei Zoo",
+          mode: { label: "Uber (ออก 09:30)", cls: "t-taxi" },
+          desc: "ทานอาหารเช้าสบายๆ แล้วเรียกรถไปสถานีต้นทางกระเช้าเมาคง",
           places: [{ name: "Maokong Gondola Taipei Zoo Station", zh: "貓空纜車動物園站" }]
         },
         {
           time: "10:00–12:30",
-          title: "กระเช้าขึ้น เมาคง · Maokong · 貓空",
-          mode: { label: "กระเช้าเมาคง (09:00–21:00)", cls: "t-bus" },
-          desc: "นั่งกระเช้าขึ้นเขา จิบชาอู่หลง/เถี่ยกวนอินชมวิว และมื้อเที่ยงบนเขา 11:45 · [ทางเลือก] ลงมากินมื้อเที่ยงที่ย่านซิ่นอี้ได้",
+          titlePrefix: "เมาคง · Maokong",
+          img: "assets/spot-maokong.webp",
+          imgAlt: "กระเช้าเมาคงเหนือเนินเขาและป่าไม้",
+          mode: { label: "กระเช้า (09:00–21:00)", cls: "t-bus" },
+          desc: "นั่งกระเช้าขึ้นเขา จิบชาอู่หลง/เถี่ยกวนอินชมวิว + มื้อเที่ยงบนเขา 11:45 · [ทางเลือก] ลงมากินเที่ยงย่านซิ่นอี้ได้",
           places: [{ name: "Maokong", zh: "貓空" }]
         },
         {
           time: "12:45–15:45",
-          title: "ย่านซิ่นอี้ · Xinyi Shopping District · 信義商圈",
+          titlePrefix: "ย่านซิ่นอี้ · Xinyi Shopping District",
+          img: "assets/spot-xinyi.webp",
+          imgAlt: "ห้างสรรพสินค้าย่านซิ่นอี้ ไทเป",
           mode: { label: "กระเช้าลง + แท็กซี่", cls: "t-taxi" },
-          desc: "เดินช้อปปิ้งทางเชื่อมห้างย่านซิ่นอี้และแวะนั่งพักคาเฟ่",
+          desc: "เดินช้อปปิ้งทางเชื่อมห้างย่านซิ่นอี้และพักคาเฟ่",
           places: [{ name: "Xinyi District", zh: "台北信義商圈" }]
         },
         {
           time: "16:00–17:30",
-          title: "รับบัตรคิว ติ่นไท่ฟง · Din Tai Fung · 鼎泰豐 → ขึ้นหอชมวิว ไทเป 101 · Taipei 101 · 台北101",
+          titlePrefix: "หอชมวิว ไทเป 101 · Taipei 101",
+          img: "assets/spot-taipei101.webp",
+          imgAlt: "ตึกไทเป 101 ยามพลบค่ำ",
           mode: { label: "เดินในอาคาร", cls: "t-walk" },
-          desc: "16:00 กดรับบัตรคิวติ่นไท่ฟง สาขา 101 · 16:15–17:30 ขึ้นหอชมวิว Taipei 101 เก็บภาพทั้งแสงกลางวัน พระอาทิตย์ตก และไฟเมืองยามค่ำ",
+          desc: "16:00 กดบัตรคิวติ่นไท่ฟง สาขา 101 · 16:15–17:30 ขึ้นชมวิวตึก 101 ช่วงกลางวันต่อพระอาทิตย์ตกและไฟเมือง",
           places: [{ name: "Taipei 101", zh: "台北101" }]
         },
         {
           time: "17:45",
-          title: "มื้อเย็น ติ่นไท่ฟง สาขา 101 · Din Tai Fung Taipei 101 · 鼎泰豐 台北101店",
+          titlePrefix: "มื้อเย็น ติ่นไท่ฟง สาขา 101 · Din Tai Fung Taipei 101",
           mode: { label: "MRT สายแดงตรง", cls: "t-mrt-red" },
-          desc: "รับประทานมื้อเย็นแล้วนั่ง MRT สายแดงตรงกลับสถานี Zhongshan ถึงโรงแรม ~19:15",
-          warn: "เส้นตายแพ็กกระเป๋าโหลด: ของเหลวเกิน 100 ml (เช่น น้ำมันพริก, เซรั่ม) และของหนักต้องซื้อและแพ็กใส่กระเป๋าใหญ่คืนนี้ให้เรียบร้อย",
+          desc: "มื้อเย็นแล้วนั่ง MRT สายแดงตรงกลับสถานี Zhongshan ถึงโรงแรม ~19:15",
+          warn: "เส้นตายแพ็กกระเป๋าโหลด: ของเหลวเกิน 100 ml (น้ำมันพริก, เซรั่ม) และของหนักต้องซื้อและแพ็กใส่กระเป๋าใหญ่คืนนี้",
           places: [{ name: "Din Tai Fung Taipei 101", zh: "鼎泰豐 台北101店" }]
         }
       ]
@@ -1426,66 +1691,73 @@
     {
       id: "D7", date: "2026-12-12", shortDate: "12 ธ.ค.",
       title: "ส. 12 ธ.ค. · เป่ยโถว + ช้อปจงซาน + กลับกรุงเทพฯ",
-      zone: "A1 → เป่ยโถว → จงซาน → สนามบิน T2",
-      conditions: ["พกผ้าขนหนูผืนเล็กสำหรับแช่เท้าเป่ยโถว", "หลังโหลด A1 08:15 ซื้อได้เฉพาะของถือขึ้นเครื่อง", "บินกลับ BR 205 (20:45 TPE T2)"],
+      conditions: [
+        { icon: "towel", text: "พกผ้าขนหนูผืนเล็กแช่เท้าเป่ยโถว" },
+        { icon: "bag", text: "หลังโหลด A1 08:15 ซื้อได้เฉพาะของถือขึ้นเครื่อง" },
+        { icon: "clock", text: "บินกลับ BR 205 (20:45 TPE T2)" }
+      ],
       items: [
         {
           time: "07:00–08:00",
-          title: "อาหารเช้า + เช็กอินออนไลน์ EVA Air",
+          titlePrefix: "อาหารเช้า + เช็กอินออนไลน์ EVA Air",
           mode: { label: "เตรียมเช็กเอาต์", cls: "t-walk" },
-          desc: "เช็กอินออนไลน์ล่วงหน้า เตรียมกระเป๋าโหลด และพกผ้าขนหนูผืนเล็กติดตัวไปแช่เท้า"
+          desc: "เช็กอินออนไลน์ล่วงหน้า เตรียมกระเป๋าโหลด และพกผ้าขนหนูเล็กติดตัว"
         },
         {
           time: "08:15",
-          title: "โหลดกระเป๋าที่สถานี Airport MRT Taipei Main (A1) · 機場捷運台北車站 A1",
+          titlePrefix: "โหลดกระเป๋าสถานี Airport MRT Taipei Main (A1)",
           mode: { label: "Uber XL", cls: "t-taxi" },
-          desc: "เช็กเอาต์จากโรงแรมไปโหลดกระเป๋าระบบ Self Bag Drop ของ EVA Air ที่ A1 (เปิด 06:00–21:30, ผลรวมสามด้านไม่เกิน 158 ซม.)",
+          desc: "เช็กเอาต์ไปใช้ Self Bag Drop ของ EVA Air (เปิด 06:00–21:30 ปิด 3 ชม.ก่อนบิน ผลรวม 3 ด้าน ≤158 ซม.)",
           places: [{ name: "Airport MRT Taipei Main (A1)", zh: "機場捷運台北車站 A1" }]
         },
         {
           time: "09:20–11:00",
-          title: "เป่ยโถว · Beitou · 北投 (Thermal Valley · 北投地熱谷 → พิพิธภัณฑ์น้ำพุร้อน · 北投溫泉博物館 → ห้องสมุดไม้ · 台北市立圖書館北投分館)",
+          titlePrefix: "เป่ยโถว · Beitou · 北投",
+          img: "assets/spot-beitou.webp",
+          imgAlt: "ไอน้ำพุร้อนสีมรกตที่ Thermal Valley เป่ยโถว",
           mode: { label: "แท็กซี่ขึ้นบนสุด + เดินลงเนิน", cls: "t-taxi" },
-          desc: "นั่งแท็กซี่จาก A1 (~25–30 นาที) ขึ้นจุดบนสุดที่ Thermal Valley (เปิด 09:00–17:00) แล้วเดินลงเนินเบาๆ ~1 กม. ชมพิพิธภัณฑ์น้ำพุร้อน (10:00–18:00) และห้องสมุดไม้เป่ยโถว (08:30–21:00) เข้าฟรีทั้งหมด",
+          desc: "แท็กซี่จาก A1 (~25–30 น.) ลงจุดบนสุดแล้วเดินลงเนินสบายๆ ~1 กม. เข้าฟรีทุกจุด",
           places: [
-            { name: "Thermal Valley", zh: "北投地熱谷" },
-            { name: "Beitou Hot Spring Museum", zh: "北投溫泉博物館" },
-            { name: "Beitou Public Library", zh: "台北市立圖書館北投分館" }
+            { name: "Thermal Valley (09:00–17:00)", zh: "北投地熱谷" },
+            { name: "Beitou Hot Spring Museum (10:00–18:00)", zh: "北投溫泉博物館" },
+            { name: "ห้องสมุดไม้เป่ยโถว (08:30–21:00)", zh: "台北市立圖書館北投分館" }
           ]
         },
         {
           time: "11:00–12:45",
-          title: "แช่เท้าอุ่นฟรี Fuxing Park · 復興公園泡腳池 & มื้อเที่ยงแถวสถานี Xinbeitou · 新北投",
+          titlePrefix: "แช่เท้าอุ่น Fuxing Park & มื้อเที่ยง Xinbeitou · 北投復興公園泡腳池 · 新北投",
           mode: { label: "เดิน", cls: "t-walk" },
-          desc: "11:00–11:45 แช่เท้าอุ่นฟรีที่สวน Fuxing (08:00–18:00, ห่าง MRT 200–300 ม.) · 11:45–12:45 มื้อเที่ยงแถวสถานี Xinbeitou",
+          desc: "11:00–11:45 แช่เท้าอุ่นฟรีที่สวน Fuxing (08:00–18:00) · 11:45–12:45 มื้อเที่ยงแถวสถานี Xinbeitou",
           places: [
-            { name: "Fuxing Park Foot Bath", zh: "北投復興公園泡腳池" },
-            { name: "MRT Xinbeitou Station", zh: "捷運新北投站" }
+            { name: "บ่อแช่เท้าอุ่น · Fuxing Park", zh: "北投復興公園泡腳池" },
+            { name: "สถานี Xinbeitou", zh: "捷運新北投站" }
           ]
         },
         {
           time: "13:20–16:00",
-          title: "ย่านจงซาน–ฉือเฟิง · Zhongshan–Chifeng · 捷運中山站 / 赤峰街",
+          titlePrefix: "ช้อปย่าน จงซาน–ฉือเฟิง · Zhongshan–Chifeng · 捷運中山站 / 赤峰街",
+          img: "assets/spot-chifeng.webp",
+          imgAlt: "สวนทางเดินและย่านจงซาน–ฉือเฟิง ไทเป",
           mode: { label: "MRT สายแดง (~30–35 น.)", cls: "t-mrt-red" },
-          desc: "ออกเดินทาง 12:45 นั่ง MRT สายแดงกลับจงซาน ช้อปของแห้ง/ขนมถือขึ้นเครื่อง (Cookie886 · 曲奇886, Sugar & Spice · 糖村) และพักคาเฟ่",
+          desc: "ออก 12:45 กลับจงซาน ซื้อคุกกี้/นูกัตถือขึ้นเครื่อง และนั่งคาเฟ่",
           places: [
-            { name: "MRT Zhongshan / Chifeng St", zh: "捷運中山站 赤峰街" },
-            { name: "Cookie886", zh: "曲奇886 台北門市" },
-            { name: "Sugar & Spice Nanxi", zh: "糖村 新光三越南西店" }
+            { name: "ย่านจงซาน–ฉือเฟิง", zh: "捷運中山站 赤峰街" },
+            { name: "คุกกี้เนย · Cookie886 (เปิด 12:30)", zh: "曲奇886 台北門市" },
+            { name: "นูกัต · Sugar & Spice Nanxi", zh: "糖村 新光三越南西店" }
           ]
         },
         {
           time: "16:15–17:45",
-          title: "เดินทางไปสนามบินเถาหยวน T2 · Taoyuan Airport T2 · 桃園機場第二航廈",
+          titlePrefix: "สนามบินเถาหยวน T2 · Taoyuan Airport T2",
           mode: { label: "MRT → Airport MRT (A1)", cls: "t-bus" },
-          desc: "ออกจากจงซานไปต่อ Airport MRT ที่ A1 ถึงสนามบิน T2 ราว 17:30–17:45",
+          desc: "นั่ง MRT ไปต่อ Airport MRT ที่ A1 ถึงสนามบิน T2 ราว 17:30–17:45",
           places: [{ name: "Taoyuan Airport T2", zh: "桃園機場第二航廈" }]
         },
         {
           time: "17:45–20:45",
-          title: "SunnyHills T2 · 微熱山丘 (ชั้น 2F ก่อน ตม.) → มื้อเย็น → เที่ยวบิน BR 205",
+          titlePrefix: "SunnyHills สนามบิน T2 (ชั้น 2F ก่อน ตม.) → บิน BR 205",
           mode: { label: "EVA Air BR 205", cls: "t-flight" },
-          desc: "ซื้อพายสับปะรด SunnyHills ชั้น 2F โซนสาธารณะก่อนผ่าน ตม. (เปิด 07:00–20:00 ราคาเท่าร้านในเมือง) ทานมื้อเย็น และผ่าน ตม. (แวะ Duty Free ได้) → 20:45 บิน BR 205 TPE T2 → ถึงกรุงเทพฯ 23:40 BKK (GMT+7)",
+          desc: "ซื้อพายสับปะรด (07:00–20:00 ราคาเท่าร้านในเมือง) + มื้อเย็น → ผ่าน ตม. (Everrich Duty Free) → 20:45 บิน BR 205 ถึงกรุงเทพฯ 23:40",
           places: [{ name: "SunnyHills Taoyuan T2", zh: "微熱山丘 桃園機場第二航廈" }]
         }
       ]
@@ -1516,34 +1788,148 @@
     }
   ];
 
-  const CURATED_TOPPICKS = [
-    { tag: "ฝากผู้ใหญ่", bag: "carry", bagLabel: "ถือขึ้นเครื่อง (D7 T2)", name: "พายสับปะรด / พายแอปเปิล · SunnyHills · 微熱山丘", where: "สนามบิน T2 ชั้น 2F ก่อน ตม. (07:00–20:00 ราคาเท่าร้านในเมือง)" },
-    { tag: "ฝากผู้ใหญ่", bag: "check", bagLabel: "โหลด (D3)", name: "ขนมมงคลเต่าถั่วลิสงงาดำ · Li Ting Xiang · 李亭香 & ผลไม้อบแห้ง", where: "ถนนตี๋ฮว่า · 迪化街 (เลขที่ 309)" },
-    { tag: "ฝากผู้ใหญ่", bag: "check", bagLabel: "โหลด / ถือขึ้นเครื่อง", name: "ชาดำ Ruby #18 · 紅玉紅茶 (D2) / ชาเถี่ยกวนอิน เมาคง (D6) / Wang De Chuan · 王德傳 (D7)", where: "สุ่ยเซ่อ (D2) · เมาคง (D6) · จงซาน/101 (D7)" },
-    { tag: "แจกออฟฟิศ", bag: "check", bagLabel: "โหลด (D4 เช้า)", name: "แครกเกอร์นูกัตต้นหอม · L'Atelier Lotus · 甜滿", where: "ถนนหย่งคัง ซอย 31 เลขที่ 10 (เปิด 09:00 เงินสดเท่านั้น · NT$220)" },
-    { tag: "แจกออฟฟิศ", bag: "carry", bagLabel: "ถือขึ้นเครื่อง (D7)", name: "คุกกี้เนย Cookie886 · 曲奇886 & นูกัต Sugar & Spice · 糖村", where: "จงซาน · ห้างชินกงมิตซูโคชิ Nanxi / 101 / T2" },
-    { tag: "แจกออฟฟิศ", bag: "check", bagLabel: "โหลด (คืนซูเปอร์)", name: "I-Mei Puffs · 義美小泡芙 / 77 Nougat Bar · 77乳加 / Kuai Kuai · 乖乖 (ถุงเขียว)", where: "Prosperity Plaza · 萬家福重慶店 (09:00–02:00) / 7-Eleven" },
-    { tag: "ซื้อกินเอง", bag: "check", bagLabel: "โหลด (D6)", name: "น้ำมันพริกติ่นไท่ฟง · Din Tai Fung · 鼎泰豐 & บะหมี่แห้ง Tseng Noodles · 曾拌麵", where: "ติ่นไท่ฟง 101 B1 (D6) · Prosperity Plaza (D3/D5/D6)" }
-  ];
-
-  const SOUVENIR_DAYS = [
-    { day: "D2 · สุ่ยเซ่อ (水社)", items: "ชาดำไถฉา เบอร์ 18 (Ruby #18 · 日月潭台茶18號 紅玉) แบบซองชงง่าย ~NT$300–800+" },
-    { day: "D3 · ถนนตี๋ฮว่า (迪化街)", items: "ขนมเต่า Li Ting Xiang · 李亭香 (~NT$200–600+), ผลไม้อบแห้ง (~NT$150–300+), ผงบ๊วย, ชาฟักเขียว/ชาขิง (~NT$150–250), ชา Lin Hua Tai · 林華泰茶行, ถุงตาข่าย Gaji Bag · 茄芷袋" },
-    { day: "คืนเหมาซูเปอร์ · Prosperity Plaza (萬家福重慶店)", items: "ใกล้หนิงเซี่ย 300–500 ม. เปิด 09:00–02:00 · I-Mei Puffs (~NT$35–55), 77 Nougat (~NT$100–120), Kuai Kuai ถุงเขียว (~NT$25–45), Tseng Noodles (~NT$180–250), Lao Ma · 老媽拌麵, ชานม 3:15 PM · 三點一刻 (~NT$130–180), Wei Lih ซองเขียวสูตรเจเท่านั้น" },
-    { day: "D4 · หย่งคัง → ซีเหมินติง → หัวซาน → ตั้นสุ่ย", items: "L'Atelier Lotus · 甜滿 (NT$220 เงินสด), Saint Peter · 聖比德 (สำรอง), ของฝาก LAIHAO · 來好, เครื่องรางหลงซาน, ทองม้วน HiWalk · 海邊走走 (งาดำ/เนยถั่ว), กล่องดนตรี Wooderful Life · 知音文創, ปลาอบกรอบ Hsu Yi · 許義魚酥" },
-    { day: "D5 · สือเฟิ่น & จิ่วเฟิ่น", items: "พวงกุญแจโคมลอยสือเฟิ่น (~NT$50–100) · นูกัตรสกาแฟ 佳賓餅家 ถนน Jishan Street (~NT$200–300)" },
-    { day: "D6 · เมาคง & ซิ่นอี้ / 101 (เส้นตายโหลด)", items: "ชาเถี่ยกวนอินเมาคง, น้ำมันพริกติ่นไท่ฟง (ต้องโหลด), ทองม้วน Bluebird Travel · 青鳥旅行 (เลี่ยงไส้หมูหยอง), มาส์ก L'Herboflore · 蕾舒翠, พายเผือก Ah Tsung Shi · 阿聰師" },
-    { day: "D7 · จงซาน & สนามบิน T2 (ถือขึ้นเครื่อง)", items: "Cookie886 · 曲奇886 (เปิด 12:30), Sugar & Spice · 糖村, ชา Wang De Chuan · 王德傳 · ก่อน ตม. T2 ชั้น 2F: SunnyHills · 微熱山丘 (10 ชิ้น NT$550 / 15 ชิ้น NT$825) · หลัง ตม. Duty Free: วิสกี้ Kavalan · 噶瑪蘭威士忌 (โควต้า ≤1 ลิตร/คน)" }
-  ];
-
-  const FULL_EXPLORE_EXTRA = [
-    { cat: "ฝากผู้ใหญ่", bag: "check", bagLabel: "โหลด (D3–D6)", name: "แผ่นแปะ / ลูกกลิ้งสมุนไพรจินเหมิน · 金門一條根 (王大夫 / 金太武)", price: "แผ่นแปะ ~150–350 / ครีม-ลูกกลิ้ง ~250–500 TWD", where: "ร้านขายยา / POYA · 寶雅 / Cosmed · 康是美 / ถนนตี๋ฮว่า" },
-    { cat: "ฝากผู้ใหญ่", bag: "carry", bagLabel: "สบู่ก้อนถือได้", name: "สบู่สมุนไพรไต้หวัน · Yuan Soap · 阿原肥皂 (สูตรยอดนิยม 艾草)", price: "~350–480 TWD", where: "ถนนตี๋ฮว่า / หย่งคัง / ซิ่นอี้ / T2" },
-    { cat: "แจกออฟฟิศ", bag: "check", bagLabel: "โหลด / ถือ", name: "ทองม้วนไส้เนยถั่ว/งาดำ · HiWalk · 海邊走走 / Bluebird Travel · 青鳥旅行 (เลี่ยงไส้หมูหยอง)", price: "~300–580 TWD", where: "ซีเหมินติง (D4) · 101 B1 (D6) · Nanxi B2 (D7)" },
-    { cat: "กินเอง", bag: "check", bagLabel: "โหลด", name: "มาส์กหน้า My Beauty Diary · 我的美麗日記 & เซรั่ม Dr. Wu (ต้องโหลด)", price: "มาส์ก ~200–300 / Dr. Wu ~800–1,600 TWD", where: "Cosmed / Watsons / POYA (แนะนำซื้อคืนแถวจงซาน)" },
-    { cat: "ช้อปใช้เอง", bag: "carry", bagLabel: "Tax Refund 5%", name: "Salomon (เช่น XT-6) & Onitsuka Tiger (Mexico 66)", price: "Salomon ~5,880–6,880 / Onitsuka ~3,680–4,580 TWD", where: "ย่านซิ่นอี้ (D6) · ซีเหมินติง (D4)" },
-    { cat: "ช้อปใช้เอง", bag: "carry", bagLabel: "Tax Refund 5%", name: "รองเท้าผู้หญิงไต้หวัน · D+AF & Grace Gift", price: "คัทชู ~680–1,380 / บูท ~980–2,200 TWD", where: "จงซาน (D7) · ซีเหมินติง (D4) · ซิ่นอี้ (D6)" },
-    { cat: "ช้อปใช้เอง", bag: "carry", bagLabel: "Tax Refund 5%", name: "เสื้อผ้า & กระเป๋าไต้หวัน · NET / Plain-me / PAZZO (UR LIVING) / ROBINMAY", price: "NET ~199–1,200 / Plain-me ~600–1,500 / ROBINMAY ~600–3,800 TWD", where: "จงซาน–ฉือเฟิง (D7) · ซีเหมินติง (D4)" }
+  const SHOP_ITEMS = [
+    {
+      id: "sunnyhills", highlight: true, cat: "ฝากผู้ใหญ่",
+      title: "พายสับปะรด / พายแอปเปิล",
+      brand: "SunnyHills", zh: "微熱山丘 桃園機場第二航廈",
+      day: "D7 · สนามบิน T2 ชั้น 2F", price: "NT$345–825",
+      bag: "carry", bagLabel: "ถือขึ้นเครื่องได้",
+      img: "assets/shop-sunnyhills.webp",
+      note: "ซื้อก่อนผ่าน ตม. (07:00–20:00) ราคาเท่าร้านในเมือง 6 ชิ้น 345 / 10 ชิ้น 550 / 15 ชิ้น 825"
+    },
+    {
+      id: "litingxiang", highlight: true, cat: "ฝากผู้ใหญ่",
+      title: "ขนมเต่ามงคลไส้ถั่วลิสงงาดำ & ผลไม้อบแห้ง",
+      brand: "Li Ting Xiang", zh: "李亭香餅店", addr: "台北市大同區迪化街一段309號",
+      day: "D3 · ถนนตี๋ฮว่า", price: "NT$200–600+",
+      bag: "check", bagLabel: "โหลดใต้เครื่อง",
+      img: "assets/shop-litingxiang.webp",
+      note: "ความหมายมงคล มีมุมนั่งจิบชาพักขา · ร้านใกล้เคียงมีมะม่วง/ฝรั่งอบแห้ง (ไม่เติมน้ำตาล)"
+    },
+    {
+      id: "lotus", highlight: true, cat: "แจกออฟฟิศ",
+      title: "แครกเกอร์นูกัตต้นหอม",
+      brand: "L'Atelier Lotus", zh: "甜滿", addr: "台北市大安區永康街31巷10號",
+      day: "D4 เช้า · ย่านหย่งคัง", price: "NT$220 / กล่อง",
+      bag: "check", bagLabel: "โหลด (หรือถือระวังแตก)",
+      img: "assets/shop-lotus.webp",
+      note: "เปิดขาย 09:00 ขายจนหมด รับเฉพาะเงินสดเท่านั้น (จำกัดจำนวนต่อคน)"
+    },
+    {
+      id: "tea", highlight: true, cat: "ฝากผู้ใหญ่",
+      title: "ชาดำ Ruby #18 / ชาเถี่ยกวนอิน / ชากระป๋องพรีเมียม",
+      brand: "Suishe / Maokong / Wang De Chuan", zh: "王德傳茶莊",
+      day: "D2 สุ่ยเซ่อ · D6 เมาคง · D7 จงซาน", price: "NT$250–1,500+",
+      bag: "carry", bagLabel: "แบบซอง/กระป๋องถือได้",
+      img: "assets/shop-tea.webp",
+      note: "ชาสุ่ยเซ่อ/เมาคงแนะนำแบบซอง (Tea Bags) ชงง่าย ส่วน Wang De Chuan กระป๋องแดงเหมาะฝากผู้ใหญ่"
+    },
+    {
+      id: "cookie886", highlight: true, cat: "แจกออฟฟิศ",
+      title: "คุกกี้เนยละลายในปาก",
+      brand: "Cookie886", zh: "曲奇886 台北門市",
+      day: "D7 · จงซาน (ใกล้โรงแรม)", price: "~NT$300 / กระป๋อง",
+      bag: "carry", bagLabel: "ถือขึ้นเครื่องได้",
+      img: "assets/shop-cookie886.webp",
+      note: "เปิด 12:30–20:30 รสออริจินัล/ช็อกโกแลต/ชาดำ เนื้อร่วนนุ่มแนะนำถือขึ้นเครื่อง"
+    },
+    {
+      id: "nougat", highlight: true, cat: "แจกออฟฟิศ",
+      title: "นูกัตฝรั่งเศสอัลมอนด์ & นูกัตรสกาแฟ",
+      brand: "Sugar & Spice / Jiavin Bakery", zh: "糖村 新光三越南西店",
+      day: "D5 จิ่วเฟิ่น · D7 จงซาน / T2", price: "NT$200–580",
+      bag: "carry", bagLabel: "ถือขึ้นเครื่องได้",
+      img: "assets/shop-nougat.webp",
+      note: "Sugar & Spice หอมนมไม่แข็ง ซื้อที่ Nanxi/101/T2 · นูกัตรสกาแฟ 佳賓餅家 ซื้อที่จิ่วเฟิ่น D5"
+    },
+    {
+      id: "eggroll", highlight: true, cat: "แจกออฟฟิศ",
+      title: "ทองม้วนไส้เนยถั่ว / งาดำ (เลี่ยงไส้หมูหยอง)",
+      brand: "HiWalk / Bluebird Travel", zh: "青鳥旅行 新光三越南西",
+      day: "D4 ซีเหมิน · D6 101 · D7 Nanxi", price: "NT$300–580",
+      bag: "carry", bagLabel: "โหลด / ถือขึ้นเครื่องได้",
+      img: "assets/shop-eggroll.webp",
+      note: "เลือกเฉพาะไส้เนยถั่ว งาดำ ช็อกโกแลต หรือเอิร์ลเกรย์ (ห้ามนำเข้าไส้หมูหยอง)"
+    },
+    {
+      id: "supermarket", highlight: true, cat: "แจกออฟฟิศ",
+      title: "I-Mei Puffs / 77 Nougat / Kuai Kuai ถุงเขียว",
+      brand: "Prosperity Plaza (Carrefour เดิม)", zh: "萬家福重慶店",
+      day: "คืนเหมาซูเปอร์ (D3 / D5 / D6)", price: "NT$25–120",
+      bag: "check", bagLabel: "โหลดใต้เครื่อง",
+      img: "assets/shop-supermarket.webp",
+      note: "ใกล้ตลาดหนิงเซี่ย 300–500 ม. เปิด 09:00–02:00 · Kuai Kuai ซื้อเฉพาะถุงเขียวรสมะพร้าว"
+    },
+    {
+      id: "noodles", highlight: true, cat: "ซื้อกินเอง",
+      title: "บะหมี่แห้งพรีเมียม (สูตรไม่มีเนื้อ/น้ำมันหมู)",
+      brand: "Tseng Noodles / Lao Ma", zh: "萬家福重慶店",
+      day: "คืนเหมาซูเปอร์", price: "NT$150–250 / แพ็ก",
+      bag: "check", bagLabel: "โหลดใต้เครื่อง",
+      img: "assets/shop-noodles.webp",
+      note: "เลือก Tseng รสต้นหอมพริกหมาล่า หรือ Lao Ma · ห้ามซื้อบะหมี่ที่มีซองเนื้อสัตว์จริงเข้าไทย"
+    },
+    {
+      id: "chilioil", highlight: true, cat: "ซื้อกินเอง",
+      title: "น้ำมันพริกติ่นไท่ฟง (ซอสพริกคั่ว)",
+      brand: "Din Tai Fung B1", zh: "鼎泰豐 台北101店",
+      day: "D6 · ไทเป 101 (เส้นตายโหลด)", price: "NT$250–350 / ขวด",
+      bag: "check", bagLabel: "ต้องโหลดเท่านั้น",
+      img: "assets/shop-chilioil.webp",
+      note: "ของเหลวเกิน 100 ml ต้องซื้อภายใน D6 เพื่อแพ็กใส่กระเป๋าโหลดเช้า D7"
+    },
+    {
+      id: "kavalan", highlight: true, cat: "ฝากผู้ใหญ่",
+      title: "วิสกี้ Kavalan & เหล้าเกาเหลียง",
+      brand: "Everrich Duty Free", zh: "桃園機場第二航廈 免稅店",
+      day: "D7 · สนามบิน T2 หลัง ตม.", price: "NT$400–2,800+",
+      bag: "carry", bagLabel: "หิ้วถุงซีลขึ้นเครื่องได้",
+      img: "assets/shop-kavalan.webp",
+      note: "ซื้อหลัง ตม. ไม่กินน้ำหนักโหลดและไม่เสี่ยงแตก (โควต้าแอลกอฮอล์เข้าไทย ≤ 1 ลิตร/คน)"
+    },
+    {
+      id: "milktea", highlight: true, cat: "ซื้อกินเอง",
+      title: "ชานมซองใบชาจริง 3:15 PM & ชาขิงน้ำตาลทรายแดง",
+      brand: "3:15 PM / ร้านชาตี๋ฮว่า", zh: "萬家福重慶店",
+      day: "D3 ตี๋ฮว่า · คืนเหมาซูเปอร์", price: "NT$130–250",
+      bag: "check", bagLabel: "โหลดใต้เครื่อง",
+      img: "assets/shop-milktea.webp",
+      note: "ชานมถุง 15 ซองใส่ใบชาจริง (ออริจินัล/เอิร์ลเกรย์) และชาขิงชงดื่มอุ่นๆ หน้าหนาว"
+    },
+    {
+      id: "gaji", highlight: false, cat: "แจกออฟฟิศ",
+      title: "ถุงตาข่าย Gaji Bag, ผ้าลาย In Blooom & กล่องดนตรีไม้",
+      brand: "LAIHAO / In Blooom / Wooderful Life", zh: "來好 永康街",
+      day: "D3 ตี๋ฮว่า · D4 หย่งคัง/หัวซาน", price: "NT$50–2,200",
+      bag: "carry", bagLabel: "โหลด / ถือขึ้นเครื่อง",
+      img: "assets/shop-gaji.webp",
+      note: "ของฝากดีไซน์น้ำหนักเบา พับแบนในกระเป๋าได้ (กล่องดนตรีไม้ให้ห่อกันกระแทก)"
+    },
+    {
+      id: "herbcare", highlight: false, cat: "ฝากผู้ใหญ่",
+      title: "แผ่นแปะสมุนไพรจินเหมิน, สบู่ Yuan & มาส์กหน้า / Dr. Wu",
+      brand: "POYA / Cosmed / Yuan Soap", zh: "阿原肥皂",
+      day: "D3 ตี๋ฮว่า · D4–D7 จงซาน", price: "NT$150–1,600",
+      bag: "check", bagLabel: "ครีม/เซรั่มต้องโหลด",
+      note: "สบู่ก้อนถือขึ้นเครื่องได้ แต่เซรั่ม Dr. Wu และครีม/ลูกกลิ้งเกิน 100 ml ต้องโหลดภายใน D6"
+    },
+    {
+      id: "shoes", highlight: false, cat: "เสื้อผ้า & รองเท้า",
+      title: "รองเท้า Salomon / Onitsuka Tiger / D+AF & Grace Gift",
+      brand: "ย่านซิ่นอี้ / ซีเหมินติง / จงซาน", zh: "西門町",
+      day: "D4 ซีเหมิน · D6 ซิ่นอี้ · D7 จงซาน", price: "NT$680–6,880",
+      bag: "carry", bagLabel: "Tax Refund 5%",
+      note: "ซื้อครบ NT$2,000/ร้าน/วัน พกพาสปอร์ตขอคืนภาษี 5% ได้ · D+AF/Grace Gift ลองไซส์จริงคุ้มกว่าพรีฯ"
+    },
+    {
+      id: "fashion", highlight: false, cat: "เสื้อผ้า & รองเท้า",
+      title: "เสื้อผ้า & กระเป๋าไต้หวัน (NET, Plain-me, PAZZO, ROBINMAY)",
+      brand: "UR LIVING จงซาน / ซีเหมินติง", zh: "UR LIVING 南西一店",
+      day: "D4 ซีเหมิน · D7 จงซาน–ฉือเฟิง", price: "NT$199–3,800",
+      bag: "carry", bagLabel: "Tax Refund 5%",
+      note: "NET ราคาประหยัดเหมาะซื้อเสื้อกันหนาวเพิ่มหน้างาน · Plain-me และ ROBINMAY คุ้มกว่าพรีฯ ไทย"
+    }
   ];
 
   const CHECKLIST_ITEMS = [
@@ -1558,15 +1944,13 @@
   ];
 
   const STORAGE_KEY = "taipei-2026-checklist-v1";
-  const TRIP_DATES = DAYS.map(d => d.date);
 
   function getTaipeiToday() {
     try {
-      const fmt = new Intl.DateTimeFormat("en-CA", {
+      return new Intl.DateTimeFormat("en-CA", {
         timeZone: "Asia/Taipei",
         year: "numeric", month: "2-digit", day: "2-digit"
-      });
-      return fmt.format(new Date());
+      }).format(new Date());
     } catch {
       return "";
     }
@@ -1579,9 +1963,9 @@
   let state = {
     tab: "route",
     viewMode: isDuringTrip ? "focus" : "all",
-    activeDay: isDuringTrip ? todayDayObj.id : "D0",
-    souvenirMode: "curated",
-    souvenirFilter: "ทั้งหมด",
+    activeDay: isDuringTrip ? todayDayObj.id : null,
+    shopMode: "highlight",
+    shopFilter: "ทั้งหมด",
     checked: {}
   };
 
@@ -1601,39 +1985,24 @@
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
   }
 
-  function renderStatusNote() {
-    const el = document.getElementById("trip-status-note");
-    if (isDuringTrip) {
-      el.textContent = `กำลังเดินทาง · วันนี้ ${todayDayObj.id} (${todayDayObj.shortDate})`;
-    } else {
-      el.textContent = "โหมดเตรียมทริป · แสดงแผนครบทุกวัน";
-    }
-  }
-
   function renderDayRail() {
     const rail = document.getElementById("day-rail");
-    rail.innerHTML = DAYS.map(d => {
+    const isAll = state.viewMode === "all";
+    const allBtn = `
+      <button class="all-btn" type="button" id="btn-all-days" aria-pressed="${isAll ? "true" : "false"}">ทุกวัน</button>
+    `;
+    const dayBtns = DAYS.map(d => {
       const isToday = todayDayObj && todayDayObj.id === d.id;
-      const isCurrent = state.activeDay === d.id;
+      const isCurrent = state.viewMode === "focus" && state.activeDay === d.id;
       return `
-        <button class="cp-btn" type="button" data-day="${d.id}" aria-current="${isCurrent ? "true" : "false"}" aria-label="${esc(d.title)}">
+        <button class="cp-btn ${isToday ? "is-today" : ""}" type="button" data-day="${d.id}" aria-current="${isCurrent ? "true" : "false"}" aria-label="${esc(d.title)}">
           ${isToday ? '<span class="cp-today-flag">วันนี้</span>' : ""}
           <span class="cp-circle">${d.id}</span>
           <span class="cp-date">${d.shortDate}</span>
         </button>
       `;
     }).join("");
-
-    const jumpBtn = document.getElementById("btn-today-jump");
-    if (isDuringTrip) {
-      jumpBtn.hidden = false;
-      document.getElementById("today-jump-label").textContent = `กลับวันนี้ (${todayDayObj.id})`;
-    } else {
-      jumpBtn.hidden = true;
-    }
-
-    document.getElementById("btn-mode-all").setAttribute("aria-pressed", String(state.viewMode === "all"));
-    document.getElementById("btn-mode-focus").setAttribute("aria-pressed", String(state.viewMode === "focus"));
+    rail.innerHTML = allBtn + dayBtns;
   }
 
   function renderRoute() {
@@ -1642,41 +2011,72 @@
       const isHidden = state.viewMode === "focus" && state.activeDay !== day.id;
       const isToday = todayDayObj && todayDayObj.id === day.id;
       const condHtml = day.conditions.map(c => `
-        <span class="cond-item">${ICONS.temp}<span>${esc(c)}</span></span>
+        <span class="cond-item">${ICONS[c.icon] || ICONS.clock}<span>${esc(c.text)}</span></span>
       `).join("");
 
       const rowsHtml = day.items.map(item => {
-        const placesHtml = (item.places || []).map(p => {
+        const places = item.places || [];
+        let titleHtml = esc(item.titlePrefix);
+        let actionsHtml = "";
+
+        if (places.length === 1) {
+          const p = places[0];
           const copyText = p.addr ? `${p.zh} ${p.addr}` : p.zh;
-          return `
-            <div class="plaque-row">
-              <span class="zh-plaque" lang="zh-Hant">${esc(p.zh)}${p.addr ? ` · ${esc(p.addr)}` : ""}</span>
-              <button class="action-btn copy-btn" type="button" data-copy="${esc(copyText)}">
-                ${ICONS.copy}<span>คัดลอก</span>
-              </button>
-              <button class="action-btn driver-btn" type="button" data-zh="${esc(p.zh)}" data-addr="${esc(p.addr || "")}" data-sub="${esc(p.name)}">
-                ${ICONS.expand}<span>โชว์คนขับ</span>
-              </button>
-              <a class="action-btn map-btn" href="${mapUrl(p.zh, p.addr)}" target="_blank" rel="noopener noreferrer">
-                ${ICONS.map}<span>Maps</span>
-              </a>
+          titleHtml = `${esc(item.titlePrefix)} · <button type="button" class="zh-inline-btn copy-btn" data-copy="${esc(copyText)}" aria-label="คัดลอกชื่อจีน ${esc(p.zh)}"><span lang="zh-Hant">${esc(p.zh)}</span>${ICONS.copy}</button>`;
+          actionsHtml = `
+            <div class="place-actions">
+              ${p.addr ? `<span class="addr-note" lang="zh-Hant">${esc(p.addr)}</span>` : ""}
+              <button class="action-btn driver-btn" type="button" data-zh="${esc(p.zh)}" data-addr="${esc(p.addr || "")}" data-sub="${esc(p.name)}">${ICONS.driver}<span>คนขับ</span></button>
+              <a class="action-btn map-btn" href="${mapUrl(p.zh, p.addr)}" target="_blank" rel="noopener noreferrer">${ICONS.map}<span>แผนที่</span></a>
             </div>
           `;
-        }).join("");
+        } else if (places.length > 1) {
+          actionsHtml = `
+            <div class="sub-places">
+              ${places.map(p => {
+                const copyText = p.addr ? `${p.zh} ${p.addr}` : p.zh;
+                return `
+                  <div class="sub-row">
+                    <button type="button" class="sub-copy-btn copy-btn" data-copy="${esc(copyText)}">
+                      <span class="sub-zh" lang="zh-Hant">${esc(p.zh)}</span>
+                      <span>· ${esc(p.name)}</span>
+                      ${ICONS.copy}
+                    </button>
+                    <div class="sub-btns">
+                      <button class="action-btn driver-btn" type="button" data-zh="${esc(p.zh)}" data-addr="${esc(p.addr || "")}" data-sub="${esc(p.name)}" aria-label="โชว์คนขับ ${esc(p.name)}">${ICONS.driver}<span>คนขับ</span></button>
+                      <a class="action-btn map-btn" href="${mapUrl(p.zh, p.addr)}" target="_blank" rel="noopener noreferrer" aria-label="เปิด Google Maps ${esc(p.name)}">${ICONS.map}<span>แผนที่</span></a>
+                    </div>
+                  </div>
+                `;
+              }).join("")}
+            </div>
+          `;
+        }
+
+        const thumbHtml = item.img ? `
+          <button type="button" class="thumb-btn" data-photo="${esc(item.img)}" data-alt="${esc(item.imgAlt || item.titlePrefix)}" aria-label="ดูภาพขนาดใหญ่ ${esc(item.imgAlt || item.titlePrefix)}">
+            <img class="spot-photo" src="${esc(item.img)}" alt="${esc(item.imgAlt || item.titlePrefix)}" width="640" height="360" loading="lazy" decoding="async">
+          </button>
+        ` : "";
 
         return `
           <div class="ctrl-row ${item.optional ? "is-optional" : ""}">
             <div class="ctrl-time">${esc(item.time)}</div>
             <div class="ctrl-body">
-              <div class="ctrl-head-line">
-                <h3 class="place-title">${esc(item.title)}</h3>
-                <div class="badge-group">
-                  ${item.optional ? `<span class="optional-mark">ทางเลือกหน้างาน</span>` : ""}
-                  <span class="transit-badge ${item.mode.cls}">${esc(item.mode.label)}</span>
+              <div class="ctrl-content-wrap">
+                <div class="ctrl-main">
+                  <div class="ctrl-head-line">
+                    <h3 class="place-title">${titleHtml}</h3>
+                    <div class="badge-group">
+                      ${item.optional ? `<span class="optional-mark">ทางเลือกหน้างาน</span>` : ""}
+                      <span class="transit-badge ${item.mode.cls}">${esc(item.mode.label)}</span>
+                    </div>
+                  </div>
+                  <p class="ctrl-desc">${esc(item.desc)}</p>
                 </div>
+                ${thumbHtml}
               </div>
-              <p class="ctrl-desc">${esc(item.desc)}</p>
-              ${placesHtml ? `<div class="plaque-group">${placesHtml}</div>` : ""}
+              ${actionsHtml}
               ${item.warn ? `<div class="warn-banner">${ICONS.warn}<span>${esc(item.warn)}</span></div>` : ""}
             </div>
           </div>
@@ -1687,10 +2087,7 @@
         <article class="day-section" id="day-${day.id}" ${isHidden ? "hidden" : ""}>
           <div class="day-header">
             <h2><span class="day-code">${day.id}</span>${esc(day.title)}</h2>
-            <div class="day-badges">
-              ${isToday ? '<span class="today-pill">วันนี้</span>' : ""}
-              <span class="zone-pill">${esc(day.zone)}</span>
-            </div>
+            ${isToday ? '<span class="today-pill">วันนี้</span>' : ""}
           </div>
           <div class="cond-strip">${condHtml}</div>
           <div class="ctrl-table">${rowsHtml}</div>
@@ -1711,13 +2108,12 @@
 
     const hotelRows = HOTELS.map(h => `
       <div class="data-row">
-        <div class="data-label">${esc(h.nights)} · ${esc(h.name)}</div>
+        <div class="data-label">${esc(h.nights)} · ${esc(h.name)} · <button type="button" class="zh-inline-btn copy-btn" data-copy="${esc(`${h.zh} ${h.addr}`)}"><span lang="zh-Hant">${esc(h.zh)}</span>${ICONS.copy}</button></div>
         <div>${esc(h.zone)} · ${esc(h.hours)}</div>
-        <div class="plaque-row">
-          <span class="zh-plaque" lang="zh-Hant">${esc(h.zh)} · ${esc(h.addr)}</span>
-          <button class="action-btn copy-btn" type="button" data-copy="${esc(`${h.zh} ${h.addr}`)}">${ICONS.copy}<span>คัดลอก</span></button>
-          <button class="action-btn driver-btn" type="button" data-zh="${esc(h.zh)}" data-addr="${esc(h.addr)}" data-sub="${esc(h.name)}">${ICONS.expand}<span>โชว์คนขับ</span></button>
-          <a class="action-btn map-btn" href="${mapUrl(h.zh, h.addr)}" target="_blank" rel="noopener noreferrer">${ICONS.map}<span>Maps</span></a>
+        <div class="place-actions">
+          <span class="addr-note" lang="zh-Hant">${esc(h.addr)}</span>
+          <button class="action-btn driver-btn" type="button" data-zh="${esc(h.zh)}" data-addr="${esc(h.addr)}" data-sub="${esc(h.name)}">${ICONS.driver}<span>คนขับ</span></button>
+          <a class="action-btn map-btn" href="${mapUrl(h.zh, h.addr)}" target="_blank" rel="noopener noreferrer">${ICONS.map}<span>แผนที่</span></a>
         </div>
       </div>
     `).join("");
@@ -1753,80 +2149,78 @@
 
   function renderSouvenirs() {
     const panel = document.getElementById("panel-souvenirs");
-    const isFull = state.souvenirMode === "full";
-    const cats = ["ทั้งหมด", "ฝากผู้ใหญ่", "แจกออฟฟิศ", "กินเอง", "ช้อปใช้เอง"];
+    const isFull = state.shopMode === "full";
+    const cats = ["ทั้งหมด", "ฝากผู้ใหญ่", "แจกออฟฟิศ", "ซื้อกินเอง", "เสื้อผ้า & รองเท้า"];
 
     const filterBtns = cats.map(c => `
-      <button class="filter-chip" type="button" data-sfilter="${esc(c)}" aria-pressed="${state.souvenirFilter === c ? "true" : "false"}">${esc(c)}</button>
+      <button class="filter-chip" type="button" data-sfilter="${esc(c)}" aria-pressed="${state.shopFilter === c ? "true" : "false"}">${esc(c)}</button>
     `).join("");
 
-    const topItems = CURATED_TOPPICKS.filter(item => !isFull || state.souvenirFilter === "ทั้งหมด" || item.tag === state.souvenirFilter);
-    const extraItems = isFull
-      ? FULL_EXPLORE_EXTRA.filter(item => state.souvenirFilter === "ทั้งหมด" || item.cat === state.souvenirFilter)
-      : [];
+    const visibleItems = SHOP_ITEMS.filter(item => {
+      if (!isFull && !item.highlight) return false;
+      if (state.shopFilter !== "ทั้งหมด" && item.cat !== state.shopFilter) return false;
+      return true;
+    });
 
-    const topHtml = topItems.map(item => `
-      <div class="data-row">
-        <div class="ctrl-head-line">
-          <span class="data-label">${esc(item.tag)} · ${esc(item.name)}</span>
-          <span class="bag-tag ${item.bag}">${ICONS.bag}${esc(item.bagLabel)}</span>
-        </div>
-        <div>พิกัด: ${esc(item.where)}</div>
-      </div>
-    `).join("");
+    const cardsHtml = visibleItems.map(item => {
+      const copyText = item.addr ? `${item.zh} ${item.addr}` : item.zh;
+      const thumbHtml = item.img ? `
+        <button type="button" class="shop-thumb-btn" data-photo="${esc(item.img)}" data-alt="${esc(item.title)}" aria-label="ขยายภาพ ${esc(item.title)}">
+          <img src="${esc(item.img)}" alt="${esc(item.title)}" width="480" height="360" loading="lazy" decoding="async">
+        </button>
+      ` : "";
 
-    const extraHtml = extraItems.map(item => `
-      <div class="data-row">
-        <div class="ctrl-head-line">
-          <span class="data-label">${esc(item.cat)} · ${esc(item.name)}</span>
-          <span class="bag-tag ${item.bag}">${ICONS.bag}${esc(item.bagLabel)}</span>
-        </div>
-        <div>ราคาคร่าวๆ: <span class="mono-code">${esc(item.price)}</span> · พิกัด: ${esc(item.where)}</div>
-      </div>
-    `).join("");
-
-    const byDayHtml = SOUVENIR_DAYS.map(s => `
-      <div class="data-row cols-2">
-        <div class="data-label">${esc(s.day)}</div>
-        <div>${esc(s.items)}</div>
-      </div>
-    `).join("");
+      return `
+        <article class="shop-card">
+          <div class="shop-top">
+            ${thumbHtml}
+            <div class="shop-head-text">
+              <h3 class="shop-title">${esc(item.title)}</h3>
+              <div class="shop-brand-row">
+                <span>${esc(item.brand)}</span>
+              </div>
+            </div>
+          </div>
+          <div class="shop-brand-row" style="margin-top:0;">
+            <button type="button" class="zh-inline-btn copy-btn" data-copy="${esc(copyText)}" aria-label="คัดลอกชื่อร้าน ${esc(item.zh)}">
+              <span lang="zh-Hant">${esc(item.zh)}</span>${ICONS.copy}
+            </button>
+            <a class="action-btn map-btn" href="${mapUrl(item.zh, item.addr)}" target="_blank" rel="noopener noreferrer" aria-label="เปิด Google Maps ${esc(item.brand)}">${ICONS.map}<span>แผนที่</span></a>
+          </div>
+          <div class="shop-meta">
+            <span class="day-tag">${esc(item.day)}</span>
+            <span class="price-tag">${esc(item.price)}</span>
+            <span class="bag-tag ${item.bag}">${ICONS.bag}${esc(item.bagLabel)}</span>
+          </div>
+          <p class="shop-note">${esc(item.note)}</p>
+        </article>
+      `;
+    }).join("");
 
     panel.innerHTML = `
-      <div class="souvenir-toolbar">
-        <div>
-          <strong>โหมดดูของฝาก:</strong>
-          <span>${isFull ? "ครบทุกหมวด (รวมช้อปใช้เอง)" : "คัดเฉพาะร้านหลักตามเส้นทาง (แนะนำ)"}</span>
-        </div>
-        <div class="mode-group" role="group" aria-label="โหมดคู่มือของฝาก">
-          <button class="mode-btn" type="button" data-smode="curated" aria-pressed="${!isFull}">คัดหลัก</button>
-          <button class="mode-btn" type="button" data-smode="full" aria-pressed="${isFull}">Explore ครบทุกหมวด</button>
+      <div class="shop-controls">
+        <div class="mode-group" role="group" aria-label="โหมดดูรายการช้อปปิ้ง">
+          <button class="mode-btn" type="button" data-smode="highlight" aria-pressed="${!isFull}">ไฮไลท์ (${SHOP_ITEMS.filter(i => i.highlight).length})</button>
+          <button class="mode-btn" type="button" data-smode="full" aria-pressed="${isFull}">ดูทั้งหมด (${SHOP_ITEMS.length})</button>
         </div>
       </div>
 
-      <div class="filter-bar" ${isFull ? "" : "hidden"}>${filterBtns}</div>
+      <div class="filter-bar" role="group" aria-label="กรองตามหมวด">${filterBtns}</div>
 
-      <div class="warn-banner" style="margin-top:0; margin-bottom:16px;">
-        ${ICONS.warn}
-        <div>
-          <strong>กฎเหล็กก่อนซื้อกลับไทย:</strong>
-          1) ของเหลวเกิน 100 ml (น้ำมันพริก, เซรั่ม) ต้องซื้อให้จบภายใน <strong>D6</strong> เพื่อโหลดใต้เครื่องเช้า D7 ·
-          2) <strong>ห้ามนำเข้าไทยเด็ดขาด:</strong> ผลิตภัณฑ์เนื้อสัตว์/หมูหยอง/กุนเชียง บะหมี่ซองมีชิ้นเนื้อหรือน้ำมันหมู ไข่เหล็ก (阿婆鐵蛋) และผลิตภัณฑ์กัญชา ·
-          3) ช้อปครบ <strong>NT$2,000</strong>/ร้าน/วันที่มีป้าย TRS พกพาสปอร์ตขอ Tax Refund 5% ได้ ·
-          4) ขนมสด (SunnyHills, Lotus) เก็บได้ราว 15–30 วัน
+      <details class="rules-collapse">
+        <summary class="rules-summary">
+          <span class="rules-lead">${ICONS.warn}<span>กฎสำคัญ: ของเหลวโหลดจบ D6 · ห้ามหมูหยอง/ไข่เหล็ก · Tax Refund ≥NT$2,000</span></span>
+          <span class="rules-toggle-hint">ดูครบ 4 ข้อ ▾</span>
+        </summary>
+        <div class="rules-body">
+          <div><strong>1. เส้นตายโหลด A1 (เช้า D7 เวลา 08:15):</strong> ของเหลว/ครีมเกิน 100 ml (น้ำมันพริก, เซรั่ม) ต้องซื้อให้จบภายใน <strong>D6</strong> เพื่อแพ็กโหลด · เหล้าซื้อหลัง ตม. T2 หิ้วขึ้นเครื่องในถุงซีลได้</div>
+          <div><strong>2. ของต้องห้ามเข้าไทยเด็ดขาด:</strong> ผลิตภัณฑ์เนื้อสัตว์ทุกชนิด (หมูหยอง กุนเชียง บะหมี่ซองมีชิ้นเนื้อ/น้ำมันหมู), ไข่เหล็ก (阿婆鐵蛋) และผลิตภัณฑ์กัญชา</div>
+          <div><strong>3. Tax Refund 5%:</strong> ช้อปครบ <strong>NT$2,000</strong> ขึ้นไปในร้านที่มีป้าย TRS ภายในวันเดียวกัน ต้องพกพาสปอร์ตตัวจริง</div>
+          <div><strong>4. อายุขนมสด:</strong> พายสับปะรด (SunnyHills) และนูกัต (Lotus) มักเก็บได้ราว <strong>15–30 วัน</strong></div>
         </div>
-      </div>
+      </details>
 
-      <h2 class="section-title">โผของฝากเด่น (Quick Picks)</h2>
-      <div class="data-grid">${topHtml || '<div class="data-row">ไม่มีรายการในหมวดนี้ ดูเพิ่มเติมในหมวดย่อยด้านล่าง</div>'}</div>
-
-      ${isFull ? `
-        <h2 class="section-title">รายการเพิ่มเติม &amp; ช้อปใช้เอง (Explore)</h2>
-        <div class="data-grid">${extraHtml || '<div class="data-row">เลือกรายการตามหมวดด้านบน</div>'}</div>
-      ` : ""}
-
-      <h2 class="section-title">จุดซื้อตามวันเดินทาง (D2–D7 + คืนเหมาซูเปอร์)</h2>
-      <div class="data-grid">${byDayHtml}</div>
+      <div class="shop-grid">${cardsHtml}</div>
     `;
   }
 
@@ -1894,48 +2288,37 @@
   }
 
   function selectDay(dayId) {
-    state.activeDay = dayId;
-    renderDayRail();
-    if (state.viewMode === "focus") {
-      renderRoute();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    if (state.viewMode === "focus" && state.activeDay === dayId) {
+      state.viewMode = "all";
+      state.activeDay = null;
     } else {
-      const target = document.getElementById(`day-${dayId}`);
-      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+      state.viewMode = "focus";
+      state.activeDay = dayId;
     }
+    renderDayRail();
+    renderRoute();
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  // Event delegation
   document.querySelector(".primary-nav").addEventListener("click", e => {
     const btn = e.target.closest("[data-tab]");
     if (btn) switchTab(btn.dataset.tab);
   });
 
   document.getElementById("day-rail").addEventListener("click", e => {
+    if (e.target.closest("#btn-all-days")) {
+      state.viewMode = "all";
+      state.activeDay = null;
+      renderDayRail();
+      renderRoute();
+      return;
+    }
     const btn = e.target.closest("[data-day]");
     if (btn) selectDay(btn.dataset.day);
   });
 
-  document.getElementById("btn-mode-all").addEventListener("click", () => {
-    state.viewMode = "all";
-    renderDayRail();
-    renderRoute();
-  });
-
-  document.getElementById("btn-mode-focus").addEventListener("click", () => {
-    state.viewMode = "focus";
-    renderDayRail();
-    renderRoute();
-  });
-
-  document.getElementById("btn-today-jump").addEventListener("click", () => {
-    if (!todayDayObj) return;
-    switchTab("route");
-    state.viewMode = "focus";
-    selectDay(todayDayObj.id);
-  });
-
-  const dialog = document.getElementById("driver-dialog");
+  const driverDialog = document.getElementById("driver-dialog");
+  const photoDialog = document.getElementById("photo-dialog");
 
   document.getElementById("main-content").addEventListener("click", async e => {
     const copyBtn = e.target.closest(".copy-btn");
@@ -1943,14 +2326,13 @@
       const txt = copyBtn.dataset.copy;
       try {
         await navigator.clipboard.writeText(txt);
-        const span = copyBtn.querySelector("span");
-        const prev = span.textContent;
+        const origHtml = copyBtn.innerHTML;
         copyBtn.classList.add("copied");
-        span.textContent = "คัดลอกแล้ว";
+        copyBtn.innerHTML = '<span>✓ คัดลอกแล้ว</span>';
         setTimeout(() => {
           copyBtn.classList.remove("copied");
-          span.textContent = prev;
-        }, 1400);
+          copyBtn.innerHTML = origHtml;
+        }, 1200);
       } catch { /* clipboard unavailable */ }
       return;
     }
@@ -1965,20 +2347,35 @@
       document.getElementById("dlg-sub").textContent = sub;
       document.getElementById("dlg-copy-btn").dataset.copy = addr ? `${zh} ${addr}` : zh;
       document.getElementById("dlg-map-link").href = mapUrl(zh, addr);
-      dialog.showModal();
+      driverDialog.showModal();
+      return;
+    }
+
+    const thumbBtn = e.target.closest("[data-photo]");
+    if (thumbBtn) {
+      const altText = thumbBtn.dataset.alt || "ภาพตัวอย่าง";
+      document.getElementById("photo-dlg-title").textContent = altText;
+      const slot = document.getElementById("photo-dlg-slot");
+      slot.innerHTML = `<img class="dlg-photo" src="${esc(thumbBtn.dataset.photo)}" alt="${esc(altText)}">`;
+      document.getElementById("photo-dlg-cap").textContent = altText;
+      photoDialog.showModal();
       return;
     }
 
     const smodeBtn = e.target.closest("[data-smode]");
     if (smodeBtn) {
-      state.souvenirMode = smodeBtn.dataset.smode;
+      state.shopMode = smodeBtn.dataset.smode;
       renderSouvenirs();
       return;
     }
 
     const sfilterBtn = e.target.closest("[data-sfilter]");
     if (sfilterBtn) {
-      state.souvenirFilter = sfilterBtn.dataset.sfilter;
+      const nextFilter = sfilterBtn.dataset.sfilter;
+      state.shopFilter = nextFilter;
+      if (nextFilter === "เสื้อผ้า & รองเท้า" && state.shopMode === "highlight") {
+        state.shopMode = "full";
+      }
       renderSouvenirs();
       return;
     }
@@ -2011,24 +2408,27 @@
     } catch { /* ignore */ }
   });
 
-  // Light-dismiss fallback for browsers without native dialog closedby="any"
   if (!("closedBy" in HTMLDialogElement.prototype)) {
     const outside = (e, dlg) => {
       const r = dlg.getBoundingClientRect();
       return e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom;
     };
-    let pressedOutside = false;
-    dialog.addEventListener("pointerdown", e => { pressedOutside = outside(e, dialog); });
-    dialog.addEventListener("pointerup", e => { if (pressedOutside && outside(e, dialog)) dialog.close(); });
+    [driverDialog, photoDialog].forEach(dlg => {
+      let pressedOutside = false;
+      dlg.addEventListener("pointerdown", e => { pressedOutside = outside(e, dlg); });
+      dlg.addEventListener("pointerup", e => { if (pressedOutside && outside(e, dlg)) dlg.close(); });
+    });
   }
 
-  // Initial render
-  renderStatusNote();
   renderDayRail();
   renderRoute();
   renderStay();
   renderSouvenirs();
   renderPrep();
+  const initialHash = location.hash.replace("#", "");
+  if (["route", "stay", "souvenirs", "prep"].includes(initialHash)) {
+    switchTab(initialHash);
+  }
 })();
 </script>
 </body>
