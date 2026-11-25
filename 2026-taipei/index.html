@@ -659,10 +659,12 @@
   .zh-chip {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
     min-height: 44px;
     max-width: calc(100% - 50px);
-    padding: 6px 10px;
+    padding: 6px 12px;
+    background: var(--navy-tint);
+    border: 1.5px solid var(--navy);
+    color: var(--navy);
     font-family: var(--font-tc);
     font-size: 1rem;
     font-weight: 700;
@@ -670,31 +672,10 @@
     text-align: left;
     transition: background-color 140ms var(--ease-out), color 140ms var(--ease-out);
   }
-  .zh-chip.is-driver {
-    background: var(--navy-tint);
-    border: 1.5px solid var(--navy);
-    color: var(--navy);
-  }
-  .zh-chip.is-driver:hover {
+  .zh-chip:hover {
     background: var(--navy);
     color: #FFFFFF;
   }
-  .zh-chip.is-copy {
-    background: var(--margin);
-    border: 1px solid var(--rule-strong);
-    color: var(--navy);
-  }
-  .zh-chip.is-copy:hover {
-    background: var(--navy-tint);
-    border-color: var(--navy);
-  }
-  .zh-chip.copied, .sub-chip.copied {
-    background: var(--forest);
-    border-color: var(--forest);
-    color: #FFFFFF;
-  }
-  .sub-chip.copied .sub-zh, .sub-chip.copied .sub-name { color: #FFFFFF; }
-  .zh-chip svg, .sub-chip svg { flex-shrink: 0; }
 
   .addr-note {
     display: block;
@@ -724,37 +705,23 @@
     flex: 1 1 auto;
     min-width: 0;
     min-height: 44px;
-    padding: 6px 10px;
+    padding: 6px 12px;
     display: inline-flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 8px;
     text-align: left;
+    background: var(--navy-tint);
+    border: 1.5px solid var(--navy);
     font-size: 0.9375rem;
     font-weight: 600;
     line-height: 1.3;
-    color: var(--ink);
+    color: var(--navy);
     transition: background-color 140ms var(--ease-out), color 140ms var(--ease-out);
   }
-  .sub-chip.is-driver {
-    background: var(--navy-tint);
-    border: 1.5px solid var(--navy);
-    color: var(--navy);
-  }
-  .sub-chip.is-driver:hover {
+  .sub-chip:hover {
     background: var(--navy);
     color: #FFFFFF;
   }
-  .sub-chip.is-driver:hover .sub-zh, .sub-chip.is-driver:hover .sub-name { color: #FFFFFF; }
-  .sub-chip.is-copy {
-    background: var(--margin);
-    border: 1px solid var(--rule-strong);
-    color: var(--ink);
-  }
-  .sub-chip.is-copy:hover {
-    background: var(--navy-tint);
-    border-color: var(--navy);
-  }
+  .sub-chip:hover .sub-zh, .sub-chip:hover .sub-name { color: #FFFFFF; }
 
   .sub-chip-label {
     display: flex;
@@ -1417,13 +1384,13 @@
 
   <footer class="site-footer">
     <span>ทริปไต้หวัน · 6–12 ธ.ค. 2026</span>
-    <span>แตะชื่อจีนที่มีไอคอนรถเพื่อเปิดป้ายคนขับ/คัดลอก · แตะชื่อจีนจุดเดินเพื่อคัดลอกทันที · กดหมุดเปิดแผนที่</span>
+    <span>แตะชื่อภาษาจีนเพื่อเปิดดูขนาดใหญ่หรือคัดลอก · กดหมุดเปิดแผนที่</span>
   </footer>
 </div>
 
 <dialog id="driver-dialog" closedby="any" aria-labelledby="driver-dialog-title">
   <div class="dlg-head">
-    <h2 id="driver-dialog-title">ป้ายชื่อภาษาจีน (โชว์คนขับ / คัดลอก)</h2>
+    <h2 id="driver-dialog-title">ชื่อสถานที่ภาษาจีน</h2>
     <form method="dialog">
       <button class="action-btn" type="submit" autofocus>ปิด</button>
     </form>
@@ -1455,8 +1422,6 @@
 <script>
 (() => {
   const ICONS = {
-    copy: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="1"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>',
-    driver: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="10" width="18" height="8" rx="1"/><path d="M5 10l2-5h10l2 5"/><circle cx="7.5" cy="14" r="1"/><circle cx="16.5" cy="14" r="1"/></svg>',
     map: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6-5.5-6-10a6 6 0 1 1 12 0c0 4.5-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg>',
     check: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>',
     chevron: '<svg class="rules-chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>',
@@ -2270,11 +2235,8 @@
 
         if (places.length === 1) {
           const p = places[0];
-          const copyText = p.addr ? `${p.zh} ${p.addr}` : p.zh;
           const addrHtml = p.addr ? `<div class="addr-note" lang="zh-Hant">${esc(p.addr)}</div>` : "";
-          const chipHtml = p.driver
-            ? `<button type="button" class="zh-chip is-driver driver-btn" data-zh="${esc(p.zh)}" data-addr="${esc(p.addr || "")}" data-sub="${esc(p.name)}" aria-label="โชว์คนขับ ${esc(p.name)} (${esc(p.zh)})"><span lang="zh-Hant">${esc(p.zh)}</span>${ICONS.driver}</button>`
-            : `<button type="button" class="zh-chip is-copy copy-btn" data-copy="${esc(copyText)}" aria-label="คัดลอกชื่อจีน ${esc(p.zh)}"><span lang="zh-Hant">${esc(p.zh)}</span>${ICONS.copy}</button>`;
+          const chipHtml = `<button type="button" class="zh-chip driver-btn" data-zh="${esc(p.zh)}" data-addr="${esc(p.addr || "")}" data-sub="${esc(p.name)}" aria-label="ดูชื่อภาษาจีน ${esc(p.name)} (${esc(p.zh)})"><span lang="zh-Hant">${esc(p.zh)}</span></button>`;
           actionsHtml = `
             ${addrHtml}
             <div class="place-bar">
@@ -2286,10 +2248,7 @@
           actionsHtml = `
             <div class="sub-places">
               ${places.map(p => {
-                const copyText = p.addr ? `${p.zh} ${p.addr}` : p.zh;
-                const subChip = p.driver
-                  ? `<button type="button" class="sub-chip is-driver driver-btn" data-zh="${esc(p.zh)}" data-addr="${esc(p.addr || "")}" data-sub="${esc(p.name)}" aria-label="โชว์คนขับ ${esc(p.name)} (${esc(p.zh)})"><span class="sub-chip-label"><span class="sub-zh" lang="zh-Hant">${esc(p.zh)}</span><span class="sub-name">· ${esc(p.name)}</span></span>${ICONS.driver}</button>`
-                  : `<button type="button" class="sub-chip is-copy copy-btn" data-copy="${esc(copyText)}" aria-label="คัดลอก ${esc(p.name)} (${esc(p.zh)})"><span class="sub-chip-label"><span class="sub-zh" lang="zh-Hant">${esc(p.zh)}</span><span class="sub-name">· ${esc(p.name)}</span></span>${ICONS.copy}</button>`;
+                const subChip = `<button type="button" class="sub-chip driver-btn" data-zh="${esc(p.zh)}" data-addr="${esc(p.addr || "")}" data-sub="${esc(p.name)}" aria-label="ดูชื่อภาษาจีน ${esc(p.name)} (${esc(p.zh)})"><span class="sub-chip-label"><span class="sub-zh" lang="zh-Hant">${esc(p.zh)}</span><span class="sub-name">· ${esc(p.name)}</span></span></button>`;
                 return `
                   <div class="sub-row">
                     ${subChip}
@@ -2358,8 +2317,8 @@
         <div>${esc(h.zone)} · ${esc(h.hours)}</div>
         <div class="addr-note" lang="zh-Hant">${esc(h.addr)}</div>
         <div class="place-bar">
-          <button type="button" class="zh-chip is-driver driver-btn" data-zh="${esc(h.zh)}" data-addr="${esc(h.addr)}" data-sub="${esc(h.name)}" aria-label="โชว์คนขับ ${esc(h.name)} (${esc(h.zh)})">
-            <span lang="zh-Hant">${esc(h.zh)}</span>${ICONS.driver}
+          <button type="button" class="zh-chip driver-btn" data-zh="${esc(h.zh)}" data-addr="${esc(h.addr)}" data-sub="${esc(h.name)}" aria-label="ดูชื่อภาษาจีน ${esc(h.name)} (${esc(h.zh)})">
+            <span lang="zh-Hant">${esc(h.zh)}</span>
           </button>
           <a class="map-icon-btn" href="${mapUrl(h.zh, h.addr)}" target="_blank" rel="noopener noreferrer" aria-label="เปิด Google Maps ${esc(h.name)}" title="เปิด Google Maps">${ICONS.map}</a>
         </div>
@@ -2411,7 +2370,6 @@
     });
 
     const cardsHtml = visibleItems.map(item => {
-      const copyText = item.addr ? `${item.zh} ${item.addr}` : item.zh;
       const thumbHtml = item.img ? `
         <button type="button" class="shop-thumb-btn" data-photo="${esc(item.img)}" data-alt="${esc(item.title)}" aria-label="ขยายภาพ ${esc(item.title)}">
           <img src="${esc(item.img)}" alt="${esc(item.title)}" width="480" height="360" loading="lazy" decoding="async">
@@ -2428,8 +2386,8 @@
             </div>
           </div>
           <div class="place-bar" style="margin-top:0;">
-            <button type="button" class="zh-chip is-copy copy-btn" data-copy="${esc(copyText)}" aria-label="คัดลอกชื่อร้าน ${esc(item.zh)}">
-              <span lang="zh-Hant">${esc(item.zh)}</span>${ICONS.copy}
+            <button type="button" class="zh-chip driver-btn" data-zh="${esc(item.zh)}" data-addr="${esc(item.addr || "")}" data-sub="${esc(item.brand)}" aria-label="ดูชื่อภาษาจีน ${esc(item.brand)} (${esc(item.zh)})">
+              <span lang="zh-Hant">${esc(item.zh)}</span>
             </button>
             <a class="map-icon-btn" href="${mapUrl(item.zh, item.addr)}" target="_blank" rel="noopener noreferrer" aria-label="เปิด Google Maps ${esc(item.brand)}" title="เปิด Google Maps">${ICONS.map}</a>
           </div>
@@ -2572,22 +2530,6 @@
   const photoDialog = document.getElementById("photo-dialog");
 
   document.getElementById("main-content").addEventListener("click", async e => {
-    const copyBtn = e.target.closest(".copy-btn");
-    if (copyBtn) {
-      if (copyBtn.classList.contains("copied")) return;
-      const ok = await copyToClipboard(copyBtn.dataset.copy || "");
-      if (ok) {
-        const origHtml = copyBtn.innerHTML;
-        copyBtn.classList.add("copied");
-        copyBtn.innerHTML = `${ICONS.check}<span>คัดลอกแล้ว</span>`;
-        setTimeout(() => {
-          copyBtn.classList.remove("copied");
-          copyBtn.innerHTML = origHtml;
-        }, 1200);
-      }
-      return;
-    }
-
     const driverBtn = e.target.closest(".driver-btn");
     if (driverBtn) {
       const zh = driverBtn.dataset.zh;

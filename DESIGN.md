@@ -120,13 +120,7 @@ components:
     backgroundColor: "{colors.navy-tint}"
     textColor: "{colors.taiwan-navy}"
     rounded: "{rounded.none}"
-    padding: "6px 10px"
-    height: "44px"
-  zh-chip-copy:
-    backgroundColor: "{colors.map-margin}"
-    textColor: "{colors.taiwan-navy}"
-    rounded: "{rounded.none}"
-    padding: "6px 10px"
+    padding: "6px 12px"
     height: "44px"
   control-node:
     backgroundColor: "{colors.paper-white}"
@@ -158,13 +152,13 @@ components:
 
 The design system translates Taiwanese visual culture — deep Taiwan Cultural Navy (`#14365D`), Temple Vermilion (`#B8232A`), warm gold contour ink (`#E2BE7E`), Sun Moon Lake Teal (`#135D7D`), Jiufen Lantern Terracotta (`#9E4414`), and cool Harbor Mist canvas (`#DCE5F0`) — into an ISO control-description travel guide and transit pocket timetable. Deep navy & vermilion anchor the bookend masthead and footer, while regional day-zone accents organize the 8-day schedule and the main reading column remains crisp `#FFFFFF` for outdoor legibility on mobile phones.
 
-Instead of rounded card stacks, duplicate text boxes, or cluttered multi-button rows beside thumbnails, schedules pair stacked two-line left-gutter hours (`.time-start` / `.time-end` over `#F3F6FA`) with zone-colored day headers, a unified full-width `.place-bar` below each row (`.zh-chip.is-driver` / `.is-copy` + `44×44px` Lake-tinted `.map-icon-btn`), semantic condition icons, Wikimedia landmark thumbnails, and an illustrated Taiwanese shopping catalog (`ฝากผู้ใหญ่` / `แจกเพื่อน` / `ซื้อกินเอง` / `ของใช้ & แฟชั่น`).
+Instead of rounded card stacks, duplicate text boxes, or cluttered multi-button rows beside thumbnails, schedules pair stacked two-line left-gutter hours (`.time-start` / `.time-end` over `#F3F6FA`) with zone-colored day headers, a unified full-width `.place-bar` below each row (iconless `.zh-chip` / `.sub-chip` popup trigger + `44×44px` Lake-tinted `.map-icon-btn`), semantic condition icons, Wikimedia landmark thumbnails, and an illustrated Taiwanese shopping catalog (`ฝากผู้ใหญ่` / `แจกเพื่อน` / `ซื้อกินเอง` / `ของใช้ & แฟชั่น`).
 
 **Key Characteristics:**
 - Deep Taiwan Navy masthead & bookend footer paired with Temple Vermilion accents (`#B8232A`), Harbor Mist canvas (`#DCE5F0`), and pure `#FFFFFF` reading cards.
 - Regional day-zone coding across the single-row `[ทุกวัน] + (D0)–(D7)` rail and day headers (`#14365D` Taipei/Departure, `#135D7D` Sun Moon Lake, `#B8232A` Old Taipei, `#9E4414` Jiufen/Shifen Coast).
 - Stacked `.time-start` / `.time-end` tabular time gutter (`#F3F6FA` wash) eliminating mobile range overlap.
-- Unified `.place-bar` utility pattern: `44px` Traditional Chinese chip (`is-driver` vs `is-copy`) + `44×44px` Lake-tinted icon-only Google Maps pin with zero redundant standalone Driver buttons.
+- Unified `.place-bar` utility pattern: `44px` iconless Navy-tinted Traditional Chinese chip (`.zh-chip` / `.sub-chip`) opening `#driver-dialog` (`"ชื่อสถานที่ภาษาจีน"`) + `44×44px` Lake-tinted icon-only Google Maps pin with zero redundant standalone Driver buttons.
 - Sharp `0px` architectural keylines across tables, shopping cards, and buttons (`50%` circles solely for `D0–D7` control markers).
 - Hybrid visual system pairing 21 cropped landscape Wikimedia landmark photos (`640×360` WebP) with 13 cohesive gouache culinary illustrations (`480×360` WebP).
 
@@ -173,15 +167,15 @@ Instead of rounded card stacks, duplicate text boxes, or cluttered multi-button 
 The palette pairs confident Taiwanese national and regional heritage tones (Taiwan Navy masthead/footer, Temple Vermilion, Lake Teal, Lantern Terracotta, Harbor Mist outer margin) with pure white reading cells so outdoor contrast stays `>=4.5:1`.
 
 ### Primary
-- **Taiwan Navy** (`#14365D`): Deep masthead & footer canvas, structural primary tab ink, `D0`/`D6`/`D7` Taipei city-zone headers, `ทุกวัน` control pill, inline driver-stop chip border/text, and keyboard focus rings.
-- **Navy Tint** (`#EDF2F8`): Active primary tab wash, Taipei/Departure day header wash, inline driver chip fill, and active control node halo.
+- **Taiwan Navy** (`#14365D`): Deep masthead & footer canvas, structural primary tab ink, `D0`/`D6`/`D7` Taipei city-zone headers, `ทุกวัน` control pill, unified Chinese popup chip border/text, and keyboard focus rings.
+- **Navy Tint** (`#EDF2F8`): Active primary tab wash, Taipei/Departure day header wash, unified Chinese popup chip fill, and active control node halo.
 
 ### Secondary & Regional Wayfinding
 - **Temple Vermilion** (`#B8232A`): Masthead & footer border stripes, `"วันนี้"` indicator pill/flag, active tab bottom bar, square section-heading map key, `D3`/`D4` Old Taipei route headers, and Taipei `MRT สายแดง` badges.
 - **Sun Moon Lake Teal** (`#135D7D` / `#E8F4F8` tint): `D1`/`D2` Sun Moon Lake headers/rail, `.map-icon-btn` tint & pin ink, and checked-baggage tags.
 - **Jiufen Lantern Terracotta** (`#9E4414` / `#FDF2E9` tint): `D5` Yehliu–Shifen–Jiufen north coast headers and rail markers.
 - **Gold Contour** (`#E2BE7E`): Topographic elevation contour ink inside the Navy masthead.
-- **Forest Green** (`#2E6140`): Taipei MRT Green Line badges, carry-on baggage tags, and copied-state confirmation.
+- **Forest Green** (`#2E6140`): Taipei MRT Green Line badges, carry-on baggage tags, and modal copied-state confirmation.
 - **Contour Brown** (`#7C5836`): Extra non-highlight shopping card top rule (`is-extra`) and archival accent.
 
 ### Tertiary (Transit & Alert Roles)
@@ -192,7 +186,7 @@ The palette pairs confident Taiwanese national and regional heritage tones (Taiw
 ### Neutral
 - **Paper White** (`#FFFFFF`): Primary reading column background across route tables and shopping cards.
 - **Page Canvas** (`#DCE5F0`): Harbor Mist cool slate outer page frame around the `960px` field-guide shell.
-- **Map Margin** (`#F3F6FA`): Cool mist course-bar rail, dialog bars, condition strip, and paper copy-chip fill.
+- **Map Margin** (`#F3F6FA`): Cool mist course-bar rail, dialog bars, and condition strip.
 - **Timetable Gutter** (`#F3F6FA`): Cool pale-indigo left time-column wash separating hours from stop names.
 - **Charcoal Ink** (`#14181F`): Headings, body text, and `1.5px` / `2px` architectural borders.
 - **Slate Ink Soft** (`#464E59`): `.time-end` stacked end hours, secondary dates, inactive tab labels, and helper notes.
@@ -244,7 +238,7 @@ Sharp `0px` corners govern tables, shopping cards, image frames, action buttons,
 ## Components
 
 ### Consolidated Place Bar & Buttons
-- **Chinese Utility Chip (`zh-chip` / `sub-chip`):** `44px` min-height full-row action chip inside `.place-bar` / `.sub-row`. Car/taxi/bus/hotel stops (`is-driver`) use `#EDF2F8` fill with `1.5px solid #14365D` border and taxi SVG to open `#driver-dialog`; walking/MRT/D5/shopping stops (`is-copy`) use `#F3F6FA` fill with `1px solid #14181F` border and copy SVG to copy directly (`#2E6140` confirmation).
+- **Chinese Utility Chip (`zh-chip` / `sub-chip`):** `44px` min-height full-row iconless action chip inside `.place-bar` / `.sub-row` across Route, Stay, and Shopping. Uses unified `#EDF2F8` fill with `1.5px solid #14365D` border to open `#driver-dialog` (titled `"ชื่อสถานที่ภาษาจีน"`) for oversized viewing, one-tap copy, or Google Maps launch.
 - **Map Icon Button (`map-icon-btn`):** Sharp `0px`, fixed `44×44px` Lake-tinted (`#E8F4F8` fill, `1.5px solid #135D7D` border, `#135D7D` pin) link paired beside every Chinese chip.
 - **Dialog Action Button (`action-btn`):** Sharp `0px`, `44px` minimum tap target, `1.5px solid #14181F` border (`primary-btn` variant uses `#14365D` for modal Chinese copy; `map-btn` uses `#135D7D`).
 
@@ -254,7 +248,7 @@ Sharp `0px` corners govern tables, shopping cards, image frames, action buttons,
 
 ### Signature Components: Control Row, Shopping Card & Native Dialogs
 - **Control Row:** Zone-colored `.day-header` + stacked tabular left time gutter (`#F3F6FA`) paired with clean stop heading & transit badge, description, tappable landmark thumbnail, and full-width `.place-bar` / `.sub-places` utility rows below.
-- **Shopping Card:** `3px` Navy top keyline (`#7C5836` on `.is-extra`), illustrated `4:3` culinary thumbnail (`96×72px` / `112×84px`) beside `h3` item title & brand, full-width `.place-bar` (instant-copy store chip + `44×44px` map pin), and Day / Price / Luggage badges underneath.
+- **Shopping Card:** `3px` Navy top keyline (`#7C5836` on `.is-extra`), illustrated `4:3` culinary thumbnail (`96×72px` / `112×84px`) beside `h3` item title & brand, full-width `.place-bar` (iconless Chinese popup chip + `44×44px` map pin), and Day / Price / Luggage badges underneath.
 - **Collapsible Rules Bar (`<details>`):** 1-line Amber summary expanding into 4 concise customs & packing deadlines.
 
 ## Do's and Don'ts
