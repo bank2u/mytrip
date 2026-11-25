@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-25T10:45:00+07:00",
+  "generatedAt": "2026-11-25T11:15:00+07:00",
   "title": "Design System: mytrip-2026-taipei",
   "extensions": {
     "colorMeta": {
@@ -14,7 +14,7 @@
         "role": "secondary",
         "displayName": "Temple Vermilion",
         "canonical": "#B8232A",
-        "tonalRamp": ["#3D090C", "#641115", "#8E1A20", "#B8232A", "#D2444B", "#E27277", "#F2B0B3", "#FCECEE"]
+        "tonalRamp": ["#3D090C", "#641115", "#8E1A20", "#B8232A", "#D2444B", "#E27277", "#F2B0B3", "#FCEFF0"]
       },
       "paper-white": {
         "role": "neutral",
@@ -22,11 +22,11 @@
         "canonical": "#FFFFFF",
         "tonalRamp": ["#292A2B", "#4C4E50", "#737578", "#9B9DA0", "#C1C3C6", "#E0E1E3", "#F3F4F5", "#FFFFFF"]
       },
-      "map-margin": {
+      "page-canvas": {
         "role": "neutral",
-        "displayName": "Map Margin",
-        "canonical": "#F6F5F2",
-        "tonalRamp": ["#2B2A26", "#4D4B44", "#726F67", "#99968D", "#BEBBAE", "#DBD8CF", "#EBE8E1", "#F6F5F2"]
+        "displayName": "Harbor Mist Canvas",
+        "canonical": "#DCE5F0",
+        "tonalRamp": ["#1D2938", "#35465C", "#506682", "#7088A6", "#93A9C4", "#B6C7DC", "#DCE5F0", "#EDF2F8"]
       },
       "charcoal-ink": {
         "role": "neutral",
@@ -36,9 +36,15 @@
       },
       "lake-blue": {
         "role": "secondary",
-        "displayName": "Lake Blue",
-        "canonical": "#155E8A",
-        "tonalRamp": ["#082334", "#0D3752", "#114B6E", "#155E8A", "#2B79A8", "#589BC4", "#98C4DF", "#E9F3F8"]
+        "displayName": "Sun Moon Lake Teal",
+        "canonical": "#135D7D",
+        "tonalRamp": ["#07222E", "#0C384B", "#104B65", "#135D7D", "#297A9D", "#569DBA", "#97C5D8", "#E8F4F8"]
+      },
+      "lantern-terracotta": {
+        "role": "secondary",
+        "displayName": "Jiufen Lantern Terracotta",
+        "canonical": "#9E4414",
+        "tonalRamp": ["#381604", "#5C2509", "#7E350F", "#9E4414", "#BD5F2D", "#D5865B", "#EAC1A9", "#FDF2E9"]
       },
       "forest-green": {
         "role": "secondary",
@@ -68,7 +74,7 @@
       "mono-time": { "displayName": "Tabular Time & Code", "purpose": "Left gutter hours (min 16px), D0–D7 circles, and price tags." }
     },
     "shadows": [
-      { "name": "course-halo", "value": "0 0 0 3px #EDF2F8", "purpose": "Selection ring around the active D0–D7 control circle." },
+      { "name": "course-halo", "value": "0 0 0 3px var(--day-tint)", "purpose": "Zone-matched selection halo (#EDF2F8, #E8F4F8, #FCEFF0, #FDF2E9) around the active D0–D7 control circle." },
       { "name": "modal-overlay", "value": "0 20px 48px rgba(20, 24, 31, 0.28)", "purpose": "Top-layer shadow solely for native driver and photo lightbox dialogs." }
     ],
     "motion": [
@@ -76,8 +82,11 @@
     ],
     "breakpoints": [
       { "name": "xs-mobile", "value": "360px" },
+      { "name": "rail-circle-expand", "value": "440px" },
       { "name": "rail-expand", "value": "520px" },
+      { "name": "tab-row", "value": "640px" },
       { "name": "desktop-grid", "value": "680px" },
+      { "name": "shop-2col", "value": "720px" },
       { "name": "shell-max", "value": "960px" }
     ]
   },
@@ -88,7 +97,7 @@
       "refersTo": "inline-zh-copy",
       "description": "Navy-tinted 44px Chinese chip inside .place-bar for car/taxi/bus/hotel stops opening the fullscreen driver & copy modal.",
       "html": "<button class=\"zh-chip is-driver\" type=\"button\"><span lang=\"zh-Hant\">大欣大飯店</span><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"10\" width=\"18\" height=\"8\" rx=\"1\"/><path d=\"M5 10l2-5h10l2 5\"/></svg></button>",
-      "css": ".zh-chip { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 6px 10px; font-family: 'Noto Sans TC', sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; } .zh-chip.is-driver { background: #EDF2F8; border: 1.5px solid #14365D; color: #14365D; } .zh-chip.is-driver:hover { background: #14365D; color: #FFFFFF; } .zh-chip.is-copy { background: #F6F5F2; border: 1px solid #14181F; color: #14365D; } .zh-chip:focus-visible { outline: 3px solid #14365D; outline-offset: 2px; }"
+      "css": ".zh-chip { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 6px 10px; font-family: 'Noto Sans TC', sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; } .zh-chip.is-driver { background: #EDF2F8; border: 1.5px solid #14365D; color: #14365D; } .zh-chip.is-driver:hover { background: #14365D; color: #FFFFFF; } .zh-chip.is-copy { background: #F3F6FA; border: 1px solid #14181F; color: #14365D; } .zh-chip:focus-visible { outline: 3px solid #14365D; outline-offset: 2px; }"
     },
     {
       "name": "Action Button (Base & Primary)",
@@ -102,17 +111,17 @@
       "name": "Map Icon Link",
       "kind": "button",
       "refersTo": "button-map",
-      "description": "Lake-blue outlined 44x44px icon-only pin opening Google Maps with verified Traditional Chinese queries.",
+      "description": "Lake-tinted 44x44px icon-only pin opening Google Maps with verified Traditional Chinese queries.",
       "html": "<a class=\"map-icon-btn\" href=\"#map\" aria-label=\"เปิด Google Maps\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 21s-6-5.5-6-10a6 6 0 1 1 12 0c0 4.5-6 10-6 10z\"/><circle cx=\"12\" cy=\"11\" r=\"2.2\"/></svg></a>",
-      "css": ".map-icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1.5px solid #155E8A; background: #FFFFFF; color: #155E8A; text-decoration: none; } .map-icon-btn:hover { background: #155E8A; color: #FFFFFF; } .map-icon-btn:focus-visible { outline: 3px solid #14365D; outline-offset: 2px; }"
+      "css": ".map-icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1.5px solid #135D7D; background: #E8F4F8; color: #135D7D; text-decoration: none; } .map-icon-btn:hover { background: #135D7D; color: #FFFFFF; } .map-icon-btn:focus-visible { outline: 3px solid #14365D; outline-offset: 2px; }"
     },
     {
       "name": "Day Control Node",
       "kind": "nav",
       "refersTo": "control-node-active",
-      "description": "Circular D0–D7 control marker on the single-row sticky course strip.",
-      "html": "<button class=\"cp-btn\" type=\"button\" aria-current=\"true\"><span class=\"cp-circle\">D4</span><span class=\"cp-date\">9 ธ.ค.</span></button>",
-      "css": ".cp-btn { display: inline-flex; flex-direction: column; align-items: center; gap: 2px; min-height: 48px; background: none; border: none; cursor: pointer; } .cp-circle { width: 36px; height: 36px; border-radius: 50%; border: 2px solid #14365D; background: #14365D; color: #FFFFFF; box-shadow: 0 0 0 3px #EDF2F8; font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; font-weight: 700; display: flex; align-items: center; justify-content: center; } .cp-btn:hover .cp-circle { opacity: 0.9; } .cp-btn:focus-visible { outline: 3px solid #14365D; outline-offset: 2px; } .cp-date { font-size: 0.75rem; font-weight: 600; color: #464E59; }"
+      "description": "Zone-tinted circular D0–D7 control marker on the single-row sticky course strip.",
+      "html": "<button class=\"cp-btn\" data-zone=\"old\" type=\"button\" aria-current=\"true\"><span class=\"cp-circle\">D4</span><span class=\"cp-date\">9 ธ.ค.</span></button>",
+      "css": ".cp-btn { display: inline-flex; flex-direction: column; align-items: center; gap: 2px; min-height: 48px; background: none; border: none; cursor: pointer; } .cp-circle { width: 36px; height: 36px; border-radius: 50%; border: 2px solid #B8232A; background: #B8232A; color: #FFFFFF; box-shadow: 0 0 0 3px #FCEFF0; font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; font-weight: 700; display: flex; align-items: center; justify-content: center; } .cp-btn:hover .cp-circle { opacity: 0.9; } .cp-btn:focus-visible { outline: 3px solid #14365D; outline-offset: 2px; } .cp-date { font-size: 0.75rem; font-weight: 600; color: #464E59; }"
     },
     {
       "name": "Primary Section Tab",
@@ -120,7 +129,7 @@
       "refersTo": "nav-tab-active",
       "description": "4-column top navigation tab with Taiwan Navy text and Temple Vermilion underline.",
       "html": "<button class=\"nav-tab\" type=\"button\" aria-selected=\"true\"><span>เส้นทาง</span></button>",
-      "css": ".nav-tab { min-height: 50px; padding: 8px 16px; display: inline-flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 700; color: #14365D; background: #EDF2F8; border: none; border-bottom: 3px solid #B8232A; cursor: pointer; } .nav-tab:hover { background: #EBE8E1; color: #14181F; } .nav-tab:focus-visible { outline: 3px solid #14365D; outline-offset: 2px; }"
+      "css": ".nav-tab { min-height: 50px; padding: 8px 16px; display: inline-flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 700; color: #14365D; background: #EDF2F8; border: none; border-bottom: 3px solid #B8232A; cursor: pointer; } .nav-tab:hover { background: #F3F6FA; color: #14181F; } .nav-tab:focus-visible { outline: 3px solid #14365D; outline-offset: 2px; }"
     },
     {
       "name": "Transit Mode Badges",
@@ -133,23 +142,24 @@
   ],
   "narrative": {
     "northStar": "Taiwan Topographic Field Guide & Transit Timetable",
-    "overview": "The design system translates Taiwanese visual culture — deep Taiwan Indigo/Navy, Temple Vermilion, and crisp daylight paper — into an ISO control-description travel guide and transit pocket timetable. Peripheral contour ornament sits strictly inside the masthead, leaving the main reading column crisp white for outdoor legibility on mobile phones.\n\nInstead of rounded card stacks, duplicate text boxes, or cluttered multi-button rows beside thumbnails, schedules pair tabular left-gutter hours with a unified full-width .place-bar below the content row: a single Traditional Chinese utility chip (opening the fullscreen Driver/Copy dialog on genuine car/taxi/bus/hotel stops, or instant tap-to-copy on walking/MRT/charter stops) beside a compact 44x44px icon-only Google Maps pin, alongside semantic condition icons, Wikimedia landmark thumbnails, and a scannable Taiwanese shopping catalog illustrated in a unified gouache-and-ink style.",
+    "overview": "The design system translates Taiwanese visual culture — deep Taiwan Cultural Navy (#14365D), Temple Vermilion (#B8232A), warm gold contour ink (#E2BE7E), Sun Moon Lake Teal (#135D7D), Jiufen Lantern Terracotta (#9E4414), and cool Harbor Mist canvas (#DCE5F0) — into an ISO control-description travel guide and transit pocket timetable. Deep navy & vermilion anchor the bookend masthead and footer, while regional day-zone accents organize the 8-day schedule and the main reading column remains crisp #FFFFFF for outdoor legibility on mobile phones.\n\nInstead of rounded card stacks, duplicate text boxes, or cluttered multi-button rows beside thumbnails, schedules pair stacked two-line left-gutter hours (.time-start / .time-end over #F3F6FA) with zone-colored day headers, a unified full-width .place-bar below each row (.zh-chip.is-driver / .is-copy + 44x44px Lake-tinted .map-icon-btn), semantic condition icons, Wikimedia landmark thumbnails, and an illustrated Taiwanese shopping catalog (ฝากผู้ใหญ่ / แจกเพื่อน / ซื้อกินเอง / ของใช้ & แฟชั่น).",
     "keyCharacteristics": [
-      "75% Daylight Paper (#FFFFFF / #F6F5F2), 18% Taiwan Cultural Navy (#14365D), and 7% Temple Vermilion (#B8232A).",
-      "Single-row sticky [ทุกวัน] + (D0)–(D7) course rail with one-tap day filtering and automatic today-focus during the trip.",
-      "Unified .place-bar utility pattern: 44px Traditional Chinese chip (is-driver vs is-copy) + 44x44px icon-only Google Maps pin with zero redundant standalone Driver buttons.",
+      "Deep Taiwan Navy masthead & bookend footer paired with Temple Vermilion accents (#B8232A), Harbor Mist canvas (#DCE5F0), and pure #FFFFFF reading cards.",
+      "Regional day-zone coding across the single-row [ทุกวัน] + (D0)–(D7) rail and day headers (#14365D Taipei/Departure, #135D7D Sun Moon Lake, #B8232A Old Taipei, #9E4414 Jiufen/Shifen Coast).",
+      "Stacked .time-start / .time-end tabular time gutter (#F3F6FA wash) eliminating mobile range overlap.",
+      "Unified .place-bar utility pattern: 44px Traditional Chinese chip (is-driver vs is-copy) + 44x44px Lake-tinted icon-only Google Maps pin with zero redundant standalone Driver buttons.",
       "Sharp 0px architectural keylines across tables, shopping cards, and buttons (50% circles solely for D0–D7 control markers).",
       "Hybrid visual system pairing 21 cropped landscape Wikimedia landmark photos (640x360 WebP) with 13 cohesive gouache culinary illustrations (480x360 WebP)."
     ],
     "rules": [
       {
         "name": "The Daylight Column Rule",
-        "body": "Topographic contour ornament stays inside the peripheral masthead; the reading column remains pure Paper White (#FFFFFF) with >=4.5:1 text contrast.",
+        "body": "Topographic contour ornament frames the deep Taiwan Navy masthead and bookend footer; inside the reading column, tables and cards stay pure Paper White (#FFFFFF) or pale #F3F6FA / regional soft tints with >=4.5:1 text contrast.",
         "section": "colors"
       },
       {
-        "name": "The Vermilion Restraint Rule",
-        "body": "Temple Vermilion (#B8232A) marks active today states, route emphasis, and MRT Red Line badges (~7% surface coverage), leaving structural navigation in Taiwan Navy (#14365D) and warnings in Amber.",
+        "name": "The Regional Accent Rule",
+        "body": "Each trip day carries one restrained zone accent across its rail node, day header top border, day code pill, and stacked .time-start numeral (#135D7D Lake, #B8232A Old Taipei, #9E4414 Coast, #14365D City), leaving Safety Amber and Transit Badges uncontested.",
         "section": "colors"
       },
       {
