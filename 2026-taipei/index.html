@@ -430,6 +430,58 @@
     .day-header { padding: 12px 16px; }
   }
 
+
+  .day-header { flex-wrap: nowrap; align-items: flex-start; }
+  .day-header h2 { flex: 1 1 0; min-width: 0; }
+  .day-header .today-pill { flex: none; align-self: center; }
+  .effort {
+    flex: none;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .effort-line {
+    --c: var(--day-accent, var(--navy));
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .effort-line li {
+    position: relative;
+    width: 12px;
+    height: 12px;
+    margin-left: 12px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 2px solid var(--c);
+    box-sizing: border-box;
+  }
+  .effort-line li:first-child { margin-left: 0; }
+  .effort-line li::before {
+    content: "";
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    width: 12px;
+    height: 0;
+    margin-top: -1px;
+    border-top: 2px dotted var(--rule);
+  }
+  .effort-line li:first-child::before { display: none; }
+  .effort-line li.on { background: var(--c); }
+  .effort-line li.on::before { border-top: 2px solid var(--c); }
+  .effort-line li.here { width: 16px; height: 16px; margin-left: 10px; background: var(--paper); border-width: 4px; }
+  .effort-line li.here::before { width: 10px; margin-top: -2px; }
+  .effort-word { font-size: 0.9375rem; font-weight: 800; line-height: 1; color: var(--day-accent, var(--navy)); }
+  .effort.is-max .effort-word { color: var(--vermilion); }
+  .effort.is-max .effort-line { --c: var(--vermilion); }
+
   .day-header h2 {
     margin: 0;
     font-size: clamp(1.25rem, 3.6vw, 1.6rem);
@@ -1435,6 +1487,7 @@
     shoe: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17h16v2H4z"/><path d="M5 17l2-7 4 1 3 3h4a2 2 0 0 1 2 2v1"/></svg>'
   };
 
+  const EFFORT_WORD = { 1: "สบาย", 2: "สบาย", 3: "ปานกลาง", 4: "ค่อนข้างหนัก", 5: "หนักสุด" };
   const DAYS = [
     {
       id: "D0", zone: "dep", date: "2026-12-05", shortDate: "5 ธ.ค.",
@@ -1459,7 +1512,7 @@
       ]
     },
     {
-      id: "D1", zone: "lake", date: "2026-12-06", shortDate: "6 ธ.ค.",
+      id: "D1", effort: 3, zone: "lake", date: "2026-12-06", shortDate: "6 ธ.ค.",
       title: "อา. 6 ธ.ค. · สนามบิน → ทะเลสาบสุริยันจันทรา",
       conditions: [
         { icon: "temp", text: "สุริยันจันทรา 12–15°C · พกเสื้อคลุม/กันลม" },
@@ -1528,7 +1581,7 @@
       ]
     },
     {
-      id: "D2", zone: "lake", date: "2026-12-07", shortDate: "7 ธ.ค.",
+      id: "D2", effort: 3, zone: "lake", date: "2026-12-07", shortDate: "7 ธ.ค.",
       title: "จ. 7 ธ.ค. · เที่ยววนรอบทะเลสาบสุริยันจันทรา",
       conditions: [
         { icon: "temp", text: "12–15°C · บนกระเช้าลมเย็น" },
@@ -1593,7 +1646,7 @@
       ]
     },
     {
-      id: "D3", zone: "old", date: "2026-12-08", shortDate: "8 ธ.ค.",
+      id: "D3", effort: 3, zone: "old", date: "2026-12-08", shortDate: "8 ธ.ค.",
       title: "อ. 8 ธ.ค. · บัสเข้าไทเป + ถนนตี๋ฮว่า + หนิงเซี่ย",
       conditions: [
         { icon: "clock", text: "ถึงไทเปบ่ายไม่มีพักห้องระหว่างวัน" },
@@ -1670,7 +1723,7 @@
       ]
     },
     {
-      id: "D4", zone: "old", date: "2026-12-09", shortDate: "9 ธ.ค.",
+      id: "D4", effort: 4, zone: "old", date: "2026-12-09", shortDate: "9 ธ.ค.",
       title: "พ. 9 ธ.ค. · ย่านเก่าไทเป + พระอาทิตย์ตกตั้นสุ่ย",
       conditions: [
         { icon: "temp", text: "15–20°C" },
@@ -1744,7 +1797,7 @@
       ]
     },
     {
-      id: "D5", zone: "coast", date: "2026-12-10", shortDate: "10 ธ.ค.",
+      id: "D5", effort: 5, zone: "coast", date: "2026-12-10", shortDate: "10 ธ.ค.",
       title: "พฤ. 10 ธ.ค. · รถเหมา เย่หลิ่ว → สือเฟิ่น → จิ่วเฟิ่น",
       conditions: [
         { icon: "clock", text: "รถเหมา 10 ชม. (08:00–18:00)" },
@@ -1797,7 +1850,7 @@
       ]
     },
     {
-      id: "D6", zone: "city", date: "2026-12-11", shortDate: "11 ธ.ค.",
+      id: "D6", effort: 3, zone: "city", date: "2026-12-11", shortDate: "11 ธ.ค.",
       title: "ศ. 11 ธ.ค. · เมาคง → ย่านซิ่นอี้ → ไทเป 101",
       conditions: [
         { icon: "clock", text: "เริ่มสาย 08:30 ตื่นสบายๆ" },
@@ -1849,7 +1902,7 @@
       ]
     },
     {
-      id: "D7", zone: "city", date: "2026-12-12", shortDate: "12 ธ.ค.",
+      id: "D7", effort: 3, zone: "city", date: "2026-12-12", shortDate: "12 ธ.ค.",
       title: "ส. 12 ธ.ค. · เป่ยโถว + ช้อปจงซาน + กลับกรุงเทพฯ",
       conditions: [
         { icon: "towel", text: "พกผ้าขนหนูผืนเล็กแช่เท้าเป่ยโถว" },
@@ -2293,6 +2346,7 @@
           <div class="day-header">
             <h2><span class="day-code">${day.id}</span>${esc(day.title)}</h2>
             ${isToday ? '<span class="today-pill">วันนี้</span>' : ""}
+            ${day.effort ? `<div class="effort ${day.effort >= 5 ? "is-max" : ""}" role="img" aria-label="ระดับความเหนื่อย ${day.effort} จาก 5: ${EFFORT_WORD[day.effort]}"><ol class="effort-line" aria-hidden="true">${[1,2,3,4,5].map(n => `<li class="${n < day.effort ? "on" : n === day.effort ? "on here" : ""}"></li>`).join("")}</ol><span class="effort-word" aria-hidden="true">${EFFORT_WORD[day.effort]}</span></div>` : ""}
           </div>
           <div class="cond-strip">${condHtml}</div>
           <div class="ctrl-table">${rowsHtml}</div>
