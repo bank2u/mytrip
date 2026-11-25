@@ -152,7 +152,7 @@ components:
 
 The design system translates Taiwanese visual culture — deep Taiwan Cultural Navy (`#14365D`), Temple Vermilion (`#B8232A`), warm gold contour ink (`#E2BE7E`), Sun Moon Lake Teal (`#135D7D`), Jiufen Lantern Terracotta (`#9E4414`), and cool Harbor Mist canvas (`#DCE5F0`) — into an ISO control-description travel guide and transit pocket timetable. Deep navy & vermilion anchor the bookend masthead and footer, while regional day-zone accents organize the 8-day schedule and the main reading column remains crisp `#FFFFFF` for outdoor legibility on mobile phones.
 
-Instead of rounded card stacks, duplicate text boxes, or cluttered multi-button rows beside thumbnails, schedules pair stacked two-line left-gutter hours (`.time-start` / `.time-end` over `#F3F6FA`) with zone-colored day headers, a unified full-width `.place-bar` below each row (iconless `.zh-chip` / `.sub-chip` popup trigger + `44×44px` Lake-tinted `.map-icon-btn`), semantic condition icons, Wikimedia landmark thumbnails, and an illustrated Taiwanese shopping catalog (`ฝากผู้ใหญ่` / `แจกเพื่อน` / `ซื้อกินเอง` / `ของใช้ & แฟชั่น`).
+Instead of rounded card stacks, duplicate text boxes, or cluttered multi-button rows beside thumbnails, schedules pair stacked two-line left-gutter hours (`.time-start` / `.time-end` over `#F3F6FA`) with zone-colored day headers, a unified full-width `.place-bar` below each row (iconless `.zh-chip` / `.sub-chip` popup trigger + `44×44px` Lake-tinted `.map-icon-btn`), semantic condition icons, Taiwanese landmark thumbnails (13 Gouache & Fine Ink + 8 interim Wikimedia photos), and an illustrated Taiwanese shopping catalog (`ฝากผู้ใหญ่` / `แจกเพื่อน` / `ซื้อกินเอง` / `ของใช้ & แฟชั่น`).
 
 **Key Characteristics:**
 - Deep Taiwan Navy masthead & bookend footer paired with Temple Vermilion accents (`#B8232A`), Harbor Mist canvas (`#DCE5F0`), and pure `#FFFFFF` reading cards.
@@ -160,7 +160,7 @@ Instead of rounded card stacks, duplicate text boxes, or cluttered multi-button 
 - Stacked `.time-start` / `.time-end` tabular time gutter (`#F3F6FA` wash) eliminating mobile range overlap.
 - Unified `.place-bar` utility pattern: `44px` iconless Navy-tinted Traditional Chinese chip (`.zh-chip` / `.sub-chip`) opening `#driver-dialog` (`"ชื่อสถานที่ภาษาจีน"`) + `44×44px` Lake-tinted icon-only Google Maps pin with zero redundant standalone Driver buttons.
 - Sharp `0px` architectural keylines across tables, shopping cards, and buttons (`50%` circles solely for `D0–D7` control markers).
-- Hybrid visual system pairing 21 cropped landscape Wikimedia landmark photos (`640×360` WebP) with 13 cohesive gouache culinary illustrations (`480×360` WebP).
+- Evolving unified visual system pairing 26 cohesive Taiwanese Gouache & Fine Ink illustrations (13 landmark `640×360` WebPs + 13 culinary/shopping `480×360` WebPs) plus 8 interim Wikimedia landmark photos pending the 19:10 completion wave.
 
 ## Colors
 
