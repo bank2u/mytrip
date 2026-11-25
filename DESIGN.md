@@ -108,13 +108,20 @@ components:
     backgroundColor: "{colors.paper-white}"
     textColor: "{colors.lake-blue}"
     rounded: "{rounded.none}"
-    padding: "0 10px"
+    padding: "0"
+    width: "44px"
     height: "44px"
   inline-zh-copy:
     backgroundColor: "{colors.navy-tint}"
     textColor: "{colors.taiwan-navy}"
     rounded: "{rounded.none}"
-    padding: "4px 10px"
+    padding: "6px 10px"
+    height: "44px"
+  zh-chip-copy:
+    backgroundColor: "{colors.map-margin}"
+    textColor: "{colors.taiwan-navy}"
+    rounded: "{rounded.none}"
+    padding: "6px 10px"
     height: "44px"
   control-node:
     backgroundColor: "{colors.paper-white}"
@@ -146,11 +153,12 @@ components:
 
 The design system translates Taiwanese visual culture — deep Taiwan Indigo/Navy, Temple Vermilion, and crisp daylight paper — into an ISO control-description travel guide and transit pocket timetable. Peripheral contour ornament sits strictly inside the masthead, leaving the main reading column crisp white for outdoor legibility on mobile phones.
 
-Instead of rounded card stacks or duplicate text boxes, schedules pair tabular left-gutter hours with inline tap-to-copy Traditional Chinese place badges, compact Driver/Maps action triggers, semantic condition icons, real Wikimedia landmark thumbnails, and a scannable Taiwanese shopping catalog illustrated in a unified gouache-and-ink style.
+Instead of rounded card stacks, duplicate text boxes, or cluttered multi-button rows beside thumbnails, schedules pair tabular left-gutter hours with a unified full-width `.place-bar` below the content row: a single Traditional Chinese utility chip (opening the fullscreen Driver/Copy dialog on genuine car/taxi/bus/hotel stops, or instant tap-to-copy on walking/MRT/charter stops) beside a compact `44×44px` icon-only Google Maps pin, alongside semantic condition icons, Wikimedia landmark thumbnails, and a scannable Taiwanese shopping catalog illustrated in a unified gouache-and-ink style.
 
 **Key Characteristics:**
 - 75% Daylight Paper (`#FFFFFF` / `#F6F5F2`), 18% Taiwan Cultural Navy (`#14365D`), and 7% Temple Vermilion (`#B8232A`).
 - Single-row sticky `[ทุกวัน] + (D0)–(D7)` course rail with one-tap day filtering and automatic today-focus during the trip.
+- Unified `.place-bar` utility pattern: `44px` Traditional Chinese chip (`is-driver` vs `is-copy`) + `44×44px` icon-only Google Maps pin with zero redundant standalone Driver buttons.
 - Sharp `0px` architectural keylines across tables, shopping cards, and buttons (`50%` circles solely for `D0–D7` control markers).
 - Hybrid visual system pairing 21 cropped landscape Wikimedia landmark photos (`640×360` WebP) with 13 cohesive gouache culinary illustrations (`480×360` WebP).
 
@@ -195,9 +203,9 @@ The palette anchors outdoor readability on crisp daylight white while drawing cu
 ### Hierarchy
 - **Display (`h1`)** (700, `clamp(1.6rem, 4.8vw, 2.3rem)`, line-height `1.15`, letter-spacing `-0.02em`): Trip masthead title opening directly without kickers.
 - **Headline (`h2`)** (700, `clamp(1.25rem, 3.6vw, 1.6rem)`, line-height `1.22`): Day titles (`D0`–`D7`) and tab section headers.
-- **Title (`h3`)** (700, `1.0625rem`, line-height `1.38`): Stop titles (`Thai · English · 繁體中文`) and shopping card item names.
+- **Title (`h3`)** (700, `1.0625rem`, line-height `1.38`): Clean stop headings (`Thai · English`) paired below with `.place-bar` Traditional Chinese chips, and shopping item titles.
 - **Body (`p`, descriptions)** (400, `1rem` / `16px`, line-height `1.5`, `max-width: 68ch`): Schedule instructions, shopping notes, and checklist items.
-- **Mono Time Gutter** (700, `0.9rem` mobile / `1.0625rem` desktop, tabular-nums): Schedule timestamps and `D0–D7` circle labels.
+- **Mono Time Gutter** (700, `1rem` mobile / `1.0625rem` desktop, tabular-nums, non-splitting wrap after ranges): Schedule timestamps and `D0–D7` circle labels.
 
 ### Named Rules
 **The Zero-Kicker Rule.** Headings (`h1`, `h2`, `h3`) always come first with zero eyebrow labels above them; badges and meta tags sit inline or below.
@@ -206,7 +214,7 @@ The palette anchors outdoor readability on crisp daylight white while drawing cu
 
 Centered `960px` field-guide shell with `1px` side rules on desktop and full-width layout on mobile (`360px+` with `overflow-x: clip`). Four primary tabs switch between Route (`เส้นทาง`), Flights & Stay (`บิน & พัก`), Shopping (`ช้อปปิ้ง`), and Checklist (`เช็กลิสต์`).
 
-Inside Route, a single-row sticky course strip packs `[ทุกวัน]` beside circular `(D0)–(D7)` controls across `360px+` without horizontal clipping. Highlights display crisp right-aligned landmark thumbnails (`96×68px` mobile / `176×108px` desktop) tappable to zoom. Inside Shopping, a collapsible `<details>` rules bar sits above a 1-column mobile / 2-column desktop illustrated card grid.
+Inside Route, a single-row sticky course strip packs `[ทุกวัน]` beside circular `(D0)–(D7)` controls across `360px+` without horizontal clipping (`12px` min date/today labels and `>=46px` tap height). Highlights pair crisp right-aligned landmark thumbnails (`96×68px` mobile / `176×108px` desktop, tappable to zoom) beside `.ctrl-head-line` while `.ctrl-desc` spans full `.ctrl-body` width underneath on mobile so descriptions never narrow alongside thumbnails. Inside Shopping, a collapsible `<details>` rules bar sits above a 1-column mobile / 2-column desktop illustrated card grid with empty-state fallback.
 
 ## Elevation & Depth
 
@@ -225,17 +233,18 @@ Sharp `0px` corners govern tables, shopping cards, image frames, action buttons,
 
 ## Components
 
-### Buttons & Inline Chinese Copy
-- **Inline Chinese Copy (`zh-inline-btn`):** `#EDF2F8` fill, `1px solid #14365D` border, `#14365D` ink; confirms with `#2E6140` fill and white text on copy.
-- **Action Button (`action-btn`):** Sharp `0px`, `44px` minimum tap target, `1.5px solid #14181F` border; Google Maps variant (`map-btn`) uses `#155E8A`.
+### Consolidated Place Bar & Buttons
+- **Chinese Utility Chip (`zh-chip` / `sub-chip`):** `44px` min-height full-row action chip inside `.place-bar` / `.sub-row`. Car/taxi/bus/hotel stops (`is-driver`) use `#EDF2F8` fill with `1.5px solid #14365D` border and taxi SVG to open `#driver-dialog`; walking/MRT/D5/shopping stops (`is-copy`) use `#F6F5F2` fill with `1px solid #14181F` border and copy SVG to copy directly (`#2E6140` confirmation).
+- **Map Icon Button (`map-icon-btn`):** Sharp `0px`, fixed `44×44px` Lake Blue (`#155E8A`) icon-only pin link paired beside every Chinese chip.
+- **Dialog Action Button (`action-btn`):** Sharp `0px`, `44px` minimum tap target, `1.5px solid #14181F` border (`primary-btn` variant uses `#14365D` for modal Chinese copy; `map-btn` uses `#155E8A`).
 
 ### Navigation
 - **Primary 4-Tab Bar:** 4 equal columns (`50px` min height) with `1px` dividers and `#B8232A` bottom indicator on active tab.
 - **Single-Row Course Rail:** `[ทุกวัน]` button + 8 circular `(D0)–(D7)` nodes connected by a `2px` `#14365D` centerline.
 
 ### Signature Components: Control Row, Shopping Card & Native Dialogs
-- **Control Row:** Tabular left time gutter paired with inline copyable Chinese title, compact Driver/Maps triggers, semantic condition icons, and tappable landmark thumbnail.
-- **Shopping Card:** Illustrated `4:3` culinary thumbnail (`96×72px` / `112×84px`) beside `h3` item title, inline Chinese shop copy + Maps button, and Day / Price / Luggage badges underneath.
+- **Control Row:** Tabular left time gutter paired with clean stop heading & transit badge, description, tappable landmark thumbnail, and full-width `.place-bar` / `.sub-places` utility rows below.
+- **Shopping Card:** Illustrated `4:3` culinary thumbnail (`96×72px` / `112×84px`) beside `h3` item title & brand, full-width `.place-bar` (instant-copy store chip + `44×44px` map pin), and Day / Price / Luggage badges underneath.
 - **Collapsible Rules Bar (`<details>`):** 1-line Amber summary expanding into 4 concise customs & packing deadlines.
 
 ## Do's and Don'ts

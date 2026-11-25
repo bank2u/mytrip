@@ -202,7 +202,7 @@
     z-index: 20;
     background: var(--paper);
     border-bottom: 2px solid var(--rule-strong);
-    padding: 6px 8px;
+    padding: 6px 2px;
   }
 
   @media (min-width: 680px) {
@@ -214,8 +214,8 @@
   .day-rail {
     position: relative;
     display: grid;
-    grid-template-columns: 48px repeat(8, minmax(0, 1fr));
-    gap: 2px;
+    grid-template-columns: 44px repeat(8, minmax(0, 1fr));
+    gap: 0;
     align-items: center;
     padding: 2px 0;
   }
@@ -230,9 +230,9 @@
   .day-rail::before {
     content: "";
     position: absolute;
-    left: 72px;
-    right: calc((100% - 48px) / 16);
-    top: 22px;
+    left: 63px;
+    right: calc((100% - 44px) / 16);
+    top: 20px;
     height: 2px;
     background: var(--navy);
     opacity: 0.28;
@@ -250,12 +250,13 @@
   .all-btn {
     position: relative;
     z-index: 1;
-    min-height: 44px;
-    padding: 4px 4px;
+    width: 44px;
+    min-height: 46px;
+    padding: 2px;
     border: 1.5px solid var(--navy);
     background: var(--paper);
     color: var(--navy);
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     font-weight: 700;
     display: flex;
     align-items: center;
@@ -265,7 +266,11 @@
   }
 
   @media (min-width: 520px) {
-    .all-btn { font-size: 0.875rem; padding: 4px 8px; }
+    .all-btn {
+      width: auto;
+      font-size: 0.875rem;
+      padding: 4px 8px;
+    }
   }
 
   .all-btn:hover { background: var(--navy-tint); }
@@ -277,7 +282,8 @@
   .cp-btn {
     position: relative;
     z-index: 1;
-    min-height: 46px;
+    width: 100%;
+    min-height: 48px;
     min-width: 0;
     display: flex;
     flex-direction: column;
@@ -327,26 +333,27 @@
   }
 
   .cp-date {
-    font-size: 0.625rem;
+    font-size: 0.75rem;
     font-weight: 600;
+    letter-spacing: -0.03em;
     color: var(--ink-soft);
     white-space: nowrap;
   }
 
   @media (min-width: 440px) {
-    .cp-date { font-size: 0.75rem; }
+    .cp-date { letter-spacing: 0; }
   }
 
   .cp-today-flag {
     position: absolute;
-    top: -3px;
+    top: -4px;
     right: 0;
     background: var(--vermilion);
     color: #FFFFFF;
-    font-size: 0.625rem;
+    font-size: 0.75rem;
     font-weight: 700;
     padding: 1px 4px;
-    line-height: 1.15;
+    line-height: 1.1;
   }
 
   /* Main reading column */
@@ -447,14 +454,14 @@
 
   .ctrl-row {
     display: grid;
-    grid-template-columns: 64px 1fr;
+    grid-template-columns: 78px minmax(0, 1fr);
     border-bottom: 1px solid var(--rule);
   }
   .ctrl-row:last-child { border-bottom: none; }
 
   @media (min-width: 680px) {
     .ctrl-row {
-      grid-template-columns: 108px 1fr;
+      grid-template-columns: 108px minmax(0, 1fr);
     }
   }
 
@@ -466,11 +473,11 @@
     padding: 10px 6px;
     border-right: 1px solid var(--rule);
     font-family: var(--font-mono);
-    font-size: 0.9375rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--navy);
-    line-height: 1.28;
-    word-break: break-word;
+    line-height: 1.3;
+    white-space: nowrap;
   }
 
   @media (min-width: 680px) {
@@ -492,23 +499,31 @@
   }
 
   .ctrl-content-wrap {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+    align-items: start;
   }
 
-  .ctrl-main {
-    flex: 1 1 auto;
-    min-width: 0;
+  .ctrl-content-wrap.has-thumb {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px 10px;
   }
 
   .ctrl-head-line {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: 6px;
+  }
+
+  .thumb-btn {
+    grid-column: 2;
+    grid-row: 1;
   }
 
   .place-title {
@@ -517,32 +532,6 @@
     font-weight: 700;
     line-height: 1.38;
     color: var(--ink);
-  }
-
-  .zh-inline-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    min-height: 44px;
-    padding: 4px 10px;
-    margin: 1px 0;
-    background: var(--navy-tint);
-    border: 1px solid var(--navy);
-    color: var(--navy);
-    font-family: var(--font-tc);
-    font-size: 1rem;
-    font-weight: 700;
-    line-height: 1.25;
-    vertical-align: middle;
-  }
-  .zh-inline-btn:hover {
-    background: var(--navy);
-    color: #FFFFFF;
-  }
-  .zh-inline-btn.copied {
-    background: var(--forest);
-    border-color: var(--forest);
-    color: #FFFFFF;
   }
 
   .transit-badge {
@@ -580,26 +569,84 @@
   }
 
   .ctrl-desc {
-    margin: 5px 0 0;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin: 2px 0 0;
     font-size: 1rem;
     color: var(--ink);
     max-width: 68ch;
   }
 
-  /* Compact place utility row (single-place & multi-place) */
-  .place-actions {
+  @media (min-width: 680px) {
+    .ctrl-content-wrap.has-thumb {
+      gap: 4px 16px;
+    }
+    .ctrl-content-wrap.has-thumb .ctrl-desc {
+      grid-column: 1;
+      grid-row: 2;
+      margin-top: 4px;
+    }
+    .ctrl-content-wrap.has-thumb .thumb-btn {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+    }
+  }
+
+  /* Consolidated Place Bar (Option 1: Driver Modal or Instant Copy + 44px Map Pin) */
+  .place-bar {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     gap: 6px;
     margin-top: 8px;
+    flex-wrap: nowrap;
   }
 
+  .zh-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 44px;
+    max-width: calc(100% - 50px);
+    padding: 6px 10px;
+    font-family: var(--font-tc);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.25;
+    text-align: left;
+    transition: background-color 140ms var(--ease-out), color 140ms var(--ease-out);
+  }
+  .zh-chip.is-driver {
+    background: var(--navy-tint);
+    border: 1.5px solid var(--navy);
+    color: var(--navy);
+  }
+  .zh-chip.is-driver:hover {
+    background: var(--navy);
+    color: #FFFFFF;
+  }
+  .zh-chip.is-copy {
+    background: var(--margin);
+    border: 1px solid var(--rule-strong);
+    color: var(--navy);
+  }
+  .zh-chip.is-copy:hover {
+    background: var(--navy-tint);
+    border-color: var(--navy);
+  }
+  .zh-chip.copied, .sub-chip.copied {
+    background: var(--forest);
+    border-color: var(--forest);
+    color: #FFFFFF;
+  }
+  .sub-chip.copied .sub-zh, .sub-chip.copied .sub-name { color: #FFFFFF; }
+  .zh-chip svg, .sub-chip svg { flex-shrink: 0; }
+
   .addr-note {
+    display: block;
     font-family: var(--font-tc);
     font-size: 0.9375rem;
     color: var(--ink-soft);
-    margin-right: 4px;
+    margin-top: 4px;
   }
 
   .sub-places {
@@ -613,46 +660,83 @@
 
   .sub-row {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
     gap: 6px;
+    flex-wrap: nowrap;
   }
 
-  .sub-copy-btn {
+  .sub-chip {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 44px;
+    padding: 6px 10px;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    min-height: 44px;
-    padding: 4px 10px;
-    background: var(--margin);
-    border: 1px solid var(--rule-strong);
+    justify-content: space-between;
+    gap: 8px;
     text-align: left;
     font-size: 0.9375rem;
     font-weight: 600;
+    line-height: 1.3;
+    color: var(--ink);
+    transition: background-color 140ms var(--ease-out), color 140ms var(--ease-out);
+  }
+  .sub-chip.is-driver {
+    background: var(--navy-tint);
+    border: 1.5px solid var(--navy);
+    color: var(--navy);
+  }
+  .sub-chip.is-driver:hover {
+    background: var(--navy);
+    color: #FFFFFF;
+  }
+  .sub-chip.is-driver:hover .sub-zh, .sub-chip.is-driver:hover .sub-name { color: #FFFFFF; }
+  .sub-chip.is-copy {
+    background: var(--margin);
+    border: 1px solid var(--rule-strong);
     color: var(--ink);
   }
-  .sub-copy-btn:hover {
+  .sub-chip.is-copy:hover {
     background: var(--navy-tint);
     border-color: var(--navy);
   }
-  .sub-copy-btn.copied {
-    background: var(--forest);
-    border-color: var(--forest);
-    color: #FFFFFF;
+
+  .sub-chip-label {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 2px 6px;
+    min-width: 0;
   }
+
   .sub-zh {
     font-family: var(--font-tc);
     font-weight: 700;
     color: var(--navy);
   }
-  .sub-copy-btn.copied .sub-zh { color: #FFFFFF; }
+  .sub-name {
+    color: var(--ink);
+    font-weight: 500;
+  }
 
-  .sub-btns {
+  .map-icon-btn {
+    flex-shrink: 0;
     display: inline-flex;
     align-items: center;
-    gap: 5px;
-    flex-shrink: 0;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    border: 1.5px solid var(--lake);
+    background: var(--paper);
+    color: var(--lake);
+    text-decoration: none;
+    transition: background-color 140ms var(--ease-out), color 140ms var(--ease-out);
+  }
+  .map-icon-btn:hover {
+    background: var(--lake);
+    color: #FFFFFF;
   }
 
   .action-btn {
@@ -662,7 +746,7 @@
     gap: 5px;
     min-height: 44px;
     min-width: 44px;
-    padding: 0 10px;
+    padding: 0 12px;
     border: 1.5px solid var(--rule-strong);
     background: var(--paper);
     color: var(--ink);
@@ -674,6 +758,15 @@
   .action-btn:hover {
     background: var(--ink);
     color: #FFFFFF;
+  }
+  .action-btn.primary-btn {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: #FFFFFF;
+  }
+  .action-btn.primary-btn:hover {
+    background: var(--ink);
+    border-color: var(--ink);
   }
   .action-btn.map-btn {
     border-color: var(--lake);
@@ -877,10 +970,19 @@
   .rules-lead svg { flex-shrink: 0; }
 
   .rules-toggle-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
     font-size: 0.875rem;
     text-decoration: underline;
     white-space: nowrap;
     flex-shrink: 0;
+  }
+  .rules-chevron {
+    transition: transform 140ms var(--ease-out);
+  }
+  .rules-collapse[open] .rules-chevron {
+    transform: rotate(180deg);
   }
 
   .rules-body {
@@ -891,6 +993,18 @@
     display: grid;
     gap: 8px;
     font-size: 0.9375rem;
+  }
+
+  .shop-empty {
+    padding: 16px 14px;
+    border: 1.5px solid var(--rule-strong);
+    background: var(--margin);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 1rem;
   }
 
   /* Shopping Card Grid */
@@ -965,11 +1079,9 @@
   }
 
   .shop-brand-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 6px;
-    margin-top: 6px;
+    font-size: 0.9375rem;
+    color: var(--ink-soft);
+    margin-top: 2px;
   }
 
   .shop-meta {
@@ -1127,6 +1239,7 @@
     color: var(--navy);
     word-break: break-word;
   }
+  .dlg-addr:empty { display: none; }
 
   .dlg-sub {
     font-size: 1rem;
@@ -1224,13 +1337,13 @@
 
   <footer class="site-footer">
     <span>ทริปไต้หวัน · 6–12 ธ.ค. 2026</span>
-    <span>แตะชื่อจีนเพื่อคัดลอก หรือกดปุ่มคนขับ / แผนที่ · ใช้งานแบบออฟไลน์ได้หลังโหลด</span>
+    <span>แตะชื่อจีนที่มีไอคอนรถเพื่อเปิดป้ายคนขับ/คัดลอก · แตะชื่อจีนจุดเดินเพื่อคัดลอกทันที · กดหมุดเปิดแผนที่</span>
   </footer>
 </div>
 
 <dialog id="driver-dialog" closedby="any" aria-labelledby="driver-dialog-title">
   <div class="dlg-head">
-    <h2 id="driver-dialog-title">แสดงชื่อสถานที่ให้คนขับ</h2>
+    <h2 id="driver-dialog-title">ป้ายชื่อภาษาจีน (โชว์คนขับ / คัดลอก)</h2>
     <form method="dialog">
       <button class="action-btn" type="submit" autofocus>ปิด</button>
     </form>
@@ -1241,7 +1354,7 @@
     <div class="dlg-sub" id="dlg-sub"></div>
   </div>
   <div class="dlg-foot">
-    <button class="action-btn" type="button" id="dlg-copy-btn">คัดลอกภาษาจีน</button>
+    <button class="action-btn primary-btn" type="button" id="dlg-copy-btn">คัดลอกภาษาจีน</button>
     <a class="action-btn map-btn" id="dlg-map-link" href="#" target="_blank" rel="noopener noreferrer">เปิด Google Maps</a>
   </div>
 </dialog>
@@ -1263,8 +1376,10 @@
 (() => {
   const ICONS = {
     copy: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="1"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>',
-    driver: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="10" width="18" height="8" rx="1"/><path d="M5 10l2-5h10l2 5"/><circle cx="7.5" cy="14" r="1"/><circle cx="16.5" cy="14" r="1"/></svg>',
-    map: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6-5.5-6-10a6 6 0 1 1 12 0c0 4.5-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg>',
+    driver: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="10" width="18" height="8" rx="1"/><path d="M5 10l2-5h10l2 5"/><circle cx="7.5" cy="14" r="1"/><circle cx="16.5" cy="14" r="1"/></svg>',
+    map: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6-5.5-6-10a6 6 0 1 1 12 0c0 4.5-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg>',
+    check: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>',
+    chevron: '<svg class="rules-chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>',
     warn: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3L2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg>',
     temp: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 14.76V3.5a2 2 0 0 0-4 0v11.26a4 4 0 1 0 4 0z"/></svg>',
     wind: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>',
@@ -1311,35 +1426,35 @@
           titlePrefix: "ท่าอากาศยานนานาชาติเถาหยวน · Taoyuan Airport (TPE)",
           mode: { label: "เข้าเมือง", cls: "t-flight" },
           desc: "ผ่าน ตม. รับกระเป๋า ซื้อบัตร EasyCard และมื้อเช้าเบาๆ ที่ร้านสะดวกซื้อ",
-          places: [{ name: "Taoyuan International Airport", zh: "桃園國際機場" }]
+          places: [{ name: "Taoyuan International Airport", zh: "桃園國際機場", driver: false }]
         },
         {
           time: "08:00",
           titlePrefix: "สถานีรถไฟความเร็วสูงเถาหยวน · HSR Taoyuan (A18)",
           mode: { label: "Airport MRT", cls: "t-bus" },
           desc: "นั่ง Airport MRT ไปสถานี A18 (รวมรอรถราว 15–20 นาที)",
-          places: [{ name: "HSR Taoyuan Station (A18)", zh: "高鐵桃園站" }]
+          places: [{ name: "HSR Taoyuan Station (A18)", zh: "高鐵桃園站", driver: false }]
         },
         {
           time: "~08:45",
           titlePrefix: "สถานีรถไฟความเร็วสูงไทจง · HSR Taichung",
           mode: { label: "HSR ความเร็วสูง", cls: "t-bus" },
           desc: "ทานมื้อเช้าบนรถไฟความเร็วสูงระหว่างทางไปไทจง",
-          places: [{ name: "HSR Taichung Station", zh: "高鐵台中站" }]
+          places: [{ name: "HSR Taichung Station", zh: "高鐵台中站", driver: false }]
         },
         {
           time: "09:50–10:20",
           titlePrefix: "ทะเลสาบสุริยันจันทรา · Sun Moon Lake",
           mode: { label: "บัส 6670B", cls: "t-bus" },
           desc: "ขึ้นบัสสาย 6670B จาก HSR ไทจงตรงเข้าหมู่บ้านสุ่ยเซ่อ (พักหลับบนรถ)",
-          places: [{ name: "Sun Moon Lake Shuishe", zh: "日月潭水社遊客中心" }]
+          places: [{ name: "Sun Moon Lake Shuishe", zh: "日月潭水社遊客中心", driver: true }]
         },
         {
           time: "~11:45",
           titlePrefix: "ท่าเรือสุ่ยเซ่อ · Shuishe — Island Hearth Sun Moon Lake",
           mode: { label: "เดิน", cls: "t-walk" },
           desc: "ฝากกระเป๋าที่โรงแรม (เช็กอิน 16:00) แล้วทานมื้อเที่ยงร้านนั่งสบาย 12:00–13:30",
-          places: [{ name: "Island Hearth Sun Moon Lake", zh: "日月潭島宇居飯店", addr: "555 南投縣魚池鄉水社村中山路105號" }]
+          places: [{ name: "Island Hearth Sun Moon Lake", zh: "日月潭島宇居飯店", addr: "555 南投縣魚池鄉水社村中山路105號", driver: true }]
         },
         {
           time: "13:30",
@@ -1347,7 +1462,7 @@
           mode: { label: "บัส 1833 / 6669", cls: "t-bus" },
           desc: "ซื้อตั๋วรถบัส Kuo-Kuang สาย 1833 รอบ 09:45 ของวันที่ 8 ธ.ค. (หากยังไม่ได้จองออนไลน์) + ขอตารางบัส 6669",
           warn: "รถบัส 1833 รอบเช้าเข้าไทเปมีวันละ 1 รอบ (09:45) ควรซื้อตั๋วทันทีที่มาถึง",
-          places: [{ name: "Shuishe Bus Station", zh: "水社遊客中心車站" }]
+          places: [{ name: "Shuishe Bus Station", zh: "水社遊客中心車站", driver: false }]
         },
         {
           time: "14:00–15:15",
@@ -1357,7 +1472,7 @@
           imgAlt: "วัดเหวินหวู่ริมทะเลสาบสุริยันจันทรา",
           mode: { label: "บัส 10 นาที", cls: "t-bus" },
           desc: "ลงรถระดับตัววัด ไม่ต้องเดินบันได 366 ขั้น หรือเลือกนั่งคาเฟ่ริมทะเลสาบแทน",
-          places: [{ name: "Wenwu Temple", zh: "日月潭文武廟" }]
+          places: [{ name: "Wenwu Temple", zh: "日月潭文武廟", driver: true }]
         },
         {
           time: "16:00–19:00",
@@ -1380,7 +1495,7 @@
           titlePrefix: "อาหารเช้าที่หมู่บ้านสุ่ยเซ่อ · Shuishe",
           mode: { label: "เดิน / บัส", cls: "t-walk" },
           desc: "อาหารเช้าสบายๆ หาก D1 ยังไม่ได้แวะ วัดเหวินหวู่ · Wenwu Temple · 文武廟 ไปช่วง 08:30–09:30 ได้",
-          places: [{ name: "Shuishe", zh: "水社" }]
+          places: [{ name: "Shuishe", zh: "水社", driver: false }]
         },
         {
           time: "09:45",
@@ -1394,8 +1509,8 @@
           img: "assets/spot-ropeway.webp",
           imgAlt: "กระเช้าลอยฟ้าสุริยันจันทราเหนือภูเขา",
           mode: { label: "กระเช้าธรรมดา", cls: "t-bus" },
-          desc: "นั่งกระเช้าชมวิวมุมสูงเหนือทะเลสาบ (วันธรรมดาเปิด 10:30–16:00)",
-          places: [{ name: "Sun Moon Lake Ropeway", zh: "日月潭纜車" }]
+          desc: "นั่งกระเช้าชมวิวมุมสูงเหนือทะเลสาบ",
+          places: [{ name: "Sun Moon Lake Ropeway", zh: "日月潭纜車", driver: true }]
         },
         {
           time: "11:45–13:30",
@@ -1404,7 +1519,7 @@
           imgAlt: "ท่าเรือและทะเลสาบที่หมู่บ้านอิต๋าเช่า",
           mode: { label: "เดิน", cls: "t-walk" },
           desc: "เดินเล่นถนนคนเดินริมทะเลสาบและมื้อเที่ยงในหมู่บ้าน",
-          places: [{ name: "Ita Thao", zh: "伊達邵" }]
+          places: [{ name: "Ita Thao", zh: "伊達邵", driver: false }]
         },
         {
           time: "13:45–15:00",
@@ -1413,7 +1528,7 @@
           imgAlt: "วิวทะเลสาบสุริยันจันทราจากวัดเสวียนกวง",
           mode: { label: "เรือข้ามฟาก", cls: "t-bus" },
           desc: "นั่งเรือไปชิมไข่ต้มใบชาที่วัดเสวียนกวง (ชมระดับท่าเรือได้) แล้วนั่งเรือกลับสุ่ยเซ่อ",
-          places: [{ name: "Xuanguang Temple", zh: "日月潭玄光寺" }]
+          places: [{ name: "Xuanguang Temple", zh: "日月潭玄光寺", driver: false }]
         },
         {
           time: "15:15–16:45",
@@ -1428,7 +1543,7 @@
           imgAlt: "ทิวเขาและท่าเรือสุ่ยเซ่อ ทะเลสาบสุริยันจันทรา",
           mode: { label: "เดิน", cls: "t-walk" },
           desc: "17:00–17:30 ชมพระอาทิตย์ตก (~17:15) · 17:45 มื้อเย็น ซื้อชาดำอาซัม Ruby #18 และเก็บกระเป๋า",
-          places: [{ name: "Shuishe Pier", zh: "水社碼頭" }]
+          places: [{ name: "Shuishe Pier", zh: "水社碼頭", driver: false }]
         }
       ]
     },
@@ -1451,39 +1566,39 @@
           time: "07:30–09:20",
           titlePrefix: "อาหารเช้า · เช็กเอาต์ · เตรียมเสบียงขึ้นรถ",
           mode: { label: "เดิน", cls: "t-walk" },
-          desc: "ทานอาหารเช้าให้อิ่ม เช็กเอาต์ (ก่อน 11:00) ซื้อน้ำและขนม แล้วมารอที่ป้ายรถ 09:20"
+          desc: "ทานอาหารเช้าให้อิ่ม เช็กเอาต์ ซื้อน้ำและขนม แล้วมารอที่ป้ายรถ 09:20"
         },
         {
           time: "09:45–13:45",
           titlePrefix: "บัส 1833 (中興號) → สถานีขนส่งไทเป · Taipei Bus Station",
           mode: { label: "บัส 1833 (~4 ชม.)", cls: "t-bus" },
           desc: "รถบัสตรงรอบเช้ารอบเดียวเข้าไทเป ถึงสถานีขนส่งไทเปราว 13:15–13:45",
-          places: [{ name: "Taipei Bus Station", zh: "台北轉運站" }]
+          places: [{ name: "Taipei Bus Station", zh: "台北轉運站", driver: false }]
         },
         {
           time: "13:45–14:45",
           titlePrefix: "มื้อเที่ยงห้าง Q Square",
           mode: { label: "เดินเชื่อมสถานี", cls: "t-walk" },
           desc: "เลือกร้านนั่งสบายภายในห้างที่เชื่อมตรงกับสถานีขนส่ง",
-          places: [{ name: "Q Square", zh: "京站時尚廣場" }]
+          places: [{ name: "Q Square", zh: "京站時尚廣場", driver: false }]
         },
         {
           time: "14:45–15:15",
           titlePrefix: "ฝากกระเป๋าที่ Dahshin Hotel",
           mode: { label: "Uber XL", cls: "t-taxi" },
           desc: "ฝากกระเป๋าที่ล็อบบี้โรงแรมย่านจงซาน (ห่าง MRT Zhongshan ราว 5 นาที)",
-          places: [{ name: "Dahshin Hotel", zh: "大欣大飯店", addr: "台北市中山區中山北路二段27巷2-2號" }]
+          places: [{ name: "Dahshin Hotel", zh: "大欣大飯店", addr: "台北市中山區中山北路二段27巷2-2號", driver: true }]
         },
         {
           time: "15:30–16:45",
-          titlePrefix: "ถนนตี๋ฮว่า · Dihua Street · 迪化街",
+          titlePrefix: "ถนนตี๋ฮว่า · Dihua Street",
           img: "assets/spot-dihua.webp",
           imgAlt: "อาคารอิฐแดงโบราณบนถนนตี๋ฮว่า ไทเป",
           mode: { label: "แท็กซี่", cls: "t-taxi" },
           desc: "เดินชมตึกเก่า เลือกซื้อขนมมงคลโบราณ ชา และผลไม้อบแห้ง (มีมุมนั่งจิบชาพักขา)",
           places: [
-            { name: "ถนนตี๋ฮว่า · Dihua Street", zh: "迪化街" },
-            { name: "ร้านขนมโบราณ · Li Ting Xiang", zh: "李亭香餅店", addr: "台北市大同區迪化街一段309號" }
+            { name: "ถนนตี๋ฮว่า · Dihua Street", zh: "迪化街", driver: true },
+            { name: "ร้านขนมโบราณ · Li Ting Xiang", zh: "李亭香餅店", addr: "台北市大同區迪化街一段309號", driver: false }
           ]
         },
         {
@@ -1493,18 +1608,18 @@
           imgAlt: "ท่าเรือต้าเต้าเฉิงริมแม่น้ำยามเย็น",
           mode: { label: "เดิน 5–10 นาที", cls: "t-walk" },
           desc: "เดินต่อจากถนนตี๋ฮว่ามาชมพระอาทิตย์ตกริมแม่น้ำตั้นสุ่ย",
-          places: [{ name: "Dadaocheng Wharf", zh: "大稻埕碼頭" }]
+          places: [{ name: "Dadaocheng Wharf", zh: "大稻埕碼頭", driver: false }]
         },
         {
           time: "17:30–18:45",
-          titlePrefix: "ตลาดกลางคืนหนิงเซี่ย · Ningxia Night Market · 寧夏夜市",
+          titlePrefix: "ตลาดกลางคืนหนิงเซี่ย · Ningxia Night Market",
           img: "assets/spot-ningxia.webp",
           imgAlt: "บรรยากาศตลาดกลางคืนหนิงเซี่ย ไทเป",
           mode: { label: "แท็กซี่", cls: "t-taxi" },
-          desc: "มื้อเย็นที่ตลาดหนิงเซี่ย · [ทางเลือก] เดินต่อ 300–500 ม. เหมาขนมซูเปอร์ที่ Prosperity Plaza (เปิด 09:00–02:00) ก่อนกลับโรงแรมเช็กอิน ~19:00",
+          desc: "มื้อเย็นที่ตลาดหนิงเซี่ย · [ทางเลือก] เดินต่อ 300–500 ม. เหมาขนมซูเปอร์ที่ Prosperity Plaza (เปิดดึก) ก่อนกลับโรงแรมเช็กอิน ~19:00",
           places: [
-            { name: "ตลาดกลางคืนหนิงเซี่ย · Ningxia", zh: "寧夏夜市" },
-            { name: "ซูเปอร์เปิดดึก · Prosperity Plaza", zh: "萬家福重慶店" }
+            { name: "ตลาดกลางคืนหนิงเซี่ย · Ningxia", zh: "寧夏夜市", driver: true },
+            { name: "ซูเปอร์เปิดดึก · Prosperity Plaza", zh: "萬家福重慶店", driver: false }
           ]
         }
       ]
@@ -1525,7 +1640,7 @@
           mode: { label: "MRT สายแดง (ออก 08:15)", cls: "t-mrt-red" },
           desc: "ต่อคิวซื้อแครกเกอร์นูกัตต้นหอม (เปิดขาย 09:00 ขายจนหมด) ใกล้ MRT Dongmen เดิน 3–5 นาที",
           warn: "รับเฉพาะเงินสดเท่านั้น (NT$220/กล่อง) และจำกัดจำนวนซื้อต่อคน",
-          places: [{ name: "L'Atelier Lotus", zh: "甜滿", addr: "台北市大安區永康街31巷10號" }]
+          places: [{ name: "L'Atelier Lotus", zh: "甜滿", addr: "台北市大安區永康街31巷10號", driver: false }]
         },
         {
           time: "09:45–10:45",
@@ -1533,8 +1648,8 @@
           img: "assets/spot-cks.webp",
           imgAlt: "อนุสรณ์สถานเจียงไคเช็ก ไทเป",
           mode: { label: "MRT สายแดง 1 สถานี", cls: "t-mrt-red" },
-          desc: "ชมพิธีเปลี่ยนเวรทหารกลางแจ้งรอบ 10:00 (งดเมื่อฝนตก · ห้องโถง 09:00–18:00)",
-          places: [{ name: "Chiang Kai-shek Memorial Hall", zh: "中正紀念堂" }]
+          desc: "ชมพิธีเปลี่ยนเวรทหารกลางแจ้งรอบ 10:00 (งดเมื่อฝนตก)",
+          places: [{ name: "Chiang Kai-shek Memorial Hall", zh: "中正紀念堂", driver: false }]
         },
         {
           time: "11:00–11:45",
@@ -1543,7 +1658,7 @@
           imgAlt: "หลังคาวัดหลงซาน ไทเป",
           mode: { label: "แท็กซี่", cls: "t-taxi" },
           desc: "สักการะขอพรและเช่าบูชาเครื่องรางภายในวัด",
-          places: [{ name: "Longshan Temple", zh: "艋舺龍山寺" }]
+          places: [{ name: "Longshan Temple", zh: "艋舺龍山寺", driver: true }]
         },
         {
           time: "12:00–13:30",
@@ -1552,23 +1667,23 @@
           imgAlt: "ย่านช้อปปิ้งซีเหมินติง ไทเป",
           mode: { label: "แท็กซี่", cls: "t-taxi" },
           desc: "ทานมื้อเที่ยงร้านนั่งสบายและเดินเล่นย่านซีเหมินติง",
-          places: [{ name: "Ximending", zh: "西門町" }]
+          places: [{ name: "Ximending", zh: "西門町", driver: true }]
         },
         {
           time: "13:45–15:00",
-          titlePrefix: "Simple Kaffa & สวนสร้างสรรค์หัวซาน 1914 · Huashan 1914 · 華山1914文化創意產業園區",
+          titlePrefix: "Simple Kaffa & สวนศิลปะหัวซาน 1914 · Huashan 1914",
           img: "assets/spot-huashan.webp",
           imgAlt: "สวนสร้างสรรค์หัวซาน 1914 ไทเป",
           mode: { label: "แท็กซี่ ~10 นาที", cls: "t-taxi" },
           desc: "จิบกาแฟร้านแชมป์โลกและเดินชมโซนศิลปะที่ Huashan 1914",
           places: [
-            { name: "Simple Kaffa Flagship", zh: "興波咖啡", addr: "台北市中正區忠孝東路二段27號" },
-            { name: "สวนศิลปะหัวซาน 1914 · Huashan 1914", zh: "華山1914文化創意產業園區" }
+            { name: "Simple Kaffa Flagship", zh: "興波咖啡", addr: "台北市中正區忠孝東路二段27號", driver: true },
+            { name: "สวนศิลปะหัวซาน 1914 · Huashan 1914", zh: "華山1914文化創意產業園區", driver: false }
           ]
         },
         {
           time: "15:45–18:30",
-          titlePrefix: "ตั้นสุ่ย · Tamsui · 淡水",
+          titlePrefix: "ตั้นสุ่ย · Tamsui",
           optional: true,
           img: "assets/spot-tamsui.webp",
           imgAlt: "พระอาทิตย์ตกริมแม่น้ำตั้นสุ่ย",
@@ -1576,9 +1691,9 @@
           desc: "MRT ปลายทาง Tamsui (~40–45 น.) เดินทางราบชมริมน้ำ ~1.5 กม. ผ่านถนนเก่าและด้านนอกโบสถ์ 淡水禮拜堂 ชมพระอาทิตย์ตก (~17:05) + มื้อเย็น · [ทางเลือกฝนตก] เดินย่านฉือเฟิงแทน · 18:45 นั่ง MRT สายแดงกลับโรงแรม (~19:30)",
           warn: "เลือกขบวน MRT สายแดงที่มีป้ายปลายทาง Tamsui · 淡水 (ไม่ใช่ Beitou)",
           places: [
-            { name: "ริมน้ำตั้นสุ่ย · Golden Riverside", zh: "淡水金色水岸" },
-            { name: "ถนนเก่าตั้นสุ่ย · Tamsui Old Street", zh: "淡水老街" },
-            { name: "ย่านฉือเฟิง (แผนสำรองฝนตก)", zh: "赤峰街" }
+            { name: "ริมน้ำตั้นสุ่ย · Golden Riverside", zh: "淡水金色水岸", driver: false },
+            { name: "ถนนเก่าตั้นสุ่ย · Tamsui Old Street", zh: "淡水老街", driver: false },
+            { name: "ย่านฉือเฟิง (แผนสำรองฝนตก)", zh: "赤峰街", driver: false }
           ]
         }
       ]
@@ -1604,8 +1719,8 @@
           img: "assets/spot-yehliu.webp",
           imgAlt: "หินเศียรราชินี อุทยานธรณีเย่หลิ่ว",
           mode: { label: "รถเหมา", cls: "t-bus" },
-          desc: "เดินบนทางปูนชมโขดหินรูปทรงธรรมชาติและหินเศียรราชินี (เปิด 08:00–17:00)",
-          places: [{ name: "Yehliu Geopark", zh: "野柳地質公園" }]
+          desc: "เดินบนทางปูนชมโขดหินรูปทรงธรรมชาติและหินเศียรราชินี",
+          places: [{ name: "Yehliu Geopark", zh: "野柳地質公園", driver: false }]
         },
         {
           time: "11:00–12:45",
@@ -1614,18 +1729,18 @@
           imgAlt: "รถไฟสายผิงซีและโคมลอยที่ถนนเก่าสือเฟิ่น",
           mode: { label: "รถเหมา (ขับ ~55 น.)", cls: "t-bus" },
           desc: "เขียนคำอธิษฐานลงโคมลอย 1 ลูก 4 ด้านร่วมกันริมทางรถไฟ + มื้อเที่ยง",
-          places: [{ name: "Shifen Old Street", zh: "十分老街" }]
+          places: [{ name: "Shifen Old Street", zh: "十分老街", driver: false }]
         },
         {
           time: "13:30–14:45",
-          titlePrefix: "ถนนเก่าจิ่วเฟิ่น · Jiufen Old Street · 九份老街",
+          titlePrefix: "ถนนเก่าจิ่วเฟิ่น · Jiufen Old Street",
           img: "assets/spot-jiufen.webp",
           imgAlt: "โคมแดงในหมู่บ้านโบราณจิ่วเฟิ่น",
           mode: { label: "รถเหมา (ขับ ~40 น.)", cls: "t-bus" },
           desc: "เดินเส้นทางราบสายหลัก Jishan Street และแวะร้านนูกัตรสกาแฟ Jiavin Bakery · 佳賓餅家",
           places: [
-            { name: "ถนนสายหลักจิ่วเฟิ่น · Jishan St", zh: "九份老街 基山街" },
-            { name: "นูกัตกาแฟ · Jiavin Bakery", zh: "佳賓餅家", addr: "新北市瑞芳區基山街7號" }
+            { name: "ถนนสายหลักจิ่วเฟิ่น · Jishan St", zh: "九份老街 基山街", driver: false },
+            { name: "นูกัตกาแฟ · Jiavin Bakery", zh: "佳賓餅家", addr: "新北市瑞芳區基山街7號", driver: false }
           ]
         },
         {
@@ -1649,16 +1764,16 @@
           titlePrefix: "สถานีกระเช้าเมาคง สวนสัตว์ไทเป · Maokong Gondola Taipei Zoo",
           mode: { label: "Uber (ออก 09:30)", cls: "t-taxi" },
           desc: "ทานอาหารเช้าสบายๆ แล้วเรียกรถไปสถานีต้นทางกระเช้าเมาคง",
-          places: [{ name: "Maokong Gondola Taipei Zoo Station", zh: "貓空纜車動物園站" }]
+          places: [{ name: "Maokong Gondola Taipei Zoo Station", zh: "貓空纜車動物園站", driver: true }]
         },
         {
           time: "10:00–12:30",
           titlePrefix: "เมาคง · Maokong",
           img: "assets/spot-maokong.webp",
           imgAlt: "กระเช้าเมาคงเหนือเนินเขาและป่าไม้",
-          mode: { label: "กระเช้า (09:00–21:00)", cls: "t-bus" },
+          mode: { label: "กระเช้าเมาคง", cls: "t-bus" },
           desc: "นั่งกระเช้าขึ้นเขา จิบชาอู่หลง/เถี่ยกวนอินชมวิว + มื้อเที่ยงบนเขา 11:45 · [ทางเลือก] ลงมากินเที่ยงย่านซิ่นอี้ได้",
-          places: [{ name: "Maokong", zh: "貓空" }]
+          places: [{ name: "Maokong", zh: "貓空", driver: false }]
         },
         {
           time: "12:45–15:45",
@@ -1667,7 +1782,7 @@
           imgAlt: "ห้างสรรพสินค้าย่านซิ่นอี้ ไทเป",
           mode: { label: "กระเช้าลง + แท็กซี่", cls: "t-taxi" },
           desc: "เดินช้อปปิ้งทางเชื่อมห้างย่านซิ่นอี้และพักคาเฟ่",
-          places: [{ name: "Xinyi District", zh: "台北信義商圈" }]
+          places: [{ name: "Xinyi District", zh: "台北信義商圈", driver: true }]
         },
         {
           time: "16:00–17:30",
@@ -1676,7 +1791,7 @@
           imgAlt: "ตึกไทเป 101 ยามพลบค่ำ",
           mode: { label: "เดินในอาคาร", cls: "t-walk" },
           desc: "16:00 กดบัตรคิวติ่นไท่ฟง สาขา 101 · 16:15–17:30 ขึ้นชมวิวตึก 101 ช่วงกลางวันต่อพระอาทิตย์ตกและไฟเมือง",
-          places: [{ name: "Taipei 101", zh: "台北101" }]
+          places: [{ name: "Taipei 101", zh: "台北101", driver: false }]
         },
         {
           time: "17:45",
@@ -1684,7 +1799,7 @@
           mode: { label: "MRT สายแดงตรง", cls: "t-mrt-red" },
           desc: "มื้อเย็นแล้วนั่ง MRT สายแดงตรงกลับสถานี Zhongshan ถึงโรงแรม ~19:15",
           warn: "เส้นตายแพ็กกระเป๋าโหลด: ของเหลวเกิน 100 ml (น้ำมันพริก, เซรั่ม) และของหนักต้องซื้อและแพ็กใส่กระเป๋าใหญ่คืนนี้",
-          places: [{ name: "Din Tai Fung Taipei 101", zh: "鼎泰豐 台北101店" }]
+          places: [{ name: "Din Tai Fung Taipei 101", zh: "鼎泰豐 台北101店", driver: false }]
         }
       ]
     },
@@ -1707,43 +1822,43 @@
           time: "08:15",
           titlePrefix: "โหลดกระเป๋าสถานี Airport MRT Taipei Main (A1)",
           mode: { label: "Uber XL", cls: "t-taxi" },
-          desc: "เช็กเอาต์ไปใช้ Self Bag Drop ของ EVA Air (เปิด 06:00–21:30 ปิด 3 ชม.ก่อนบิน ผลรวม 3 ด้าน ≤158 ซม.)",
-          places: [{ name: "Airport MRT Taipei Main (A1)", zh: "機場捷運台北車站 A1" }]
+          desc: "เช็กเอาต์ไปใช้ Self Bag Drop ของ EVA Air (ปิด 3 ชม.ก่อนบิน · ผลรวม 3 ด้าน ≤158 ซม.)",
+          places: [{ name: "Airport MRT Taipei Main (A1)", zh: "機場捷運台北車站 A1", driver: true }]
         },
         {
           time: "09:20–11:00",
-          titlePrefix: "เป่ยโถว · Beitou · 北投",
+          titlePrefix: "เป่ยโถว · Beitou",
           img: "assets/spot-beitou.webp",
           imgAlt: "ไอน้ำพุร้อนสีมรกตที่ Thermal Valley เป่ยโถว",
           mode: { label: "แท็กซี่ขึ้นบนสุด + เดินลงเนิน", cls: "t-taxi" },
           desc: "แท็กซี่จาก A1 (~25–30 น.) ลงจุดบนสุดแล้วเดินลงเนินสบายๆ ~1 กม. เข้าฟรีทุกจุด",
           places: [
-            { name: "Thermal Valley (09:00–17:00)", zh: "北投地熱谷" },
-            { name: "Beitou Hot Spring Museum (10:00–18:00)", zh: "北投溫泉博物館" },
-            { name: "ห้องสมุดไม้เป่ยโถว (08:30–21:00)", zh: "台北市立圖書館北投分館" }
+            { name: "Thermal Valley", zh: "北投地熱谷", driver: true },
+            { name: "Beitou Hot Spring Museum", zh: "北投溫泉博物館", driver: false },
+            { name: "ห้องสมุดไม้เป่ยโถว", zh: "台北市立圖書館北投分館", driver: false }
           ]
         },
         {
           time: "11:00–12:45",
-          titlePrefix: "แช่เท้าอุ่น Fuxing Park & มื้อเที่ยง Xinbeitou · 北投復興公園泡腳池 · 新北投",
+          titlePrefix: "แช่เท้าอุ่น Fuxing Park & มื้อเที่ยง Xinbeitou",
           mode: { label: "เดิน", cls: "t-walk" },
-          desc: "11:00–11:45 แช่เท้าอุ่นฟรีที่สวน Fuxing (08:00–18:00) · 11:45–12:45 มื้อเที่ยงแถวสถานี Xinbeitou",
+          desc: "11:00–11:45 แช่เท้าอุ่นฟรีที่สวน Fuxing · 11:45–12:45 มื้อเที่ยงแถวสถานี Xinbeitou",
           places: [
-            { name: "บ่อแช่เท้าอุ่น · Fuxing Park", zh: "北投復興公園泡腳池" },
-            { name: "สถานี Xinbeitou", zh: "捷運新北投站" }
+            { name: "บ่อแช่เท้าอุ่น · Fuxing Park", zh: "北投復興公園泡腳池", driver: false },
+            { name: "สถานี Xinbeitou", zh: "捷運新北投站", driver: false }
           ]
         },
         {
           time: "13:20–16:00",
-          titlePrefix: "ช้อปย่าน จงซาน–ฉือเฟิง · Zhongshan–Chifeng · 捷運中山站 / 赤峰街",
+          titlePrefix: "ช้อปย่าน จงซาน–ฉือเฟิง · Zhongshan–Chifeng",
           img: "assets/spot-chifeng.webp",
           imgAlt: "สวนทางเดินและย่านจงซาน–ฉือเฟิง ไทเป",
           mode: { label: "MRT สายแดง (~30–35 น.)", cls: "t-mrt-red" },
           desc: "ออก 12:45 กลับจงซาน ซื้อคุกกี้/นูกัตถือขึ้นเครื่อง และนั่งคาเฟ่",
           places: [
-            { name: "ย่านจงซาน–ฉือเฟิง", zh: "捷運中山站 赤峰街" },
-            { name: "คุกกี้เนย · Cookie886 (เปิด 12:30)", zh: "曲奇886 台北門市" },
-            { name: "นูกัต · Sugar & Spice Nanxi", zh: "糖村 新光三越南西店" }
+            { name: "ย่านจงซาน–ฉือเฟิง", zh: "捷運中山站 赤峰街", driver: false },
+            { name: "คุกกี้เนย · Cookie886", zh: "曲奇886 台北門市", driver: false },
+            { name: "นูกัต · Sugar & Spice Nanxi", zh: "糖村 新光三越南西店", driver: false }
           ]
         },
         {
@@ -1751,14 +1866,14 @@
           titlePrefix: "สนามบินเถาหยวน T2 · Taoyuan Airport T2",
           mode: { label: "MRT → Airport MRT (A1)", cls: "t-bus" },
           desc: "นั่ง MRT ไปต่อ Airport MRT ที่ A1 ถึงสนามบิน T2 ราว 17:30–17:45",
-          places: [{ name: "Taoyuan Airport T2", zh: "桃園機場第二航廈" }]
+          places: [{ name: "Taoyuan Airport T2", zh: "桃園機場第二航廈", driver: false }]
         },
         {
           time: "17:45–20:45",
           titlePrefix: "SunnyHills สนามบิน T2 (ชั้น 2F ก่อน ตม.) → บิน BR 205",
           mode: { label: "EVA Air BR 205", cls: "t-flight" },
-          desc: "ซื้อพายสับปะรด (07:00–20:00 ราคาเท่าร้านในเมือง) + มื้อเย็น → ผ่าน ตม. (Everrich Duty Free) → 20:45 บิน BR 205 ถึงกรุงเทพฯ 23:40",
-          places: [{ name: "SunnyHills Taoyuan T2", zh: "微熱山丘 桃園機場第二航廈" }]
+          desc: "ซื้อพายสับปะรด (ราคาเท่าร้านในเมือง) + มื้อเย็น → ผ่าน ตม. (Everrich Duty Free) → 20:45 บิน BR 205 ถึงกรุงเทพฯ 23:40",
+          places: [{ name: "SunnyHills Taoyuan T2", zh: "微熱山丘 桃園機場第二航廈", driver: false }]
         }
       ]
     }
@@ -2005,6 +2120,34 @@
     rail.innerHTML = allBtn + dayBtns;
   }
 
+  function formatTimeHtml(t) {
+    return esc(t).replace("–", "–<wbr>");
+  }
+
+  async function copyToClipboard(text) {
+    if (!text) return false;
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+      try {
+        await navigator.clipboard.writeText(text);
+        return true;
+      } catch { /* fall through to textarea fallback */ }
+    }
+    try {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.cssText = "position:fixed;left:-9999px;top:0;opacity:0;";
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, text.length);
+      const ok = document.execCommand("copy");
+      document.body.removeChild(ta);
+      return ok;
+    } catch {
+      return false;
+    }
+  }
+
   function renderRoute() {
     const panel = document.getElementById("panel-route");
     panel.innerHTML = DAYS.map(day => {
@@ -2016,18 +2159,21 @@
 
       const rowsHtml = day.items.map(item => {
         const places = item.places || [];
-        let titleHtml = esc(item.titlePrefix);
+        const titleHtml = esc(item.titlePrefix);
         let actionsHtml = "";
 
         if (places.length === 1) {
           const p = places[0];
           const copyText = p.addr ? `${p.zh} ${p.addr}` : p.zh;
-          titleHtml = `${esc(item.titlePrefix)} · <button type="button" class="zh-inline-btn copy-btn" data-copy="${esc(copyText)}" aria-label="คัดลอกชื่อจีน ${esc(p.zh)}"><span lang="zh-Hant">${esc(p.zh)}</span>${ICONS.copy}</button>`;
+          const addrHtml = p.addr ? `<div class="addr-note" lang="zh-Hant">${esc(p.addr)}</div>` : "";
+          const chipHtml = p.driver
+            ? `<button type="button" class="zh-chip is-driver driver-btn" data-zh="${esc(p.zh)}" data-addr="${esc(p.addr || "")}" data-sub="${esc(p.name)}" aria-label="โชว์คนขับ ${esc(p.name)} (${esc(p.zh)})"><span lang="zh-Hant">${esc(p.zh)}</span>${ICONS.driver}</button>`
+            : `<button type="button" class="zh-chip is-copy copy-btn" data-copy="${esc(copyText)}" aria-label="คัดลอกชื่อจีน ${esc(p.zh)}"><span lang="zh-Hant">${esc(p.zh)}</span>${ICONS.copy}</button>`;
           actionsHtml = `
-            <div class="place-actions">
-              ${p.addr ? `<span class="addr-note" lang="zh-Hant">${esc(p.addr)}</span>` : ""}
-              <button class="action-btn driver-btn" type="button" data-zh="${esc(p.zh)}" data-addr="${esc(p.addr || "")}" data-sub="${esc(p.name)}">${ICONS.driver}<span>คนขับ</span></button>
-              <a class="action-btn map-btn" href="${mapUrl(p.zh, p.addr)}" target="_blank" rel="noopener noreferrer">${ICONS.map}<span>แผนที่</span></a>
+            ${addrHtml}
+            <div class="place-bar">
+              ${chipHtml}
+              <a class="map-icon-btn" href="${mapUrl(p.zh, p.addr)}" target="_blank" rel="noopener noreferrer" aria-label="เปิด Google Maps ${esc(p.name)}" title="เปิด Google Maps">${ICONS.map}</a>
             </div>
           `;
         } else if (places.length > 1) {
@@ -2035,17 +2181,13 @@
             <div class="sub-places">
               ${places.map(p => {
                 const copyText = p.addr ? `${p.zh} ${p.addr}` : p.zh;
+                const subChip = p.driver
+                  ? `<button type="button" class="sub-chip is-driver driver-btn" data-zh="${esc(p.zh)}" data-addr="${esc(p.addr || "")}" data-sub="${esc(p.name)}" aria-label="โชว์คนขับ ${esc(p.name)} (${esc(p.zh)})"><span class="sub-chip-label"><span class="sub-zh" lang="zh-Hant">${esc(p.zh)}</span><span class="sub-name">· ${esc(p.name)}</span></span>${ICONS.driver}</button>`
+                  : `<button type="button" class="sub-chip is-copy copy-btn" data-copy="${esc(copyText)}" aria-label="คัดลอก ${esc(p.name)} (${esc(p.zh)})"><span class="sub-chip-label"><span class="sub-zh" lang="zh-Hant">${esc(p.zh)}</span><span class="sub-name">· ${esc(p.name)}</span></span>${ICONS.copy}</button>`;
                 return `
                   <div class="sub-row">
-                    <button type="button" class="sub-copy-btn copy-btn" data-copy="${esc(copyText)}">
-                      <span class="sub-zh" lang="zh-Hant">${esc(p.zh)}</span>
-                      <span>· ${esc(p.name)}</span>
-                      ${ICONS.copy}
-                    </button>
-                    <div class="sub-btns">
-                      <button class="action-btn driver-btn" type="button" data-zh="${esc(p.zh)}" data-addr="${esc(p.addr || "")}" data-sub="${esc(p.name)}" aria-label="โชว์คนขับ ${esc(p.name)}">${ICONS.driver}<span>คนขับ</span></button>
-                      <a class="action-btn map-btn" href="${mapUrl(p.zh, p.addr)}" target="_blank" rel="noopener noreferrer" aria-label="เปิด Google Maps ${esc(p.name)}">${ICONS.map}<span>แผนที่</span></a>
-                    </div>
+                    ${subChip}
+                    <a class="map-icon-btn" href="${mapUrl(p.zh, p.addr)}" target="_blank" rel="noopener noreferrer" aria-label="เปิด Google Maps ${esc(p.name)}" title="เปิด Google Maps">${ICONS.map}</a>
                   </div>
                 `;
               }).join("")}
@@ -2061,20 +2203,18 @@
 
         return `
           <div class="ctrl-row ${item.optional ? "is-optional" : ""}">
-            <div class="ctrl-time">${esc(item.time)}</div>
+            <div class="ctrl-time">${formatTimeHtml(item.time)}</div>
             <div class="ctrl-body">
-              <div class="ctrl-content-wrap">
-                <div class="ctrl-main">
-                  <div class="ctrl-head-line">
-                    <h3 class="place-title">${titleHtml}</h3>
-                    <div class="badge-group">
-                      ${item.optional ? `<span class="optional-mark">ทางเลือกหน้างาน</span>` : ""}
-                      <span class="transit-badge ${item.mode.cls}">${esc(item.mode.label)}</span>
-                    </div>
+              <div class="ctrl-content-wrap ${item.img ? "has-thumb" : ""}">
+                <div class="ctrl-head-line">
+                  <h3 class="place-title">${titleHtml}</h3>
+                  <div class="badge-group">
+                    ${item.optional ? `<span class="optional-mark">ทางเลือกหน้างาน</span>` : ""}
+                    <span class="transit-badge ${item.mode.cls}">${esc(item.mode.label)}</span>
                   </div>
-                  <p class="ctrl-desc">${esc(item.desc)}</p>
                 </div>
                 ${thumbHtml}
+                <p class="ctrl-desc">${esc(item.desc)}</p>
               </div>
               ${actionsHtml}
               ${item.warn ? `<div class="warn-banner">${ICONS.warn}<span>${esc(item.warn)}</span></div>` : ""}
@@ -2108,12 +2248,14 @@
 
     const hotelRows = HOTELS.map(h => `
       <div class="data-row">
-        <div class="data-label">${esc(h.nights)} · ${esc(h.name)} · <button type="button" class="zh-inline-btn copy-btn" data-copy="${esc(`${h.zh} ${h.addr}`)}"><span lang="zh-Hant">${esc(h.zh)}</span>${ICONS.copy}</button></div>
+        <div class="data-label">${esc(h.nights)} · ${esc(h.name)}</div>
         <div>${esc(h.zone)} · ${esc(h.hours)}</div>
-        <div class="place-actions">
-          <span class="addr-note" lang="zh-Hant">${esc(h.addr)}</span>
-          <button class="action-btn driver-btn" type="button" data-zh="${esc(h.zh)}" data-addr="${esc(h.addr)}" data-sub="${esc(h.name)}">${ICONS.driver}<span>คนขับ</span></button>
-          <a class="action-btn map-btn" href="${mapUrl(h.zh, h.addr)}" target="_blank" rel="noopener noreferrer">${ICONS.map}<span>แผนที่</span></a>
+        <div class="addr-note" lang="zh-Hant">${esc(h.addr)}</div>
+        <div class="place-bar">
+          <button type="button" class="zh-chip is-driver driver-btn" data-zh="${esc(h.zh)}" data-addr="${esc(h.addr)}" data-sub="${esc(h.name)}" aria-label="โชว์คนขับ ${esc(h.name)} (${esc(h.zh)})">
+            <span lang="zh-Hant">${esc(h.zh)}</span>${ICONS.driver}
+          </button>
+          <a class="map-icon-btn" href="${mapUrl(h.zh, h.addr)}" target="_blank" rel="noopener noreferrer" aria-label="เปิด Google Maps ${esc(h.name)}" title="เปิด Google Maps">${ICONS.map}</a>
         </div>
       </div>
     `).join("");
@@ -2176,16 +2318,14 @@
             ${thumbHtml}
             <div class="shop-head-text">
               <h3 class="shop-title">${esc(item.title)}</h3>
-              <div class="shop-brand-row">
-                <span>${esc(item.brand)}</span>
-              </div>
+              <div class="shop-brand-row">${esc(item.brand)}</div>
             </div>
           </div>
-          <div class="shop-brand-row" style="margin-top:0;">
-            <button type="button" class="zh-inline-btn copy-btn" data-copy="${esc(copyText)}" aria-label="คัดลอกชื่อร้าน ${esc(item.zh)}">
+          <div class="place-bar" style="margin-top:0;">
+            <button type="button" class="zh-chip is-copy copy-btn" data-copy="${esc(copyText)}" aria-label="คัดลอกชื่อร้าน ${esc(item.zh)}">
               <span lang="zh-Hant">${esc(item.zh)}</span>${ICONS.copy}
             </button>
-            <a class="action-btn map-btn" href="${mapUrl(item.zh, item.addr)}" target="_blank" rel="noopener noreferrer" aria-label="เปิด Google Maps ${esc(item.brand)}">${ICONS.map}<span>แผนที่</span></a>
+            <a class="map-icon-btn" href="${mapUrl(item.zh, item.addr)}" target="_blank" rel="noopener noreferrer" aria-label="เปิด Google Maps ${esc(item.brand)}" title="เปิด Google Maps">${ICONS.map}</a>
           </div>
           <div class="shop-meta">
             <span class="day-tag">${esc(item.day)}</span>
@@ -2196,6 +2336,10 @@
         </article>
       `;
     }).join("");
+
+    const contentHtml = visibleItems.length
+      ? `<div class="shop-grid">${cardsHtml}</div>`
+      : `<div class="shop-empty"><span>ไม่มีรายการในหมวดนี้สำหรับโหมดไฮไลท์</span><button class="action-btn" type="button" id="reset-shop-filter">ดูทั้งหมดในหมวดนี้</button></div>`;
 
     panel.innerHTML = `
       <div class="shop-controls">
@@ -2210,7 +2354,7 @@
       <details class="rules-collapse">
         <summary class="rules-summary">
           <span class="rules-lead">${ICONS.warn}<span>กฎสำคัญ: ของเหลวโหลดจบ D6 · ห้ามหมูหยอง/ไข่เหล็ก · Tax Refund ≥NT$2,000</span></span>
-          <span class="rules-toggle-hint">ดูครบ 4 ข้อ ▾</span>
+          <span class="rules-toggle-hint">ดูครบ 4 ข้อ${ICONS.chevron}</span>
         </summary>
         <div class="rules-body">
           <div><strong>1. เส้นตายโหลด A1 (เช้า D7 เวลา 08:15):</strong> ของเหลว/ครีมเกิน 100 ml (น้ำมันพริก, เซรั่ม) ต้องซื้อให้จบภายใน <strong>D6</strong> เพื่อแพ็กโหลด · เหล้าซื้อหลัง ตม. T2 หิ้วขึ้นเครื่องในถุงซีลได้</div>
@@ -2220,7 +2364,7 @@
         </div>
       </details>
 
-      <div class="shop-grid">${cardsHtml}</div>
+      ${contentHtml}
     `;
   }
 
@@ -2323,17 +2467,17 @@
   document.getElementById("main-content").addEventListener("click", async e => {
     const copyBtn = e.target.closest(".copy-btn");
     if (copyBtn) {
-      const txt = copyBtn.dataset.copy;
-      try {
-        await navigator.clipboard.writeText(txt);
+      if (copyBtn.classList.contains("copied")) return;
+      const ok = await copyToClipboard(copyBtn.dataset.copy || "");
+      if (ok) {
         const origHtml = copyBtn.innerHTML;
         copyBtn.classList.add("copied");
-        copyBtn.innerHTML = '<span>✓ คัดลอกแล้ว</span>';
+        copyBtn.innerHTML = `${ICONS.check}<span>คัดลอกแล้ว</span>`;
         setTimeout(() => {
           copyBtn.classList.remove("copied");
           copyBtn.innerHTML = origHtml;
         }, 1200);
-      } catch { /* clipboard unavailable */ }
+      }
       return;
     }
 
@@ -2365,6 +2509,17 @@
     const smodeBtn = e.target.closest("[data-smode]");
     if (smodeBtn) {
       state.shopMode = smodeBtn.dataset.smode;
+      const hasMatches = SHOP_ITEMS.some(item =>
+        (state.shopMode === "full" || item.highlight) &&
+        (state.shopFilter === "ทั้งหมด" || item.cat === state.shopFilter)
+      );
+      if (!hasMatches) state.shopFilter = "ทั้งหมด";
+      renderSouvenirs();
+      return;
+    }
+
+    if (e.target.closest("#reset-shop-filter")) {
+      state.shopMode = "full";
       renderSouvenirs();
       return;
     }
@@ -2397,15 +2552,16 @@
 
   document.getElementById("dlg-copy-btn").addEventListener("click", async e => {
     const btn = e.currentTarget;
-    try {
-      await navigator.clipboard.writeText(btn.dataset.copy || "");
+    if (btn.classList.contains("copied")) return;
+    const ok = await copyToClipboard(btn.dataset.copy || "");
+    if (ok) {
       btn.classList.add("copied");
-      btn.textContent = "คัดลอกแล้ว";
+      btn.innerHTML = `${ICONS.check}<span>คัดลอกแล้ว</span>`;
       setTimeout(() => {
         btn.classList.remove("copied");
         btn.textContent = "คัดลอกภาษาจีน";
       }, 1400);
-    } catch { /* ignore */ }
+    }
   });
 
   if (!("closedBy" in HTMLDialogElement.prototype)) {
