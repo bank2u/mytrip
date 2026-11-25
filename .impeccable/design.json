@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-25T14:33:00+07:00",
+  "generatedAt": "2026-11-25T16:57:00+07:00",
   "title": "Design System: mytrip-2026-taipei",
   "extensions": {
     "colorMeta": {
@@ -142,14 +142,14 @@
   ],
   "narrative": {
     "northStar": "Taiwan Topographic Field Guide & Transit Timetable",
-    "overview": "The design system translates Taiwanese visual culture — deep Taiwan Cultural Navy (#14365D), Temple Vermilion (#B8232A), warm gold contour ink (#E2BE7E), Sun Moon Lake Teal (#135D7D), Jiufen Lantern Terracotta (#9E4414), and cool Harbor Mist canvas (#DCE5F0) — into an ISO control-description travel guide and transit pocket timetable. Deep navy & vermilion anchor the bookend masthead and footer, while regional day-zone accents organize the 8-day schedule and the main reading column remains crisp #FFFFFF for outdoor legibility on mobile phones.\n\nInstead of rounded card stacks, duplicate text boxes, or cluttered multi-button rows beside thumbnails, schedules pair stacked two-line left-gutter hours (.time-start / .time-end over #F3F6FA) with zone-colored day headers, a unified full-width .place-bar below each row (iconless .zh-chip / .sub-chip popup trigger + 44x44px Lake-tinted .map-icon-btn), semantic condition icons, Taiwanese landmark thumbnails (13 Gouache & Fine Ink + 8 interim Wikimedia photos), and an illustrated Taiwanese shopping catalog (ฝากผู้ใหญ่ / แจกเพื่อน / ซื้อกินเอง / ของใช้ & แฟชั่น).",
+    "overview": "The design system translates Taiwanese visual culture — deep Taiwan Cultural Navy (#14365D), Temple Vermilion (#B8232A), warm gold contour ink (#E2BE7E), Sun Moon Lake Teal (#135D7D), Jiufen Lantern Terracotta (#9E4414), and cool Harbor Mist canvas (#DCE5F0) — into an ISO control-description travel guide and transit pocket timetable. Deep navy & vermilion anchor the bookend masthead and footer, while regional day-zone accents organize the 8-day schedule and the main reading column remains crisp #FFFFFF for outdoor legibility on mobile phones.\n\nInstead of rounded card stacks, duplicate text boxes, or cluttered multi-button rows beside thumbnails, schedules pair stacked two-line left-gutter hours (.time-start / .time-end over #F3F6FA) with zone-colored day headers, a unified full-width .place-bar below each row (iconless .zh-chip / .sub-chip popup trigger + 44x44px Lake-tinted .map-icon-btn), semantic condition icons, Taiwanese landmark thumbnails (20 curated real landmark photographs + spot-dihua.webp), and an illustrated Taiwanese shopping catalog (ฝากผู้ใหญ่ / แจกเพื่อน / ซื้อกินเอง / ของใช้ & แฟชั่น).",
     "keyCharacteristics": [
       "Deep Taiwan Navy masthead & bookend footer paired with Temple Vermilion accents (#B8232A), Harbor Mist canvas (#DCE5F0), and pure #FFFFFF reading cards.",
       "Regional day-zone coding across the single-row [ทุกวัน] + (D0)–(D7) rail and day headers (#14365D Taipei/Departure, #135D7D Sun Moon Lake, #B8232A Old Taipei, #9E4414 Jiufen/Shifen Coast).",
       "Stacked .time-start / .time-end tabular time gutter (#F3F6FA wash) eliminating mobile range overlap.",
       "Unified .place-bar utility pattern: 44px iconless Navy-tinted Traditional Chinese chip (.zh-chip / .sub-chip) opening #driver-dialog (\"ชื่อสถานที่ภาษาจีน\") + 44x44px Lake-tinted icon-only Google Maps pin with zero redundant standalone Driver buttons.",
       "Sharp 0px architectural keylines across tables, shopping cards, and buttons (50% circles solely for D0–D7 control markers).",
-      "Evolving unified visual system pairing 26 cohesive Taiwanese Gouache & Fine Ink illustrations (13 landmark 640x360 WebPs + 13 culinary/shopping 480x360 WebPs) plus 8 interim Wikimedia landmark photos pending the 19:10 completion wave."
+      "Hybrid visual system pairing 20 reviewer-verified high-resolution open-license real landmark photographs (960x540 16:9 WebP via Wikimedia Commons & Openverse/Flickr CC, plus temporary 640x360 Dihua Street illustration awaiting a final sunny street photo) with 13 cohesive Taiwanese Gouache & Fine Ink culinary/shopping illustrations (480x360 4:3 WebP)."
     ],
     "rules": [
       {
