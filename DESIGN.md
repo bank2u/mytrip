@@ -150,13 +150,13 @@ components:
 
 **Creative North Star: "Taiwan Topographic Field Guide & Transit Timetable"**
 
-The design system translates Taiwanese visual culture — deep Taiwan Cultural Navy (`#14365D`), Temple Vermilion (`#B8232A`), warm gold contour ink (`#E2BE7E`), Sun Moon Lake Teal (`#135D7D`), Jiufen Lantern Terracotta (`#9E4414`), and cool Harbor Mist canvas (`#DCE5F0`) — into an ISO control-description travel guide and transit pocket timetable. Deep navy & vermilion anchor the bookend masthead and footer, while regional day-zone accents organize the 8-day schedule and the main reading column remains crisp `#FFFFFF` for outdoor legibility on mobile phones.
+The design system translates Taiwanese visual culture — deep Taiwan Cultural Navy (`#14365D`), Temple Vermilion (`#B8232A`), warm gold contour ink (`#E2BE7E`), Sun Moon Lake Teal (`#135D7D`), Jiufen Lantern Terracotta (`#9E4414`), and cool Harbor Mist canvas (`#DCE5F0`) — into an ISO control-description travel guide and transit pocket timetable. Deep navy & vermilion anchor the bookend masthead and footer, while one Taiwan Navy accent structures all 8 days, with colour reserved for the per-day effort signal, and the main reading column remains crisp `#FFFFFF` for outdoor legibility on mobile phones.
 
-Instead of rounded card stacks, duplicate text boxes, or cluttered multi-button rows beside thumbnails, schedules pair stacked two-line left-gutter hours (`.time-start` / `.time-end` over `#F3F6FA`) with zone-colored day headers, a unified full-width `.place-bar` below each row (iconless `.zh-chip` / `.sub-chip` popup trigger + `44×44px` Lake-tinted `.map-icon-btn`), semantic condition icons, Taiwanese landmark thumbnails (20 curated real landmark photographs + `spot-dihua.webp`), and an illustrated Taiwanese shopping catalog (`ฝากผู้ใหญ่` / `แจกเพื่อน` / `ซื้อกินเอง` / `ของใช้ & แฟชั่น`).
+Instead of rounded card stacks, duplicate text boxes, or cluttered multi-button rows beside thumbnails, schedules pair stacked two-line left-gutter hours (`.time-start` / `.time-end` over `#F3F6FA`) with uniform Navy day headers, a traffic-light effort line in each day's condition ribbon, a unified full-width `.place-bar` below each row (iconless `.zh-chip` / `.sub-chip` popup trigger + `44×44px` Lake-tinted `.map-icon-btn`), semantic condition icons, Taiwanese landmark thumbnails (20 curated real landmark photographs + `spot-dihua.webp`), and an illustrated Taiwanese shopping catalog (`ฝากผู้ใหญ่` / `แจกเพื่อน` / `ซื้อกินเอง` / `ของใช้ & แฟชั่น`).
 
 **Key Characteristics:**
 - Deep Taiwan Navy masthead & bookend footer paired with Temple Vermilion accents (`#B8232A`), Harbor Mist canvas (`#DCE5F0`), and pure `#FFFFFF` reading cards.
-- Regional day-zone coding across the single-row `[ทุกวัน] + (D0)–(D7)` rail and day headers (`#14365D` Taipei/Departure, `#135D7D` Sun Moon Lake, `#B8232A` Old Taipei, `#9E4414` Jiufen/Shifen Coast).
+- Uniform Taiwan Navy day coding across the single-row `[ทุกวัน] + (D0)–(D7)` rail and day headers; per-day effort shown as a traffic-light dot + Thai word (`สบาย` green `#2E8B47`, `ปานกลาง` yellow `#F2B705`, `ค่อนข้างหนัก` orange `#E8710A`, `หนักสุด` red `#C8202A`) as the first item of the condition ribbon.
 - Stacked `.time-start` / `.time-end` tabular time gutter (`#F3F6FA` wash) eliminating mobile range overlap.
 - Unified `.place-bar` utility pattern: `44px` iconless Navy-tinted Traditional Chinese chip (`.zh-chip` / `.sub-chip`) opening `#driver-dialog` (`"ชื่อสถานที่ภาษาจีน"`) + `44×44px` Lake-tinted icon-only Google Maps pin with zero redundant standalone Driver buttons.
 - Sharp `0px` architectural keylines across tables, shopping cards, and buttons (`50%` circles solely for `D0–D7` control markers).
@@ -167,13 +167,12 @@ Instead of rounded card stacks, duplicate text boxes, or cluttered multi-button 
 The palette pairs confident Taiwanese national and regional heritage tones (Taiwan Navy masthead/footer, Temple Vermilion, Lake Teal, Lantern Terracotta, Harbor Mist outer margin) with pure white reading cells so outdoor contrast stays `>=4.5:1`.
 
 ### Primary
-- **Taiwan Navy** (`#14365D`): Deep masthead & footer canvas, structural primary tab ink, `D0`/`D6`/`D7` Taipei city-zone headers, `ทุกวัน` control pill, unified Chinese popup chip border/text, and keyboard focus rings.
+- **Taiwan Navy** (`#14365D`): Deep masthead & footer canvas, structural primary tab ink, all `D0`–`D7` day headers, rail nodes, day-code pills and `.time-start` numerals, `ทุกวัน` control pill, unified Chinese popup chip border/text, and keyboard focus rings.
 - **Navy Tint** (`#EDF2F8`): Active primary tab wash, Taipei/Departure day header wash, unified Chinese popup chip fill, and active control node halo.
 
 ### Secondary & Regional Wayfinding
-- **Temple Vermilion** (`#B8232A`): Masthead & footer border stripes, `"วันนี้"` indicator pill/flag, active tab bottom bar, square section-heading map key, `D3`/`D4` Old Taipei route headers, and Taipei `MRT สายแดง` badges.
-- **Sun Moon Lake Teal** (`#135D7D` / `#E8F4F8` tint): `D1`/`D2` Sun Moon Lake headers/rail, `.map-icon-btn` tint & pin ink, and checked-baggage tags.
-- **Jiufen Lantern Terracotta** (`#9E4414` / `#FDF2E9` tint): `D5` Yehliu–Shifen–Jiufen north coast headers and rail markers.
+- **Temple Vermilion** (`#B8232A`): Masthead & footer border stripes, `"วันนี้"` indicator pill/flag, active tab bottom bar, square section-heading map key, and Taipei `MRT สายแดง` badges.
+- **Sun Moon Lake Teal** (`#135D7D` / `#E8F4F8` tint): `.map-icon-btn` tint & pin ink, and checked-baggage tags.
 - **Gold Contour** (`#E2BE7E`): Topographic elevation contour ink inside the Navy masthead.
 - **Forest Green** (`#2E6140`): Taipei MRT Green Line badges, carry-on baggage tags, and modal copied-state confirmation.
 - **Contour Brown** (`#7C5836`): Extra non-highlight shopping card top rule (`is-extra`) and archival accent.
@@ -194,7 +193,7 @@ The palette pairs confident Taiwanese national and regional heritage tones (Taiw
 
 ### Named Rules
 **The Daylight Column Rule.** Topographic contour ornament frames the deep Taiwan Navy masthead and bookend footer; inside the reading column, tables and cards stay pure Paper White (`#FFFFFF`) or pale `#F3F6FA` / regional soft tints with `>=4.5:1` text contrast.
-**The Regional Accent Rule.** Each trip day carries one restrained zone accent across its rail node, day header top border, day code pill, and stacked `.time-start` numeral (`#135D7D` Lake, `#B8232A` Old Taipei, `#9E4414` Coast, `#14365D` City), leaving Safety Amber and Transit Badges uncontested.
+**The One-Meaning Colour Rule.** Every trip day uses the same Taiwan Navy accent on its rail node, day header top border, day code pill, and `.time-start` numeral. Colour on a day carries one meaning only: effort, as a traffic-light dot paired with a Thai word (never colour alone), so a red header is never misread as a hard day.
 
 ## Typography
 
@@ -218,14 +217,14 @@ The palette pairs confident Taiwanese national and regional heritage tones (Taiw
 
 Centered `960px` field-guide shell with `1px` side rules over `#DCE5F0` Harbor Mist canvas on desktop and full-width layout on mobile (`360px+` with `overflow-x: clip`). Deep Taiwan Navy `#14365D` bookends the page across the masthead and footer. Four primary tabs switch between Route (`เส้นทาง`), Flights & Stay (`บิน & พัก`), Shopping (`ช้อปปิ้ง`), and Checklist (`เช็กลิสต์`).
 
-Inside Route, a single-row sticky course strip over `#F3F6FA` packs `[ทุกวัน]` beside zone-tinted circular `(D0)–(D7)` controls across `360px+` without horizontal clipping (`12px` compact `5/12`–`12/12` labels under `520px` and full `5 ธ.ค.`–`12 ธ.ค.` on desktop; active trip days render `"วันนี้"` in the date slot with zero overlap on `(D0)–(D7)` circles). Highlights pair crisp right-aligned landmark thumbnails (`96×68px` mobile / `176×108px` desktop, tappable to zoom) beside `.ctrl-head-line` while `.ctrl-desc` spans full `.ctrl-body` width underneath on mobile so descriptions never narrow alongside thumbnails. Inside Shopping, a collapsible `<details>` rules bar sits above a 1-column mobile / 2-column desktop illustrated card grid with empty-state fallback.
+Inside Route, a single-row sticky course strip over `#F3F6FA` packs `[ทุกวัน]` beside Navy circular `(D0)–(D7)` controls across `360px+` without horizontal clipping (`12px` compact `5/12`–`12/12` labels under `520px` and full `5 ธ.ค.`–`12 ธ.ค.` on desktop; active trip days render `"วันนี้"` in the date slot with zero overlap on `(D0)–(D7)` circles). Highlights pair crisp right-aligned landmark thumbnails (`96×68px` mobile / `176×108px` desktop, tappable to zoom) beside `.ctrl-head-line` while `.ctrl-desc` spans full `.ctrl-body` width underneath on mobile so descriptions never narrow alongside thumbnails. Inside Shopping, a collapsible `<details>` rules bar sits above a 1-column mobile / 2-column desktop illustrated card grid with empty-state fallback.
 
 ## Elevation & Depth
 
 Surfaces are flat by default, relying on crisp `1px` and `1.5px` charcoal borders and tonal paper/margin separation.
 
 ### Shadow Vocabulary
-- **Course Halo** (`box-shadow: 0 0 0 3px var(--day-tint)` — `#EDF2F8` / `#E8F4F8` / `#FCEFF0` / `#FDF2E9`): Zone-matched selection ring around the active circular day node.
+- **Course Halo** (`box-shadow: 0 0 0 3px var(--day-tint)` — `#EDF2F8` / `#E8F4F8` / `#FCEFF0` / `#FDF2E9`): Navy selection ring around the active circular day node.
 - **Modal Overlay** (`box-shadow: 0 20px 48px rgba(20, 24, 31, 0.28)`): Applied solely to native `<dialog>` modals (fullscreen driver card and photo lightbox).
 
 ### Named Rules
@@ -244,10 +243,10 @@ Sharp `0px` corners govern tables, shopping cards, image frames, action buttons,
 
 ### Navigation
 - **Primary 4-Tab Bar:** 4 equal columns (`50px` min height) with `1px` dividers and `#B8232A` bottom indicator on active tab.
-- **Single-Row Course Rail:** `[ทุกวัน]` button + 8 zone-accented circular `(D0)–(D7)` nodes connected by a `2px` `#14365D` centerline.
+- **Single-Row Course Rail:** `[ทุกวัน]` button + 8 Navy circular `(D0)–(D7)` nodes connected by a `2px` `#14365D` centerline.
 
 ### Signature Components: Control Row, Shopping Card & Native Dialogs
-- **Control Row:** Zone-colored `.day-header` + stacked tabular left time gutter (`#F3F6FA`) paired with clean stop heading & transit badge, description, tappable landmark thumbnail, and full-width `.place-bar` / `.sub-places` utility rows below.
+- **Control Row:** Navy `.day-header` + stacked tabular left time gutter (`#F3F6FA`) paired with clean stop heading & transit badge, description, tappable landmark thumbnail, and full-width `.place-bar` / `.sub-places` utility rows below.
 - **Shopping Card:** `3px` Navy top keyline (`#7C5836` on `.is-extra`), illustrated `4:3` culinary thumbnail (`96×72px` / `112×84px`) beside `h3` item title & brand, full-width `.place-bar` (iconless Chinese popup chip + `44×44px` map pin), and Day / Price / Luggage badges underneath.
 - **Collapsible Rules Bar (`<details>`):** 1-line Amber summary expanding into 4 concise customs & packing deadlines.
 
