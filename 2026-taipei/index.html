@@ -1508,25 +1508,28 @@
           time: "13:30",
           titlePrefix: "เคาน์เตอร์รถบัส Shuishe",
           mode: { label: "บัส 1833 / 6669", cls: "t-bus" },
-          desc: "ซื้อตั๋วรถบัส Kuo-Kuang สาย 1833 รอบ 09:45 ของวันที่ 8 ธ.ค. (หากยังไม่ได้จองออนไลน์) + ขอตารางบัส 6669",
+          desc: "ซื้อตั๋วรถบัส Kuo-Kuang สาย 1833 รอบ 09:45 ของวันที่ 8 ธ.ค. (หากยังไม่ได้จองออนไลน์) + ขอตารางบัส 6669 + เช็กจุดแลกตั๋วเรือ",
           warn: "รถบัส 1833 รอบเช้าเข้าไทเปมีวันละ 1 รอบ (09:45) ควรซื้อตั๋วทันทีที่มาถึง",
           places: [{ name: "Shuishe Bus Station", zh: "水社遊客中心車站", driver: false }]
         },
         {
-          time: "14:00–15:15",
+          time: "14:00–15:30",
           titlePrefix: "วัดเหวินหวู่ · Wenwu Temple",
           optional: true,
           img: "assets/spot-wenwu.webp",
           imgAlt: "วัดเหวินหวู่ริมทะเลสาบสุริยันจันทรา",
-          mode: { label: "บัส 10 นาที", cls: "t-bus" },
-          desc: "ลงรถระดับตัววัด ไม่ต้องเดินบันได 366 ขั้น หรือเลือกนั่งคาเฟ่ริมทะเลสาบแทน",
-          places: [{ name: "Wenwu Temple", zh: "日月潭文武廟", driver: true }]
+          mode: { label: "บัส 6669 (~10 น.)", cls: "t-bus" },
+          desc: "ลงรถระดับตัววัด ไม่ต้องขึ้นบันได 366 ขั้น หรือเดิน Hanbi Trail · 涵碧步道 ช่วงสั้น / นั่งคาเฟ่ริมทะเลสาบแทน",
+          places: [
+            { name: "วัดเหวินหวู่ · Wenwu Temple", zh: "日月潭文武廟", driver: true },
+            { name: "ทางเดินเลียบน้ำ · Hanbi Trail", zh: "涵碧步道", driver: false }
+          ]
         },
         {
           time: "16:00–19:00",
           titlePrefix: "เช็กอินที่พัก · พักผ่อนและมื้อเย็นในหมู่บ้านสุ่ยเซ่อ",
           mode: { label: "เดิน", cls: "t-walk" },
-          desc: "16:00 เช็กอินพักผ่อน · 17:30 มื้อเย็นในหมู่บ้านแล้วเข้านอนเร็ว"
+          desc: "16:00 เช็กอินพักผ่อน · 17:00–17:30 ชมพระอาทิตย์ตกท่าเรือสุ่ยเซ่อ (~17:15) → มื้อเย็นในหมู่บ้านแล้วเข้านอนเร็ว"
         }
       ]
     },
@@ -1534,64 +1537,71 @@
       id: "D2", effort: 3, zone: "lake", date: "2026-12-07", shortDate: "7 ธ.ค.",
       title: "จ. 7 ธ.ค. · เที่ยววนรอบทะเลสาบสุริยันจันทรา",
       conditions: [
-        { icon: "temp", text: "12–15°C · บนกระเช้าลมเย็น" },
+        { icon: "temp", text: "12–15°C · ลมริมน้ำเย็น พกเสื้อกันลม" },
         { icon: "bag", text: "ซื้อชาดำ Ruby #18 ช่วงเย็น" }
       ],
       items: [
         {
-          time: "07:30–09:30",
+          time: "07:45–08:45",
           titlePrefix: "อาหารเช้าที่หมู่บ้านสุ่ยเซ่อ · Shuishe",
-          mode: { label: "เดิน / บัส", cls: "t-walk" },
-          desc: "อาหารเช้าสบายๆ หาก D1 ยังไม่ได้แวะ วัดเหวินหวู่ · Wenwu Temple · 文武廟 ไปช่วง 08:30–09:30 ได้",
+          mode: { label: "เดิน", cls: "t-walk" },
+          desc: "อาหารเช้าสบายๆ เตรียมออกเที่ยวรอบทะเลสาบ",
           places: [{ name: "Shuishe", zh: "水社", driver: false }]
         },
         {
-          time: "09:45",
-          titlePrefix: "บัส 6669 → สถานีกระเช้า",
-          mode: { label: "บัส 6669", cls: "t-bus" },
-          desc: "ขึ้นบัสรอบทะเลสาบสาย 6669 ไปสถานีกระเช้าใกล้หมู่บ้านอิต๋าเช่า"
+          time: "09:00–10:20",
+          titlePrefix: "วัดเหวินหวู่ · Wenwu Temple",
+          optional: true,
+          img: "assets/spot-wenwu.webp",
+          imgAlt: "วัดเหวินหวู่ริมทะเลสาบสุริยันจันทรา",
+          mode: { label: "บัส 6669 (~10 น.)", cls: "t-bus" },
+          desc: "กรณี D1 ยังไม่ได้ไป ขึ้นบัส 6669 รอบ 09:00 จอดหน้าวัด (กลับรอบ ~10:05) · หาก D1 ไปแล้ว สามารถลงเรือตั้งแต่ 09:30 ได้เลย",
+          places: [{ name: "Wenwu Temple", zh: "日月潭文武廟", driver: true }]
         },
         {
-          time: "10:30–11:30",
-          titlePrefix: "กระเช้าลอยฟ้า · Sun Moon Lake Ropeway",
-          img: "assets/spot-ropeway.webp",
-          imgAlt: "กระเช้าลอยฟ้าสุริยันจันทราเหนือภูเขา",
-          mode: { label: "กระเช้าธรรมดา", cls: "t-bus" },
-          desc: "นั่งกระเช้าชมวิวมุมสูงเหนือทะเลสาบ",
-          places: [{ name: "Sun Moon Lake Ropeway", zh: "日月潭纜車", driver: true }]
-        },
-        {
-          time: "11:45–13:30",
-          titlePrefix: "หมู่บ้านอิต๋าเช่า · Ita Thao",
-          img: "assets/spot-itathao.webp",
-          imgAlt: "ท่าเรือและทะเลสาบที่หมู่บ้านอิต๋าเช่า",
-          mode: { label: "เดิน", cls: "t-walk" },
-          desc: "เดินเล่นถนนคนเดินริมทะเลสาบและมื้อเที่ยงในหมู่บ้าน",
-          places: [{ name: "Ita Thao", zh: "伊達邵", driver: false }]
-        },
-        {
-          time: "13:45–15:00",
+          time: "10:30–11:25",
           titlePrefix: "ล่องเรือ → วัดเสวียนกวง · Xuanguang Temple",
           img: "assets/spot-xuanguang.webp",
           imgAlt: "วิวทะเลสาบสุริยันจันทราจากวัดเสวียนกวง",
-          mode: { label: "เรือข้ามฟาก", cls: "t-bus" },
-          desc: "นั่งเรือไปชิมไข่ต้มใบชาที่วัดเสวียนกวง (ชมระดับท่าเรือได้) แล้วนั่งเรือกลับสุ่ยเซ่อ",
-          places: [{ name: "Xuanguang Temple", zh: "日月潭玄光寺", driver: false }]
+          mode: { label: "เรือ 12–15 น.", cls: "t-bus" },
+          desc: "ลงเรือที่ท่าเรือสุ่ยเซ่อ (วนทวนเข็มนาฬิกา) แวะชิมไข่ต้มใบชาอาม่า ชมวิวระดับท่าเรือได้",
+          places: [
+            { name: "ท่าเรือสุ่ยเซ่อ · Shuishe Pier", zh: "水社碼頭", driver: false },
+            { name: "วัดเสวียนกวง · Xuanguang Temple", zh: "日月潭玄光寺", driver: false }
+          ]
         },
         {
-          time: "15:15–16:45",
-          titlePrefix: "คาเฟ่ริมทะเลสาบสุ่ยเซ่อ · Shuishe",
-          mode: { label: "เดิน / E-bike", cls: "t-walk" },
-          desc: "นั่งพักจิบชาชมวิว · [ทางเลือก] ปั่นจักรยานไฟฟ้า E-bike ทางเลียบทะเลสาบ"
+          time: "11:30–13:20",
+          titlePrefix: "หมู่บ้านอิต๋าเช่า · Ita Thao",
+          img: "assets/spot-itathao.webp",
+          imgAlt: "ท่าเรือและทะเลสาบที่หมู่บ้านอิต๋าเช่า",
+          mode: { label: "เรือ 12–15 น.", cls: "t-bus" },
+          desc: "นั่งเรือต่อมาขึ้นที่อิต๋าเช่า มื้อเที่ยง เดินถนนเก่า และชมวิวทางไม้เลียบน้ำสั้นๆ",
+          places: [{ name: "Ita Thao", zh: "伊達邵", driver: false }]
         },
         {
-          time: "17:00–18:30",
-          titlePrefix: "ชมพระอาทิตย์ตกท่าเรือสุ่ยเซ่อ · Shuishe Pier",
+          time: "13:30–14:00",
+          titlePrefix: "ล่องเรือกลับท่าเรือสุ่ยเซ่อ · Shuishe Pier",
+          mode: { label: "เรือ 12–15 น.", cls: "t-bus" },
+          desc: "นั่งเรือจบลูปทวนเข็มนาฬิกากลับหมู่บ้านสุ่ยเซ่อ"
+        },
+        {
+          time: "14:15–16:45",
+          titlePrefix: "ปั่น E-bike → Xiangshan Visitor Center & Shuishe Dam",
           img: "assets/spot-shuishe.webp",
-          imgAlt: "ทิวเขาและท่าเรือสุ่ยเซ่อ ทะเลสาบสุริยันจันทรา",
+          imgAlt: "ทิวเขาและทะเลสาบสุริยันจันทราฝั่งสุ่ยเซ่อ",
+          mode: { label: "E-bike / คาเฟ่", cls: "t-walk" },
+          desc: "ปั่นจักรยานไฟฟ้า (มีแบบคันคู่ซ้อนได้) ทางราบ ~3.4 กม. ชมศูนย์บริการนักท่องเที่ยวเซี่ยงซาน จิบกาแฟ และแสงเย็นที่เขื่อน Shuishe Dam · [ทางเลือก] นั่งคาเฟ่ริมน้ำสุ่ยเซ่อแทน",
+          places: [
+            { name: "ศูนย์บริการนักท่องเที่ยวเซี่ยงซาน · Xiangshan Visitor Center", zh: "向山遊客中心", driver: false },
+            { name: "เขื่อนสุ่ยเซ่อ · Shuishe Dam", zh: "水社壩", driver: false }
+          ]
+        },
+        {
+          time: "17:30",
+          titlePrefix: "มื้อเย็นและซื้อของฝากในหมู่บ้านสุ่ยเซ่อ · Shuishe",
           mode: { label: "เดิน", cls: "t-walk" },
-          desc: "17:00–17:30 ชมพระอาทิตย์ตก (~17:15) · 17:45 มื้อเย็น ซื้อชาดำอาซัม Ruby #18 และเก็บกระเป๋า",
-          places: [{ name: "Shuishe Pier", zh: "水社碼頭", driver: false }]
+          desc: "มื้อเย็น ซื้อชาดำอาซัม Ruby #18 และเก็บกระเป๋าเตรียมเดินทางเข้าไทเป"
         }
       ]
     },
@@ -2339,6 +2349,10 @@
       <h2 class="section-title">การเดินทาง &amp; โหลดกระเป๋า A1</h2>
       <div class="data-grid">
         <div class="data-row cols-2">
+          <div class="data-label">การเดินทางในสุริยันจันทรา (D1–D2)</div>
+          <div>เรือโดยสารวิ่งทวนเข็มนาฬิกาทางเดียว (สุ่ยเซ่อ → วัดเสวียนกวง → อิต๋าเช่า → สุ่ยเซ่อ) ใช้ตั๋วเรือควบคู่กับบัส 6669 แตะบัตร EasyCard</div>
+        </div>
+        <div class="data-row cols-2">
           <div class="data-label">แท็กซี่ &amp; Uber ในไทเป</div>
           <div>มิเตอร์เริ่มต้น NT$85 (1.25 กม.แรก) จากนั้น +NT$5 ทุก 200 ม. ใช้บัตร EasyCard แตะจ่ายได้เกือบทุกคัน และไม่มีธรรมเนียมให้ทิปคนขับ</div>
         </div>
@@ -2457,7 +2471,7 @@
       <div class="data-grid">
         <div class="data-row cols-2">
           <div class="data-label">สุริยันจันทรา (D1–D3 เช้า)</div>
-          <div>ช่วงเช้าเย็น 12–15°C หนาวกว่าไทเปและมีลมแรงบนกระเช้า เตรียมเสื้อคลุมกันหนาวและกันลม</div>
+          <div>ช่วงเช้าเย็น 12–15°C หนาวกว่าไทเปและมีลมริมน้ำเย็น เตรียมเสื้อคลุมกันหนาวและกันลม</div>
         </div>
         <div class="data-row cols-2">
           <div class="data-label">ไทเป / จิ่วเฟิ่น (D3–D7)</div>
