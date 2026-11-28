@@ -217,6 +217,42 @@
 
   .course-bar[hidden] { display: none; }
 
+  /* Now / next strip: lives inside the sticky bar, constant height, never overlays content */
+  .now-strip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: calc(100% - 8px);
+    margin: 4px 4px 2px;
+    min-height: 34px;
+    padding: 4px 10px;
+    border: 1.5px solid var(--navy);
+    background: var(--paper);
+    color: var(--navy);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-align: left;
+  }
+  .now-strip[hidden] { display: none; }
+  .now-strip:hover { background: var(--navy-tint); }
+  .now-strip .ns-dot {
+    flex: none;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--navy);
+  }
+  .now-strip.is-live .ns-dot { animation: ns-pulse 1.8s ease-in-out infinite; }
+  .now-strip .ns-text { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .now-strip .ns-go { flex: none; font-weight: 600; opacity: 0.75; }
+  @keyframes ns-pulse { 50% { opacity: 0.25; } }
+  @media (prefers-reduced-motion: reduce) { .now-strip.is-live .ns-dot { animation: none; } }
+
+  .ctrl-row.is-past { opacity: 0.5; }
+  .ctrl-row.is-now {
+    background: var(--navy-tint);
+    box-shadow: inset 4px 0 0 var(--navy);
+  }
+
   .day-rail {
     position: relative;
     display: grid;
@@ -1375,6 +1411,7 @@
 
   <section class="course-bar" id="course-bar" aria-label="เลือกดูวันเดินทาง">
     <div class="day-rail" id="day-rail" role="navigation" aria-label="ตัวกรองวันเดินทาง"></div>
+    <button class="now-strip" type="button" id="now-strip" hidden></button>
   </section>
 
   <main id="main-content">
@@ -1892,7 +1929,7 @@
         {
           time: "09:20–11:00",
           titlePrefix: "เป่ยโถว · Beitou",
-          img: "assets/spot-beitou.webp",
+          img: "assets/spot-beitou.webp?v=2",
           imgAlt: "ไอน้ำพุร้อนสีมรกตที่ Thermal Valley เป่ยโถว",
           mode: { label: "แท็กซี่ขึ้นบนสุด + เดินลงเนิน", cls: "t-taxi" },
           desc: "แท็กซี่จาก A1 (~25–30 น.) ลงจุดบนสุดแล้วเดินลงเนินสบายๆ ~1 กม. เข้าฟรีทุกจุด",
@@ -1918,11 +1955,10 @@
           img: "assets/spot-chifeng.webp",
           imgAlt: "สวนทางเดินและย่านจงซาน–ฉือเฟิง ไทเป",
           mode: { label: "MRT สายแดง (~30–35 น.)", cls: "t-mrt-red" },
-          desc: "ออก 12:45 กลับจงซาน ซื้อคุกกี้/นูกัตถือขึ้นเครื่อง และนั่งคาเฟ่",
+          desc: "ออก 12:45 กลับจงซาน ซื้อคุกกี้ถือขึ้นเครื่อง และนั่งคาเฟ่",
           places: [
             { name: "ย่านจงซาน–ฉือเฟิง", zh: "捷運中山站 赤峰街", driver: false },
-            { name: "คุกกี้เนย · Cookie886", zh: "曲奇886 台北門市", driver: false },
-            { name: "นูกัต · Sugar & Spice Nanxi", zh: "糖村 新光三越南西店", driver: false }
+            { name: "คุกกี้เนย · Cookie886", zh: "曲奇886 台北門市", driver: false }
           ]
         },
         {
@@ -2015,12 +2051,12 @@
     },
     {
       id: "nougat", highlight: true, cat: "แจกเพื่อน",
-      title: "นูกัตฝรั่งเศสอัลมอนด์ & นูกัตรสกาแฟ",
-      brand: "Sugar & Spice / Jiavin Bakery", zh: "糖村 新光三越南西店",
-      day: "D5 จิ่วเฟิ่น · D7 จงซาน / T2", price: "NT$200–580",
+      title: "นูกัตรสกาแฟ",
+      brand: "Jiavin Bakery", zh: "佳賓餅家",
+      day: "D5 จิ่วเฟิ่น", price: "NT$200–580",
       bag: "carry", bagLabel: "ถือขึ้นเครื่องได้",
       img: "assets/shop-nougat.webp",
-      note: "Sugar & Spice หอมนมไม่แข็ง ซื้อที่ Nanxi/101/T2 · นูกัตรสกาแฟ 佳賓餅家 ซื้อที่จิ่วเฟิ่น D5"
+      note: "นูกัตรสกาแฟ 佳賓餅家 ซื้อที่ถนนเก่าจิ่วเฟิ่น D5"
     },
     {
       id: "eggroll", highlight: true, cat: "แจกเพื่อน",
@@ -2165,6 +2201,13 @@
     shopFilter: "ทั้งหมด",
     checked: {}
   };
+
+  const HASH_RE = /^(route|stay|souvenirs|prep)(?:-(D\d))?$/;
+  const hashDay = (() => {
+    const m = HASH_RE.exec(location.hash.slice(1));
+    return m && m[2] && DAYS.some(d => d.id === m[2]) ? m[2] : null;
+  })();
+  if (hashDay) { state.viewMode = "focus"; state.activeDay = hashDay; }
 
   try {
     const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
@@ -2506,6 +2549,7 @@
       btn.setAttribute("aria-selected", String(btn.dataset.tab === tabName));
     });
     document.getElementById("course-bar").hidden = tabName !== "route";
+    refreshNow();
 
     ["route", "stay", "souvenirs", "prep"].forEach(name => {
       const panel = document.getElementById(`panel-${name}`);
@@ -2529,8 +2573,118 @@
     }
     renderDayRail();
     renderRoute();
-    const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    syncHash();
+    refreshNow();
+    window.scrollTo({ top: 0, behavior: reduceMotion() ? "auto" : "smooth" });
+  }
+
+  function reduceMotion() {
+    return Boolean(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  }
+
+  function syncHash() {
+    if (state.tab !== "route") return;
+    const h = state.viewMode === "focus" && state.activeDay ? `#route-${state.activeDay}` : "#route";
+    try { history.replaceState(null, "", h); } catch { /* ignore */ }
+  }
+
+  /* ---- Now / next tracking (Taipei time) ---- */
+  function taipeiNowMinutes() {
+    const o = new URLSearchParams(location.search).get("now");
+    const m = o && /^(\d{1,2}):(\d{2})$/.exec(o);
+    if (m) return Number(m[1]) * 60 + Number(m[2]);
+    try {
+      const parts = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Taipei", hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).formatToParts(new Date());
+      const g = t => Number(parts.find(p => p.type === t).value);
+      return g("hour") * 60 + g("minute");
+    } catch { return 0; }
+  }
+
+  function parseRange(t) {
+    const m = /(\d{1,2}):(\d{2})(?:\s*[–-]\s*(\d{1,2}):(\d{2}))?/.exec(String(t));
+    if (!m) return null;
+    const start = Number(m[1]) * 60 + Number(m[2]);
+    return { start, end: m[3] ? Number(m[3]) * 60 + Number(m[4]) : null };
+  }
+
+  /* returns { day, status[], nowIdx, nextIdx } for today's day, or null */
+  function computeProgress() {
+    if (!todayDayObj) return null;
+    // D0 times are Bangkok time (1 h behind Taipei)
+    const now = taipeiNowMinutes() - (todayDayObj.id === "D0" ? 60 : 0);
+    const ranges = todayDayObj.items.map(it => parseRange(it.time));
+    const status = [];
+    let nowIdx = -1, nextIdx = -1;
+    todayDayObj.items.forEach((it, i) => {
+      const r = ranges[i];
+      if (!r) { status.push("future"); return; }
+      let end = r.end;
+      if (end == null) {
+        const nx = ranges.slice(i + 1).find(Boolean);
+        end = nx ? nx.start : r.start + 60;
+      }
+      if (now >= end) status.push("past");
+      else if (now >= r.start) { status.push("now"); if (nowIdx < 0) nowIdx = i; }
+      else { status.push("future"); if (nextIdx < 0) nextIdx = i; }
+    });
+    return { status, nowIdx, nextIdx };
+  }
+
+  function shortTitle(it) { return String(it.titlePrefix).split(" · ")[0]; }
+
+  function refreshNow() {
+    const strip = document.getElementById("now-strip");
+    const show = isDuringTrip && state.tab === "route";
+    strip.hidden = !show;
+    if (!isDuringTrip) return;
+    const viewingToday = state.viewMode === "focus" && state.activeDay === todayDayObj.id;
+    if (viewingToday) {
+      const prog = computeProgress();
+      const rows = document.querySelectorAll(`#day-${todayDayObj.id} .ctrl-row`);
+      rows.forEach((row, i) => {
+        row.classList.toggle("is-past", prog.status[i] === "past");
+        row.classList.toggle("is-now", prog.status[i] === "now");
+      });
+      const idx = prog.nowIdx >= 0 ? prog.nowIdx : prog.nextIdx;
+      strip.dataset.mode = "jump";
+      strip.classList.toggle("is-live", prog.nowIdx >= 0);
+      if (idx >= 0) {
+        const it = todayDayObj.items[idx];
+        const label = prog.nowIdx >= 0 ? "ตอนนี้" : "ถัดไป";
+        strip.innerHTML = `<span class="ns-dot" aria-hidden="true"></span><span class="ns-text">${label} · ${esc(it.time)} ${esc(shortTitle(it))}</span><span class="ns-go">ไปที่นี่ ↓</span>`;
+      } else {
+        strip.innerHTML = `<span class="ns-dot" aria-hidden="true"></span><span class="ns-text">จบแผนวันนี้แล้ว</span>`;
+      }
+    } else {
+      document.querySelectorAll(".ctrl-row.is-past, .ctrl-row.is-now").forEach(r => r.classList.remove("is-past", "is-now"));
+      strip.dataset.mode = "today";
+      strip.classList.remove("is-live");
+      strip.innerHTML = `<span class="ns-dot" aria-hidden="true"></span><span class="ns-text">กลับไปแผนวันนี้ (${esc(todayDayObj.id)})</span><span class="ns-go">แตะ</span>`;
+    }
+  }
+
+  function jumpToNow(smooth) {
+    if (!todayDayObj) return;
+    const prog = computeProgress();
+    const idx = prog.nowIdx >= 0 ? prog.nowIdx : prog.nextIdx;
+    const rows = document.querySelectorAll(`#day-${todayDayObj.id} .ctrl-row`);
+    const row = idx >= 0 ? rows[idx] : rows[rows.length - 1];
+    if (!row) return;
+    const bar = document.getElementById("course-bar");
+    row.style.scrollMarginTop = `${bar.offsetHeight + 10}px`;
+    row.scrollIntoView({ block: "start", behavior: smooth && !reduceMotion() ? "smooth" : "auto" });
+  }
+
+  function goToday() {
+    if (!(state.viewMode === "focus" && state.activeDay === todayDayObj.id)) {
+      state.viewMode = "focus";
+      state.activeDay = todayDayObj.id;
+      renderDayRail();
+      renderRoute();
+      syncHash();
+      refreshNow();
+    }
+    jumpToNow(true);
   }
 
   document.querySelector(".primary-nav").addEventListener("click", e => {
@@ -2544,6 +2698,8 @@
       state.activeDay = null;
       renderDayRail();
       renderRoute();
+      syncHash();
+      refreshNow();
       return;
     }
     const btn = e.target.closest("[data-day]");
@@ -2655,10 +2811,66 @@
   renderStay();
   renderSouvenirs();
   renderPrep();
-  const initialHash = location.hash.replace("#", "");
+
+  const initialHash = location.hash.replace("#", "").split("-")[0];
   if (["route", "stay", "souvenirs", "prep"].includes(initialHash)) {
     switchTab(initialHash);
   }
+  refreshNow();
+
+  document.getElementById("now-strip").addEventListener("click", () => {
+    if (todayDayObj) goToday();
+  });
+
+  setInterval(() => { if (!document.hidden) refreshNow(); }, 60000);
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) refreshNow(); });
+
+  // First open during the trip: land on the current row, unless a day link was given
+  if (isDuringTrip && state.tab === "route" && !hashDay) {
+    let userMoved = false;
+    ["touchstart", "wheel", "keydown", "mousedown"].forEach(ev =>
+      window.addEventListener(ev, () => { userMoved = true; }, { once: true, passive: true }));
+    requestAnimationFrame(() => jumpToNow(false));
+    // photos above the target may settle late; re-align once if the user has not scrolled
+    window.addEventListener("load", () => { if (!userMoved) jumpToNow(false); }, { once: true });
+  }
+
+  window.addEventListener("hashchange", () => {
+    const m = HASH_RE.exec(location.hash.slice(1));
+    if (!m) return;
+    if (m[1] !== state.tab) switchTab(m[1]);
+    if (m[1] === "route") {
+      if (m[2] && DAYS.some(d => d.id === m[2])) { state.viewMode = "focus"; state.activeDay = m[2]; }
+      else { state.viewMode = "all"; state.activeDay = null; }
+      renderDayRail(); renderRoute(); refreshNow();
+    }
+  });
+
+  // Swipe left/right to change day (focus mode only)
+  (() => {
+    const panel = document.getElementById("panel-route");
+    let x0 = 0, y0 = 0, tracking = false;
+    panel.addEventListener("touchstart", e => {
+      const t = e.touches[0];
+      tracking = e.touches.length === 1 && state.viewMode === "focus"
+        && t.clientX > 24 && t.clientX < window.innerWidth - 24
+        && !e.target.closest("dialog");
+      x0 = t.clientX; y0 = t.clientY;
+    }, { passive: true });
+    panel.addEventListener("touchend", e => {
+      if (!tracking) return;
+      tracking = false;
+      const t = e.changedTouches[0];
+      const dx = t.clientX - x0, dy = t.clientY - y0;
+      if (Math.abs(dx) < 70 || Math.abs(dx) < Math.abs(dy) * 1.8) return;
+      const i = DAYS.findIndex(d => d.id === state.activeDay);
+      const j = i + (dx < 0 ? 1 : -1);
+      if (i < 0 || j < 0 || j >= DAYS.length) return;
+      state.activeDay = DAYS[j].id;
+      renderDayRail(); renderRoute(); syncHash(); refreshNow();
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }, { passive: true });
+  })();
 })();
 </script>
 </body>
