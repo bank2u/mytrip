@@ -1648,7 +1648,7 @@
     },
     {
       id: "D3", effort: 3, zone: "old", date: "2026-12-08", shortDate: "8 ธ.ค.",
-      title: "อ. 8 ธ.ค. · บัสเข้าไทเป + ถนนตี๋ฮว่า + หนิงเซี่ย",
+      title: "อ. 8 ธ.ค. · บัสเข้าไทเป + ถนนตี๋ฮว่า + ซีเหมินติง",
       conditions: [
         { icon: "clock", text: "ถึงไทเปบ่ายไม่มีพักห้องระหว่างวัน" },
         { icon: "bag", text: "เตรียมเสบียงขึ้นบัส 1833 · เรียก Uber XL ขนกระเป๋า" }
@@ -1714,15 +1714,14 @@
           places: [{ name: "Dadaocheng Wharf", zh: "大稻埕碼頭", driver: false }]
         },
         {
-          time: "17:30–18:45",
-          titlePrefix: "ตลาดกลางคืนหนิงเซี่ย · Ningxia Night Market",
-          img: "assets/spot-ningxia.webp",
-          imgAlt: "บรรยากาศตลาดกลางคืนหนิงเซี่ย ไทเป",
-          mode: { label: "แท็กซี่", cls: "t-taxi" },
-          desc: "มื้อเย็นที่ตลาดหนิงเซี่ย · [ทางเลือก] เดินต่อ 300–500 ม. เหมาขนมซูเปอร์ที่ Prosperity Plaza (เปิดดึก) ก่อนกลับโรงแรมเช็กอิน ~19:00",
+          time: "17:30–19:30",
+          titlePrefix: "ซีเหมินติง · Ximending",
+          img: "assets/spot-ximending.webp?v=2",
+          imgAlt: "ย่านช้อปปิ้งซีเหมินติง ไทเป",
+          mode: { label: "แท็กซี่ (~8–10 น.)", cls: "t-taxi" },
+          desc: "มื้อเย็นแบบนั่ง เดินชมไฟกลางคืนและช้อปปิ้ง · 19:30 นั่ง MRT สายเขียว 2 สถานี (~4 นาที) หรือแท็กซี่กลับโรงแรมเช็กอิน ~19:45",
           places: [
-            { name: "ตลาดกลางคืนหนิงเซี่ย · Ningxia", zh: "寧夏夜市", driver: true },
-            { name: "ซูเปอร์เปิดดึก · Prosperity Plaza", zh: "萬家福重慶店", driver: false }
+            { name: "ซีเหมินติง · Ximending", zh: "西門町", driver: true }
           ]
         }
       ]
@@ -1741,7 +1740,7 @@
           time: "08:30–09:30",
           titlePrefix: "L'Atelier Lotus (ย่านหย่งคัง · Yongkang Street)",
           mode: { label: "MRT สายแดง (ออก 08:15)", cls: "t-mrt-red" },
-          desc: "ต่อคิวซื้อแครกเกอร์นูกัตต้นหอม (เปิดขาย 09:00 ขายจนหมด) ใกล้ MRT Dongmen เดิน 3–5 นาที",
+          desc: "ต่อคิวซื้อชิมแครกเกอร์นูกัตต้นหอม 1–2 กล่อง (เปิดขาย 09:00 ขายจนหมด) ใกล้ MRT Dongmen เดิน 3–5 นาที",
           warn: "รับเฉพาะเงินสดเท่านั้น (NT$220/กล่อง) และจำกัดจำนวนซื้อต่อคน",
           places: [{ name: "L'Atelier Lotus", zh: "甜滿", addr: "台北市大安區永康街31巷10號", driver: false }]
         },
@@ -1764,20 +1763,18 @@
           places: [{ name: "Longshan Temple", zh: "艋舺龍山寺", driver: true }]
         },
         {
-          time: "12:00–13:30",
-          titlePrefix: "ซีเหมินติง · Ximending",
-          img: "assets/spot-ximending.webp?v=2",
-          imgAlt: "ย่านช้อปปิ้งซีเหมินติง ไทเป",
-          mode: { label: "แท็กซี่", cls: "t-taxi" },
-          desc: "ทานมื้อเที่ยงร้านนั่งสบายและเดินเล่นย่านซีเหมินติง",
-          places: [{ name: "Ximending", zh: "西門町", driver: true }]
+          time: "12:00–13:15",
+          titlePrefix: "มื้อเที่ยงแถวหัวซาน 1914 · Zhongxiao Xinsheng",
+          mode: { label: "แท็กซี่ ~10–12 นาที", cls: "t-taxi" },
+          desc: "ทานมื้อเที่ยงร้านนั่งสบายใกล้โซนหัวซาน",
+          places: [{ name: "ย่านจงเซี่ยวซินเซิง · Zhongxiao Xinsheng", zh: "忠孝新生", driver: true }]
         },
         {
-          time: "13:45–15:00",
+          time: "13:15–14:50",
           titlePrefix: "Simple Kaffa & สวนศิลปะหัวซาน 1914 · Huashan 1914",
           img: "assets/spot-huashan.webp",
           imgAlt: "สวนสร้างสรรค์หัวซาน 1914 ไทเป",
-          mode: { label: "แท็กซี่ ~10 นาที", cls: "t-taxi" },
+          mode: { label: "เดิน", cls: "t-walk" },
           desc: "จิบกาแฟร้านแชมป์โลกและเดินชมโซนศิลปะที่ Huashan 1914",
           places: [
             { name: "Simple Kaffa Flagship", zh: "興波咖啡", addr: "台北市中正區忠孝東路二段27號", driver: true },
@@ -1863,10 +1860,18 @@
       ],
       items: [
         {
-          time: "08:30–09:30",
+          time: "08:15–09:25",
+          titlePrefix: "L'Atelier Lotus (รอบซื้อฝาก)",
+          optional: true,
+          mode: { label: "MRT สายแดง (~7 น.)", cls: "t-mrt-red" },
+          desc: "แยกไปซื้อนูกัตกลับฝากแล้วนำมาวางที่โรงแรมก่อนออกเที่ยว · ที่เหลือตื่นสายทานอาหารเช้าสบายๆ ที่โรงแรม",
+          places: [{ name: "L'Atelier Lotus", zh: "甜滿", addr: "台北市大安區永康街31巷10號", driver: false }]
+        },
+        {
+          time: "09:30–09:45",
           titlePrefix: "สถานีกระเช้าเมาคง สวนสัตว์ไทเป · Maokong Gondola Taipei Zoo",
-          mode: { label: "Uber (ออก 09:30)", cls: "t-taxi" },
-          desc: "ทานอาหารเช้าสบายๆ แล้วเรียกรถไปสถานีต้นทางกระเช้าเมาคง",
+          mode: { label: "Uber (ออก ~09:30)", cls: "t-taxi" },
+          desc: "ออกเดินทางพร้อมกันไปสถานีต้นทางกระเช้าเมาคง",
           places: [{ name: "Maokong Gondola Taipei Zoo Station", zh: "貓空纜車動物園站", driver: true }]
         },
         {
@@ -2028,7 +2033,7 @@
       id: "lotus", highlight: true, cat: "แจกเพื่อน",
       title: "แครกเกอร์นูกัตต้นหอม",
       brand: "L'Atelier Lotus", zh: "甜滿", addr: "台北市大安區永康街31巷10號",
-      day: "D4 เช้า · ย่านหย่งคัง", price: "NT$220 / กล่อง",
+      day: "D4 เช้า (ชิม) · D6 เช้า (ซื้อฝาก)", price: "NT$220 / กล่อง",
       bag: "check", bagLabel: "โหลด (หรือถือระวังแตก)",
       img: "assets/shop-lotus.webp",
       note: "เปิดขาย 09:00 ขายจนหมด รับเฉพาะเงินสดเท่านั้น (จำกัดจำนวนต่อคน)"
@@ -2064,7 +2069,7 @@
       id: "eggroll", highlight: true, cat: "แจกเพื่อน",
       title: "ทองม้วนไส้เนยถั่ว / งาดำ (เลี่ยงไส้หมูหยอง)",
       brand: "HiWalk / Bluebird Travel", zh: "青鳥旅行 新光三越南西",
-      day: "D4 ซีเหมิน · D6 101 · D7 Nanxi", price: "NT$300–580",
+      day: "D3 ซีเหมิน · D6 101 · D7 Nanxi", price: "NT$300–580",
       bag: "carry", bagLabel: "โหลด / ถือขึ้นเครื่องได้",
       img: "assets/shop-eggroll.webp",
       note: "เลือกเฉพาะไส้เนยถั่ว งาดำ ช็อกโกแลต หรือเอิร์ลเกรย์ (ห้ามนำเข้าไส้หมูหยอง)"
@@ -2076,7 +2081,7 @@
       day: "คืนเหมาซูเปอร์ (D3 / D5 / D6)", price: "NT$25–120",
       bag: "check", bagLabel: "โหลดใต้เครื่อง",
       img: "assets/shop-supermarket.webp",
-      note: "ใกล้ตลาดหนิงเซี่ย 300–500 ม. เปิด 09:00–02:00 · Kuai Kuai ซื้อเฉพาะถุงเขียวรสมะพร้าว"
+      note: "ใกล้โรงแรม Dahshin เปิด 09:00–02:00 · Kuai Kuai ซื้อเฉพาะถุงเขียวรสมะพร้าว"
     },
     {
       id: "noodles", highlight: true, cat: "ซื้อกินเอง",
@@ -2120,7 +2125,7 @@
       brand: "Umbrella King (雨傘王) / Rainstory",
       zh: "雨傘王 捷運中山二店",
       addr: "台北市大同區南京西路55號B1",
-      day: "D3 Q Square · D4 ซีเหมิน · D7 จงซาน",
+      day: "D3 Q Square / ซีเหมิน · D7 จงซาน",
       price: "NT$400–1,200",
       bag: "carry", bagLabel: "ร่มพับถือขึ้นเครื่อง/โหลดได้",
       note: "โครงไฟเบอร์กลาสทนลมฝนไต้หวัน · Umbrella King (NT$400–900 สาขา MRT จงซานทางออก 5 B1 / ซีเหมิน / Taipei Main M5) หรือ Rainstory (NT$600–1,200 ที่ห้าง Q Square) · ร่มพับเล็กใส่กระเป๋าถือขึ้นเครื่องได้"
@@ -2146,7 +2151,7 @@
       id: "shoes", highlight: false, cat: "ของใช้ & แฟชั่น",
       title: "รองเท้า Salomon / Onitsuka Tiger / D+AF & Grace Gift",
       brand: "ย่านซิ่นอี้ / ซีเหมินติง / จงซาน", zh: "西門町",
-      day: "D4 ซีเหมิน · D6 ซิ่นอี้ · D7 จงซาน", price: "NT$680–6,880",
+      day: "D3 ซีเหมิน · D6 ซิ่นอี้ · D7 จงซาน", price: "NT$680–6,880",
       bag: "carry", bagLabel: "Tax Refund 5%",
       note: "ซื้อครบ NT$2,000/ร้าน/วัน พกพาสปอร์ตขอคืนภาษี 5% ได้ · D+AF/Grace Gift ลองไซส์จริงคุ้มกว่าพรีฯ"
     },
@@ -2154,7 +2159,7 @@
       id: "fashion", highlight: false, cat: "ของใช้ & แฟชั่น",
       title: "เสื้อผ้า & กระเป๋าไต้หวัน (NET, Plain-me, PAZZO, ROBINMAY)",
       brand: "UR LIVING จงซาน / ซีเหมินติง", zh: "UR LIVING 南西一店",
-      day: "D4 ซีเหมิน · D7 จงซาน–ฉือเฟิง", price: "NT$199–3,800",
+      day: "D3 ซีเหมิน · D7 จงซาน–ฉือเฟิง", price: "NT$199–3,800",
       bag: "carry", bagLabel: "Tax Refund 5%",
       note: "NET ราคาประหยัดเหมาะซื้อเสื้อกันหนาวเพิ่มหน้างาน · Plain-me และ ROBINMAY คุ้มกว่าพรีฯ ไทย"
     }
@@ -2165,7 +2170,7 @@
     { id: "c-jacket", text: "เสื้อคลุมกันหนาวและเสื้อกันลม (สุริยันจันทราเช้า 12–15°C · เย่หลิ่วและตั้นสุ่ยลมแรง)" },
     { id: "c-shoes", text: "รองเท้าเดินสบายพื้นกันลื่น + ร่มพับ / เสื้อกันฝน (ไทเป-จิ่วเฟิ่นฝนปรอยบ่อย)" },
     { id: "c-towel", text: "ผ้าขนหนูผืนเล็ก (สำหรับเช็ดเท้าหลังแช่เท้าอุ่นที่ Fuxing Park เป่ยโถว เช้า D7)" },
-    { id: "c-cash", text: "เงินสด TWD (ร้าน L'Atelier Lotus D4 และร้านค้าริมทางรับเฉพาะเงินสด)" },
+    { id: "c-cash", text: "เงินสด TWD (ร้าน L'Atelier Lotus D4/D6 และร้านค้าริมทางรับเฉพาะเงินสด)" },
     { id: "c-easycard", text: "บัตร EasyCard (ซื้อและเติมเงินที่สนามบิน ใช้ขึ้น MRT บัส แท็กซี่ส่วนใหญ่ และร้านสะดวกซื้อ)" },
     { id: "c-bagsize", text: "เช็กขนาดกระเป๋าโหลด: ผลรวม 3 ด้านไม่เกิน 158 ซม. (สำหรับ Self Bag Drop สถานี A1 เช้า D7)" },
     { id: "c-esim", text: "eSIM / โรมมิ่ง และแอป Google Maps + Uber พร้อมใช้งาน" },
@@ -2413,7 +2418,7 @@
         </div>
         <div class="data-row cols-2">
           <div class="data-label">MRT รอบโรงแรมไทเป</div>
-          <div>สถานี Zhongshan เชื่อมตรงทั้งสายสีแดง (ไปไทเป 101 / หย่งคัง / เป่ยโถว / ตั้นสุ่ย) และสายสีเขียว</div>
+          <div>สถานี Zhongshan เชื่อมตรงทั้งสายสีแดง (ไปไทเป 101 / หย่งคัง / เป่ยโถว / ตั้นสุ่ย) และสายสีเขียว (ไปซีเหมินติง 2 สถานี)</div>
         </div>
         <div class="data-row cols-2">
           <div class="data-label">โหลดกระเป๋า A1 เช้า D7</div>
