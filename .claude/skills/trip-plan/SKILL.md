@@ -53,7 +53,11 @@ Read `plan.md` and `itinerary.md` first, all of both. Then:
 
 ## Shaping a day
 
-- Meals at the group's meal times are fixed points; build around them.
+- Meals at the group's meal times are fixed points; build around them. Allow at
+  least 1.5 hours per sit-down meal as a conservative default (to cover queues,
+  slow service and restroom breaks). Shorten only for quick meals (convenience
+  stores such as 7-Eleven, FamilyMart, Lawson, or grab-and-go), and extend
+  further for very famous or long-queue restaurants.
 - Give each day a fatigue score from 1 to 5. Check the sequence against the
   group's rules (for the family: no two heavy days in a row, light day after a
   red-eye).

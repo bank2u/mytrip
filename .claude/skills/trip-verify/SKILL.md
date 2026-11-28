@@ -32,7 +32,9 @@ Read `itinerary.md`, `plan.md` and the `travelers/` profile first.
 
 **People**
 - Meals fall inside the group's meal windows, with a realistic place to eat
-  nearby.
+  nearby and enough time: at least 1.5 hours for sit-down meals (shorter only
+  for quick/convenience-store meals like 7-Eleven, FamilyMart or Lawson; longer
+  for very famous or queue-heavy restaurants).
 - Rest breaks at the interval the profile asks for.
 - Walking distance, stairs and slopes per day against each person's limit.
 - Fatigue sequence across days against the group's rules.
